@@ -1,14 +1,20 @@
 ﻿using System.Linq;
 using Content.Server.Administration;
-using Content.Server.Body.Components;
+using Content.Server.Body.Systems;
 using Content.Server.Cargo.Components;
-using Content.Server.Materials;
+using Content.Server.Chemistry.Components.SolutionManager;
 using Content.Server.Stack;
 using Content.Shared.Administration;
-using Content.Shared.MobState.Components;
+using Content.Shared.Body.Components;
+using Content.Shared.Chemistry.Reagent;
+using Content.Shared.Materials;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
+using Content.Shared.Stacks;
 using Robust.Shared.Console;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Cargo.Systems;
@@ -20,6 +26,10 @@ public sealed class PricingSystem : EntitySystem
 {
     [Dependency] private readonly IConsoleHost _consoleHost = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+
+    [Dependency] private readonly BodySystem _bodySystem = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -27,6 +37,7 @@ public sealed class PricingSystem : EntitySystem
         SubscribeLocalEvent<StaticPriceComponent, PriceCalculationEvent>(CalculateStaticPrice);
         SubscribeLocalEvent<StackPriceComponent, PriceCalculationEvent>(CalculateStackPrice);
         SubscribeLocalEvent<MobPriceComponent, PriceCalculationEvent>(CalculateMobPrice);
+        SubscribeLocalEvent<SolutionContainerManagerComponent, PriceCalculationEvent>(CalculateSolutionPrice);
 
         _consoleHost.RegisterCommand("appraisegrid",
             "Calculates the total value of the given grids.",
@@ -44,23 +55,21 @@ public sealed class PricingSystem : EntitySystem
 
         foreach (var gid in args)
         {
-            if (!int.TryParse(gid, out var i) || i <= 0)
+            if (!EntityUid.TryParse(gid, out var gridId) || !gridId.IsValid())
             {
                 shell.WriteError($"Invalid grid ID \"{gid}\".");
                 continue;
             }
 
-            var gridId = new GridId(i);
-
             if (!_mapManager.TryGetGrid(gridId, out var mapGrid))
             {
-                shell.WriteError($"Grid \"{i}\" doesn't exist.");
+                shell.WriteError($"Grid \"{gridId}\" doesn't exist.");
                 continue;
             }
 
             List<(double, EntityUid)> mostValuable = new();
 
-            var value = AppraiseGrid(mapGrid.GridEntityId, null, (uid, price) =>
+            var value = AppraiseGrid(mapGrid.Owner, null, (uid, price) =>
             {
                 mostValuable.Add((price, uid));
                 mostValuable.Sort((i1, i2) => i2.Item1.CompareTo(i1.Item1));
@@ -85,14 +94,14 @@ public sealed class PricingSystem : EntitySystem
             return;
         }
 
-        var partList = body.Slots.ToList();
-        var totalPartsPresent = partList.Sum(x => x.Part != null ? 1 : 0);
+        var partList = _bodySystem.GetBodyAllSlots(uid, body).ToList();
+        var totalPartsPresent = partList.Sum(x => x.Child != null ? 1 : 0);
         var totalParts = partList.Count;
 
         var partRatio = totalPartsPresent / (double) totalParts;
         var partPenalty = component.Price * (1 - partRatio) * component.MissingBodyPartPenalty;
 
-        args.Price += (component.Price - partPenalty) * (state.IsAlive() ? 1.0 : component.DeathPenalty);
+        args.Price += (component.Price - partPenalty) * (_mobStateSystem.IsAlive(uid, state) ? 1.0 : component.DeathPenalty);
     }
 
     private void CalculateStackPrice(EntityUid uid, StackPriceComponent component, ref PriceCalculationEvent args)
@@ -106,9 +115,62 @@ public sealed class PricingSystem : EntitySystem
         args.Price += stack.Count * component.Price;
     }
 
+    private void CalculateSolutionPrice(EntityUid uid, SolutionContainerManagerComponent component, ref PriceCalculationEvent args)
+    {
+        var price = 0f;
+
+        foreach (var solution in component.Solutions.Values)
+        {
+            foreach (var reagent in solution.Contents)
+            {
+                if (!_prototypeManager.TryIndex<ReagentPrototype>(reagent.ReagentId, out var reagentProto))
+                    continue;
+                price += (float) reagent.Quantity * reagentProto.PricePerUnit;
+            }
+        }
+        args.Price += price;
+    }
+
     private void CalculateStaticPrice(EntityUid uid, StaticPriceComponent component, ref PriceCalculationEvent args)
     {
         args.Price += component.Price;
+    }
+
+    /// <summary>
+    /// Get a rough price for an entityprototype. Does not consider contained entities.
+    /// </summary>
+    public double GetEstimatedPrice(EntityPrototype prototype, IComponentFactory? factory = null)
+    {
+        IoCManager.Resolve(ref factory);
+        var price = 0.0;
+
+        if (prototype.Components.TryGetValue(factory.GetComponentName(typeof(StaticPriceComponent)),
+                out var staticPriceProto))
+        {
+            var staticComp = (StaticPriceComponent) staticPriceProto.Component;
+
+            price += staticComp.Price;
+        }
+
+        if (prototype.Components.TryGetValue(factory.GetComponentName(typeof(StackPriceComponent)), out var stackpriceProto) &&
+            prototype.Components.TryGetValue(factory.GetComponentName(typeof(StackComponent)), out var stackProto))
+        {
+            var stackPrice = (StackPriceComponent) stackpriceProto.Component;
+            var stack = (StackComponent) stackProto.Component;
+            price += stack.Count * stackPrice.Price;
+        }
+
+        return price;
+    }
+
+    public double GetMaterialPrice(MaterialComponent component)
+    {
+        double price = 0;
+        foreach (var (id, quantity) in component.Materials)
+        {
+            price += _prototypeManager.Index<MaterialPrototype>(id).Price * quantity;
+        }
+        return price;
     }
 
     /// <summary>
@@ -123,16 +185,17 @@ public sealed class PricingSystem : EntitySystem
     public double GetPrice(EntityUid uid)
     {
         var ev = new PriceCalculationEvent();
-        RaiseLocalEvent(uid, ref ev, true);
+        RaiseLocalEvent(uid, ref ev);
 
         //TODO: Add an OpaqueToAppraisal component or similar for blocking the recursive descent into containers, or preventing material pricing.
 
         if (TryComp<MaterialComponent>(uid, out var material) && !HasComp<StackPriceComponent>(uid))
         {
+            var matPrice = GetMaterialPrice(material);
             if (TryComp<StackComponent>(uid, out var stack))
-                ev.Price += stack.Count * material.Materials.Sum(x => x.Price * material._materials[x.ID]);
-            else
-                ev.Price += material.Materials.Sum(x => x.Price);
+                matPrice *= stack.Count;
+
+            ev.Price += matPrice;
         }
 
         if (TryComp<ContainerManagerComponent>(uid, out var containers))

@@ -1,8 +1,10 @@
 using System.Threading;
+using Content.Server.Explosion.EntitySystems;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Explosion;
 using Content.Shared.Nuke;
 using Robust.Shared.Audio;
+using Robust.Shared.Map;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server.Nuke
@@ -120,6 +122,22 @@ namespace Content.Server.Nuke
         /// </summary>
         public bool Exploded;
         #endregion
+
+        /// <summary>
+        ///     Origin station of this bomb, if it exists.
+        ///     If this doesn't exist, then the origin grid and map will be filled in, instead.
+        /// </summary>
+        public EntityUid? OriginStation;
+
+        /// <summary>
+        ///     Origin map and grid of this bomb.
+        ///     If a station wasn't tied to a given grid when the bomb was spawned,
+        ///     this will be filled in instead.
+        /// </summary>
+        public (MapId, EntityUid?)? OriginMapGrid;
+
+        [DataField("codeLength")] public int CodeLength = 6;
+        [ViewVariables] public string Code = string.Empty;
 
         /// <summary>
         ///     Time until explosion in seconds.

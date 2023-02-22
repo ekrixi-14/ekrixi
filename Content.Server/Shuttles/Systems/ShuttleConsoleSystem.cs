@@ -13,6 +13,7 @@ using Content.Shared.Shuttles.Systems;
 using Content.Shared.Tag;
 using Robust.Server.GameObjects;
 using Robust.Shared.GameStates;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
@@ -45,13 +46,6 @@ namespace Content.Server.Shuttles.Systems
 
             SubscribeLocalEvent<PilotComponent, MoveEvent>(HandlePilotMove);
             SubscribeLocalEvent<PilotComponent, ComponentGetState>(OnGetState);
-            SubscribeLocalEvent<PilotComponent, ComponentGetStateAttemptEvent>(OnGetStateAttempt);
-        }
-
-        private void OnGetStateAttempt(EntityUid uid, PilotComponent component, ref ComponentGetStateAttemptEvent args)
-        {
-            if (args.Cancelled || !TryComp<ActorComponent>(uid, out var actor) || actor.PlayerSession != args.Player)
-                args.Cancelled = true;
         }
 
         private void OnDestinationMessage(EntityUid uid, ShuttleConsoleComponent component, ShuttleConsoleDestinationMessage args)
@@ -77,17 +71,13 @@ namespace Content.Server.Shuttles.Systems
 
             if (HasComp<FTLComponent>(xform.GridUid))
             {
-                if (args.Session.AttachedEntity != null)
-                    _popup.PopupCursor(Loc.GetString("shuttle-console-in-ftl"), Filter.Entities(args.Session.AttachedEntity.Value));
-
+                _popup.PopupCursor(Loc.GetString("shuttle-console-in-ftl"), args.Session);
                 return;
             }
 
             if (!_shuttle.CanFTL(shuttle.Owner, out var reason))
             {
-                if (args.Session.AttachedEntity != null)
-                    _popup.PopupCursor(reason, Filter.Entities(args.Session.AttachedEntity.Value));
-
+                _popup.PopupCursor(reason, args.Session);
                 return;
             }
 
@@ -151,7 +141,7 @@ namespace Content.Server.Shuttles.Systems
             UpdateState(component);
         }
 
-        private void OnConsolePowerChange(EntityUid uid, ShuttleConsoleComponent component, PowerChangedEvent args)
+        private void OnConsolePowerChange(EntityUid uid, ShuttleConsoleComponent component, ref PowerChangedEvent args)
         {
             UpdateState(component);
         }

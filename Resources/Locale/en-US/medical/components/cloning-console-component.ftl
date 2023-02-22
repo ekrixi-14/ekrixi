@@ -7,8 +7,8 @@ cloning-console-window-no-patient-data-text = No patient data.
 cloning-console-window-id-blank = ID:
 cloning-console-window-scanner-details-label = Genetic Scanner Status
 cloning-console-window-pod-details-label = Cloning Pod Status
-cloning-console-window-no-scanner-detected-label = No Genetic Scanner Detected
-cloning-console-window-no-clone-pod-detected-label = No Cloning Pod Detected
+cloning-console-window-no-scanner-detected-label = Link a genetic scanner with a multitool.
+cloning-console-window-no-clone-pod-detected-label = Link a cloning pod with a multitool.
 cloning-console-window-scanner-far-label = Genetic Scanner Too Far Away
 cloning-console-window-clone-pod-far-label = Cloning Pod Too Far Away
 cloning-console-eject-body-button = Eject Body
@@ -24,3 +24,6 @@ cloning-console-component-msg-already-cloning = Not Ready: Pod Network Conflict
 cloning-console-component-msg-incomplete = Not Ready: Cloning In Progress
 cloning-console-component-msg-no-cloner = Not Ready: No Cloner Detected
 cloning-console-component-msg-no-mind = Not Ready: No Soul Activity Detected
+
+cloning-console-chat-error = ERROR: INSUFFICIENT BIOMASS. CLONING THIS BODY REQUIRES {$units} UNITS OF BIOMASS.
+cloning-console-cellular-warning = WARNING: GENEFSCK CONFIDENCE SCORE IS {$percent}%. CLONING MAY HAVE UNEXPECTED RESULTS.

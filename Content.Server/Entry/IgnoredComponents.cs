@@ -7,16 +7,19 @@ namespace Content.Server.Entry
             "ConstructionGhost",
             "IconSmooth",
             "InteractionOutline",
-            "MeleeWeaponArcAnimation",
             "AnimationsTest",
             "ItemStatus",
             "Marker",
+            "GuidebookControlsTest",
+            "GuideHelp",
             "Clickable",
             "Icon",
             "ClientEntitySpawner",
-            "CharacterInfo",
             "HandheldGPS",
             "CableVisualizer",
+            "PuddleVisualizer",
+            "UIFragment",
+            "PDABorderColor",
         };
     }
 }

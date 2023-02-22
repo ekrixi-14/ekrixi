@@ -1,24 +1,22 @@
 using System.Linq;
 using Content.Server.Administration.Logs;
+using Content.Server.Body.Systems;
 using Content.Server.Chemistry.Components.SolutionManager;
 using Content.Server.Explosion.Components;
 using Content.Server.Flash;
 using Content.Server.Flash.Components;
-using Content.Server.Sticky.Events;
-using Content.Shared.Actions;
-using JetBrains.Annotations;
-using Robust.Shared.Audio;
-using Robust.Shared.Physics;
-using Robust.Shared.Physics.Dynamics;
-using Robust.Shared.Player;
-using Content.Shared.Trigger;
 using Content.Shared.Database;
-using Content.Shared.Explosion;
+using Content.Shared.Implants.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Payload.Components;
 using Content.Shared.StepTrigger.Systems;
-using Robust.Server.Containers;
+using Content.Shared.Trigger;
+using JetBrains.Annotations;
+using Robust.Shared.Audio;
 using Robust.Shared.Containers;
+using Robust.Shared.Physics.Events;
+using Robust.Shared.Physics.Systems;
+using Robust.Shared.Player;
 
 namespace Content.Server.Explosion.EntitySystems
 {
@@ -46,6 +44,7 @@ namespace Content.Server.Explosion.EntitySystems
         [Dependency] private readonly SharedBroadphaseSystem _broadphase = default!;
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
         [Dependency] private readonly SharedContainerSystem _container = default!;
+        [Dependency] private readonly BodySystem _body = default!;
 
         public override void Initialize()
         {
@@ -55,14 +54,18 @@ namespace Content.Server.Explosion.EntitySystems
             InitializeOnUse();
             InitializeSignal();
             InitializeTimedCollide();
+            InitializeVoice();
+            InitializeMobstate();
 
             SubscribeLocalEvent<TriggerOnCollideComponent, StartCollideEvent>(OnTriggerCollide);
             SubscribeLocalEvent<TriggerOnActivateComponent, ActivateInWorldEvent>(OnActivate);
+            SubscribeLocalEvent<TriggerImplantActionComponent, ActivateImplantEvent>(OnImplantTrigger);
             SubscribeLocalEvent<TriggerOnStepTriggerComponent, StepTriggeredEvent>(OnStepTriggered);
 
             SubscribeLocalEvent<DeleteOnTriggerComponent, TriggerEvent>(HandleDeleteTrigger);
             SubscribeLocalEvent<ExplodeOnTriggerComponent, TriggerEvent>(HandleExplodeTrigger);
             SubscribeLocalEvent<FlashOnTriggerComponent, TriggerEvent>(HandleFlashTrigger);
+            SubscribeLocalEvent<GibOnTriggerComponent, TriggerEvent>(HandleGibTrigger);
         }
 
         private void HandleExplodeTrigger(EntityUid uid, ExplodeOnTriggerComponent component, TriggerEvent args)
@@ -86,9 +89,20 @@ namespace Content.Server.Explosion.EntitySystems
             args.Handled = true;
         }
 
-        private void OnTriggerCollide(EntityUid uid, TriggerOnCollideComponent component, StartCollideEvent args)
+        private void HandleGibTrigger(EntityUid uid, GibOnTriggerComponent component, TriggerEvent args)
         {
-			if(args.OurFixture.ID == component.FixtureID)
+            if (!TryComp<TransformComponent>(uid, out var xform))
+                return;
+
+            _body.GibBody(xform.ParentUid, deleteItems: component.DeleteItems);
+
+            args.Handled = true;
+        }
+
+
+        private void OnTriggerCollide(EntityUid uid, TriggerOnCollideComponent component, ref StartCollideEvent args)
+        {
+			if(args.OurFixture.ID == component.FixtureID && (!component.IgnoreOtherNonHard || args.OtherFixture.Hard))
 				Trigger(component.Owner);
         }
 
@@ -96,6 +110,11 @@ namespace Content.Server.Explosion.EntitySystems
         {
             Trigger(component.Owner, args.User);
             args.Handled = true;
+        }
+
+        private void OnImplantTrigger(EntityUid uid, TriggerImplantActionComponent component, ActivateImplantEvent args)
+        {
+            Trigger(uid);
         }
 
         private void OnStepTriggered(EntityUid uid, TriggerOnStepTriggerComponent component, ref StepTriggeredEvent args)
@@ -126,7 +145,8 @@ namespace Content.Server.Explosion.EntitySystems
             {
                 // Check if entity is bomb/mod. grenade/etc
                 if (_container.TryGetContainer(uid, "payload", out IContainer? container) &&
-                    TryComp(container.ContainedEntities.First(), out ChemicalPayloadComponent? chemicalPayloadComponent))
+                    container.ContainedEntities.Count > 0 &&
+                    TryComp(container.ContainedEntities[0], out ChemicalPayloadComponent? chemicalPayloadComponent))
                 {
                     // If a beaker is missing, the entity won't explode, so no reason to log it
                     if (!TryComp(chemicalPayloadComponent?.BeakerSlotA.Item, out SolutionContainerManagerComponent? beakerA) ||
@@ -158,7 +178,7 @@ namespace Content.Server.Explosion.EntitySystems
             active.TimeUntilBeep = initialBeepDelay == null ? active.BeepInterval : initialBeepDelay.Value;
 
             if (TryComp<AppearanceComponent>(uid, out var appearance))
-                appearance.SetData(TriggerVisuals.VisualState, TriggerVisualState.Primed);
+                _appearance.SetData(uid, TriggerVisuals.VisualState, TriggerVisualState.Primed, appearance);
         }
 
         public override void Update(float frameTime)
@@ -199,7 +219,7 @@ namespace Content.Server.Explosion.EntitySystems
 
                 // In case this is a re-usable grenade, un-prime it.
                 if (TryComp<AppearanceComponent>(uid, out var appearance))
-                    appearance.SetData(TriggerVisuals.VisualState, TriggerVisualState.Unprimed);
+                    _appearance.SetData(uid, TriggerVisuals.VisualState, TriggerVisualState.Unprimed, appearance);
             }
         }
     }

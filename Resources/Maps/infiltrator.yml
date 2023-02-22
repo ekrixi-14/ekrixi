@@ -1,91 +1,107 @@
 meta:
-  format: 2
-  name: DemoStation
-  author: Space-Wizards
+  format: 3
+  name: Infiltrator
+  author: Emisse,TStalker
   postmapinit: false
 tilemap:
-  0: space
+  0: Space
   1: FloorArcadeBlue
   2: FloorArcadeBlue2
   3: FloorArcadeRed
-  4: FloorAsteroidIronsand1
-  5: FloorAsteroidIronsand2
-  6: FloorAsteroidIronsand3
-  7: FloorAsteroidIronsand4
-  8: FloorBoxing
-  9: FloorCarpetClown
-  10: FloorCarpetOffice
-  11: FloorCave
-  12: FloorCaveDrought
-  13: FloorEighties
-  14: FloorGrassJungle
-  15: FloorGym
-  16: FloorMetalDiamond
-  17: FloorShuttleBlue
-  18: FloorShuttleOrange
-  19: FloorShuttlePurple
-  20: FloorShuttleRed
-  21: FloorShuttleWhite
-  22: floor_asteroid_coarse_sand0
-  23: floor_asteroid_coarse_sand1
-  24: floor_asteroid_coarse_sand2
-  25: floor_asteroid_coarse_sand_dug
-  26: floor_asteroid_sand
-  27: floor_asteroid_tile
-  28: floor_bar
-  29: floor_blue
-  30: floor_blue_circuit
-  31: floor_clown
-  32: floor_dark
-  33: floor_elevator_shaft
-  34: floor_freezer
-  35: floor_glass
-  36: floor_gold
-  37: floor_grass
-  38: floor_green_circuit
-  39: floor_hydro
-  40: floor_kitchen
-  41: floor_laundry
-  42: floor_lino
-  43: floor_mime
-  44: floor_mono
-  45: floor_reinforced
-  46: floor_rglass
-  47: floor_rock_vault
-  48: floor_showroom
-  49: floor_silver
-  50: floor_snow
-  51: floor_steel
-  52: floor_steel_dirty
-  53: floor_techmaint
-  54: floor_white
-  55: floor_wood
-  56: lattice
-  57: plating
-grids:
-- settings:
-    chunksize: 16
-    tilesize: 1
-  chunks:
-  - ind: -1,-1
-    tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOQAAADkAAAA5AAAAOQAAADkAAAAgAAAAIAAAACAAAAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOAAAADkAAAA5AAAAOQAAADkAAAA5AAAAOQAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgAAAA5AAAAOQAAADkAAAA5AAAAIAAAACAAAAA5AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOQAAADkAAAA5AAAAOQAAABQAAAAgAAAAOQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADkAAAA5AAAAOQAAADkAAAAgAAAAIAAAADkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4AAAAOQAAADkAAAA5AAAAOQAAACAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4AAAAOAAAADkAAAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOAAAADkAAAA5AAAAIAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOAAAADkAAAA5AAAAOQAAADkAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOQAAADkAAAA5AAAAOQAAACAAAAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOAAAADkAAAAVAAAAFQAAABUAAAAgAAAAIAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgAAAA5AAAAFQAAABUAAAAVAAAAIAAAACAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4AAAAOQAAADkAAAAVAAAAFQAAACAAAAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgAAAA5AAAAOQAAADkAAAAUAAAAFAAAABQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgAAAA5AAAAOQAAADkAAAA5AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgAAAA4AAAAOAAAAA==
-  - ind: 0,-1
-    tiles: IAAAACAAAAAgAAAAIAAAADkAAAA5AAAAOQAAADkAAAA5AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADkAAAA5AAAAOQAAADkAAAA5AAAAOQAAADgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAIAAAADkAAAA5AAAAOQAAADkAAAA4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACAAAAA5AAAAOQAAADkAAAA5AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAgAAAAOQAAADkAAAA5AAAAOQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAOQAAADkAAAA5AAAAOQAAADgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAADkAAAA4AAAAOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAA5AAAAOQAAADgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA5AAAAOQAAADkAAAA5AAAAOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACAAAAA3AAAAOQAAADkAAAA5AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAgAAAANwAAADcAAAA3AAAAOQAAADgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAIAAAADcAAAA3AAAANwAAADkAAAA4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAABQAAAA5AAAANgAAADkAAAA5AAAAOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABQAAAAUAAAAOQAAADkAAAA5AAAAOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA5AAAAOQAAADkAAAA4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOAAAADgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
-  - ind: -1,0
-    tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
-  - ind: -1,-2
-    tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADkAAAA4AAAAOAAAADgAAAA4AAAAOAAAADgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgAAAA4AAAAOQAAADkAAAA5AAAAOAAAADgAAAA4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA5AAAAOQAAADkAAAA5AAAAOQAAADgAAAA4AAAAOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOQAAACAAAAAgAAAAIAAAADkAAAA4AAAAOAAAADgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADkAAAAgAAAAOQAAACAAAAA5AAAAOAAAADgAAAA4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA5AAAAIAAAADkAAAAgAAAAOQAAADkAAAA5AAAAOQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOQAAACAAAAA5AAAAIAAAACAAAAA5AAAAOQAAADkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADkAAAAgAAAAOQAAACAAAAAgAAAAOQAAADkAAAA5AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA5AAAAIAAAACAAAAAgAAAAIAAAADkAAAA5AAAAOQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOQAAADkAAAAgAAAAIAAAABQAAAA5AAAAIAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADkAAAA5AAAAIAAAACAAAAAUAAAAIAAAACAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4AAAAOQAAABQAAAAgAAAAFAAAADkAAAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOAAAADkAAAA5AAAAOQAAADkAAAA5AAAAIAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA5AAAAOQAAADkAAAA5AAAAOQAAACAAAAAgAAAAIAAAACAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOQAAADkAAAA5AAAAOQAAADkAAAAgAAAAIAAAACAAAAA5AAAAOQAAAA==
-  - ind: 0,-2
-    tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgAAAA4AAAAOAAAADgAAAA4AAAAOQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4AAAAOAAAADkAAAA5AAAAOQAAADgAAAA4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOAAAADgAAAA5AAAAOQAAADkAAAA5AAAAOQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgAAAA4AAAAOQAAAC0AAAA5AAAALQAAADkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4AAAAOAAAADkAAAAtAAAAOQAAAC0AAAA5AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOQAAADkAAAA5AAAALQAAADkAAAAtAAAAOQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADkAAAA5AAAAOQAAADkAAAA5AAAAOQAAADkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA5AAAAOQAAADkAAAA5AAAAOQAAADkAAAA5AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOQAAADkAAAA5AAAAIAAAADkAAAA5AAAAOQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAgAAAAIAAAACAAAAAgAAAAOQAAADkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAIAAAACAAAAAgAAAAIAAAADkAAAA5AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACAAAAAgAAAAIAAAACAAAAA5AAAAOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAA5AAAAOQAAADkAAAA5AAAAOQAAADgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAIAAAACAAAAAgAAAAOQAAADkAAAA5AAAAOQAAADkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOQAAACAAAAAgAAAAIAAAADkAAAA5AAAAOQAAADkAAAA5AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+  4: FloorAsteroidCoarseSand0
+  5: FloorAsteroidCoarseSandDug
+  6: FloorAsteroidIronsand1
+  7: FloorAsteroidIronsand2
+  8: FloorAsteroidIronsand3
+  9: FloorAsteroidIronsand4
+  10: FloorAsteroidSand
+  11: FloorAsteroidTile
+  12: FloorBar
+  13: FloorBlue
+  14: FloorBlueCircuit
+  15: FloorBoxing
+  16: FloorCarpetClown
+  17: FloorCarpetOffice
+  18: FloorCave
+  19: FloorCaveDrought
+  20: FloorClown
+  21: FloorDark
+  22: FloorDarkDiagonal
+  23: FloorDarkDiagonalMini
+  24: FloorDarkHerringbone
+  25: FloorDarkMini
+  26: FloorDarkMono
+  27: FloorDarkOffset
+  28: FloorDarkPavement
+  29: FloorDarkPavementVertical
+  30: FloorDarkPlastic
+  31: FloorDirt
+  32: FloorEighties
+  33: FloorElevatorShaft
+  34: FloorFreezer
+  35: FloorGlass
+  36: FloorGold
+  37: FloorGrass
+  38: FloorGrassDark
+  39: FloorGrassJungle
+  40: FloorGrassLight
+  41: FloorGreenCircuit
+  42: FloorGym
+  43: FloorHydro
+  44: FloorKitchen
+  45: FloorLaundry
+  46: FloorLino
+  47: FloorMetalDiamond
+  48: FloorMime
+  49: FloorMono
+  50: FloorPlastic
+  51: FloorRGlass
+  52: FloorReinforced
+  53: FloorRockVault
+  54: FloorShowroom
+  55: FloorShuttleBlue
+  56: FloorShuttleOrange
+  57: FloorShuttlePurple
+  58: FloorShuttleRed
+  59: FloorShuttleWhite
+  60: FloorSilver
+  61: FloorSnow
+  62: FloorSteel
+  63: FloorSteelDiagonal
+  64: FloorSteelDiagonalMini
+  65: FloorSteelDirty
+  66: FloorSteelHerringbone
+  67: FloorSteelMini
+  68: FloorSteelMono
+  69: FloorSteelOffset
+  70: FloorSteelPavement
+  71: FloorSteelPavementVertical
+  72: FloorTechMaint
+  73: FloorTechMaint2
+  74: FloorTechMaint3
+  75: FloorWhite
+  76: FloorWhiteDiagonal
+  77: FloorWhiteDiagonalMini
+  78: FloorWhiteHerringbone
+  79: FloorWhiteMini
+  80: FloorWhiteMono
+  81: FloorWhiteOffset
+  82: FloorWhitePavement
+  83: FloorWhitePavementVertical
+  84: FloorWhitePlastic
+  85: FloorWood
+  86: FloorWoodTile
+  87: Lattice
+  88: Plating
 entities:
 - uid: 0
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 5.5,-3.5
     parent: 73
     type: Transform
 - uid: 1
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 2.5,-2.5
     parent: 73
@@ -97,7 +113,7 @@ entities:
     parent: 73
     type: Transform
 - uid: 3
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 4.5,-3.5
     parent: 73
@@ -110,25 +126,25 @@ entities:
     parent: 73
     type: Transform
 - uid: 5
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -3.5,-11.5
     parent: 73
     type: Transform
 - uid: 6
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 2.5,-14.5
     parent: 73
     type: Transform
 - uid: 7
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 4.5,-14.5
     parent: 73
     type: Transform
 - uid: 8
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -2.5,-14.5
     parent: 73
@@ -142,116 +158,111 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 10
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 2.5,-18.5
     parent: 73
     type: Transform
 - uid: 11
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 1.5,-25.5
     parent: 73
     type: Transform
 - uid: 12
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 1.5,-18.5
     parent: 73
     type: Transform
 - uid: 13
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 7.5,-17.5
     parent: 73
     type: Transform
 - uid: 14
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -3.5,-26.5
     parent: 73
     type: Transform
 - uid: 15
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - rot: 1.5707963267948966 rad
     pos: 3.5,-7.5
     parent: 73
     type: Transform
 - uid: 16
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 2.5,-12.5
     parent: 73
     type: Transform
 - uid: 17
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 2.5,-13.5
     parent: 73
     type: Transform
 - uid: 18
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -3.5,-28.5
     parent: 73
     type: Transform
 - uid: 19
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -3.5,-12.5
     parent: 73
     type: Transform
 - uid: 20
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 2.5,-10.5
     parent: 73
     type: Transform
 - uid: 21
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 4.5,-18.5
     parent: 73
     type: Transform
 - uid: 22
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -2.5,-10.5
     parent: 73
     type: Transform
 - uid: 23
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -3.5,-10.5
     parent: 73
     type: Transform
 - uid: 24
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -6.5,-11.5
     parent: 73
     type: Transform
 - uid: 25
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 4.5,-10.5
     parent: 73
     type: Transform
 - uid: 26
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 4.5,-2.5
     parent: 73
     type: Transform
 - uid: 27
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - rot: 1.5707963267948966 rad
     pos: -4.5,-7.5
@@ -264,45 +275,45 @@ entities:
     parent: 73
     type: Transform
 - uid: 29
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -6.5,-6.5
     parent: 73
     type: Transform
 - uid: 30
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -5.5,-6.5
     parent: 73
     type: Transform
 - uid: 31
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 4.5,-6.5
     parent: 73
     type: Transform
 - uid: 32
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -6.5,-5.5
     parent: 73
     type: Transform
 - uid: 33
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - rot: 1.5707963267948966 rad
     pos: -2.5,-8.5
     parent: 73
     type: Transform
 - uid: 34
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - rot: 1.5707963267948966 rad
     pos: 1.5,-7.5
     parent: 73
     type: Transform
 - uid: 35
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - rot: 1.5707963267948966 rad
     pos: 1.5,-8.5
@@ -329,55 +340,55 @@ entities:
     parent: 73
     type: Transform
 - uid: 39
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 2.5,-11.5
     parent: 73
     type: Transform
 - uid: 40
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 5.5,-18.5
     parent: 73
     type: Transform
 - uid: 41
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -8.5,-15.5
     parent: 73
     type: Transform
 - uid: 42
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -8.5,-17.5
     parent: 73
     type: Transform
 - uid: 43
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -7.5,-17.5
     parent: 73
     type: Transform
 - uid: 44
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -5.5,-10.5
     parent: 73
     type: Transform
 - uid: 45
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -3.5,-13.5
     parent: 73
     type: Transform
 - uid: 46
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 3.5,-18.5
     parent: 73
     type: Transform
 - uid: 47
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - rot: 1.5707963267948966 rad
     pos: -4.5,-6.5
@@ -390,14 +401,14 @@ entities:
     parent: 73
     type: Transform
 - uid: 49
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - rot: 1.5707963267948966 rad
     pos: -3.5,-7.5
     parent: 73
     type: Transform
 - uid: 50
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - rot: 1.5707963267948966 rad
     pos: -3.5,-8.5
@@ -416,73 +427,73 @@ entities:
     parent: 73
     type: Transform
 - uid: 53
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 5.5,-14.5
     parent: 73
     type: Transform
 - uid: 54
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 7.5,-15.5
     parent: 73
     type: Transform
 - uid: 55
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -6.5,-19.5
     parent: 73
     type: Transform
 - uid: 56
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -6.5,-18.5
     parent: 73
     type: Transform
 - uid: 57
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -3.5,-25.5
     parent: 73
     type: Transform
 - uid: 58
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 2.5,-25.5
     parent: 73
     type: Transform
 - uid: 59
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 2.5,-27.5
     parent: 73
     type: Transform
 - uid: 60
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 4.5,-17.5
     parent: 73
     type: Transform
 - uid: 61
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -7.5,-21.5
     parent: 73
     type: Transform
 - uid: 62
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -7.5,-27.5
     parent: 73
     type: Transform
 - uid: 63
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -7.5,-24.5
     parent: 73
     type: Transform
 - uid: 64
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 6.5,-21.5
     parent: 73
@@ -527,24 +538,41 @@ entities:
     parent: 73
     type: Transform
 - uid: 71
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 6.5,-24.5
     parent: 73
     type: Transform
 - uid: 72
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 6.5,-26.5
     parent: 73
     type: Transform
 - uid: 73
   components:
+  - type: MetaData
   - pos: 0.64252126,4.1776605
     parent: null
     type: Transform
-  - index: 0
+  - chunks:
+      -1,-1:
+        ind: -1,-1
+        tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAFgAAABYAAAAWAAAAFgAAAAVAAAAFQAAABUAAAAVAAAAFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVwAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFcAAABYAAAAWAAAAFgAAABYAAAAFQAAABUAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAFgAAABYAAAAWAAAADoAAAAVAAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFgAAABYAAAAWAAAAFgAAAAVAAAAFQAAAFgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABXAAAAWAAAAFgAAABYAAAAWAAAABUAAAAVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABXAAAAVwAAAFgAAAAVAAAAFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVwAAAFgAAABYAAAAFQAAABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVwAAAFgAAABYAAAAWAAAAFgAAAAVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAFgAAABYAAAAWAAAABUAAAAVAAAAFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVwAAAFgAAAA7AAAAOwAAADsAAAAVAAAAFQAAABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFcAAABYAAAAOwAAADsAAAA7AAAAFQAAABUAAAAVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABXAAAAWAAAAFgAAAA7AAAAOwAAABUAAAAVAAAAFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFcAAABYAAAAWAAAAFgAAAA6AAAAOgAAADoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFcAAABYAAAAWAAAAFgAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFcAAABXAAAAVwAAAA==
+      0,-1:
+        ind: 0,-1
+        tiles: FQAAABUAAAAVAAAAFQAAAFgAAABYAAAAWAAAAFgAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVAAAAFQAAAFgAAABYAAAAWAAAAFgAAABXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFQAAABUAAABYAAAAWAAAAFgAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABUAAAAVAAAAWAAAAFgAAABYAAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVAAAAWAAAAFgAAABYAAAAWAAAAFcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFQAAAFgAAABXAAAAVwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABUAAABYAAAAWAAAAFcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAWAAAAFgAAABYAAAAVwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFQAAABUAAABVAAAAWAAAAFgAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABUAAAAVAAAAVQAAAFUAAABVAAAAWAAAAFcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVAAAAOgAAAFUAAABVAAAAVQAAAFgAAABXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFQAAADoAAABYAAAASwAAAFgAAABYAAAAVwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADoAAAA6AAAAWAAAAFgAAABYAAAAVwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAWAAAAFgAAABXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVwAAAFcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+      -1,0:
+        ind: -1,0
+        tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+      -1,-2:
+        ind: -1,-2
+        tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFgAAABXAAAAVwAAAFcAAABXAAAAVwAAAFcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFcAAABXAAAAWAAAAFgAAABYAAAAVwAAAFcAAABXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAWAAAAFgAAABYAAAAWAAAAFcAAABXAAAAVwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAABUAAAAVAAAAFQAAAFgAAABXAAAAVwAAAFcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFgAAAAVAAAAWAAAABUAAABYAAAAVwAAAFcAAABXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAFQAAAFgAAAAVAAAAWAAAAFgAAABYAAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAABUAAABYAAAAFQAAABUAAABYAAAAWAAAAFgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFgAAAAVAAAAWAAAABUAAAAVAAAAWAAAAFgAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAFQAAABUAAAAVAAAAFQAAAFgAAABYAAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAFgAAAAVAAAAFQAAADoAAABYAAAAFQAAABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFgAAABYAAAAFQAAABUAAAA6AAAAFQAAABUAAAAVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABXAAAAWAAAADoAAAAVAAAAOgAAAFgAAAAVAAAAFQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVwAAAFgAAABYAAAAWAAAAFgAAABYAAAAFQAAABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAWAAAAFgAAABYAAAAWAAAABUAAAAVAAAAFQAAABUAAAAVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAFgAAABYAAAAWAAAAFgAAAAVAAAAFQAAABUAAABYAAAAWAAAAA==
+      0,-2:
+        ind: 0,-2
+        tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFcAAABXAAAAVwAAAFcAAABXAAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABXAAAAVwAAAFgAAABYAAAAWAAAAFcAAABXAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVwAAAFcAAABYAAAAWAAAAFgAAABYAAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFcAAABXAAAAWAAAADQAAABYAAAANAAAAFgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABXAAAAVwAAAFgAAAA0AAAAWAAAADQAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAFgAAABYAAAANAAAAFgAAAA0AAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFgAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABYAAAAWAAAAFgAAABYAAAAWAAAAFgAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAAFgAAABYAAAAFQAAAFgAAABYAAAAWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABUAAAAVAAAAFQAAABUAAAAVAAAAWAAAAFgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVAAAAFQAAABUAAAAVAAAAFQAAAFgAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFQAAABUAAAAVAAAAFQAAABUAAABYAAAAVwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABUAAABYAAAAWAAAAFgAAABYAAAAWAAAAFcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVAAAAFQAAABUAAAAVAAAAWAAAAFgAAABYAAAAWAAAAFgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAAABUAAAAVAAAAFQAAAFgAAABYAAAAWAAAAFgAAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
     type: MapGrid
+  - type: Broadphase
   - angularDamping: 0.05
     linearDamping: 0.05
     fixedRotation: False
@@ -552,6 +580,7 @@ entities:
     type: Physics
   - gravityShakeSound: !type:SoundPathSpecifier
       path: /Audio/Effects/alert.ogg
+    enabled: True
     type: Gravity
   - tiles:
       -4,-16: 0
@@ -902,8 +931,8 @@ entities:
       0,-28: 0
       0,-27: 0
       0,-26: 0
-      0,-25: 0
-      0,-24: 0
+      0,-25: 1
+      0,-24: 1
       0,-23: 0
       0,-22: 0
       0,-21: 0
@@ -942,8 +971,8 @@ entities:
       3,-31: 0
       3,-30: 0
       3,-29: 0
-      3,-28: 1
-      3,-27: 1
+      3,-28: 2
+      3,-27: 2
       3,-26: 0
       3,-25: 0
       3,-24: 0
@@ -970,8 +999,8 @@ entities:
       5,-31: 0
       5,-30: 0
       5,-29: 0
-      5,-28: 2
-      5,-27: 2
+      5,-28: 3
+      5,-27: 3
       5,-26: 0
       5,-25: 0
       5,-24: 0
@@ -1017,6 +1046,21 @@ entities:
       moles:
       - 21.824879
       - 82.10312
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+    - volume: 2500
+      temperature: 293.15
+      moles:
+      - 20.619795
+      - 77.56971
       - 0
       - 0
       - 0
@@ -1195,15 +1239,22 @@ entities:
           id: QuarterTileOverlayGreyscale90
           coordinates: 0,-12
     type: DecalGrid
+  - color: '#FFC000FF'
+    flags: Hide
+    type: IFF
+  - type: OccluderTree
+  - type: Shuttle
+  - type: GridPathfinding
+  - type: RadiationGridResistance
 - uid: 74
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - rot: 1.5707963267948966 rad
     pos: 2.5,-3.5
     parent: 73
     type: Transform
 - uid: 75
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 1.5,-10.5
     parent: 73
@@ -1214,65 +1265,62 @@ entities:
   - pos: -2.5,-12.5
     parent: 73
     type: Transform
-  - containers:
-      Nuke: !type:ContainerSlot {}
-    type: ContainerContainer
 - uid: 77
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -3.5,-27.5
     parent: 73
     type: Transform
 - uid: 78
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -6.5,-21.5
     parent: 73
     type: Transform
 - uid: 79
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -6.5,-12.5
     parent: 73
     type: Transform
 - uid: 80
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 5.5,-12.5
     parent: 73
     type: Transform
 - uid: 81
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 5.5,-11.5
     parent: 73
     type: Transform
 - uid: 82
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -5.5,-11.5
     parent: 73
     type: Transform
 - uid: 83
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -6.5,-20.5
     parent: 73
     type: Transform
 - uid: 84
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 0.5,-14.5
     parent: 73
     type: Transform
 - uid: 85
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -1.5,-14.5
     parent: 73
     type: Transform
 - uid: 86
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 5.5,-20.5
     parent: 73
@@ -1289,32 +1337,28 @@ entities:
   - pos: -1.5302894,-2.416143
     parent: 73
     type: Transform
-  - heldPrefix: off
-    type: Item
   - toggleAction:
-      icon: Objects/Tools/flashlight.rsi/flashlight.png
+      icon: { sprite: Objects/Tools/flashlight.rsi, state: flashlight }
       iconOn: Objects/Tools/flashlight.rsi/flashlight-on.png
       name: action-name-toggle-light
       description: action-description-toggle-light
       keywords: []
       event: !type:ToggleActionEvent {}
     type: HandheldLight
-  - canCollide: False
-    type: Physics
 - uid: 89
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -5.5,-14.5
     parent: 73
     type: Transform
 - uid: 90
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 5.5,-21.5
     parent: 73
     type: Transform
 - uid: 91
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 6.5,-17.5
     parent: 73
@@ -1325,16 +1369,14 @@ entities:
   - pos: -1.4365394,-3.339861
     parent: 73
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 93
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -3.5,-14.5
     parent: 73
     type: Transform
 - uid: 94
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -2.5,-18.5
     parent: 73
@@ -1347,109 +1389,109 @@ entities:
     parent: 73
     type: Transform
 - uid: 96
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 2.5,-26.5
     parent: 73
     type: Transform
 - uid: 97
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 2.5,-28.5
     parent: 73
     type: Transform
 - uid: 98
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 6.5,-25.5
     parent: 73
     type: Transform
 - uid: 99
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 6.5,-22.5
     parent: 73
     type: Transform
 - uid: 100
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -7.5,-23.5
     parent: 73
     type: Transform
 - uid: 101
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -7.5,-26.5
     parent: 73
     type: Transform
 - uid: 102
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -7.5,-22.5
     parent: 73
     type: Transform
 - uid: 103
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -7.5,-20.5
     parent: 73
     type: Transform
 - uid: 104
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 4.5,-15.5
     parent: 73
     type: Transform
 - uid: 105
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 6.5,-28.5
     parent: 73
     type: Transform
 - uid: 106
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 6.5,-27.5
     parent: 73
     type: Transform
 - uid: 107
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 6.5,-23.5
     parent: 73
     type: Transform
 - uid: 108
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 6.5,-20.5
     parent: 73
     type: Transform
 - uid: 109
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -7.5,-25.5
     parent: 73
     type: Transform
 - uid: 110
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -7.5,-28.5
     parent: 73
     type: Transform
 - uid: 111
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -5.5,-15.5
     parent: 73
     type: Transform
 - uid: 112
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -5.5,-17.5
     parent: 73
     type: Transform
 - uid: 113
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -5.5,-18.5
     parent: 73
@@ -1491,19 +1533,19 @@ entities:
     parent: 73
     type: Transform
 - uid: 120
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -5.5,-3.5
     parent: 73
     type: Transform
 - uid: 121
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 5.5,-5.5
     parent: 73
     type: Transform
 - uid: 122
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -3.5,-2.5
     parent: 73
@@ -1515,7 +1557,7 @@ entities:
     parent: 73
     type: Transform
 - uid: 124
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -6.5,-3.5
     parent: 73
@@ -1533,33 +1575,33 @@ entities:
     parent: 73
     type: Transform
 - uid: 127
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - rot: 1.5707963267948966 rad
     pos: -2.5,-7.5
     parent: 73
     type: Transform
 - uid: 128
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -3.5,-18.5
     parent: 73
     type: Transform
 - uid: 129
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - rot: 1.5707963267948966 rad
     pos: 0.5,-7.5
     parent: 73
     type: Transform
 - uid: 130
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -3.5,-1.5
     parent: 73
     type: Transform
 - uid: 131
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 2.5,-1.5
     parent: 73
@@ -1571,7 +1613,7 @@ entities:
     parent: 73
     type: Transform
 - uid: 133
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -6.5,-14.5
     parent: 73
@@ -1583,13 +1625,13 @@ entities:
     parent: 73
     type: Transform
 - uid: 135
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -5.5,-2.5
     parent: 73
     type: Transform
 - uid: 136
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 5.5,-6.5
     parent: 73
@@ -1615,11 +1657,6 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 140
   type: PlasmaReinforcedWindowDirectional
   components:
@@ -1627,14 +1664,14 @@ entities:
     parent: 73
     type: Transform
 - uid: 141
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - rot: 1.5707963267948966 rad
     pos: 2.5,-7.5
     parent: 73
     type: Transform
 - uid: 142
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - rot: 1.5707963267948966 rad
     pos: 2.5,-8.5
@@ -1647,7 +1684,7 @@ entities:
     parent: 73
     type: Transform
 - uid: 144
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 4.5,-11.5
     parent: 73
@@ -1665,7 +1702,7 @@ entities:
     parent: 73
     type: Transform
 - uid: 147
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -6.5,-13.5
     parent: 73
@@ -1683,20 +1720,20 @@ entities:
     parent: 73
     type: Transform
 - uid: 150
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - rot: 1.5707963267948966 rad
     pos: -3.5,-6.5
     parent: 73
     type: Transform
 - uid: 151
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 6.5,-15.5
     parent: 73
     type: Transform
 - uid: 152
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 5.5,-13.5
     parent: 73
@@ -1708,7 +1745,7 @@ entities:
     parent: 73
     type: Transform
 - uid: 154
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -7.5,-15.5
     parent: 73
@@ -1726,13 +1763,13 @@ entities:
     parent: 73
     type: Transform
 - uid: 157
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 1.5,-14.5
     parent: 73
     type: Transform
 - uid: 158
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -4.5,-18.5
     parent: 73
@@ -1751,67 +1788,67 @@ entities:
     parent: 73
     type: Transform
 - uid: 161
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -2.5,-25.5
     parent: 73
     type: Transform
 - uid: 162
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 0.5,-25.5
     parent: 73
     type: Transform
 - uid: 163
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -1.5,-25.5
     parent: 73
     type: Transform
 - uid: 164
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -1.5,-22.5
     parent: 73
     type: Transform
 - uid: 165
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 0.5,-22.5
     parent: 73
     type: Transform
 - uid: 166
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 1.5,-24.5
     parent: 73
     type: Transform
 - uid: 167
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 1.5,-23.5
     parent: 73
     type: Transform
 - uid: 168
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 1.5,-22.5
     parent: 73
     type: Transform
 - uid: 169
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -2.5,-24.5
     parent: 73
     type: Transform
 - uid: 170
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -2.5,-23.5
     parent: 73
     type: Transform
 - uid: 171
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -2.5,-22.5
     parent: 73
@@ -1829,7 +1866,7 @@ entities:
     parent: 73
     type: Transform
 - uid: 174
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 5.5,-22.5
     parent: 73
@@ -1885,6 +1922,8 @@ entities:
 - uid: 183
   type: VendingMachineYouTool
   components:
+  - flags: SessionSpecific
+    type: MetaData
   - pos: -1.5,-15.5
     parent: 73
     type: Transform
@@ -1895,8 +1934,6 @@ entities:
     pos: -7.5,-14.5
     parent: 73
     type: Transform
-  - enabled: False
-    type: AmbientSound
 - uid: 185
   type: TableReinforced
   components:
@@ -1910,32 +1947,24 @@ entities:
     pos: 6.5,-14.5
     parent: 73
     type: Transform
-  - enabled: False
-    type: AmbientSound
 - uid: 187
   type: Thruster
   components:
   - pos: -6.5,-2.5
     parent: 73
     type: Transform
-  - enabled: False
-    type: AmbientSound
 - uid: 188
   type: Thruster
   components:
   - pos: 5.5,-2.5
     parent: 73
     type: Transform
-  - enabled: False
-    type: AmbientSound
 - uid: 189
   type: YellowOxygenTankFilled
   components:
   - pos: -3.589096,-15.409599
     parent: 73
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 190
   type: TableReinforced
   components:
@@ -1949,8 +1978,6 @@ entities:
     pos: -5.5,-7.5
     parent: 73
     type: Transform
-  - enabled: False
-    type: AmbientSound
 - uid: 192
   type: Thruster
   components:
@@ -1958,8 +1985,6 @@ entities:
     pos: 4.5,-7.5
     parent: 73
     type: Transform
-  - enabled: False
-    type: AmbientSound
 - uid: 193
   type: PlasmaReinforcedWindowDirectional
   components:
@@ -1975,42 +2000,42 @@ entities:
     parent: 73
     type: Transform
 - uid: 195
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - rot: -1.5707963267948966 rad
     pos: -4.5,-28.5
     parent: 73
     type: Transform
 - uid: 196
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - rot: -1.5707963267948966 rad
     pos: -5.5,-28.5
     parent: 73
     type: Transform
 - uid: 197
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - rot: -1.5707963267948966 rad
     pos: -6.5,-28.5
     parent: 73
     type: Transform
 - uid: 198
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - rot: -1.5707963267948966 rad
     pos: 3.5,-28.5
     parent: 73
     type: Transform
 - uid: 199
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - rot: -1.5707963267948966 rad
     pos: 4.5,-28.5
     parent: 73
     type: Transform
 - uid: 200
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - rot: -1.5707963267948966 rad
     pos: 5.5,-28.5
@@ -2076,20 +2101,12 @@ entities:
   - pos: -5.5,-19.5
     parent: 73
     type: Transform
-  - containers:
-    - machine_parts
-    - machine_board
-    type: Construction
 - uid: 211
   type: SMESBasic
   components:
   - pos: -4.5,-19.5
     parent: 73
     type: Transform
-  - containers:
-    - machine_parts
-    - machine_board
-    type: Construction
 - uid: 212
   type: CableTerminal
   components:
@@ -2148,10 +2165,6 @@ entities:
   - pos: -3.5,-19.5
     parent: 73
     type: Transform
-  - containers:
-    - machine_parts
-    - machine_board
-    type: Construction
 - uid: 220
   type: APCBasic
   components:
@@ -3075,11 +3088,6 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 373
   type: Poweredlight
   components:
@@ -3089,11 +3097,6 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 374
   type: Poweredlight
   components:
@@ -3102,11 +3105,6 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 375
   type: AirlockSecurity
   components:
@@ -3133,26 +3131,26 @@ entities:
     parent: 73
     type: Transform
 - uid: 379
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - rot: -1.5707963267948966 rad
     pos: 2.5,-6.5
     parent: 73
     type: Transform
 - uid: 380
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 4.5,-27.5
     parent: 73
     type: Transform
 - uid: 381
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 4.5,-26.5
     parent: 73
     type: Transform
 - uid: 382
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 4.5,-25.5
     parent: 73
@@ -3202,8 +3200,8 @@ entities:
     pos: 3.5,-27.5
     parent: 73
     type: Transform
-  - fixtures: []
-    type: Fixtures
+  - canCollide: False
+    type: Physics
 - uid: 390
   type: GasMinerNitrogen
   components:
@@ -3211,8 +3209,8 @@ entities:
     pos: 5.5,-27.5
     parent: 73
     type: Transform
-  - fixtures: []
-    type: Fixtures
+  - canCollide: False
+    type: Physics
 - uid: 391
   type: GasPipeStraight
   components:
@@ -3665,7 +3663,6 @@ entities:
       - BulletImpassable
       - InteractImpassable
       - Opaque
-      mass: 100
     - shape: !type:PhysShapeCircle
         position: 0,-0.5
         radius: 0.2
@@ -3989,7 +3986,7 @@ entities:
   - color: '#FF1212FF'
     type: AtmosPipeColor
 - uid: 481
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 2.5,-4.5
     parent: 73
@@ -3997,8 +3994,7 @@ entities:
 - uid: 482
   type: AtmosDeviceFanTiny
   components:
-  - anchored: True
-    pos: 7.5,-16.5
+  - pos: 7.5,-16.5
     parent: 73
     type: Transform
 - uid: 483
@@ -4120,11 +4116,6 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 497
   type: Poweredlight
   components:
@@ -4134,11 +4125,6 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 498
   type: Poweredlight
   components:
@@ -4147,11 +4133,6 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 499
   type: Poweredlight
   components:
@@ -4160,11 +4141,6 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 500
   type: Poweredlight
   components:
@@ -4173,16 +4149,10 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 501
   type: AtmosDeviceFanTiny
   components:
-  - anchored: True
-    pos: 3.5,-10.5
+  - pos: 3.5,-10.5
     parent: 73
     type: Transform
 - uid: 502
@@ -4199,11 +4169,6 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 504
   type: Poweredlight
   components:
@@ -4212,11 +4177,6 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 505
   type: Poweredlight
   components:
@@ -4225,11 +4185,6 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 506
   type: Poweredlight
   components:
@@ -4239,11 +4194,6 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 507
   type: Poweredlight
   components:
@@ -4253,11 +4203,6 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 508
   type: Poweredlight
   components:
@@ -4266,11 +4211,6 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 509
   type: CableApcExtension
   components:
@@ -4285,11 +4225,6 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 511
   type: Poweredlight
   components:
@@ -4298,11 +4233,6 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 512
   type: TableWood
   components:
@@ -4318,13 +4248,8 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 514
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 3.5,-6.5
     parent: 73
@@ -4338,11 +4263,6 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 516
   type: AtmosFixOxygenMarker
   components:
@@ -4397,7 +4317,8 @@ entities:
 - uid: 524
   type: VendingMachineTankDispenserEVA
   components:
-  - name: tank dispenser
+  - flags: SessionSpecific
+    name: tank dispenser
     type: MetaData
   - pos: 2.5,-24.5
     parent: 73
@@ -4416,11 +4337,6 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 527
   type: Table
   components:
@@ -4445,22 +4361,12 @@ entities:
   - pos: 3.5,-19.5
     parent: 73
     type: Transform
-  - containers:
-      microwave_entity_container: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 531
   type: FoodBoxDonkpocketPizza
   components:
   - pos: 2.7185502,-19.320925
     parent: 73
     type: Transform
-  - canCollide: False
-    type: Physics
-  - containers:
-      storagebase: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 532
   type: TableReinforced
   components:
@@ -4487,9 +4393,6 @@ entities:
   - pos: 1.5,-19.5
     parent: 73
     type: Transform
-  - containers:
-      ReagentDispenser-beaker: !type:ContainerSlot {}
-    type: ContainerContainer
 - uid: 536
   type: Table
   components:
@@ -4502,92 +4405,60 @@ entities:
   - pos: 2.0779252,-19.21155
     parent: 73
     type: Transform
-  - canCollide: False
-    type: Physics
-  - solution: drink
-    type: DrainableSolution
 - uid: 538
   type: DrinkGlass
   components:
   - pos: 2.3123002,-19.21155
     parent: 73
     type: Transform
-  - canCollide: False
-    type: Physics
-  - solution: drink
-    type: DrainableSolution
 - uid: 539
   type: DrinkMugDog
   components:
   - pos: 2.2843437,-19.542192
     parent: 73
     type: Transform
-  - canCollide: False
-    type: Physics
-  - solution: drink
-    type: DrainableSolution
 - uid: 540
   type: DrinkMugMetal
   components:
   - pos: 2.0968437,-19.526567
     parent: 73
     type: Transform
-  - canCollide: False
-    type: Physics
-  - solution: drink
-    type: DrainableSolution
 - uid: 541
   type: DrinkVacuumFlask
   components:
   - pos: 4.71855,-21.289675
     parent: 73
     type: Transform
-  - canCollide: False
-    type: Physics
-  - solution: drink
-    type: DrainableSolution
 - uid: 542
   type: DrinkVacuumFlask
   components:
   - pos: 4.78105,-21.14905
     parent: 73
     type: Transform
-  - canCollide: False
-    type: Physics
-  - solution: drink
-    type: DrainableSolution
 - uid: 543
   type: FoodPizzaMeat
   components:
   - pos: 1.5138227,-21.269203
     parent: 73
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 544
   type: KnifePlastic
   components:
   - pos: 4.3731976,-21.472328
     parent: 73
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 545
   type: Wrench
   components:
   - pos: 5.4749,-23.512577
     parent: 73
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 546
   type: Wrench
   components:
   - pos: 5.63115,-23.481327
     parent: 73
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 547
   type: WindowReinforcedDirectional
   components:
@@ -4618,16 +4489,12 @@ entities:
   - pos: -1.6924903,-23.407444
     parent: 73
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 552
   type: DoubleEmergencyOxygenTankFilled
   components:
   - pos: -1.4112403,-23.458082
     parent: 73
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 553
   type: OxygenCanister
   components:
@@ -4667,8 +4534,7 @@ entities:
 - uid: 559
   type: AtmosDeviceFanTiny
   components:
-  - anchored: True
-    pos: -8.5,-16.5
+  - pos: -8.5,-16.5
     parent: 73
     type: Transform
 - uid: 560
@@ -4677,13 +4543,10 @@ entities:
   - pos: -5.5,-13.5
     parent: 73
     type: Transform
-  - enabled: False
-    type: AmbientSound
 - uid: 561
   type: AtmosDeviceFanTiny
   components:
-  - anchored: True
-    pos: -4.5,-10.5
+  - pos: -4.5,-10.5
     parent: 73
     type: Transform
 - uid: 562
@@ -4692,24 +4555,25 @@ entities:
   - pos: 4.5,-13.5
     parent: 73
     type: Transform
-  - enabled: False
-    type: AmbientSound
+- uid: 563
+  type: ComputerIFFSyndicate
+  components:
+  - rot: -1.5707963267948966 rad
+    pos: 1.5,-4.5
+    parent: 73
+    type: Transform
 - uid: 564
   type: DoubleEmergencyOxygenTankFilled
   components:
   - pos: -3.010971,-15.440882
     parent: 73
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 565
   type: NitrogenTankFilled
   components:
   - pos: -2.542221,-15.487804
     parent: 73
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 566
   type: TableReinforced
   components:
@@ -4722,8 +4586,6 @@ entities:
   - pos: 2.129654,-15.440882
     parent: 73
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 568
   type: CableApcExtension
   components:
@@ -4736,21 +4598,16 @@ entities:
   - pos: 1.473404,-15.409599
     parent: 73
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 570
   type: NitrogenTankFilled
   components:
   - pos: 2.598404,-15.519087
     parent: 73
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 571
   type: AtmosDeviceFanTiny
   components:
-  - anchored: True
-    pos: -0.5,-25.5
+  - pos: -0.5,-25.5
     parent: 73
     type: Transform
 - uid: 572
@@ -4793,16 +4650,12 @@ entities:
   - pos: -1.593372,-21.550352
     parent: 73
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 578
   type: CrowbarRed
   components:
   - pos: -1.374622,-21.550352
     parent: 73
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 579
   type: Catwalk
   components:
@@ -4983,10 +4836,6 @@ entities:
   - pos: 0.5,-19.5
     parent: 73
     type: Transform
-  - containers:
-      DisposalUnit: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 608
   type: DisposalTrunk
   components:
@@ -4994,10 +4843,6 @@ entities:
     pos: 0.5,-19.5
     parent: 73
     type: Transform
-  - containers:
-      DisposalEntry: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 609
   type: DisposalJunction
   components:
@@ -5005,10 +4850,6 @@ entities:
     pos: -0.5,-19.5
     parent: 73
     type: Transform
-  - containers:
-      DisposalJunction: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 610
   type: DisposalPipe
   components:
@@ -5016,10 +4857,6 @@ entities:
     pos: -1.5,-19.5
     parent: 73
     type: Transform
-  - containers:
-      DisposalTransit: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 611
   type: DisposalPipe
   components:
@@ -5027,10 +4864,6 @@ entities:
     pos: -2.5,-19.5
     parent: 73
     type: Transform
-  - containers:
-      DisposalTransit: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 612
   type: DisposalPipe
   components:
@@ -5038,10 +4871,6 @@ entities:
     pos: -3.5,-19.5
     parent: 73
     type: Transform
-  - containers:
-      DisposalTransit: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 613
   type: DisposalPipe
   components:
@@ -5049,10 +4878,6 @@ entities:
     pos: -4.5,-19.5
     parent: 73
     type: Transform
-  - containers:
-      DisposalTransit: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 614
   type: DisposalPipe
   components:
@@ -5060,10 +4885,6 @@ entities:
     pos: -5.5,-19.5
     parent: 73
     type: Transform
-  - containers:
-      DisposalTransit: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 615
   type: DisposalPipe
   components:
@@ -5071,10 +4892,6 @@ entities:
     pos: -6.5,-19.5
     parent: 73
     type: Transform
-  - containers:
-      DisposalTransit: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 616
   type: DisposalTrunk
   components:
@@ -5082,140 +4899,84 @@ entities:
     pos: -7.5,-19.5
     parent: 73
     type: Transform
-  - containers:
-      DisposalEntry: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 617
   type: DisposalPipe
   components:
   - pos: -0.5,-18.5
     parent: 73
     type: Transform
-  - containers:
-      DisposalTransit: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 618
   type: DisposalPipe
   components:
   - pos: -0.5,-17.5
     parent: 73
     type: Transform
-  - containers:
-      DisposalTransit: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 619
   type: DisposalPipe
   components:
   - pos: -0.5,-16.5
     parent: 73
     type: Transform
-  - containers:
-      DisposalTransit: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 620
   type: DisposalPipe
   components:
   - pos: -0.5,-15.5
     parent: 73
     type: Transform
-  - containers:
-      DisposalTransit: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 621
   type: DisposalPipe
   components:
   - pos: -0.5,-14.5
     parent: 73
     type: Transform
-  - containers:
-      DisposalTransit: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 622
   type: DisposalPipe
   components:
   - pos: -0.5,-13.5
     parent: 73
     type: Transform
-  - containers:
-      DisposalTransit: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 623
   type: DisposalPipe
   components:
   - pos: -0.5,-12.5
     parent: 73
     type: Transform
-  - containers:
-      DisposalTransit: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 624
   type: DisposalPipe
   components:
   - pos: -0.5,-11.5
     parent: 73
     type: Transform
-  - containers:
-      DisposalTransit: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 625
   type: DisposalPipe
   components:
   - pos: -0.5,-10.5
     parent: 73
     type: Transform
-  - containers:
-      DisposalTransit: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 626
   type: DisposalPipe
   components:
   - pos: -0.5,-9.5
     parent: 73
     type: Transform
-  - containers:
-      DisposalTransit: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 627
   type: DisposalPipe
   components:
   - pos: -0.5,-8.5
     parent: 73
     type: Transform
-  - containers:
-      DisposalTransit: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 628
   type: DisposalPipe
   components:
   - pos: -0.5,-7.5
     parent: 73
     type: Transform
-  - containers:
-      DisposalTransit: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 629
   type: DisposalBend
   components:
   - pos: -0.5,-6.5
     parent: 73
     type: Transform
-  - containers:
-      DisposalBend: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 630
   type: DisposalPipe
   components:
@@ -5223,10 +4984,6 @@ entities:
     pos: -1.5,-6.5
     parent: 73
     type: Transform
-  - containers:
-      DisposalTransit: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 631
   type: DisposalTrunk
   components:
@@ -5234,20 +4991,12 @@ entities:
     pos: -2.5,-6.5
     parent: 73
     type: Transform
-  - containers:
-      DisposalEntry: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 632
   type: DisposalUnit
   components:
   - pos: -2.5,-6.5
     parent: 73
     type: Transform
-  - containers:
-      DisposalUnit: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 633
   type: Rack
   components:
@@ -5260,44 +5009,48 @@ entities:
   - pos: -6.6426735,-22.402021
     parent: 73
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 635
   type: Multitool
   components:
   - pos: -6.3614235,-22.402021
     parent: 73
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 636
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 3.5,-29.5
     parent: 73
     type: Transform
 - uid: 637
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -5.5,-29.5
     parent: 73
     type: Transform
 - uid: 638
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 4.5,-29.5
     parent: 73
     type: Transform
 - uid: 639
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -4.5,-29.5
     parent: 73
     type: Transform
 - uid: 641
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 5.5,-29.5
+    parent: 73
+    type: Transform
+- uid: 642
+  type: WeaponTurretSyndicate
+  components:
+  - flags: SessionSpecific
+    type: MetaData
+  - pos: -0.5,0.5
     parent: 73
     type: Transform
 - uid: 643
@@ -5505,20 +5258,24 @@ entities:
     pos: 1.5,-3.5
     parent: 73
     type: Transform
-  - containers:
-      board: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 677
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -3.5,-29.5
     parent: 73
     type: Transform
 - uid: 678
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 2.5,-29.5
+    parent: 73
+    type: Transform
+- uid: 679
+  type: WeaponTurretSyndicate
+  components:
+  - flags: SessionSpecific
+    type: MetaData
+  - pos: 6.5,-3.5
     parent: 73
     type: Transform
 - uid: 680
@@ -5540,19 +5297,12 @@ entities:
     pos: -3.5,-21.5
     parent: 73
     type: Transform
-  - containers:
-      board: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 683
   type: ToiletEmpty
   components:
   - pos: 3.5,-3.5
     parent: 73
     type: Transform
-  - containers:
-      stash: !type:ContainerSlot {}
-    type: ContainerContainer
 - uid: 684
   type: Windoor
   components:
@@ -5588,10 +5338,72 @@ entities:
     pos: 4.5,-5.5
     parent: 73
     type: Transform
+- uid: 689
+  type: WeaponTurretSyndicate
+  components:
+  - flags: SessionSpecific
+    type: MetaData
+  - pos: -7.5,-3.5
+    parent: 73
+    type: Transform
+- uid: 690
+  type: WeaponTurretSyndicate
+  components:
+  - flags: SessionSpecific
+    type: MetaData
+  - pos: -6.5,-10.5
+    parent: 73
+    type: Transform
+- uid: 691
+  type: WeaponTurretSyndicate
+  components:
+  - flags: SessionSpecific
+    type: MetaData
+  - pos: 5.5,-10.5
+    parent: 73
+    type: Transform
+- uid: 692
+  type: WeaponTurretSyndicate
+  components:
+  - flags: SessionSpecific
+    type: MetaData
+  - pos: -7.5,-18.5
+    parent: 73
+    type: Transform
+- uid: 693
+  type: WeaponTurretSyndicate
+  components:
+  - flags: SessionSpecific
+    type: MetaData
+  - pos: 6.5,-18.5
+    parent: 73
+    type: Transform
 - uid: 694
   type: Carpet
   components:
   - pos: 2.5,-5.5
+    parent: 73
+    type: Transform
+- uid: 695
+  type: WeaponTurretSyndicate
+  components:
+  - flags: SessionSpecific
+    type: MetaData
+  - pos: -3.5,-30.5
+    parent: 73
+    type: Transform
+- uid: 696
+  type: WeaponTurretSyndicate
+  components:
+  - flags: SessionSpecific
+    type: MetaData
+  - pos: 2.5,-30.5
+    parent: 73
+    type: Transform
+- uid: 697
+  type: ClothingNeckMantleHOS
+  components:
+  - pos: 4.488545,-4.38966
     parent: 73
     type: Transform
 - uid: 699
@@ -5648,10 +5460,6 @@ entities:
   - pos: -6.5,-23.5
     parent: 73
     type: Transform
-  - containers:
-    - machine_parts
-    - machine_board
-    type: Construction
 - uid: 722
   type: AMEShielding
   components:
@@ -5664,25 +5472,18 @@ entities:
   - pos: 1.4127003,-11.973867
     parent: 73
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 725
   type: AMEController
   components:
   - pos: -5.5,-23.5
     parent: 73
     type: Transform
-  - containers:
-      AMEController-fuelJarContainer: !type:ContainerSlot {}
-    type: ContainerContainer
 - uid: 726
   type: SyndieMiniBomb
   components:
   - pos: 1.6939503,-11.973867
     parent: 73
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 728
   type: Rack
   components:
@@ -5695,38 +5496,24 @@ entities:
   - pos: 1.7857682,-12.631323
     parent: 73
     type: Transform
-  - inputs:
-      Trigger: []
-    type: SignalReceiver
-  - canCollide: False
-    type: Physics
 - uid: 730
   type: C4
   components:
   - pos: 1.5045182,-12.646948
     parent: 73
     type: Transform
-  - inputs:
-      Trigger: []
-    type: SignalReceiver
-  - canCollide: False
-    type: Physics
 - uid: 733
   type: AMEJar
   components:
   - pos: -3.7334418,-24.386538
     parent: 73
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 734
   type: AMEJar
   components:
   - pos: -3.5303168,-24.386538
     parent: 73
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 735
   type: TableReinforced
   components:
@@ -5775,8 +5562,6 @@ entities:
   - pos: 1.6061028,-13.284962
     parent: 73
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 744
   type: SignSecureSmallRed
   components:
@@ -5807,50 +5592,30 @@ entities:
   - pos: 1.5034143,-11.298322
     parent: 73
     type: Transform
-  - canCollide: False
-    type: Physics
-  - containers:
-      storagebase: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 749
   type: C4
   components:
   - pos: 1.5982682,-12.646948
     parent: 73
     type: Transform
-  - inputs:
-      Trigger: []
-    type: SignalReceiver
-  - canCollide: False
-    type: Physics
 - uid: 750
   type: C4
   components:
   - pos: 1.4107682,-12.646948
     parent: 73
     type: Transform
-  - inputs:
-      Trigger: []
-    type: SignalReceiver
-  - canCollide: False
-    type: Physics
 - uid: 753
   type: AMEJar
   components:
   - pos: -3.3740668,-24.386538
     parent: 73
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 754
   type: AMEJar
   components:
   - pos: -3.2178168,-24.386538
     parent: 73
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 759
   type: Catwalk
   components:
@@ -5875,10 +5640,6 @@ entities:
   - pos: -0.5,-2.5
     parent: 73
     type: Transform
-  - containers:
-      board: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 767
   type: ChairPilotSeat
   components:
@@ -5912,10 +5673,6 @@ entities:
   - pos: 0.5,-2.5
     parent: 73
     type: Transform
-  - containers:
-      board: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 772
   type: TableReinforced
   components:
@@ -5935,22 +5692,12 @@ entities:
   - pos: -2.5,-2.5
     parent: 73
     type: Transform
-  - containers:
-      board: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 775
   type: BoxHandcuff
   components:
   - pos: 1.4510483,-2.399527
     parent: 73
     type: Transform
-  - canCollide: False
-    type: Physics
-  - containers:
-      storagebase: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 776
   type: PosterContrabandSyndicatePistol
   components:
@@ -5982,7 +5729,7 @@ entities:
     parent: 73
     type: Transform
 - uid: 781
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -6.5,-29.5
     parent: 73
@@ -6005,28 +5752,18 @@ entities:
   - pos: -3.5991516,-3.3256855
     parent: 73
     type: Transform
-  - canCollide: False
-    type: Physics
-  - containers:
-      storagebase: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 785
   type: Gauze
   components:
   - pos: -4.5028133,-3.3256855
     parent: 73
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 786
   type: Gauze
   components:
   - pos: -4.2840633,-3.3569355
     parent: 73
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 787
   type: AtmosFixNitrogenMarker
   components:
@@ -6051,8 +5788,6 @@ entities:
   - pos: -4.0496883,-3.3571234
     parent: 73
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 791
   type: PosterContrabandNuclearDeviceInformational
   components:
@@ -6071,24 +5806,12 @@ entities:
   - pos: -5.4968786,-5.5336776
     parent: 73
     type: Transform
-  - canCollide: False
-    type: Physics
-  - containers:
-      storagebase: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 794
   type: MedkitCombatFilled
   components:
   - pos: -5.4968786,-5.2836776
     parent: 73
     type: Transform
-  - canCollide: False
-    type: Physics
-  - containers:
-      storagebase: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 795
   type: PoweredSmallLight
   components:
@@ -6098,14 +5821,6 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 797
   type: PoweredSmallLight
   components:
@@ -6115,14 +5830,6 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-  - containers:
-      light_bulb: !type:ContainerSlot {}
-    type: ContainerContainer
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 798
   type: Poweredlight
   components:
@@ -6131,11 +5838,6 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 799
   type: ChairOfficeDark
   components:
@@ -6190,12 +5892,6 @@ entities:
   - pos: -0.5,-27.5
     parent: 73
     type: Transform
-  - enabled: False
-    type: AmbientSound
-  - powerLoad: 500
-    type: ApcPowerReceiver
-  - radius: 2.5
-    type: PointLight
 - uid: 810
   type: CableApcExtension
   components:
@@ -6247,11 +5943,6 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 818
   type: Poweredlight
   components:
@@ -6261,11 +5952,6 @@ entities:
     type: Transform
   - powerLoad: 0
     type: ApcPowerReceiver
-  - inputs:
-      On: []
-      Off: []
-      Toggle: []
-    type: SignalReceiver
 - uid: 819
   type: Thruster
   components:
@@ -6273,8 +5959,6 @@ entities:
     pos: -5.5,-30.5
     parent: 73
     type: Transform
-  - enabled: False
-    type: AmbientSound
 - uid: 820
   type: Thruster
   components:
@@ -6282,8 +5966,6 @@ entities:
     pos: -4.5,-30.5
     parent: 73
     type: Transform
-  - enabled: False
-    type: AmbientSound
 - uid: 821
   type: Thruster
   components:
@@ -6291,8 +5973,6 @@ entities:
     pos: 4.5,-30.5
     parent: 73
     type: Transform
-  - enabled: False
-    type: AmbientSound
 - uid: 822
   type: Thruster
   components:
@@ -6300,17 +5980,15 @@ entities:
     pos: 3.5,-30.5
     parent: 73
     type: Transform
-  - enabled: False
-    type: AmbientSound
 - uid: 823
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - rot: 3.141592653589793 rad
     pos: -6.5,-30.5
     parent: 73
     type: Transform
 - uid: 824
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - rot: 3.141592653589793 rad
     pos: 5.5,-30.5
@@ -6418,51 +6096,38 @@ entities:
   - pos: 1.6920182,-12.631323
     parent: 73
     type: Transform
-  - inputs:
-      Trigger: []
-    type: SignalReceiver
-  - canCollide: False
-    type: Physics
 - uid: 844
   type: BoxFlashbang
   components:
   - pos: 0.49331844,-13.366474
     parent: 73
     type: Transform
-  - canCollide: False
-    type: Physics
-  - containers:
-      storagebase: !type:Container
-        ents: []
-    type: ContainerContainer
 - uid: 846
   type: NukeCodePaper
   components:
   - pos: -2.5286522,-11.44479
     parent: 73
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 847
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 8.5,-15.5
     parent: 73
     type: Transform
 - uid: 848
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: 8.5,-17.5
     parent: 73
     type: Transform
 - uid: 849
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -9.5,-17.5
     parent: 73
     type: Transform
 - uid: 850
-  type: WallReinforced
+  type: WallPlastitanium
   components:
   - pos: -9.5,-15.5
     parent: 73
@@ -6499,7 +6164,6 @@ entities:
       - BulletImpassable
       - InteractImpassable
       - Opaque
-      mass: 100
     - shape: !type:PhysShapeCircle
         position: 0,-0.5
         radius: 0.2
@@ -6548,8 +6212,6 @@ entities:
   - pos: -2.4942985,-13.37949
     parent: 73
     type: Transform
-  - canCollide: False
-    type: Physics
 - uid: 877
   type: NitrogenCanister
   components:
@@ -6565,7 +6227,7 @@ entities:
 - uid: 884
   type: Mirror
   components:
-  - pos: 4.5011373,-3.5794609
+  - pos: 4.5,-3.5
     parent: 73
     type: Transform
 ...

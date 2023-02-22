@@ -1,4 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Players.PlayTimeTracking;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
@@ -7,16 +7,17 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 namespace Content.Shared.Roles
 {
     /// <summary>
-    ///     Abstract class for playtime and other requirements for role gates.
+    /// Abstract class for playtime and other requirements for role gates.
     /// </summary>
     [ImplicitDataDefinitionForInheritors]
-    public abstract class JobRequirement
-    {
-    }
+    public abstract class JobRequirement{}
 
     [UsedImplicitly]
     public sealed class DepartmentTimeRequirement : JobRequirement
     {
+        /// <summary>
+        /// Which department needs the required amount of time.
+        /// </summary>
         [DataField("department", customTypeSerializer: typeof(PrototypeIdSerializer<DepartmentPrototype>))]
         public string Department = default!;
 
@@ -24,6 +25,15 @@ namespace Content.Shared.Roles
         /// How long (in seconds) this requirement is.
         /// </summary>
         [DataField("time")] public TimeSpan Time;
+
+        /// <summary>
+        /// If true, requirement will return false if playtime above the specified time.
+        /// </summary>
+        /// <value>
+        /// <c>False</c> by default.<br />
+        /// <c>True</c> for invert general requirement
+        /// </value>
+        [DataField("inverted")] public bool Inverted;
     }
 
     [UsedImplicitly]
@@ -35,19 +45,21 @@ namespace Content.Shared.Roles
         [DataField("role", customTypeSerializer: typeof(PrototypeIdSerializer<PlayTimeTrackerPrototype>))]
         public string Role = default!;
 
-        /// <summary>
-        /// How long (in seconds) this requirement is.
-        /// </summary>
+        /// <inheritdoc cref="DepartmentTimeRequirement.Time"/>
         [DataField("time")] public TimeSpan Time;
+
+        /// <inheritdoc cref="DepartmentTimeRequirement.Inverted"/>
+        [DataField("inverted")] public bool Inverted;
     }
 
     [UsedImplicitly]
     public sealed class OverallPlaytimeRequirement : JobRequirement
     {
-        /// <summary>
-        /// How long (in seconds) this requirement is.
-        /// </summary>
+        /// <inheritdoc cref="DepartmentTimeRequirement.Time"/>
         [DataField("time")] public TimeSpan Time;
+
+        /// <inheritdoc cref="DepartmentTimeRequirement.Inverted"/>
+        [DataField("inverted")] public bool Inverted;
     }
 
     public static class JobRequirements
@@ -104,24 +116,53 @@ namespace Content.Shared.Roles
 
                     var deptDiff = deptRequirement.Time.TotalMinutes - playtime.TotalMinutes;
 
-                    if (deptDiff <= 0)
-                        return true;
+                    if (!deptRequirement.Inverted)
+                    {
+                        if (deptDiff <= 0)
+                            return true;
 
-                    reason = Loc.GetString(
-                        "role-timer-department-insufficient",
-                        ("time", deptDiff),
-                        ("department", Loc.GetString(deptRequirement.Department)));
-                    return false;
+                        reason = Loc.GetString(
+                            "role-timer-department-insufficient",
+                            ("time", deptDiff),
+                            ("department", Loc.GetString(deptRequirement.Department)));
+                        return false;
+                    }
+                    else
+                    {
+                        if (deptDiff <= 0)
+                        {
+                            reason = Loc.GetString(
+                                "role-timer-department-too-high",
+                                ("time", -deptDiff),
+                                ("department", Loc.GetString(deptRequirement.Department)));
+                            return false;
+                        }
+
+                        return true;
+                    }
 
                 case OverallPlaytimeRequirement overallRequirement:
                     var overallTime = playTimes.GetValueOrDefault(PlayTimeTrackingShared.TrackerOverall);
                     var overallDiff = overallRequirement.Time.TotalMinutes - overallTime.TotalMinutes;
 
-                    if (overallDiff <= 0 || overallTime >= overallRequirement.Time)
-                        return true;
+                    if (!overallRequirement.Inverted)
+                    {
+                        if (overallDiff <= 0 || overallTime >= overallRequirement.Time)
+                            return true;
 
-                    reason = Loc.GetString("role-timer-overall-insufficient", ("time", overallDiff));
-                    return false;
+                        reason = Loc.GetString("role-timer-overall-insufficient", ("time", overallDiff));
+                        return false;
+                    }
+                    else
+                    {
+                        if (overallDiff <= 0 || overallTime >= overallRequirement.Time)
+                        {
+                            reason = Loc.GetString("role-timer-overall-too-high", ("time", -overallDiff));
+                            return false;
+                        }
+
+                        return true;
+                    }
 
                 case RoleTimeRequirement roleRequirement:
                     proto = roleRequirement.Role;
@@ -129,14 +170,31 @@ namespace Content.Shared.Roles
                     playTimes.TryGetValue(proto, out var roleTime);
                     var roleDiff = roleRequirement.Time.TotalMinutes - roleTime.TotalMinutes;
 
-                    if (roleDiff <= 0)
-                        return true;
+                    if (!roleRequirement.Inverted)
+                    {
+                        if (roleDiff <= 0)
+                            return true;
 
-                    reason = Loc.GetString(
-                        "role-timer-role-insufficient",
-                        ("time", roleDiff),
-                        ("job", Loc.GetString(proto)));
-                    return false;
+                        reason = Loc.GetString(
+                            "role-timer-role-insufficient",
+                            ("time", roleDiff),
+                            ("job", Loc.GetString(proto)));
+                        return false;
+                    }
+                    else
+                    {
+                        if (roleDiff <= 0)
+                        {
+                            reason = Loc.GetString(
+                                "role-timer-role-too-high",
+                                ("time", -roleDiff),
+                                ("job", Loc.GetString(proto)));
+                            return false;
+                        }
+
+
+                        return true;
+                    }
                 default:
                     throw new NotImplementedException();
             }

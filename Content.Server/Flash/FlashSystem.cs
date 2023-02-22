@@ -1,7 +1,7 @@
+using System.Linq;
 using Content.Server.Flash.Components;
 using Content.Server.Light.EntitySystems;
 using Content.Server.Stunnable;
-using Content.Server.Weapon.Melee;
 using Content.Shared.Examine;
 using Content.Shared.Flash;
 using Content.Shared.IdentityManagement;
@@ -10,6 +10,8 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
+using Content.Shared.Tag;
+using Content.Shared.Weapons.Melee.Events;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
@@ -26,6 +28,7 @@ namespace Content.Server.Flash
         [Dependency] private readonly InventorySystem _inventorySystem = default!;
         [Dependency] private readonly MetaDataSystem _metaSystem = default!;
         [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
+        [Dependency] private readonly TagSystem _tagSystem = default!;
 
         public override void Initialize()
         {
@@ -37,38 +40,16 @@ namespace Content.Server.Flash
             SubscribeLocalEvent<InventoryComponent, FlashAttemptEvent>(OnInventoryFlashAttempt);
 
             SubscribeLocalEvent<FlashImmunityComponent, FlashAttemptEvent>(OnFlashImmunityFlashAttempt);
-
-            SubscribeLocalEvent<FlashableComponent, ComponentStartup>(OnFlashableStartup);
-            SubscribeLocalEvent<FlashableComponent, ComponentShutdown>(OnFlashableShutdown);
-            SubscribeLocalEvent<FlashableComponent, MetaFlagRemoveAttemptEvent>(OnMetaFlagRemoval);
-            SubscribeLocalEvent<FlashableComponent, PlayerAttachedEvent>(OnPlayerAttached);
-        }
-
-        private void OnPlayerAttached(EntityUid uid, FlashableComponent component, PlayerAttachedEvent args)
-        {
-            Dirty(component);
-        }
-
-        private void OnMetaFlagRemoval(EntityUid uid, FlashableComponent component, ref MetaFlagRemoveAttemptEvent args)
-        {
-            if (component.LifeStage == ComponentLifeStage.Running)
-                args.ToRemove &= ~MetaDataFlags.EntitySpecific;
-        }
-
-        private void OnFlashableStartup(EntityUid uid, FlashableComponent component, ComponentStartup args)
-        {
-            _metaSystem.AddFlag(uid, MetaDataFlags.EntitySpecific);
-        }
-
-        private void OnFlashableShutdown(EntityUid uid, FlashableComponent component, ComponentShutdown args)
-        {
-            _metaSystem.RemoveFlag(uid, MetaDataFlags.EntitySpecific);
         }
 
         private void OnFlashMeleeHit(EntityUid uid, FlashComponent comp, MeleeHitEvent args)
         {
-            if (!UseFlash(comp, args.User))
+            if (!args.IsHit ||
+                !args.HitEntities.Any() ||
+                !UseFlash(comp, args.User))
+            {
                 return;
+            }
 
             args.Handled = true;
             foreach (var e in args.HitEntities)
@@ -76,7 +57,7 @@ namespace Content.Server.Flash
                 Flash(e, args.User, uid, comp.FlashDuration, comp.SlowTo);
             }
         }
-        
+
         private void OnFlashUseInHand(EntityUid uid, FlashComponent comp, UseInHandEvent args)
         {
             if (args.Handled || !UseFlash(comp, args.User))
@@ -97,6 +78,8 @@ namespace Content.Server.Flash
                 if (--comp.Uses == 0)
                 {
                     sprite.LayerSetState(0, "burnt");
+
+                    _tagSystem.AddTag(comp.Owner, "Trash");
                     comp.Owner.PopupMessage(user, Loc.GetString("flash-component-becomes-empty"));
                 }
                 else if (!comp.Flashing)
@@ -161,7 +144,7 @@ namespace Content.Server.Flash
             foreach (var entity in flashableEntities)
             {
                 // Check for unobstructed entities while ignoring the mobs with flashable components.
-                if (!_interactionSystem.InRangeUnobstructed(entity, mapPosition, range, CollisionGroup.Opaque, (e) => flashableEntities.Contains(e)))
+                if (!_interactionSystem.InRangeUnobstructed(entity, mapPosition, range, CollisionGroup.Opaque, (e) => flashableEntities.Contains(e) || e == source))
                     continue;
 
                 // They shouldn't have flash removed in between right?
@@ -195,7 +178,7 @@ namespace Content.Server.Flash
 
         private void OnInventoryFlashAttempt(EntityUid uid, InventoryComponent component, FlashAttemptEvent args)
         {
-            foreach (var slot in new string[]{"head", "eyes", "mask"})
+            foreach (var slot in new[] { "head", "eyes", "mask" })
             {
                 if (args.Cancelled)
                     break;

@@ -1,7 +1,13 @@
 ﻿- type: job
   id: SecurityCadet
   name: job-name-cadet
+  description: job-description-cadet
   playTimeTracker: JobSecurityCadet
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 7200
+      inverted: true # stop playing intern if you're good at security!
   startingGear: SecurityCadetGear
   icon: "SecurityCadet"
   supervisors: job-supervisors-security

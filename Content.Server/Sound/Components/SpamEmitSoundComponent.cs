@@ -1,3 +1,5 @@
+using Content.Shared.Sound.Components;
+
 namespace Content.Server.Sound.Components
 {
     /// <summary>
@@ -18,5 +20,8 @@ namespace Content.Server.Sound.Components
         // Always Pvs.
         [DataField("popUp")]
         public string? PopUp;
+
+        [DataField("enabled")]
+        public bool Enabled = true;
     }
 }

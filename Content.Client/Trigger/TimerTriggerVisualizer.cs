@@ -12,8 +12,8 @@ namespace Content.Client.Trigger
     {
         private const string AnimationKey = "priming_animation";
 
-        [DataField("countdown_sound", required: false)]
-        private SoundSpecifier _countdownSound = default!;
+        [DataField("countdown_sound")]
+        private SoundSpecifier? _countdownSound;
 
         private Animation PrimingAnimation = default!;
 
@@ -35,15 +35,17 @@ namespace Content.Client.Trigger
             }
         }
 
+        [Obsolete("Subscribe to your component being initialised instead.")]
         public override void InitializeEntity(EntityUid entity)
         {
             IoCManager.Resolve<IEntityManager>().EnsureComponent<AnimationPlayerComponent>(entity);
         }
 
+        [Obsolete("Subscribe to AppearanceChangeEvent instead.")]
         public override void OnChangeData(AppearanceComponent component)
         {
             var entMan = IoCManager.Resolve<IEntityManager>();
-            var sprite = entMan.GetComponent<ISpriteComponent>(component.Owner);
+            var sprite = entMan.GetComponent<SpriteComponent>(component.Owner);
             var animPlayer = entMan.GetComponent<AnimationPlayerComponent>(component.Owner);
             if (!component.TryGetData(TriggerVisuals.VisualState, out TriggerVisualState state))
             {

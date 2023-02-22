@@ -92,8 +92,7 @@ public sealed partial class ShuttleSystem
         if (!_configManager.GetCVar(CCVars.EmergencyEarlyLaunchAllowed))
         {
             args.Cancel();
-            _popup.PopupEntity(Loc.GetString("emergency-shuttle-console-no-early-launches"), uid, Filter.Entities(args.User));
-            return;
+            _popup.PopupEntity(Loc.GetString("emergency-shuttle-console-no-early-launches"), uid, args.User);
         }
     }
 
@@ -136,24 +135,24 @@ public sealed partial class ShuttleSystem
         {
             _launchedShuttles = true;
 
-            if (_centComMap != null)
+            if (CentComMap != null)
             {
                 foreach (var comp in EntityQuery<StationDataComponent>(true))
                 {
                     if (!TryComp<ShuttleComponent>(comp.EmergencyShuttle, out var shuttle)) continue;
 
-                    if (Deleted(_centCom))
+                    if (Deleted(CentCom))
                     {
                         // TODO: Need to get non-overlapping positions.
                         FTLTravel(shuttle,
                             new EntityCoordinates(
-                                _mapManager.GetMapEntityId(_centComMap.Value),
+                                _mapManager.GetMapEntityId(CentComMap.Value),
                                 Vector2.One * 1000f), _consoleAccumulator, TransitTime);
                     }
                     else
                     {
                         FTLTravel(shuttle,
-                            _centCom.Value, _consoleAccumulator, TransitTime, dock: true);
+                            CentCom.Value, _consoleAccumulator, TransitTime, dock: true);
                     }
                 }
             }
@@ -169,8 +168,8 @@ public sealed partial class ShuttleSystem
             Timer.Spawn((int) (TransitTime * 1000) + _bufferTime.Milliseconds, () => _roundEnd.EndRound(), _roundEndCancelToken.Token);
 
             // Guarantees that emergency shuttle arrives first before anyone else can FTL.
-            if (_centCom != null)
-                AddFTLDestination(_centCom.Value, true);
+            if (CentCom != null)
+                AddFTLDestination(CentCom.Value, true);
 
         }
     }
@@ -182,7 +181,7 @@ public sealed partial class ShuttleSystem
 
         if (!_reader.FindAccessTags(player.Value).Contains(EmergencyRepealAllAccess))
         {
-            _popup.PopupCursor(Loc.GetString("emergency-shuttle-console-denied"), Filter.Entities(player.Value), PopupType.Medium);
+            _popup.PopupCursor(Loc.GetString("emergency-shuttle-console-denied"), player.Value, PopupType.Medium);
             return;
         }
 
@@ -201,7 +200,7 @@ public sealed partial class ShuttleSystem
 
         if (!_idSystem.TryFindIdCard(player.Value, out var idCard) || !_reader.IsAllowed(idCard.Owner, uid))
         {
-            _popup.PopupCursor(Loc.GetString("emergency-shuttle-console-denied"), Filter.Entities(player.Value), PopupType.Medium);
+            _popup.PopupCursor(Loc.GetString("emergency-shuttle-console-denied"), player.Value, PopupType.Medium);
             return;
         }
 
@@ -222,7 +221,7 @@ public sealed partial class ShuttleSystem
 
         if (!_idSystem.TryFindIdCard(player.Value, out var idCard) || !_reader.IsAllowed(idCard.Owner, uid))
         {
-            _popup.PopupCursor(Loc.GetString("emergency-shuttle-console-denied"), Filter.Entities(player.Value), PopupType.Medium);
+            _popup.PopupCursor(Loc.GetString("emergency-shuttle-console-denied"), args.Session, PopupType.Medium);
             return;
         }
 

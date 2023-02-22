@@ -13,6 +13,7 @@ namespace Content.Shared.Storage.EntitySystems
     [UsedImplicitly]
     public abstract class SharedItemMapperSystem : EntitySystem
     {
+        [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
         [Dependency] private readonly SharedContainerSystem _container = default!;
 
         /// <inheritdoc />
@@ -34,27 +35,34 @@ namespace Content.Shared.Storage.EntitySystems
             if (EntityManager.TryGetComponent(component.Owner, out AppearanceComponent? appearanceComponent))
             {
                 var list = new List<string>(component.MapLayers.Keys);
-                appearanceComponent.SetData(StorageMapVisuals.InitLayers, new ShowLayerData(list));
+                _appearance.SetData(component.Owner, StorageMapVisuals.InitLayers, new ShowLayerData(list), appearanceComponent);
             }
         }
 
         private void MapperEntityRemoved(EntityUid uid, ItemMapperComponent itemMapper,
             EntRemovedFromContainerMessage args)
         {
-            if (EntityManager.TryGetComponent(itemMapper.Owner, out AppearanceComponent? appearanceComponent)
-                && TryGetLayers(args, itemMapper, out var containedLayers))
-            {
-                appearanceComponent.SetData(StorageMapVisuals.LayerChanged, new ShowLayerData(containedLayers));
-            }
+            if (itemMapper.ContainerWhitelist != null && !itemMapper.ContainerWhitelist.Contains(args.Container.ID))
+                return;
+
+            UpdateAppearance(uid, itemMapper, args);
         }
 
         private void MapperEntityInserted(EntityUid uid, ItemMapperComponent itemMapper,
             EntInsertedIntoContainerMessage args)
         {
+            if (itemMapper.ContainerWhitelist != null && !itemMapper.ContainerWhitelist.Contains(args.Container.ID))
+                return;
+
+            UpdateAppearance(uid, itemMapper, args);
+        }
+
+        private void UpdateAppearance(EntityUid uid, ItemMapperComponent itemMapper, ContainerModifiedMessage message)
+        {
             if (EntityManager.TryGetComponent(itemMapper.Owner, out AppearanceComponent? appearanceComponent)
-                && TryGetLayers(args, itemMapper, out var containedLayers))
+                && TryGetLayers(message, itemMapper, out var containedLayers))
             {
-                appearanceComponent.SetData(StorageMapVisuals.LayerChanged, new ShowLayerData(containedLayers));
+                _appearance.SetData(itemMapper.Owner, StorageMapVisuals.LayerChanged, new ShowLayerData(containedLayers), appearanceComponent);
             }
         }
 
@@ -74,7 +82,7 @@ namespace Content.Shared.Storage.EntitySystems
             out IReadOnlyList<string> showLayers)
         {
             var containedLayers = _container.GetAllContainers(msg.Container.Owner)
-                .SelectMany(cont => cont.ContainedEntities).ToArray();
+                .Where(c => itemMapper.ContainerWhitelist?.Contains(c.ID) ?? true).SelectMany(cont => cont.ContainedEntities).ToArray();
 
             var list = new List<string>();
             foreach (var mapLayerData in itemMapper.MapLayers.Values)

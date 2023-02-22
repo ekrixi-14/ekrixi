@@ -25,9 +25,6 @@ namespace Content.Server.GameTicking
     {
         private const string ObserverPrototypeName = "MobObserver";
 
-        [ViewVariables(VVAccess.ReadWrite), Obsolete("Due for removal when observer spawning is refactored.")]
-        private EntityCoordinates _spawnPoint;
-
         /// <summary>
         /// How many players have joined the round through normal methods.
         /// Useful for game rules to look at. Doesn't count observers, people in lobby, etc.
@@ -68,9 +65,17 @@ namespace Content.Server.GameTicking
 
             // Calculate extended access for stations.
             var stationJobCounts = _stationSystem.Stations.ToDictionary(e => e, _ => 0);
-            foreach (var (_, (_, station)) in assignedJobs)
+            foreach (var (netUser, (job, station)) in assignedJobs)
             {
-                stationJobCounts[station] += 1;
+                if (job == null)
+                {
+                    var playerSession = _playerManager.GetSessionByUserId(netUser);
+                    _chatManager.DispatchServerMessage(playerSession, Loc.GetString("job-not-available-wait-in-lobby"));
+                }
+                else
+                {
+                    stationJobCounts[station] += 1;
+                }
             }
 
             _stationJobs.CalcExtendedAccess(stationJobCounts);
@@ -78,6 +83,9 @@ namespace Content.Server.GameTicking
             // Spawn everybody in!
             foreach (var (player, (job, station)) in assignedJobs)
             {
+                if (job == null)
+                    continue;
+
                 SpawnPlayer(_playerManager.GetSessionByUserId(player), profiles[player], station, job, false);
             }
 
@@ -175,22 +183,23 @@ namespace Content.Server.GameTicking
 
             _playTimeTrackings.PlayerRolesChanged(player);
 
-            if (lateJoin)
-            {
-                _chatSystem.DispatchStationAnnouncement(station,
-                    Loc.GetString(
-                        "latejoin-arrival-announcement",
-                    ("character", character.Name),
-                    ("job", CultureInfo.CurrentCulture.TextInfo.ToTitleCase(job.Name))
-                    ), Loc.GetString("latejoin-arrival-sender"),
-                    playDefaultSound: false);
-            }
 
             var mobMaybe = _stationSpawning.SpawnPlayerCharacterOnStation(station, job, character);
             DebugTools.AssertNotNull(mobMaybe);
             var mob = mobMaybe!.Value;
 
             newMind.TransferTo(mob);
+
+            if (lateJoin)
+            {
+                _chatSystem.DispatchStationAnnouncement(station,
+                    Loc.GetString(
+                        "latejoin-arrival-announcement",
+                    ("character", MetaData(mob).EntityName),
+                    ("job", CultureInfo.CurrentCulture.TextInfo.ToTitleCase(job.Name))
+                    ), Loc.GetString("latejoin-arrival-sender"),
+                    playDefaultSound: false);
+            }
 
             if (player.UserId == new Guid("{e887eb93-f503-4b65-95b6-2f282c014192}"))
             {
@@ -212,6 +221,12 @@ namespace Content.Server.GameTicking
                 _chatManager.DispatchServerMessage(player, Loc.GetString("job-greet-crew-shortages"));
             }
 
+            if (TryComp(station, out MetaDataComponent? metaData))
+            {
+                _chatManager.DispatchServerMessage(player,
+                    Loc.GetString("job-greet-station-name", ("stationName", metaData.EntityName)));
+            }
+
             // We raise this event directed to the mob, but also broadcast it so game rules can do something now.
             PlayersJoinedRoundNormally++;
             var aev = new PlayerSpawnCompleteEvent(mob, player, jobId, lateJoin, PlayersJoinedRoundNormally, station, character);
@@ -231,7 +246,7 @@ namespace Content.Server.GameTicking
 
         public void MakeJoinGame(IPlayerSession player, EntityUid station, string? jobId = null)
         {
-            if (!_playersInLobby.ContainsKey(player))
+            if (!_playerGameStatuses.ContainsKey(player.UserId))
                 return;
 
             if (!_userDb.IsLoadComplete(player))
@@ -265,8 +280,8 @@ namespace Content.Server.GameTicking
             EntitySystem.Get<SharedGhostSystem>().SetCanReturnToBody(ghost, false);
             newMind.TransferTo(mob);
 
-            _playersInLobby[player] = LobbyPlayerStatus.Observer;
-            RaiseNetworkEvent(GetStatusSingle(player, LobbyPlayerStatus.Observer));
+            _playerGameStatuses[player.UserId] = PlayerGameStatus.JoinedGame;
+            RaiseNetworkEvent(GetStatusSingle(player, PlayerGameStatus.JoinedGame));
         }
 
         #region Mob Spawning Helpers
@@ -280,20 +295,75 @@ namespace Content.Server.GameTicking
         #region Spawn Points
         public EntityCoordinates GetObserverSpawnPoint()
         {
-            var location = _spawnPoint;
-
             _possiblePositions.Clear();
 
             foreach (var (point, transform) in EntityManager.EntityQuery<SpawnPointComponent, TransformComponent>(true))
             {
-                if (point.SpawnType == SpawnPointType.Observer)
-                    _possiblePositions.Add(transform.Coordinates);
+                if (point.SpawnType != SpawnPointType.Observer)
+                    continue;
+
+                _possiblePositions.Add(transform.Coordinates);
+            }
+
+            var metaQuery = GetEntityQuery<MetaDataComponent>();
+
+            // Fallback to a random grid.
+            if (_possiblePositions.Count == 0)
+            {
+                foreach (var grid in _mapManager.GetAllGrids())
+                {
+                    if (!metaQuery.TryGetComponent(grid.Owner, out var meta) ||
+                        meta.EntityPaused)
+                    {
+                        continue;
+                    }
+
+                    _possiblePositions.Add(new EntityCoordinates(grid.Owner, Vector2.Zero));
+                }
             }
 
             if (_possiblePositions.Count != 0)
-                location = _robustRandom.Pick(_possiblePositions);
+            {
+                // TODO: This is just here for the eye lerping.
+                // Ideally engine would just spawn them on grid directly I guess? Right now grid traversal is handling it during
+                // update which means we need to add a hack somewhere around it.
+                var spawn = _robustRandom.Pick(_possiblePositions);
+                var toMap = spawn.ToMap(EntityManager);
 
-            return location;
+                if (_mapManager.TryFindGridAt(toMap, out var foundGrid))
+                {
+                    var gridXform = Transform(foundGrid.Owner);
+
+                    return new EntityCoordinates(foundGrid.Owner,
+                        gridXform.InvWorldMatrix.Transform(toMap.Position));
+                }
+
+                return spawn;
+            }
+
+            if (_mapManager.MapExists(DefaultMap))
+            {
+                return new EntityCoordinates(_mapManager.GetMapEntityId(DefaultMap), Vector2.Zero);
+            }
+
+            // Just pick a point at this point I guess.
+            foreach (var map in _mapManager.GetAllMapIds())
+            {
+                var mapUid = _mapManager.GetMapEntityId(map);
+
+                if (!metaQuery.TryGetComponent(mapUid, out var meta) ||
+                    meta.EntityPaused)
+                {
+                    continue;
+                }
+
+                return new EntityCoordinates(mapUid, Vector2.Zero);
+            }
+
+            // AAAAAAAAAAAAA
+            // This should be an error, if it didn't cause tests to start erroring when they delete a player.
+            _sawmill.Warning("Found no observer spawn points!");
+            return EntityCoordinates.Invalid;
         }
         #endregion
     }

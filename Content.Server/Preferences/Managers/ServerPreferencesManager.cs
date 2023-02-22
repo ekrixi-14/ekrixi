@@ -1,11 +1,13 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Database;
+using Content.Server.Humanoid;
 using Content.Shared.CCVar;
+using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
-using Content.Shared.Species;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Network;
@@ -215,6 +217,26 @@ namespace Content.Server.Preferences.Managers
             return _cachedPlayerPrefs.ContainsKey(session.UserId);
         }
 
+
+        /// <summary>
+        /// Tries to get the preferences from the cache
+        /// </summary>
+        /// <param name="userId">User Id to get preferences for</param>
+        /// <param name="playerPreferences">The user preferences if true, otherwise null</param>
+        /// <returns>If preferences are not null</returns>
+        public bool TryGetCachedPreferences(NetUserId userId,
+            [NotNullWhen(true)] out PlayerPreferences? playerPreferences)
+        {
+            if (_cachedPlayerPrefs.TryGetValue(userId, out var prefs))
+            {
+                playerPreferences = prefs.Prefs;
+                return prefs.Prefs != null;
+            }
+
+            playerPreferences = null;
+            return false;
+        }
+
         /// <summary>
         /// Retrieves preferences for the given username from storage.
         /// Creates and saves default preferences if they are not found, then returns them.
@@ -254,7 +276,7 @@ namespace Content.Server.Preferences.Managers
                     case HumanoidCharacterProfile hp:
                     {
                         var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
-                        var selectedSpecies = SpeciesManager.DefaultSpecies;
+                        var selectedSpecies = HumanoidAppearanceSystem.DefaultSpecies;
 
                         if (prototypeManager.TryIndex<SpeciesPrototype>(hp.Species, out var species) && species.RoundStart)
                         {

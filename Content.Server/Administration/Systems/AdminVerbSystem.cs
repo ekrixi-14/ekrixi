@@ -1,4 +1,5 @@
 using Content.Server.Administration.Commands;
+using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
 using Content.Server.Administration.UI;
 using Content.Server.Chemistry.Components.SolutionManager;
@@ -10,9 +11,11 @@ using Content.Server.Ghost.Roles;
 using Content.Server.Mind.Commands;
 using Content.Server.Mind.Components;
 using Content.Server.Players;
+using Content.Server.Prayer;
 using Content.Server.Xenoarchaeology.XenoArtifacts;
 using Content.Server.Xenoarchaeology.XenoArtifacts.Triggers.Components;
 using Content.Shared.Administration;
+using Content.Shared.Configurable;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
 using Content.Shared.Interaction.Helpers;
@@ -26,7 +29,7 @@ using Robust.Shared.Console;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using static Content.Shared.Configurable.SharedConfigurationComponent;
+using static Content.Shared.Configurable.ConfigurationComponent;
 
 namespace Content.Server.Administration.Systems
 {
@@ -45,6 +48,8 @@ namespace Content.Server.Administration.Systems
         [Dependency] private readonly GhostRoleSystem _ghostRoleSystem = default!;
         [Dependency] private readonly ArtifactSystem _artifactSystem = default!;
         [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
+        [Dependency] private readonly PrayerSystem _prayerSystem = default!;
+        [Dependency] private readonly EuiManager _eui = default!;
 
         private readonly Dictionary<IPlayerSession, EditSolutionsEui> _openSolutionUis = new();
 
@@ -80,6 +85,21 @@ namespace Content.Server.Administration.Systems
                     verb.Impact = LogImpact.Low;
                     args.Verbs.Add(verb);
 
+                    // Subtle Messages
+                    Verb prayerVerb = new();
+                    prayerVerb.Text = Loc.GetString("prayer-verbs-subtle-message");
+                    prayerVerb.Category = VerbCategory.Admin;
+                    prayerVerb.IconTexture = "/Textures/Interface/pray.svg.png";
+                    prayerVerb.Act = () =>
+                    {
+                        _quickDialog.OpenDialog(player, "Subtle Message", "Message", "Popup Message", (string message, string popupMessage) =>
+                        {
+                            _prayerSystem.SendSubtleMessage(targetActor.PlayerSession, player, message, popupMessage == "" ? Loc.GetString("prayer-popup-subtle-default") : popupMessage);
+                        });
+                    };
+                    prayerVerb.Impact = LogImpact.Low;
+                    args.Verbs.Add(prayerVerb);
+
                     // Freeze
                     var frozen = HasComp<AdminFrozenComponent>(args.Target);
                     args.Verbs.Add(new Verb
@@ -101,27 +121,23 @@ namespace Content.Server.Administration.Systems
                     });
                 }
 
-                // XenoArcheology
-                if (TryComp<ArtifactComponent>(args.Target, out var artifact))
+                // Admin Logs
+                if (_adminManager.HasAdminFlag(player, AdminFlags.Logs))
                 {
-                    // make artifact always active (by adding timer trigger)
-                    args.Verbs.Add(new Verb()
+                    Verb logsVerbEntity = new()
                     {
-                        Text = Loc.GetString("artifact-verb-make-always-active"),
+                        Priority = -2,
+                        Text = Loc.GetString("admin-verbs-admin-logs-entity"),
                         Category = VerbCategory.Admin,
-                        Act = () => EntityManager.AddComponent<ArtifactTimerTriggerComponent>(args.Target),
-                        Disabled = EntityManager.HasComponent<ArtifactTimerTriggerComponent>(args.Target),
-                        Impact = LogImpact.High
-                    });
-
-                    // force to activate artifact ignoring timeout
-                    args.Verbs.Add(new Verb()
-                    {
-                        Text = Loc.GetString("artifact-verb-activate"),
-                        Category = VerbCategory.Admin,
-                        Act = () => _artifactSystem.ForceActivateArtifact(args.Target, component: artifact),
-                        Impact = LogImpact.High
-                    });
+                        Act = () =>
+                        {
+                            var ui = new AdminLogsEui();
+                            _eui.OpenEui(ui, player);
+                            ui.SetLogFilter(search:args.Target.GetHashCode().ToString());
+                        },
+                        Impact = LogImpact.Low
+                    };
+                    args.Verbs.Add(logsVerbEntity);
                 }
 
                 // TeleportTo
@@ -218,6 +234,29 @@ namespace Content.Server.Administration.Systems
                     ConfirmationPopup = true
                 };
                 args.Verbs.Add(verb);
+            }
+
+            // XenoArcheology
+            if (_adminManager.IsAdmin(player) && TryComp<ArtifactComponent>(args.Target, out var artifact))
+            {
+                // make artifact always active (by adding timer trigger)
+                args.Verbs.Add(new Verb()
+                {
+                    Text = Loc.GetString("artifact-verb-make-always-active"),
+                    Category = VerbCategory.Debug,
+                    Act = () => EntityManager.AddComponent<ArtifactTimerTriggerComponent>(args.Target),
+                    Disabled = EntityManager.HasComponent<ArtifactTimerTriggerComponent>(args.Target),
+                    Impact = LogImpact.High
+                });
+
+                // force to activate artifact ignoring timeout
+                args.Verbs.Add(new Verb()
+                {
+                    Text = Loc.GetString("artifact-verb-activate"),
+                    Category = VerbCategory.Debug,
+                    Act = () => _artifactSystem.ForceActivateArtifact(args.Target, component: artifact),
+                    Impact = LogImpact.High
+                });
             }
 
             // Make Sentient verb

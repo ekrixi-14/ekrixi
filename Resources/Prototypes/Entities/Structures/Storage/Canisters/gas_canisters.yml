@@ -9,6 +9,7 @@
     - type: Sprite
       netsync: false
       sprite: Structures/Storage/canister.rsi
+      noRot: true
       layers:
         - state: grey
     - type: Appearance
@@ -22,6 +23,10 @@
           tankInserted:
             False: { state: can-open, visible: false }
             True: { state: can-open, visible: true }
+        enum.GasCanisterVisuals.Locked:
+          locked:
+            False: { state: can-unlocked, shader: "unshaded" }
+            True: { state: can-locked, shader: "unshaded" }
         enum.GasCanisterVisuals.PressureState:
           pressureLight:
             0: { state: can-o0, shader: "unshaded" }
@@ -48,6 +53,7 @@
                   max: 1
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
+            - !type:DumpCanisterBehavior
     - type: Damageable
       damageContainer: Inorganic
       damageModifierSet: Metallic
@@ -58,7 +64,7 @@
       - shape:
           !type:PhysShapeAabb
           bounds: "-0.25,-0.25,0.25,0.25"
-        mass: 25
+        density: 190
         mask:
         - MachineMask
         layer:
@@ -80,6 +86,10 @@
     - type: GasCanister
     - type: StaticPrice
       price: 1000
+    - type: AccessReader
+      access: [["Atmospherics"], ["ResearchDirector"]]
+    - type: Lock
+      locked: false
 
 - type: entity
   parent: GasCanister
@@ -115,6 +125,7 @@
               max: 1
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
+        - !type:DumpCanisterBehavior
 
 # Filled canisters, contain 1871.71051 moles each
 
@@ -148,6 +159,7 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+      - !type:DumpCanisterBehavior
 
 - type: entity
   parent: GasCanister
@@ -178,6 +190,7 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+      - !type:DumpCanisterBehavior
 
 - type: entity
   parent: GasCanister
@@ -209,6 +222,7 @@
               max: 1
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
+        - !type:DumpCanisterBehavior
 
 - type: entity
   parent: GasCanister
@@ -241,6 +255,9 @@
               max: 1
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
+        - !type:DumpCanisterBehavior
+    - type: Lock
+      locked: true
 
 - type: entity
   parent: GasCanister
@@ -275,6 +292,8 @@
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
         - !type:DumpCanisterBehavior
+    - type: Lock
+      locked: true
 
 - type: entity
   parent: GasCanister
@@ -309,6 +328,9 @@
               max: 1
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
+        - !type:DumpCanisterBehavior
+    - type: Lock
+      locked: true
 
 - type: entity
   parent: GasCanister
@@ -344,6 +366,7 @@
               max: 1
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
+        - !type:DumpCanisterBehavior
 
 - type: entity
   parent: GasCanister
@@ -380,6 +403,9 @@
               max: 1
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
+        - !type:DumpCanisterBehavior
+    - type: Lock
+      locked: true
 
 - type: entity
   parent: GasCanister
@@ -417,6 +443,7 @@
               max: 1
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
+        - !type:DumpCanisterBehavior
 
 - type: entity
   parent: GasCanister
@@ -454,11 +481,14 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+      - !type:DumpCanisterBehavior
+  - type: Lock
+    locked: true
 
 # Broke Entities
 
 - type: entity
-  parent: BaseStructure
+  parent: BaseStructureDynamic
   id: GasCanisterBrokenBase
   components:
     - type: Destructible
@@ -491,11 +521,14 @@
       - shape:
           !type:PhysShapeAabb
           bounds: "-0.4,-0.3,0.4,0.3"
-        mass: 25
+        density: 190
         mask:
         - MachineMask
         layer:
         - MachineLayer
+    - type: Recyclable
+    - type: StaticPrice
+      price: 60
 
 - type: entity
   parent: GasCanisterBrokenBase

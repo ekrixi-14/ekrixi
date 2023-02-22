@@ -4,6 +4,7 @@ using Content.Shared.Inventory;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Movement.Components
@@ -69,7 +70,7 @@ namespace Content.Shared.Movement.Components
                     return false;
             }
 
-            if (!entityManager.GetComponent<GravityComponent>(grid.GridEntityId).EnabledVV)
+            if (!entityManager.GetComponent<GravityComponent>(grid.Owner).EnabledVV)
             {
                 return true;
             }

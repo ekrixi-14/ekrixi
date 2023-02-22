@@ -23,6 +23,12 @@
       "name": "can-connector"
     },
     {
+      "name": "can-locked"
+    },
+    {
+      "name": "can-unlocked"
+    },
+    {
       "name": "can-o0",
       "delays": [
         [
@@ -105,6 +111,12 @@
     },
     {
       "name": "water_vapor-1"
+    },
+    {
+      "name": "scrubber-connector"
+    },
+    {
+      "name": "scrubber-open"
     }
   ]
 }

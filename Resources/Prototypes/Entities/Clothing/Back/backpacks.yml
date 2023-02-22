@@ -15,6 +15,10 @@
     - back
   - type: Storage
     capacity: 100
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
   - type: UserInterface
     interfaces:
     - key: enum.StorageUiKey.Key
@@ -113,17 +117,26 @@
   - type: Sprite
     sprite: Clothing/Back/Backpacks/virology.rsi
 
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackSalvage
+  name: salvage bag
+  description: A robust backpack for stashing your loot.
+  components:
+    - type: Sprite
+      sprite: Clothing/Back/Backpacks/salvage.rsi
+
 #ERT
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackERTLeader
-  name: ERT commander backpack
+  name: ERT leader backpack
   description: A spacious backpack with lots of pockets, worn by the Commander of an Emergency Response Team.
   components:
   - type: Sprite
     sprite: Clothing/Back/Backpacks/ertleader.rsi
   - type: Storage
-    capacity: 200
+    capacity: 250
 
 - type: entity
   parent: ClothingBackpackERTLeader
@@ -187,4 +200,4 @@
   - type: Clothing
     equippedPrefix: holding
   - type: Storage
-    capacity: 10000
+    capacity: 9999

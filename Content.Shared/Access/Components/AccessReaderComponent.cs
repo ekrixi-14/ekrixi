@@ -8,13 +8,6 @@ namespace Content.Shared.Access.Components
     public sealed class AccessReaderComponent : Component
     {
         /// <summary>
-        ///     Whether this reader is enabled or not. If disabled, all access
-        ///     checks will pass.
-        /// </summary>
-        [ViewVariables(VVAccess.ReadWrite)]
-        public bool Enabled = true;
-
-        /// <summary>
         ///     The set of tags that will automatically deny an allowed check, if any of them are present.
         /// </summary>
         public HashSet<string> DenyTags = new();
@@ -24,7 +17,6 @@ namespace Content.Shared.Access.Components
         ///     there has to be an access list that is a subset of the access in the checking list.
         /// </summary>
         [DataField("access")]
-        [ViewVariables]
         public List<HashSet<string>> AccessLists = new();
     }
 }

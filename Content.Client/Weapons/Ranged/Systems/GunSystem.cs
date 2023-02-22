@@ -63,7 +63,7 @@ public sealed partial class GunSystem : SharedGunSystem
         base.Initialize();
         UpdatesOutsidePrediction = true;
         SubscribeLocalEvent<AmmoCounterComponent, ItemStatusCollectMessage>(OnAmmoCounterCollect);
-        SubscribeLocalEvent<GunComponent, MuzzleFlashEvent>(OnMuzzleFlash);
+        SubscribeAllEvent<MuzzleFlashEvent>(OnMuzzleFlash);
 
         // Plays animated effects on the client.
         SubscribeNetworkEvent<HitscanEvent>(OnHitscan);
@@ -72,9 +72,9 @@ public sealed partial class GunSystem : SharedGunSystem
         InitializeSpentAmmo();
     }
 
-    private void OnMuzzleFlash(EntityUid uid, GunComponent component, MuzzleFlashEvent args)
+    private void OnMuzzleFlash(MuzzleFlashEvent args)
     {
-        CreateEffect(uid, args);
+        CreateEffect(args.Uid, args);
     }
 
     private void OnHitscan(HitscanEvent ev)
@@ -82,7 +82,11 @@ public sealed partial class GunSystem : SharedGunSystem
         // ALL I WANT IS AN ANIMATED EFFECT
         foreach (var a in ev.Sprites)
         {
-            if (a.Sprite is not SpriteSpecifier.Rsi rsi) continue;
+            if (a.Sprite is not SpriteSpecifier.Rsi rsi ||
+                Deleted(a.coordinates.EntityId))
+            {
+                continue;
+            }
 
             var ent = Spawn("HitscanEffect", a.coordinates);
             var sprite = Comp<SpriteComponent>(ent);
@@ -145,18 +149,17 @@ public sealed partial class GunSystem : SharedGunSystem
             return;
 
         var mousePos = _eyeManager.ScreenToMap(_inputManager.MouseScreenPosition);
-        EntityCoordinates coordinates;
 
-        // Bro why would I want a ternary here
-        // ReSharper disable once ConvertIfStatementToConditionalTernaryExpression
-        if (MapManager.TryFindGridAt(mousePos, out var grid))
+        if (mousePos.MapId == MapId.Nullspace)
         {
-            coordinates = EntityCoordinates.FromMap(grid.GridEntityId, mousePos, EntityManager);
+            if (gun.ShotCounter != 0)
+                EntityManager.RaisePredictiveEvent(new RequestStopShootEvent { Gun = gun.Owner });
+
+            return;
         }
-        else
-        {
-            coordinates = EntityCoordinates.FromMap(MapManager.GetMapEntityId(mousePos.MapId), mousePos, EntityManager);
-        }
+
+        // Define target coordinates relative to gun entity, so that network latency on moving grids doesn't fuck up the target location.
+        var coordinates = EntityCoordinates.FromMap(entity, mousePos, EntityManager);
 
         Sawmill.Debug($"Sending shoot request tick {Timing.CurTick} / {Timing.CurTime}");
 
@@ -183,7 +186,7 @@ public sealed partial class GunSystem : SharedGunSystem
                     {
                         SetCartridgeSpent(cartridge, true);
                         MuzzleFlash(gun.Owner, cartridge, user);
-                        PlaySound(gun.Owner, gun.SoundGunshot?.GetSound(Random, ProtoManager), user);
+                        Audio.PlayPredicted(gun.SoundGunshot, gun.Owner, user);
                         Recoil(user, direction);
                         // TODO: Can't predict entity deletions.
                         //if (cartridge.DeleteOnSpawn)
@@ -191,7 +194,7 @@ public sealed partial class GunSystem : SharedGunSystem
                     }
                     else
                     {
-                        PlaySound(gun.Owner, gun.SoundEmpty?.GetSound(Random, ProtoManager), user);
+                        Audio.PlayPredicted(gun.SoundEmpty, gun.Owner, user);
                     }
 
                     if (cartridge.Owner.IsClientSide())
@@ -200,7 +203,7 @@ public sealed partial class GunSystem : SharedGunSystem
                     break;
                 case AmmoComponent newAmmo:
                     MuzzleFlash(gun.Owner, newAmmo, user);
-                    PlaySound(gun.Owner, gun.SoundGunshot?.GetSound(Random, ProtoManager), user);
+                    Audio.PlayPredicted(gun.SoundGunshot, gun.Owner, user);
                     Recoil(user, direction);
                     if (newAmmo.Owner.IsClientSide())
                         Del(newAmmo.Owner);
@@ -208,7 +211,7 @@ public sealed partial class GunSystem : SharedGunSystem
                         RemComp<AmmoComponent>(newAmmo.Owner);
                     break;
                 case HitscanPrototype:
-                    PlaySound(gun.Owner, gun.SoundGunshot?.GetSound(Random, ProtoManager), user);
+                    Audio.PlayPredicted(gun.SoundGunshot, gun.Owner, user);
                     Recoil(user, direction);
                     break;
             }
@@ -221,22 +224,27 @@ public sealed partial class GunSystem : SharedGunSystem
         _recoil.KickCamera(user.Value, recoil.Normalized * 0.5f);
     }
 
-    protected override void PlaySound(EntityUid gun, string? sound, EntityUid? user = null)
-    {
-        if (string.IsNullOrEmpty(sound) || user == null || !Timing.IsFirstTimePredicted) return;
-        SoundSystem.Play(sound, Filter.Local(), gun);
-    }
-
     protected override void Popup(string message, EntityUid? uid, EntityUid? user)
     {
         if (uid == null || user == null || !Timing.IsFirstTimePredicted) return;
-        PopupSystem.PopupEntity(message, uid.Value, Filter.Entities(user.Value));
+        PopupSystem.PopupEntity(message, uid.Value, user.Value);
     }
 
     protected override void CreateEffect(EntityUid uid, MuzzleFlashEvent message, EntityUid? user = null)
     {
-        if (!Timing.IsFirstTimePredicted || !TryComp<TransformComponent>(uid, out var xform)) return;
-        var ent = Spawn(message.Prototype, xform.Coordinates);
+        if (!Timing.IsFirstTimePredicted)
+            return;
+
+        EntityCoordinates coordinates;
+
+        if (message.MatchRotation)
+            coordinates = new EntityCoordinates(uid, Vector2.Zero);
+        else if (TryComp<TransformComponent>(uid, out var xform))
+            coordinates = xform.Coordinates;
+        else
+            return;
+
+        var ent = Spawn(message.Prototype, coordinates);
 
         var effectXform = Transform(ent);
         effectXform.LocalRotation -= MathF.PI / 2;
@@ -271,6 +279,7 @@ public sealed partial class GunSystem : SharedGunSystem
         _animPlayer.Play(ent, anim, "muzzle-flash");
         var light = EnsureComp<PointLightComponent>(uid);
 
+        light.NetSyncEnabled = false;
         light.Enabled = true;
         light.Color = Color.FromHex("#cc8e2b");
         light.Radius = 2f;

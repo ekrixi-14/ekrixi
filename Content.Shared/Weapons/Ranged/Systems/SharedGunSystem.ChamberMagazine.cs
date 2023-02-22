@@ -1,7 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
-using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Examine;
-using Content.Shared.Interaction;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
@@ -16,14 +15,18 @@ public abstract partial class SharedGunSystem
     protected virtual void InitializeChamberMagazine()
     {
         SubscribeLocalEvent<ChamberMagazineAmmoProviderComponent, TakeAmmoEvent>(OnChamberMagazineTakeAmmo);
-        SubscribeLocalEvent<ChamberMagazineAmmoProviderComponent, GetVerbsEvent<Verb>>(OnMagazineVerb);
-        SubscribeLocalEvent<ChamberMagazineAmmoProviderComponent, ItemSlotChangedEvent>(OnMagazineSlotChange);
-        SubscribeLocalEvent<ChamberMagazineAmmoProviderComponent, ActivateInWorldEvent>(OnMagazineActivate);
+        SubscribeLocalEvent<ChamberMagazineAmmoProviderComponent, GetVerbsEvent<AlternativeVerb>>(OnMagazineVerb);
+        SubscribeLocalEvent<ChamberMagazineAmmoProviderComponent, EntInsertedIntoContainerMessage>(OnMagazineSlotChange);
+        SubscribeLocalEvent<ChamberMagazineAmmoProviderComponent, EntRemovedFromContainerMessage>(OnMagazineSlotChange);
+        SubscribeLocalEvent<ChamberMagazineAmmoProviderComponent, UseInHandEvent>(OnMagazineUse);
         SubscribeLocalEvent<ChamberMagazineAmmoProviderComponent, ExaminedEvent>(OnChamberMagazineExamine);
     }
 
     private void OnChamberMagazineExamine(EntityUid uid, ChamberMagazineAmmoProviderComponent component, ExaminedEvent args)
     {
+        if (!args.IsInDetailsRange)
+            return;
+
         var (count, _) = GetChamberMagazineCountCapacity(component);
         args.PushMarkup(Loc.GetString("gun-magazine-examine", ("color", AmmoExamineColor), ("count", count)));
     }
@@ -106,7 +109,7 @@ public abstract partial class SharedGunSystem
         }
         else
         {
-            appearance?.SetData(AmmoVisuals.MagLoaded, false);
+            Appearance.SetData(uid, AmmoVisuals.MagLoaded, false, appearance);
             return;
         }
 
