@@ -120,6 +120,12 @@ public sealed class SpeciesPrototype : IPrototype
     /// </summary>
     [DataField("maxAge")]
     public int MaxAge = 120;
+
+    [DataField("minHeight")]
+    public float MinHeight = 0.9f;
+
+    [DataField("maxHeight")]
+    public float MaxHeight = 1.1f;
 }
 
 public enum SpeciesNaming : byte
