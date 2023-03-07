@@ -176,12 +176,13 @@ namespace Content.Shared.Preferences
 
             var sex = Sex.Unsexed;
             var age = 18;
+            var height = 1f;
             if (prototypeManager.TryIndex<SpeciesPrototype>(species, out var speciesPrototype))
             {
                 sex = random.Pick(speciesPrototype.Sexes);
                 age = random.Next(speciesPrototype.MinAge, speciesPrototype.OldAge); // people don't look and keep making 119 year old characters with zero rp, cap it at middle aged
+                height = random.NextFloat(speciesPrototype.MinHeight, speciesPrototype.MaxHeight);
             }
-            var height = random.NextFloat(species.MinSize, species.MaxSize);
 
             var gender = sex == Sex.Male ? Gender.Male : Gender.Female;
 
@@ -444,7 +445,7 @@ namespace Content.Shared.Preferences
                 flavortext = FormattedMessage.RemoveMarkup(FlavorText);
             }
 
-            var height = Math.Clamp(Height, 0.9, 1.1);
+            var height = (float) Math.Clamp(Height, 0.9, 1.1);
 
             var appearance = HumanoidCharacterAppearance.EnsureValid(Appearance, Species);
 
@@ -533,7 +534,6 @@ namespace Content.Shared.Preferences
                 HashCode.Combine(
                     Name,
                     Species,
-                    Height,
                     Age,
                     Sex,
                     Gender,
@@ -541,6 +541,7 @@ namespace Content.Shared.Preferences
                     Clothing,
                     Backpack
                 ),
+                Height,
                 PreferenceUnavailable,
                 _jobPriorities,
                 _antagPreferences,

@@ -977,9 +977,9 @@ namespace Content.Client.Preferences.UI
             }
 
             var species = _speciesList.Find(x => x.ID == Profile.Species)!;
-            CHeight.MaxValue = species.MaxSize;
-            CHeight.MinValue = species.MinSize;
-            CHeight.Value = Math.Clamp(Profile.Height, species.MinSize, species.MaxSize);
+            CHeight.MaxValue = species.MaxHeight;
+            CHeight.MinValue = species.MinHeight;
+            CHeight.Value = Math.Clamp(Profile.Height, species.MinHeight, species.MaxHeight);
         }
 
         private void UpdateGenderControls()
