@@ -1,6 +1,5 @@
 using System.Linq;
 using Content.Server.Actions.Events;
-using Content.Server.Administration.Components;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Chemistry.Components;
@@ -9,17 +8,18 @@ using Content.Server.CombatMode;
 using Content.Server.CombatMode.Disarm;
 using Content.Server.Contests;
 using Content.Server.Examine;
-using Content.Server.Hands.Components;
 using Content.Server.Movement.Systems;
+using Content.Shared.Administration.Components;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.FixedPoint;
+using Content.Shared.Hands.Components;
 using Content.Shared.IdentityManagement;
+using Content.Shared.StatusEffect;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
-using Content.Shared.StatusEffect;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
@@ -236,7 +236,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
             return;
         }
 
-        var hitBloodstreams = new List<BloodstreamComponent>();
+        var hitBloodstreams = new List<(EntityUid Entity, BloodstreamComponent Component)>();
         var bloodQuery = GetEntityQuery<BloodstreamComponent>();
 
         foreach (var entity in args.HitEntities)
@@ -245,7 +245,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
                 continue;
 
             if (bloodQuery.TryGetComponent(entity, out var bloodstream))
-                hitBloodstreams.Add(bloodstream);
+                hitBloodstreams.Add((entity, bloodstream));
         }
 
         if (!hitBloodstreams.Any())
@@ -256,10 +256,10 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         var solutionToInject = removedSolution.SplitSolution(removedVol * comp.TransferEfficiency);
         var volPerBloodstream = solutionToInject.Volume * (1 / hitBloodstreams.Count);
 
-        foreach (var bloodstream in hitBloodstreams)
+        foreach (var (ent, bloodstream) in hitBloodstreams)
         {
             var individualInjection = solutionToInject.SplitSolution(volPerBloodstream);
-            _bloodstream.TryAddToChemicals((bloodstream).Owner, individualInjection, bloodstream);
+            _bloodstream.TryAddToChemicals(ent, individualInjection, bloodstream);
         }
     }
 }
