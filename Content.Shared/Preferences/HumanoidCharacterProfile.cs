@@ -198,6 +198,9 @@ namespace Content.Shared.Preferences
         public string FlavorText { get; private set; }
         public string Species { get; private set; }
 
+        [DataField("height")]
+        public float Height { get; private set; }
+
         [DataField("age")]
         public int Age { get; private set; }
 
