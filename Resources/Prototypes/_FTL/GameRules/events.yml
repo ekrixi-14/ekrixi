@@ -1,0 +1,9 @@
+- type: entity
+  id: FireGrowth
+  parent: BaseGameRule
+  noSpawn: true
+  components:
+    - type: StationEvent
+      endAnnouncement: station-event-fire-announcement
+      duration: 10
+    - type: FireGrowthRule
