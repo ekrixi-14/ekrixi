@@ -2,7 +2,7 @@
 
 namespace Content.Server.StationEvents.Components;
 
-[RegisterComponent, Access(typeof(KudzuGrowthRule))]
+[RegisterComponent, Access(typeof(FireGrowthRuleComponent))]
 public sealed class KudzuGrowthRuleComponent : Component
 {
 
