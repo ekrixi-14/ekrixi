@@ -1,3 +1,6 @@
+using Content.Server.DeviceLinking.Events;
+using Content.Server.DeviceLinking.Systems;
+using Content.Server.DeviceNetwork;
 using Content.Server.Storage.Components;
 using Content.Shared._FTL.Weapons;
 using Content.Shared.Damage;
@@ -20,6 +23,7 @@ public sealed class WeaponTargetingSystem : SharedWeaponTargetingSystem
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly StaminaSystem _staminaSystem = default!;
+    [Dependency] private readonly DeviceLinkSystem _deviceLinkSystem = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -29,9 +33,22 @@ public sealed class WeaponTargetingSystem : SharedWeaponTargetingSystem
         SubscribeLocalEvent<WeaponTargetingComponent, BoundUIOpenedEvent>(OnStationMapOpened);
         SubscribeLocalEvent<WeaponTargetingComponent, BoundUIClosedEvent>(OnStationMapClosed);
         SubscribeLocalEvent<WeaponTargetingComponent, FireWeaponSendMessage>(OnFireWeaponSendMessage);
+        SubscribeLocalEvent<FTLWeaponComponent, SignalReceivedEvent>(WeaponSignalReceived);
 
         SubscribeLocalEvent<FTLWeaponSiloComponent, StorageAfterCloseEvent>(OnClose);
         SubscribeLocalEvent<FTLWeaponSiloComponent, StorageAfterOpenEvent>(OnOpen);
+    }
+
+    private void WeaponSignalReceived(EntityUid uid, FTLWeaponComponent component, ref SignalReceivedEvent args)
+    {
+        Logger.Debug("received");
+        if (args.Data == null)
+            return;
+
+        foreach(KeyValuePair<string, object> entry in args.Data)
+        {
+            Logger.Debug($"{entry.Key}: {entry.Value}");
+        }
     }
 
     private void OnClose(EntityUid uid, FTLWeaponSiloComponent component, ref StorageAfterCloseEvent args)
@@ -69,7 +86,14 @@ public sealed class WeaponTargetingSystem : SharedWeaponTargetingSystem
         if (!Equals(args.UiKey, WeaponTargetingUiKey.Key) || args.Session.AttachedEntity == null)
             return;
 
-        RemCompDeferred<WeaponTargetingUserComponent>(args.Session.AttachedEntity.Value);
+        var payload = new NetworkPayload()
+        {
+            ["message"] = "goofball"
+        };
+
+        _deviceLinkSystem.InvokePort(uid, "WeaponOutputPort", payload);
+
+        Logger.Debug("sent port");
     }
 
     private void OnStationMapClosed(EntityUid uid, WeaponTargetingComponent component, BoundUIClosedEvent args)

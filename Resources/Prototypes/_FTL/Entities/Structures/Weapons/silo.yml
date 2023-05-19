@@ -36,9 +36,9 @@
       receiveFrequencyId: BasicDevice
     - type: WirelessNetworkConnection
       range: 200
-    - type: DeviceLinkSource
+    - type: DeviceLinkSink
       ports:
-        - WeaponOutputPort
+        - WeaponInputPort
 
 - type: entity
   parent: BaseFTLWeapon

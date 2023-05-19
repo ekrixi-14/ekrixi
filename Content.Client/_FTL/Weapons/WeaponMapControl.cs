@@ -102,7 +102,6 @@ public sealed class WeaponMapControl : MapGridControl
 
 
         _flavor.Text = Loc.GetString($"weapon-control-ui-flavor-{_robustRandom.Next(1, 5)}");
-        FireButton.Disabled = true;
         FireButton.OnPressed += args =>
         {
             if (_lastTargetCoordinates != null)

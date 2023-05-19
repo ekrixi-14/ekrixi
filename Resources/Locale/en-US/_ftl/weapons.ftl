@@ -3,3 +3,9 @@ weapon-control-ui-flavor-2 = DO NOT SIT ON THE WEAPON TARGETING PAD UNDER ANY CI
 weapon-control-ui-flavor-3 = Point, shoot, eradicate.
 weapon-control-ui-flavor-4 = We are not responsible for any damage done with the weapon targeting pad.
 weapon-control-ui-button-fire-text = Fire
+
+signal-port-name-weapons-output = Weapon Output Port
+signal-port-name-weapons-output-description = Link the output port to the input port here.
+
+signal-port-name-weapons-input = Weapon Input Port
+signal-port-name-weapons-input-description = Link the output port to the input port here.

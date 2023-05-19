@@ -1,7 +1,7 @@
 - type: entity
   id: FTLWeaponTargetingPadBroken
   name: weapon targeting pad
-  description: A virtual map of the surrounding station.
+  description: A targeting pad used for targeting and firing.
   suffix: Wall broken
   placement:
     mode: SnapgridCenter
@@ -78,6 +78,6 @@
       receiveFrequencyId: BasicDevice
     - type: WirelessNetworkConnection
       range: 200
-    - type: DeviceLinkSink
+    - type: DeviceLinkSource
       ports:
-        - WeaponPort
+        - WeaponOutputPort

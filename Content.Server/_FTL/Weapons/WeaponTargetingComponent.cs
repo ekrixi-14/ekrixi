@@ -6,7 +6,7 @@ namespace Content.Server._FTL.Weapons;
 [RegisterComponent]
 public sealed class WeaponTargetingComponent : Component
 {
-    [ViewVariables(VVAccess.ReadWrite)] public bool CanFire;
+    [ViewVariables(VVAccess.ReadWrite)] public bool CanFire = true;
 }
 
 /// <summary>

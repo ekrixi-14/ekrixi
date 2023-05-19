@@ -18,7 +18,7 @@ public sealed partial class WeaponTargetingWindow : FancyWindow
         TargetingMapScreen.MapUid = mapUid;
         TargetingMapScreen.SetMatrix(coordiantes, rotation);
 
-        TargetingMapScreen.OnWeaponMapClick += args =>
+        TargetingMapScreen.OnWeaponMapFire += args =>
         {
             _owner.FireWeapon(args);
         };

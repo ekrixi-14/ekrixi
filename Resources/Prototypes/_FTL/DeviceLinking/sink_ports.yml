@@ -1,4 +1,5 @@
-- type: sourcePort
-  id: WeaponOutputPort
-  name: "Weapon Output Port"
-  description: "Link the output port to the input port here."
+- type: sinkPort
+  id: WeaponInputPort
+  name: signal-port-name-weapons-input
+  description: signal-port-name-weapons-input-description
+  defaultLinks: [ WeaponOutputPort ]
