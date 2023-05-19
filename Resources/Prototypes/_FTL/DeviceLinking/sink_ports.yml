@@ -1,0 +1,4 @@
+- type: sinkPort
+  id: WeaponPort
+  name: "Weapon Port"
+  description: "Link the weapon here."
