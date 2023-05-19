@@ -2,6 +2,9 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared._FTL.Weapons;
 
+/// <summary>
+/// The system used for targeting and weapons.
+/// </summary>
 public abstract class SharedWeaponTargetingSystem : EntitySystem
 {
 

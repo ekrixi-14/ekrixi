@@ -1,0 +1,4 @@
+- type: sinkPort
+  id: WeaponOutputPort
+  name: "Weapon Output Port"
+  description: "Link the to the input port here."

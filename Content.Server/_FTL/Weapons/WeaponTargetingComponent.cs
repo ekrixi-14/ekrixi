@@ -1,7 +1,7 @@
 namespace Content.Server._FTL.Weapons;
 
 /// <summary>
-/// This is used for...
+/// This is used for tracking a weapon pad.
 /// </summary>
 [RegisterComponent]
 public sealed class WeaponTargetingComponent : Component

@@ -1,4 +1,4 @@
 - type: sinkPort
   id: WeaponPort
-  name: "Weapon Port"
-  description: "Link the weapon here."
+  name: "Weapon Input Port"
+  description: "Link the output port here."

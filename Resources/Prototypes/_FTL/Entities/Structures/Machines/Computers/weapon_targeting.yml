@@ -1,5 +1,5 @@
 - type: entity
-  id: WeaponTargetingPadBroken
+  id: FTLWeaponTargetingPadBroken
   name: weapon targeting pad
   description: A virtual map of the surrounding station.
   suffix: Wall broken
@@ -29,9 +29,9 @@
               acts: [ "Destruction" ]
 
 - type: entity
-  id: WeaponTargetingPad
+  id: FTLWeaponTargetingPad
   name: weapon targeting pad
-  parent: WeaponTargetingPadBroken
+  parent: FTLWeaponTargetingPadBroken
   suffix: Wall
   placement:
     mode: SnapgridCenter
