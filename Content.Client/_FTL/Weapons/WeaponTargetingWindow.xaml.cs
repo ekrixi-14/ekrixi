@@ -34,6 +34,6 @@ public sealed partial class WeaponTargetingWindow : FancyWindow
 
     public void UpdateState(WeaponTargetingUserInterfaceState state)
     {
-        TargetingMapScreen.FireButton.Disabled = !state.CanFire || TargetingMapScreen.TargetChosen;
+        TargetingMapScreen.FireButton.Disabled = !state.CanFire;
     }
 }

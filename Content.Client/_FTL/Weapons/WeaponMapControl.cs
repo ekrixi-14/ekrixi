@@ -38,7 +38,6 @@ public sealed class WeaponMapControl : MapGridControl
 
     private Vector2 _offset;
     private bool _draggin;
-    public bool TargetChosen;
 
     private bool _recentering = false;
 
@@ -156,10 +155,12 @@ public sealed class WeaponMapControl : MapGridControl
         var pos = screen.Position / UIScale - GlobalPosition;
         var a = InverseScalePosition(pos);
 
-        // TODO: Fix the obnoxiously fucking large offset holy hell
+        // TODO: Fix the offset going in the opposite position relative to the origin (which is the center)?????? Wtf????
+        // TODO: Fix the large offset????? what the FUCK is this code
         var matrix = Matrix3.CreateTransform(a, _rotation.Value, new Vector2 {X = WorldRange, Y = WorldRange});
         var b = matrix.Transform(_offset);
-        var relativeWorldPos = new Vector2(b.X, -b.Y / 2);
+        // making this positive does a weird ass offset relative to origin thing which is accurate to the cursor but not. this makes it static but with an offset so whatever
+        var relativeWorldPos  = -new Vector2(b.X, -b.Y / 2);
         relativeWorldPos = _rotation.Value.RotateVec(relativeWorldPos);
 
         var coords = _coordinates.Value.Offset(relativeWorldPos);
@@ -167,8 +168,6 @@ public sealed class WeaponMapControl : MapGridControl
         TrackedCoordinates.Add(coords, (true, Color.Blue));
         Logger.Debug(coords.ToString());
         _lastTargetCoordinates = coords;
-
-        TargetChosen = true;
 
         return coords;
     }
