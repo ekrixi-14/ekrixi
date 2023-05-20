@@ -1,3 +1,4 @@
+using Robust.Shared.Map;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._FTL.Weapons;
@@ -19,7 +20,12 @@ public enum WeaponTargetingUiKey : byte
 [Serializable, NetSerializable]
 public sealed class FireWeaponSendMessage : BoundUserInterfaceMessage
 {
+    public EntityCoordinates Coordinates;
 
+    public FireWeaponSendMessage(EntityCoordinates coordinates)
+    {
+        Coordinates = coordinates;
+    }
 }
 
 [Serializable, NetSerializable]

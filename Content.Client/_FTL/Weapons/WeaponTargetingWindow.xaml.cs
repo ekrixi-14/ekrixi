@@ -11,12 +11,12 @@ public sealed partial class WeaponTargetingWindow : FancyWindow
 {
     private WeaponTargetingBoundUserInterface _owner;
 
-    public WeaponTargetingWindow(WeaponTargetingBoundUserInterface owner, EntityUid? mapUid, EntityCoordinates? coordiantes, Angle? rotation, EntityUid? trackedEntity)
+    public WeaponTargetingWindow(WeaponTargetingBoundUserInterface owner, EntityUid? mapUid, EntityCoordinates? coordinates, Angle? rotation, EntityUid? trackedEntity = null)
     {
         RobustXamlLoader.Load(this);
         _owner = owner;
         TargetingMapScreen.MapUid = mapUid;
-        TargetingMapScreen.SetMatrix(coordiantes, rotation);
+        TargetingMapScreen.SetMatrix(coordinates, rotation);
 
         TargetingMapScreen.OnWeaponMapFire += args =>
         {

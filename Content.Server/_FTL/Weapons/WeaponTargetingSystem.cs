@@ -10,6 +10,7 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Storage.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
+using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._FTL.Weapons;
@@ -24,6 +25,8 @@ public sealed class WeaponTargetingSystem : SharedWeaponTargetingSystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly StaminaSystem _staminaSystem = default!;
     [Dependency] private readonly DeviceLinkSystem _deviceLinkSystem = default!;
+    [Dependency] private readonly EntityManager _entityManager = default!;
+    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -33,15 +36,41 @@ public sealed class WeaponTargetingSystem : SharedWeaponTargetingSystem
         SubscribeLocalEvent<WeaponTargetingComponent, BoundUIOpenedEvent>(OnStationMapOpened);
         SubscribeLocalEvent<WeaponTargetingComponent, BoundUIClosedEvent>(OnStationMapClosed);
         SubscribeLocalEvent<WeaponTargetingComponent, FireWeaponSendMessage>(OnFireWeaponSendMessage);
+
         SubscribeLocalEvent<FTLWeaponComponent, SignalReceivedEvent>(WeaponSignalReceived);
 
         SubscribeLocalEvent<FTLWeaponSiloComponent, StorageAfterCloseEvent>(OnClose);
         SubscribeLocalEvent<FTLWeaponSiloComponent, StorageAfterOpenEvent>(OnOpen);
     }
 
+    public override void Update(float delta)
+    {
+        foreach (var comp in EntityManager.EntityQuery<FTLActiveCooldownWeaponComponent>())
+        {
+            comp.SecondsLeft -= delta;
+            if (comp.SecondsLeft <= 0)
+            {
+                TryComp<FTLWeaponComponent>(comp.Owner, out var weaponComponent);
+                TryComp<WeaponTargetingComponent>(comp.Owner, out var targetingComponent);
+                if (weaponComponent != null)
+                    weaponComponent.CanBeUsed = true;
+                if (targetingComponent != null)
+                    targetingComponent.CanFire = true;
+
+                _entityManager.RemoveComponent<FTLActiveCooldownWeaponComponent>(comp.Owner);
+            }
+        }
+    }
+
     private void WeaponSignalReceived(EntityUid uid, FTLWeaponComponent component, ref SignalReceivedEvent args)
     {
         Logger.Debug("received");
+        if (!component.CanBeUsed)
+        {
+            _audioSystem.PlayPvs(component.CooldownSound, uid);
+            return;
+        }
+
         if (args.Data == null)
             return;
 
@@ -49,6 +78,56 @@ public sealed class WeaponTargetingSystem : SharedWeaponTargetingSystem
         {
             Logger.Debug($"{entry.Key}: {entry.Value}");
         }
+
+        var coordinates = (EntityCoordinates) args.Data["coordinates"];
+
+        TryFireWeapon(uid, component, coordinates);
+    }
+
+    private void TryFireWeapon(EntityUid uid, FTLWeaponComponent component, EntityCoordinates coordinates)
+    {
+        TryComp<FTLWeaponSiloComponent>(uid, out var siloComponent);
+        var ammoPrototypeString = "";
+
+        if (siloComponent != null)
+        {
+            if (siloComponent.ContainedEntities != null)
+            {
+                foreach (var entity in siloComponent.ContainedEntities)
+                {
+                    TryComp<FTLAmmoComponent>(entity, out var ammoComponent);
+                    if (ammoComponent != null)
+                    {
+                        Logger.Debug(ammoComponent.Prototype);
+                        ammoPrototypeString = ammoComponent.Prototype;
+                    }
+                    _entityManager.DeleteEntity(entity);
+                }
+            }
+        }
+        else
+        {
+            ammoPrototypeString = component.Prototype;
+        }
+
+        var ammoPrototype = _prototypeManager.Index<FTLAmmoType>(ammoPrototypeString);
+        _entityManager.SpawnEntity(ammoPrototype.Prototype, coordinates);
+        _audioSystem.PlayPvs(component.FireSound, uid);
+
+        component.CanBeUsed = false;
+        TryCooldownWeapon(uid, component);
+    }
+
+    private void TryCooldownWeapon(EntityUid uid, FTLWeaponComponent component)
+    {
+        var comp = EnsureComp<FTLActiveCooldownWeaponComponent>(uid);
+        comp.SecondsLeft = component.CooldownTime;
+    }
+
+    private void TryCooldownWeapon(EntityUid uid, WeaponTargetingComponent component)
+    {
+        var comp = EnsureComp<FTLActiveCooldownWeaponComponent>(uid);
+        comp.SecondsLeft = component.CooldownTime;
     }
 
     private void OnClose(EntityUid uid, FTLWeaponSiloComponent component, ref StorageAfterCloseEvent args)
@@ -71,8 +150,6 @@ public sealed class WeaponTargetingSystem : SharedWeaponTargetingSystem
         var transform = Transform(uid);
         foreach (var entity in component.ContainedEntities)
         {
-            Logger.Debug(entity.ToString());
-            Logger.Debug(transform.LocalRotation.ToWorldVec().ToString());
             _physicsSystem.ApplyLinearImpulse(entity, -(transform.LocalRotation.ToWorldVec() * 100000f));
             var damage = new DamageSpecifier(_prototypeManager.Index<DamageGroupPrototype>("Brute"),
                 FixedPoint2.New(50));
@@ -86,14 +163,17 @@ public sealed class WeaponTargetingSystem : SharedWeaponTargetingSystem
         if (!Equals(args.UiKey, WeaponTargetingUiKey.Key) || args.Session.AttachedEntity == null)
             return;
 
-        var payload = new NetworkPayload()
+        if (TryComp<FTLActiveCooldownWeaponComponent>(uid, out var activeComp))
+            return;
+
+        var payload = new NetworkPayload
         {
-            ["message"] = "goofball"
+            ["message"] = "goofball",
+            ["coordinates"] = args.Coordinates
         };
 
         _deviceLinkSystem.InvokePort(uid, "WeaponOutputPort", payload);
-
-        Logger.Debug("sent port");
+        TryCooldownWeapon(uid, component);
     }
 
     private void OnStationMapClosed(EntityUid uid, WeaponTargetingComponent component, BoundUIClosedEvent args)

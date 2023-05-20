@@ -1,5 +1,3 @@
-using Robust.Shared.Containers;
-
 namespace Content.Server._FTL.Weapons;
 
 /// <summary>
