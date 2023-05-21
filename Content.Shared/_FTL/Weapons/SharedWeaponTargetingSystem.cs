@@ -21,10 +21,12 @@ public enum WeaponTargetingUiKey : byte
 public sealed class FireWeaponSendMessage : BoundUserInterfaceMessage
 {
     public EntityCoordinates Coordinates;
+    public EntityUid TargetGrid;
 
-    public FireWeaponSendMessage(EntityCoordinates coordinates)
+    public FireWeaponSendMessage(EntityCoordinates coordinates, EntityUid targetGrid)
     {
         Coordinates = coordinates;
+        TargetGrid = targetGrid;
     }
 }
 

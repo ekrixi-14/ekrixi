@@ -1,3 +1,4 @@
+using Content.Server._FTL.ShipHealth;
 using Content.Server.DeviceLinking.Events;
 using Content.Server.DeviceLinking.Systems;
 using Content.Server.DeviceNetwork;
@@ -27,6 +28,7 @@ public sealed class WeaponTargetingSystem : SharedWeaponTargetingSystem
     [Dependency] private readonly DeviceLinkSystem _deviceLinkSystem = default!;
     [Dependency] private readonly EntityManager _entityManager = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
+    [Dependency] private readonly FTLShipHealthSystem _shipHealthSystem = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -80,11 +82,12 @@ public sealed class WeaponTargetingSystem : SharedWeaponTargetingSystem
         }
 
         var coordinates = (EntityCoordinates) args.Data["coordinates"];
+        var targetGrid = (EntityUid) args.Data["targetGrid"];
 
-        TryFireWeapon(uid, component, coordinates);
+        TryFireWeapon(uid, component, targetGrid, coordinates);
     }
 
-    private void TryFireWeapon(EntityUid uid, FTLWeaponComponent component, EntityCoordinates coordinates)
+    private void TryFireWeapon(EntityUid uid, FTLWeaponComponent component, EntityUid targetGrid, EntityCoordinates coordinates)
     {
         TryComp<FTLWeaponSiloComponent>(uid, out var siloComponent);
         var ammoPrototypeString = "";
@@ -111,8 +114,12 @@ public sealed class WeaponTargetingSystem : SharedWeaponTargetingSystem
         }
 
         var ammoPrototype = _prototypeManager.Index<FTLAmmoType>(ammoPrototypeString);
-        _entityManager.SpawnEntity(ammoPrototype.Prototype, coordinates);
-        _audioSystem.PlayPvs(component.FireSound, uid);
+        TryComp<FTLShipHealthComponent>(targetGrid, out var shipHealthComponent);
+        if (shipHealthComponent != null && _shipHealthSystem.TryDamageShip(shipHealthComponent, ammoPrototype))
+        {
+            _entityManager.SpawnEntity(ammoPrototype.Prototype, coordinates);
+            _audioSystem.PlayPvs(component.FireSound, uid);
+        }
 
         component.CanBeUsed = false;
         TryCooldownWeapon(uid, component);
@@ -169,7 +176,8 @@ public sealed class WeaponTargetingSystem : SharedWeaponTargetingSystem
         var payload = new NetworkPayload
         {
             ["message"] = "goofball",
-            ["coordinates"] = args.Coordinates
+            ["coordinates"] = args.Coordinates,
+            ["targetGrid"] = args.TargetGrid
         };
 
         _deviceLinkSystem.InvokePort(uid, "WeaponOutputPort", payload);

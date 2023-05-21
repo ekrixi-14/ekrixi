@@ -15,13 +15,13 @@ public sealed class FTLAmmoType : IPrototype
     public string ID { get; } = default!;
 
     [DataField("bypassShield")]
-    public bool? ShieldPiercing { get; set; }
+    public bool ShieldPiercing { get; set; } = false;
 
     [DataField("hullMin")]
-    public int? HullDamageMin { get; set; }
+    public int HullDamageMin { get; set; } = 1;
 
     [DataField("hullMax")]
-    public int? HullDamageMax { get; set; }
+    public int HullDamageMax { get; set; } = 3;
 
     [DataField("prototype", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string Prototype { get; set; } = "";
