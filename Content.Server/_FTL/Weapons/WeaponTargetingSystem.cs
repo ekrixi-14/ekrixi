@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Server._FTL.ShipHealth;
 using Content.Server.DeviceLinking.Events;
 using Content.Server.DeviceLinking.Systems;
@@ -206,7 +207,9 @@ public sealed class WeaponTargetingSystem : SharedWeaponTargetingSystem
             return;
 
         var comp = EnsureComp<WeaponTargetingUserComponent>(args.Session.AttachedEntity.Value);
-        var state = new WeaponTargetingUserInterfaceState(component.CanFire);
+        // collect grids
+        var grids = EntityQuery<FTLShipHealthComponent>().Select(x => x.Owner).ToList();
+        var state = new WeaponTargetingUserInterfaceState(component.CanFire, grids);
         _uiSystem.TrySetUiState(uid, WeaponTargetingUiKey.Key, state);
         comp.Map = uid;
     }

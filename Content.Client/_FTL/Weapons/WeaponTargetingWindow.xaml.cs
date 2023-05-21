@@ -20,7 +20,8 @@ public sealed partial class WeaponTargetingWindow : FancyWindow
 
         TargetingMapScreen.OnWeaponMapFire += args =>
         {
-            _owner.FireWeapon(args);
+            if (mapUid != null)
+                _owner.FireWeapon(args, mapUid.Value);
         };
 
         if (trackedEntity != null)
@@ -35,5 +36,6 @@ public sealed partial class WeaponTargetingWindow : FancyWindow
     public void UpdateState(WeaponTargetingUserInterfaceState state)
     {
         TargetingMapScreen.FireButton.Disabled = !state.CanFire;
+        TargetingMapScreen.MapUids = state.MapUids;
     }
 }

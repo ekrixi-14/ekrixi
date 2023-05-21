@@ -9,7 +9,7 @@ namespace Content.Server._FTL.ShipHealth;
 /// </summary>
 public sealed class FTLShipHealthSystem : EntitySystem
 {
-    [Dependency] private RobustRandom _random = default!;
+    [Dependency] private IRobustRandom _random = default!;
     [Dependency] private ExplosionSystem _explosionSystem = default!;
     [Dependency] private EntityManager _entityManager = default!;
 

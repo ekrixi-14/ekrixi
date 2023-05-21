@@ -30,9 +30,9 @@ public sealed class WeaponTargetingBoundUserInterface : BoundUserInterface
         _window.OnClose += Close;
     }
 
-    public void FireWeapon(EntityCoordinates entityCoordinates)
+    public void FireWeapon(EntityCoordinates entityCoordinates, EntityUid targetGrid)
     {
-        var message = new FireWeaponSendMessage(entityCoordinates);
+        var message = new FireWeaponSendMessage(entityCoordinates, targetGrid);
 
         SendMessage(message);
     }

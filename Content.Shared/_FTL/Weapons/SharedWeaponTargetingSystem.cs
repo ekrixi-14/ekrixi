@@ -34,9 +34,11 @@ public sealed class FireWeaponSendMessage : BoundUserInterfaceMessage
 public sealed class WeaponTargetingUserInterfaceState : BoundUserInterfaceState
 {
     public bool CanFire;
+    public List<EntityUid> MapUids;
 
-    public WeaponTargetingUserInterfaceState(bool canFire)
+    public WeaponTargetingUserInterfaceState(bool canFire, List<EntityUid> mapUids)
     {
         CanFire = canFire;
+        MapUids = mapUids;
     }
 }

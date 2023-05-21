@@ -27,6 +27,7 @@ public sealed class WeaponMapControl : MapGridControl
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
 
     public EntityUid? MapUid;
+    public List<EntityUid>? MapUids;
 
     /// <summary>
     /// Raised if the user right-clicks on the radar control with the relevant entitycoordinates.
@@ -53,6 +54,12 @@ public sealed class WeaponMapControl : MapGridControl
         VerticalAlignment = VAlignment.Top,
         Margin = new Thickness(8f, 8f)
     };
+
+    // private readonly MultipleSE _selectMapUid = new()
+    // {
+    //     VerticalAlignment = VAlignment.Top,
+    //     Margin = new Thickness(8f, 8f)
+    // };
 
     public readonly Button FireButton = new()
     {
@@ -110,6 +117,14 @@ public sealed class WeaponMapControl : MapGridControl
 
         AddChild(topContainer);
         topPanel.Measure(Vector2.Infinity);
+
+        if (MapUids != null)
+        {
+            foreach (var map in MapUids)
+            {
+                Logger.Debug(map.ToString());
+            }
+        }
     }
 
     public void SetMatrix(EntityCoordinates? coordinates, Angle? angle)
