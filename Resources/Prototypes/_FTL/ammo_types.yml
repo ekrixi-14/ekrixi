@@ -4,3 +4,10 @@
   hullMin: 3
   hullMax: 6
   prototype: BulletRocket
+
+- type: ftlAmmo
+  id: IncendiaryMissile
+  bypassShield: true
+  hullMin: 0
+  hullMax: 0
+  prototype: FTLFire

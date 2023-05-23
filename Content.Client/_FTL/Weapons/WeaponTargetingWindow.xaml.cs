@@ -33,6 +33,11 @@ public sealed partial class WeaponTargetingWindow : FancyWindow
         }
     }
 
+    public void ChangeGrid(EntityUid gridUid)
+    {
+        TargetingMapScreen.MapUid = gridUid;
+    }
+
     public void UpdateState(WeaponTargetingUserInterfaceState state)
     {
         TargetingMapScreen.FireButton.Disabled = !state.CanFire;

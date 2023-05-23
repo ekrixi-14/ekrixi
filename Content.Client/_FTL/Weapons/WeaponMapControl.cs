@@ -25,15 +25,20 @@ public sealed class WeaponMapControl : MapGridControl
     [Dependency] private readonly IEntityManager _entManager = default!;
     [Dependency] private readonly IInputManager _inputManager = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
+    [Dependency] private readonly EntityManager _entityManager = default!;
 
     public EntityUid? MapUid;
     public List<EntityUid>? MapUids;
+    private bool SelectLoaded = false;
 
     /// <summary>
     /// Raised if the user right-clicks on the radar control with the relevant entitycoordinates.
     /// </summary>
     public Action<EntityCoordinates>? OnWeaponMapClick;
+
     public Action<EntityCoordinates>? OnWeaponMapFire;
+
+    public Action<EntityUid>? OnGridSwitchRequest;
 
     public Dictionary<EntityCoordinates, (bool Visible, Color Color)> TrackedCoordinates = new();
 
@@ -52,14 +57,16 @@ public sealed class WeaponMapControl : MapGridControl
     private readonly Label _flavor = new()
     {
         VerticalAlignment = VAlignment.Top,
+        HorizontalAlignment = HAlignment.Center,
         Margin = new Thickness(8f, 8f)
     };
 
-    // private readonly MultipleSE _selectMapUid = new()
-    // {
-    //     VerticalAlignment = VAlignment.Top,
-    //     Margin = new Thickness(8f, 8f)
-    // };
+    private readonly OptionButton _selectMapUid = new()
+    {
+        VerticalAlignment = VAlignment.Top,
+        HorizontalAlignment = HAlignment.Left,
+        Margin = new Thickness(8f, 4f)
+    };
 
     public readonly Button FireButton = new()
     {
@@ -88,7 +95,8 @@ public sealed class WeaponMapControl : MapGridControl
             Children =
             {
                 FireButton,
-                _flavor,
+                _selectMapUid,
+                // _flavor,
             }
         };
 
@@ -98,7 +106,7 @@ public sealed class WeaponMapControl : MapGridControl
             Children =
             {
                 topPanel,
-                new Control()
+                new Control
                 {
                     Name = "DrawingControl",
                     VerticalExpand = true,
@@ -117,14 +125,6 @@ public sealed class WeaponMapControl : MapGridControl
 
         AddChild(topContainer);
         topPanel.Measure(Vector2.Infinity);
-
-        if (MapUids != null)
-        {
-            foreach (var map in MapUids)
-            {
-                Logger.Debug(map.ToString());
-            }
-        }
     }
 
     public void SetMatrix(EntityCoordinates? coordinates, Angle? angle)
@@ -142,6 +142,7 @@ public sealed class WeaponMapControl : MapGridControl
             // fuck it we ball
             //_draggin = true;
         }
+
         if (args.Function == EngineKeyFunctions.UseSecondary)
         {
             var coords = GetMouseCoordinates(_inputManager.MouseScreenPosition);
@@ -171,10 +172,10 @@ public sealed class WeaponMapControl : MapGridControl
 
         // TODO: Fix the offset going in the opposite position relative to the origin (which is the center)?????? Wtf????
         // TODO: Fix the large offset????? what the FUCK is this code
-        var matrix = Matrix3.CreateTransform(a, _rotation.Value, new Vector2 {X = WorldRange, Y = WorldRange});
+        var matrix = Matrix3.CreateTransform(a, _rotation.Value, new Vector2 { X = WorldRange, Y = WorldRange });
         var b = matrix.Transform(_offset);
         // making this positive does a weird ass offset relative to origin thing which is accurate to the cursor but not. this makes it static but with an offset so whatever
-        var relativeWorldPos  = -new Vector2(b.X, -b.Y / 2);
+        var relativeWorldPos = -new Vector2(b.X, -b.Y / 2);
         relativeWorldPos = _rotation.Value.RotateVec(relativeWorldPos);
 
         var coords = _coordinates.Value.Offset(relativeWorldPos);
@@ -216,6 +217,36 @@ public sealed class WeaponMapControl : MapGridControl
     {
         base.Draw(handle);
 
+        if (MapUids != null && !SelectLoaded)
+        {
+            Logger.Debug("map uids work");
+            for (var i = 0; i < MapUids.Count; i++)
+            {
+                var map = MapUids[i];
+                _entityManager.TryGetComponent<MetaDataComponent>(map, out var meta);
+                if (meta == null)
+                    continue;
+                _selectMapUid.AddItem(meta.EntityName, i);
+                if (map == MapUid)
+                    _selectMapUid.SelectId(i);
+            }
+
+            _selectMapUid.OnItemSelected += item =>
+            {
+                MapUid = MapUids[item.Id];
+                OnGridSwitchRequest?.Invoke(MapUid.Value);
+            };
+            SelectLoaded = true;
+        }
+
+        if (MapUid != null)
+        {
+            DrawGrid(handle, MapUid.Value);
+        }
+    }
+
+    private void DrawGrid(DrawingHandleScreen handle, EntityUid mapGridUid)
+    {
         if (_recentering)
         {
             var frameTime = Timing.FrameTime;
@@ -232,9 +263,9 @@ public sealed class WeaponMapControl : MapGridControl
             }
         }
 
-        if (!_entManager.TryGetComponent<NavMapComponent>(MapUid, out var navMap) ||
-            !_entManager.TryGetComponent<TransformComponent>(MapUid, out var xform) ||
-            !_entManager.TryGetComponent<MapGridComponent>(MapUid, out var grid))
+        if (!_entManager.TryGetComponent<NavMapComponent>(mapGridUid, out var navMap) ||
+            !_entManager.TryGetComponent<TransformComponent>(mapGridUid, out var xform) ||
+            !_entManager.TryGetComponent<MapGridComponent>(mapGridUid, out var grid))
         {
             return;
         }
@@ -243,13 +274,13 @@ public sealed class WeaponMapControl : MapGridControl
         var tileColor = new Color(30, 67, 30);
         var lineColor = new Color(102, 217, 102);
 
-        if (_entManager.TryGetComponent<PhysicsComponent>(MapUid, out var physics))
+        if (_entManager.TryGetComponent<PhysicsComponent>(mapGridUid, out var physics))
         {
             offset += physics.LocalCenter;
         }
 
         // Draw tiles
-        if (_entManager.TryGetComponent<FixturesComponent>(MapUid, out var manager))
+        if (_entManager.TryGetComponent<FixturesComponent>(mapGridUid, out var manager))
         {
             Span<Vector2> verts = new Vector2[8];
 

@@ -119,9 +119,9 @@ public sealed class WeaponTargetingSystem : SharedWeaponTargetingSystem
         if (shipHealthComponent != null && _shipHealthSystem.TryDamageShip(shipHealthComponent, ammoPrototype))
         {
             _entityManager.SpawnEntity(ammoPrototype.Prototype, coordinates);
-            _audioSystem.PlayPvs(component.FireSound, uid);
         }
 
+        _audioSystem.PlayPvs(component.FireSound, uid);
         component.CanBeUsed = false;
         TryCooldownWeapon(uid, component);
     }
@@ -210,6 +210,10 @@ public sealed class WeaponTargetingSystem : SharedWeaponTargetingSystem
         // collect grids
         var grids = EntityQuery<FTLShipHealthComponent>().Select(x => x.Owner).ToList();
         var state = new WeaponTargetingUserInterfaceState(component.CanFire, grids);
+        foreach (var grid in grids)
+        {
+            Logger.Debug(grid.ToString());
+        }
         _uiSystem.TrySetUiState(uid, WeaponTargetingUiKey.Key, state);
         comp.Map = uid;
     }
