@@ -4,6 +4,9 @@ weapon-control-ui-flavor-3 = Point, shoot, eradicate.
 weapon-control-ui-flavor-4 = We are not responsible for any damage done with the weapon targeting pad.
 weapon-control-ui-button-fire-text = Fire
 
+weapon-pad-message-hit-text = INCOMING PING: Projectile hit confirmed.
+weapon-pad-message-miss-text = INCOMING PING: Projectile miss confirmed.
+
 signal-port-name-weapons-output = Weapon Output Port
 signal-port-name-weapons-output-description = Link the output port to the input port here.
 

@@ -1,8 +1,10 @@
 using System.Linq;
 using Content.Server._FTL.ShipHealth;
+using Content.Server.Chat.Systems;
 using Content.Server.DeviceLinking.Events;
 using Content.Server.DeviceLinking.Systems;
 using Content.Server.DeviceNetwork;
+using Content.Server.Popups;
 using Content.Server.Storage.Components;
 using Content.Shared._FTL.Weapons;
 using Content.Shared.Damage;
@@ -13,6 +15,7 @@ using Content.Shared.Storage.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
+using Robust.Shared.Noise;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._FTL.Weapons;
@@ -25,6 +28,7 @@ public sealed class WeaponTargetingSystem : SharedWeaponTargetingSystem
     [Dependency] private readonly PhysicsSystem _physicsSystem = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly ChatSystem _chatSystem = default!;
     [Dependency] private readonly StaminaSystem _staminaSystem = default!;
     [Dependency] private readonly DeviceLinkSystem _deviceLinkSystem = default!;
     [Dependency] private readonly EntityManager _entityManager = default!;
@@ -67,7 +71,6 @@ public sealed class WeaponTargetingSystem : SharedWeaponTargetingSystem
 
     private void WeaponSignalReceived(EntityUid uid, FTLWeaponComponent component, ref SignalReceivedEvent args)
     {
-        Logger.Debug("received");
         if (!component.CanBeUsed)
         {
             _audioSystem.PlayPvs(component.CooldownSound, uid);
@@ -84,11 +87,12 @@ public sealed class WeaponTargetingSystem : SharedWeaponTargetingSystem
 
         var coordinates = (EntityCoordinates) args.Data["coordinates"];
         var targetGrid = (EntityUid) args.Data["targetGrid"];
+        var weaponPad = (EntityUid) args.Data["weaponPad"];
 
-        TryFireWeapon(uid, component, targetGrid, coordinates);
+        TryFireWeapon(uid, component, targetGrid, weaponPad, coordinates);
     }
 
-    private void TryFireWeapon(EntityUid uid, FTLWeaponComponent component, EntityUid targetGrid, EntityCoordinates coordinates)
+    private void TryFireWeapon(EntityUid uid, FTLWeaponComponent component, EntityUid targetGrid, EntityUid weaponPad, EntityCoordinates coordinates)
     {
         TryComp<FTLWeaponSiloComponent>(uid, out var siloComponent);
         var ammoPrototypeString = "";
@@ -114,12 +118,20 @@ public sealed class WeaponTargetingSystem : SharedWeaponTargetingSystem
             ammoPrototypeString = component.Prototype;
         }
 
+        var localeMessage = "weapon-pad-message-hit-text";
+        if (ammoPrototypeString == "")
+        {
+            _audioSystem.PlayPvs(component.CooldownSound, uid);
+            return;
+        }
         var ammoPrototype = _prototypeManager.Index<FTLAmmoType>(ammoPrototypeString);
         TryComp<FTLShipHealthComponent>(targetGrid, out var shipHealthComponent);
         if (shipHealthComponent != null && _shipHealthSystem.TryDamageShip(shipHealthComponent, ammoPrototype))
         {
             _entityManager.SpawnEntity(ammoPrototype.Prototype, coordinates);
+            localeMessage = "weapon-pad-message-miss-text";
         }
+        _chatSystem.TrySendInGameICMessage(weaponPad, Loc.GetString(localeMessage), InGameICChatType.Speak, false);
 
         _audioSystem.PlayPvs(component.FireSound, uid);
         component.CanBeUsed = false;
@@ -172,13 +184,17 @@ public sealed class WeaponTargetingSystem : SharedWeaponTargetingSystem
             return;
 
         if (TryComp<FTLActiveCooldownWeaponComponent>(uid, out var activeComp))
+        {
+            _audioSystem.PlayPvs(component.CooldownSound, uid);
             return;
+        }
 
         var payload = new NetworkPayload
         {
             ["message"] = "goofball",
             ["coordinates"] = args.Coordinates,
-            ["targetGrid"] = args.TargetGrid
+            ["targetGrid"] = args.TargetGrid,
+            ["weaponPad"] = uid,
         };
 
         _deviceLinkSystem.InvokePort(uid, "WeaponOutputPort", payload);
