@@ -239,14 +239,19 @@ public sealed class WeaponMapControl : MapGridControl
             SelectLoaded = true;
         }
 
+        Logger.Debug((MapUid == null).ToString());
+
         if (MapUid != null)
         {
+            Logger.Debug(MapUid.Value.ToString());
+
             DrawGrid(handle, MapUid.Value);
         }
     }
 
     private void DrawGrid(DrawingHandleScreen handle, EntityUid mapGridUid)
     {
+        Logger.Debug(mapGridUid.ToString());
         if (_recentering)
         {
             var frameTime = Timing.FrameTime;
