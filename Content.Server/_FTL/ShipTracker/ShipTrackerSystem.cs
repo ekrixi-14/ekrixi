@@ -68,6 +68,13 @@ public sealed class ShipTrackerSystem : EntitySystem
         return false;
     }
 
+    public bool TryDamageShip(EntityUid grid, FTLAmmoType prototype)
+    {
+        if (!TryComp<ShipTrackerComponent>(grid, out var tracker))
+            return false;
+        return TryDamageShip(tracker, prototype);
+    }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
