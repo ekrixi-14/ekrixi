@@ -33,7 +33,7 @@ public sealed class WeaponTargetingSystem : SharedWeaponTargetingSystem
     [Dependency] private readonly DeviceLinkSystem _deviceLinkSystem = default!;
     [Dependency] private readonly EntityManager _entityManager = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-    [Dependency] private readonly FTLShipHealthSystem _shipHealthSystem = default!;
+    [Dependency] private readonly ShipTrackerSystem _shipTrackerSystem = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -125,8 +125,8 @@ public sealed class WeaponTargetingSystem : SharedWeaponTargetingSystem
             return;
         }
         var ammoPrototype = _prototypeManager.Index<FTLAmmoType>(ammoPrototypeString);
-        TryComp<FTLShipHealthComponent>(targetGrid, out var shipHealthComponent);
-        if (shipHealthComponent != null && _shipHealthSystem.TryDamageShip(shipHealthComponent, ammoPrototype))
+        TryComp<ShipTrackerComponent>(targetGrid, out var shipHealthComponent);
+        if (shipHealthComponent != null && _shipTrackerSystem.TryDamageShip(shipHealthComponent, ammoPrototype))
         {
             _entityManager.SpawnEntity(ammoPrototype.Prototype, coordinates);
             localeMessage = "weapon-pad-message-miss-text";
@@ -224,7 +224,7 @@ public sealed class WeaponTargetingSystem : SharedWeaponTargetingSystem
 
         var comp = EnsureComp<WeaponTargetingUserComponent>(args.Session.AttachedEntity.Value);
         // collect grids
-        var grids = EntityQuery<FTLShipHealthComponent>().Select(x => x.Owner).ToList();
+        var grids = EntityQuery<ShipTrackerComponent>().Select(x => x.Owner).ToList();
         var state = new WeaponTargetingUserInterfaceState(component.CanFire, grids);
         foreach (var grid in grids)
         {

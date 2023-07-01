@@ -4,8 +4,8 @@ namespace Content.Server._FTL.ShipHealth;
 /// This is used for tracking the damage on ships
 /// </summary>
 [RegisterComponent]
-[Access(typeof(FTLShipHealthSystem))]
-public sealed class FTLShipHealthComponent : Component
+[Access(typeof(ShipTrackerSystem))]
+public sealed class ShipTrackerComponent : Component
 {
     /// <summary>
     /// How much hull does the ship have?

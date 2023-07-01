@@ -7,9 +7,9 @@ using Robust.Shared.Random;
 namespace Content.Server._FTL.ShipHealth;
 
 /// <summary>
-/// This handles...
+/// This handles tracking ships
 /// </summary>
-public sealed class FTLShipHealthSystem : EntitySystem
+public sealed class ShipTrackerSystem : EntitySystem
 {
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private ExplosionSystem _explosionSystem = default!;
@@ -20,23 +20,23 @@ public sealed class FTLShipHealthSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<FTLShipHealthComponent, FTLCompletedEvent>(OnFTLCompletedEvent);
-        SubscribeLocalEvent<FTLShipHealthComponent, FTLStartedEvent>(OnFTLStartedEvent);
-        SubscribeLocalEvent<FTLShipHealthComponent, ComponentInit>(OnComponentInit);
+        SubscribeLocalEvent<ShipTrackerComponent, FTLCompletedEvent>(OnFTLCompletedEvent);
+        SubscribeLocalEvent<ShipTrackerComponent, FTLStartedEvent>(OnFTLStartedEvent);
+        SubscribeLocalEvent<ShipTrackerComponent, ComponentInit>(OnComponentInit);
     }
 
-    private void OnComponentInit(EntityUid uid, FTLShipHealthComponent component, ComponentInit args)
+    private void OnComponentInit(EntityUid uid, ShipTrackerComponent component, ComponentInit args)
     {
         _pointsSystem.RegeneratePoints();
     }
 
-    private void OnFTLStartedEvent(EntityUid uid, FTLShipHealthComponent component, ref FTLStartedEvent args)
+    private void OnFTLStartedEvent(EntityUid uid, ShipTrackerComponent component, ref FTLStartedEvent args)
     {
         if (args.FromMapUid != null)
             Del(args.FromMapUid.Value);
     }
 
-    private void OnFTLCompletedEvent(EntityUid uid, FTLShipHealthComponent component, ref FTLCompletedEvent args)
+    private void OnFTLCompletedEvent(EntityUid uid, ShipTrackerComponent component, ref FTLCompletedEvent args)
     {
         RemComp<DisposalFTLPointComponent>(args.MapUid);
         _pointsSystem.RegeneratePoints();
@@ -48,7 +48,7 @@ public sealed class FTLShipHealthSystem : EntitySystem
     /// <param name="ship"></param>
     /// <param name="prototype"></param>
     /// <returns>Whether the ship's *hull* was damaged. Returns false if it hit shields or didn't hit at all.</returns>
-    public bool TryDamageShip(FTLShipHealthComponent ship, FTLAmmoType prototype)
+    public bool TryDamageShip(ShipTrackerComponent ship, FTLAmmoType prototype)
     {
         if (_random.Prob(ship.PassiveEvasion))
             return false;
@@ -72,7 +72,7 @@ public sealed class FTLShipHealthSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        foreach (var comp in EntityManager.EntityQuery<FTLShipHealthComponent>())
+        foreach (var comp in EntityManager.EntityQuery<ShipTrackerComponent>())
         {
             comp.TimeSinceLastAttack += frameTime;
             comp.TimeSinceLastShieldRegen += frameTime;
@@ -93,7 +93,7 @@ public sealed class FTLShipHealthSystem : EntitySystem
         {
             _explosionSystem.QueueExplosion(shipDestruction.Owner, "Default", 100000, 5, 100, 0f, 0, false);
             _entityManager.RemoveComponent<FTLActiveShipDestructionComponent>(shipDestruction.Owner);
-            _entityManager.RemoveComponent<FTLShipHealthComponent>(shipDestruction.Owner);
+            _entityManager.RemoveComponent<ShipTrackerComponent>(shipDestruction.Owner);
         }
     }
 }
