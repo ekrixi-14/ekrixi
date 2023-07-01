@@ -14,10 +14,10 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitPilot
     back: ClothingBackpackFilled
-    eyes: ClothingEyesGlassesSunglasses
     shoes: ClothingShoesColorWhite
     id: PilotPDA
     ears: ClothingHeadsetAltCommand
+    pocket1: WeaponRevolverDeckard
   innerclothingskirt: ClothingUniformJumpsuitPilot
   satchel: ClothingBackpackSatchelFilled
   duffelbag: ClothingBackpackDuffelFilled
