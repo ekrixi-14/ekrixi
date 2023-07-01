@@ -33,8 +33,8 @@ sealed class DamageShipCommand : LocalizedCommands
             return;
         }
 
-        _ent.System<ShipTrackerSystem>().TryDamageShip(gridUid, _proto.Index<FTLAmmoType>(args[1]));
+        var outcome = _ent.System<ShipTrackerSystem>().TryDamageShip(gridUid, _proto.Index<FTLAmmoType>(args[1]));
 
-        shell.WriteLine("Damaged ship.");
+        shell.WriteLine("Damaged ship. Hit: " + outcome.ToString());
     }
 }

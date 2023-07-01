@@ -60,11 +60,8 @@ public sealed class ShipTrackerSystem : EntitySystem
             ship.HullAmount -= _random.Next(prototype.HullDamageMin, prototype.HullDamageMax);
             return true;
         }
-        else
-        {
-            ship.ShieldAmount--;
-            ship.TimeSinceLastShieldRegen = 5f;
-        }
+        ship.ShieldAmount--;
+        ship.TimeSinceLastShieldRegen = 5f;
         return false;
     }
 
@@ -84,7 +81,7 @@ public sealed class ShipTrackerSystem : EntitySystem
             comp.TimeSinceLastAttack += frameTime;
             comp.TimeSinceLastShieldRegen += frameTime;
 
-            if (comp.TimeSinceLastShieldRegen >= comp.ShieldRegenTime)
+            if (comp.TimeSinceLastShieldRegen >= comp.ShieldRegenTime && comp.ShieldAmount <= comp.ShieldCapacity)
             {
                 comp.ShieldAmount++;
                 comp.TimeSinceLastShieldRegen = 0f;
@@ -96,11 +93,12 @@ public sealed class ShipTrackerSystem : EntitySystem
             }
         }
 
-        foreach (var shipDestruction in EntityManager.EntityQuery<FTLActiveShipDestructionComponent>())
+        var query = EntityQueryEnumerator <FTLActiveShipDestructionComponent>();
+        while (query.MoveNext(out var entity, out var comp))
         {
-            _explosionSystem.QueueExplosion(shipDestruction.Owner, "Default", 100000, 5, 100, 0f, 0, false);
-            _entityManager.RemoveComponent<FTLActiveShipDestructionComponent>(shipDestruction.Owner);
-            _entityManager.RemoveComponent<ShipTrackerComponent>(shipDestruction.Owner);
+            _explosionSystem.QueueExplosion(entity, "Default", 5000000, 5, 100);
+            _entityManager.RemoveComponent<FTLActiveShipDestructionComponent>(entity);
+            _entityManager.RemoveComponent<ShipTrackerComponent>(entity);
         }
     }
 }

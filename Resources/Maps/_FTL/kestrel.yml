@@ -276,6 +276,7 @@ entities:
     - group: ""
       type: NameIdentifier
     - type: NavMap
+    - type: ShipTracker
 - proto: AirlockAtmospherics
   entities:
   - uid: 204

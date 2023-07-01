@@ -6,6 +6,13 @@
   prototype: BulletRocket
 
 - type: ftlAmmo
+  id: DebugDestroy
+  bypassShield: true
+  hullMin: 1000
+  hullMax: 1000
+  prototype: BulletRocket
+
+- type: ftlAmmo
   id: IncendiaryMissile
   bypassShield: true
   hullMin: 0
