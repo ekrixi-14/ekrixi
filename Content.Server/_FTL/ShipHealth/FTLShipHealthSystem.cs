@@ -21,6 +21,7 @@ public sealed class FTLShipHealthSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<FTLShipHealthComponent, FTLCompletedEvent>(OnFTLCompletedEvent);
+        SubscribeLocalEvent<FTLShipHealthComponent, FTLStartedEvent>(OnFTLStartedEvent);
         SubscribeLocalEvent<FTLShipHealthComponent, ComponentInit>(OnComponentInit);
     }
 
@@ -29,8 +30,15 @@ public sealed class FTLShipHealthSystem : EntitySystem
         _pointsSystem.RegeneratePoints();
     }
 
+    private void OnFTLStartedEvent(EntityUid uid, FTLShipHealthComponent component, ref FTLStartedEvent args)
+    {
+        if (args.FromMapUid != null)
+            Del(args.FromMapUid.Value);
+    }
+
     private void OnFTLCompletedEvent(EntityUid uid, FTLShipHealthComponent component, ref FTLCompletedEvent args)
     {
+        RemComp<DisposalFTLPointComponent>(args.MapUid);
         _pointsSystem.RegeneratePoints();
     }
 

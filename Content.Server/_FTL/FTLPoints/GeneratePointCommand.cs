@@ -9,7 +9,7 @@ sealed class GeneratePointCommand : LocalizedCommands
 
     public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
-        _ent.System<FTLPointsSystem>().GeneratePoint();
+        _ent.System<FTLPointsSystem>().GenerateDisposablePoint();
 
         shell.WriteLine("Generated FTL point.");
     }

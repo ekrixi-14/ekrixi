@@ -1,4 +1,5 @@
 using Content.Server.Maps;
+using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
 using Content.Shared.Dataset;
 using Content.Shared.Salvage;
@@ -24,17 +25,20 @@ public sealed class FTLPointsSystem : EntitySystem
 
     public void RegeneratePoints()
     {
-        ClearPoints();
+        ClearDisposablePoints();
 
         for (int i = 0; i < PREFERRED_POINT_AMOUNT; i++)
         {
-            GeneratePoint();
+            GenerateDisposablePoint();
         }
 
         Log.Debug("Regenerated points.");
     }
 
-    public void ClearPoints()
+    /// <summary>
+    /// Clears all disposable points
+    /// </summary>
+    public void ClearDisposablePoints()
     {
         var query = EntityQueryEnumerator<DisposalFTLPointComponent>();
         while (query.MoveNext(out var uid, out var component))
@@ -45,24 +49,21 @@ public sealed class FTLPointsSystem : EntitySystem
 
     public void DeletePoint(EntityUid point)
     {
-        var xform = Transform(point);
-        var map = xform.MapID;
         Del(point);
-        _mapManager.DeleteMap(map);
     }
 
-    public void GeneratePoint()
+    /// <summary>
+    /// Generates a temporary disposable FTL point.
+    /// </summary>
+    public void GenerateDisposablePoint()
     {
         var mapId = _mapManager.CreateMap();
-        Log.Debug(mapId.ToString());
         var mapUid = _mapManager.GetMapEntityId(mapId);
-
-        var ftlUid = _entManager.CreateEntityUninitialized("FTLPoint", new EntityCoordinates(mapUid, Vector2.Zero));
-        _metaDataSystem.SetEntityName(ftlUid,
+        _metaDataSystem.SetEntityName(mapUid,
             SharedSalvageSystem.GetFTLName(_prototypeManager.Index<DatasetPrototype>("names_borer"), _random.Next(0,1000000)));
-        _entManager.InitializeAndStartEntity(ftlUid);
-        AddComp<DisposalFTLPointComponent>(ftlUid);
-        _consoleSystem.RefreshShuttleConsoles();
 
+        EnsureComp<FTLDestinationComponent>(_mapManager.GetMapEntityId(mapId));
+        AddComp<DisposalFTLPointComponent>(mapUid);
+        _consoleSystem.RefreshShuttleConsoles();
     }
 }
