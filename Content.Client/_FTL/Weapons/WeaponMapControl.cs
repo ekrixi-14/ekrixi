@@ -137,17 +137,17 @@ public sealed class WeaponMapControl : MapGridControl
     {
         base.KeyBindDown(args);
 
-        if (args.Function == EngineKeyFunctions.Use)
-        {
-            // fuck it we ball
-            //_draggin = true;
-        }
-
-        if (args.Function == EngineKeyFunctions.UseSecondary)
-        {
-            var coords = GetMouseCoordinates(_inputManager.MouseScreenPosition);
-            OnWeaponMapClick?.Invoke(coords);
-        }
+        // if (args.Function == EngineKeyFunctions.Use)
+        // {
+        //     // fuck it we ball
+        //     //_draggin = true;
+        // }
+        //
+        // if (args.Function == EngineKeyFunctions.UseSecondary)
+        // {
+        //     var coords = GetMouseCoordinates(_inputManager.MouseScreenPosition);
+        //     OnWeaponMapClick?.Invoke(coords);
+        // }
     }
 
 
@@ -216,6 +216,9 @@ public sealed class WeaponMapControl : MapGridControl
     protected override void Draw(DrawingHandleScreen handle)
     {
         base.Draw(handle);
+
+        var coords = GetMouseCoordinates(_inputManager.MouseScreenPosition);
+        OnWeaponMapClick?.Invoke(coords);
 
         if (MapUids != null && !SelectLoaded)
         {
@@ -415,13 +418,9 @@ public sealed class WeaponMapControl : MapGridControl
             }
         }
 
-        var curTime = Timing.RealTime;
-        var blinkFrequency = 1f / 1f;
-        var lit = curTime.TotalSeconds % blinkFrequency > blinkFrequency / 2f;
-
         foreach (var (coord, value) in TrackedCoordinates)
         {
-            if (lit && value.Visible)
+            if (value.Visible)
             {
                 var mapPos = coord.ToMap(_entManager);
 
