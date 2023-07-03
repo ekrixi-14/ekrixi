@@ -137,27 +137,31 @@ public sealed class WeaponMapControl : MapGridControl
     {
         base.KeyBindDown(args);
 
-        // if (args.Function == EngineKeyFunctions.Use)
-        // {
-        //     // fuck it we ball
-        //     //_draggin = true;
-        // }
-        //
-        // if (args.Function == EngineKeyFunctions.UseSecondary)
-        // {
-        //     var coords = GetMouseCoordinates(_inputManager.MouseScreenPosition);
-        //     OnWeaponMapClick?.Invoke(coords);
-        // }
+        if (args.Function == EngineKeyFunctions.Use)
+        {
+            // fuck it we ball
+            //_draggin = true;
+        }
+
+        if (args.Function == EngineKeyFunctions.UseSecondary)
+        {
+            var coords = GetMouseCoordinates(_inputManager.MouseScreenPosition);
+            OnWeaponMapClick?.Invoke(coords);
+        }
     }
 
-
     /// <summary>
-    /// Gets the entitycoordinates of where the mouseposition is, relative to the control, accounting for zoom.
+    /// Gets the entitycoordinates of where the mouseposition is, relative to the control.
     /// </summary>
     [PublicAPI]
     public EntityCoordinates GetMouseCoordinates(ScreenCoordinates screen)
     {
         if (_coordinates == null || _rotation == null)
+        {
+            return EntityCoordinates.Invalid;
+        }
+
+        if (!MapUid.HasValue)
         {
             return EntityCoordinates.Invalid;
         }
@@ -168,21 +172,22 @@ public sealed class WeaponMapControl : MapGridControl
         }
 
         var pos = screen.Position / UIScale - GlobalPosition;
-        var a = InverseScalePosition(pos);
 
-        // TODO: Fix the offset going in the opposite position relative to the origin (which is the center)?????? Wtf????
-        // TODO: Fix the large offset????? what the FUCK is this code
-        var matrix = Matrix3.CreateTransform(a, _rotation.Value, new Vector2 { X = WorldRange, Y = WorldRange });
-        var b = matrix.Transform(_offset);
-        // making this positive does a weird ass offset relative to origin thing which is accurate to the cursor but not. this makes it static but with an offset so whatever
-        var relativeWorldPos = -new Vector2(b.X, -b.Y / 2);
+        var inverseScalePosition = InverseScalePosition(pos);
+
+        // matrix hell begins here
+        var matrix = Matrix3.CreateTransform(inverseScalePosition, _rotation.Value, new Vector2 { X = WorldRange, Y = WorldRange });
+        var matrixOutput = matrix.Transform(_offset);
+        // matrix hell ends here
+
+        var relativeWorldPos = new Vector2(matrixOutput.X, -matrixOutput.Y);
         relativeWorldPos = _rotation.Value.RotateVec(relativeWorldPos);
-
         var coords = _coordinates.Value.Offset(relativeWorldPos);
 
         TrackedCoordinates.Add(coords, (true, Color.Blue));
-        Logger.Debug(coords.ToString());
         _lastTargetCoordinates = coords;
+
+        Logger.Debug(coords.ToString());
 
         return coords;
     }
@@ -206,23 +211,19 @@ public sealed class WeaponMapControl : MapGridControl
     {
         base.MouseMove(args);
 
-        if (!_draggin)
-            return;
-
-        _recentering = false;
-        _offset -= new Vector2(args.Relative.X, -args.Relative.Y) / MidPoint * WorldRange;
+        if (_draggin)
+        {
+            _recentering = false;
+            _offset -= new Vector2(args.Relative.X, -args.Relative.Y) / MidPoint * WorldRange;
+        }
     }
 
     protected override void Draw(DrawingHandleScreen handle)
     {
         base.Draw(handle);
 
-        var coords = GetMouseCoordinates(_inputManager.MouseScreenPosition);
-        OnWeaponMapClick?.Invoke(coords);
-
         if (MapUids != null && !SelectLoaded)
         {
-            Logger.Debug("map uids work");
             for (var i = 0; i < MapUids.Count; i++)
             {
                 var map = MapUids[i];
@@ -238,23 +239,22 @@ public sealed class WeaponMapControl : MapGridControl
             {
                 MapUid = MapUids[item.Id];
                 OnGridSwitchRequest?.Invoke(MapUid.Value);
+                if (_entManager.TryGetComponent<TransformComponent>(MapUid.Value, out var xform))
+                {
+                    SetMatrix(xform?.Coordinates, xform?.LocalRotation);
+                }
             };
             SelectLoaded = true;
         }
 
-        Logger.Debug((MapUid == null).ToString());
-
         if (MapUid != null)
         {
-            Logger.Debug(MapUid.Value.ToString());
-
             DrawGrid(handle, MapUid.Value);
         }
     }
 
     private void DrawGrid(DrawingHandleScreen handle, EntityUid mapGridUid)
     {
-        Logger.Debug(mapGridUid.ToString());
         if (_recentering)
         {
             var frameTime = Timing.FrameTime;
