@@ -21,13 +21,13 @@ public sealed class FTLPointsSystem : EntitySystem
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private readonly ShuttleConsoleSystem _consoleSystem = default!;
 
-    public const int PREFERRED_POINT_AMOUNT = 3;
-
     public void RegeneratePoints()
     {
         ClearDisposablePoints();
 
-        for (int i = 0; i < PREFERRED_POINT_AMOUNT; i++)
+        var preferredPointAmount = _random.Next(2, 5);
+
+        for (int i = 0; i < preferredPointAmount; i++)
         {
             GenerateDisposablePoint();
         }
