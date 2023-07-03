@@ -2,6 +2,7 @@ using Content.Server._FTL.FTLPoints;
 using Content.Server._FTL.ShipTracker.Events;
 using Content.Server._FTL.Weapons;
 using Content.Server.Explosion.EntitySystems;
+using Content.Server.GameTicking.Events;
 using Content.Server.Shuttles.Events;
 using Content.Shared.Pinpointer;
 using Robust.Shared.Random;
@@ -24,8 +25,13 @@ public sealed class ShipTrackerSystem : EntitySystem
 
         SubscribeLocalEvent<ShipTrackerComponent, FTLCompletedEvent>(OnFTLCompletedEvent);
         SubscribeLocalEvent<ShipTrackerComponent, FTLStartedEvent>(OnFTLStartedEvent);
-        SubscribeLocalEvent<ShipTrackerComponent, ComponentInit>(OnComponentInit);
         SubscribeLocalEvent<GridAddEvent>(OnGridAdd);
+        SubscribeLocalEvent<RoundStartingEvent>(OnRoundStart);
+    }
+
+    private void OnRoundStart(RoundStartingEvent msg, EntitySessionEventArgs args)
+    {
+        _pointsSystem.RegeneratePoints();
     }
 
     private void OnGridAdd(GridAddEvent msg, EntitySessionEventArgs args)
@@ -33,11 +39,6 @@ public sealed class ShipTrackerSystem : EntitySystem
         // icky
         EnsureComp<ShipTrackerComponent>(msg.EntityUid);
         EnsureComp<NavMapComponent>(msg.EntityUid);
-    }
-
-    private void OnComponentInit(EntityUid uid, ShipTrackerComponent component, ComponentInit args)
-    {
-        _pointsSystem.RegeneratePoints();
     }
 
     private void OnFTLStartedEvent(EntityUid uid, ShipTrackerComponent component, ref FTLStartedEvent args)
