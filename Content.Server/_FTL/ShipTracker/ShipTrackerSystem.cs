@@ -1,13 +1,15 @@
 using Content.Server._FTL.FTLPoints;
+using Content.Server._FTL.ShipTracker.Events;
 using Content.Server._FTL.Weapons;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Shuttles.Events;
+using Content.Shared.Pinpointer;
 using Robust.Shared.Random;
 
 namespace Content.Server._FTL.ShipHealth;
 
 /// <summary>
-/// This handles tracking ships
+/// This handles tracking ships, healths and more
 /// </summary>
 public sealed class ShipTrackerSystem : EntitySystem
 {
@@ -23,6 +25,14 @@ public sealed class ShipTrackerSystem : EntitySystem
         SubscribeLocalEvent<ShipTrackerComponent, FTLCompletedEvent>(OnFTLCompletedEvent);
         SubscribeLocalEvent<ShipTrackerComponent, FTLStartedEvent>(OnFTLStartedEvent);
         SubscribeLocalEvent<ShipTrackerComponent, ComponentInit>(OnComponentInit);
+        SubscribeLocalEvent<GridAddEvent>(OnGridAdd);
+    }
+
+    private void OnGridAdd(GridAddEvent msg, EntitySessionEventArgs args)
+    {
+        // icky
+        EnsureComp<ShipTrackerComponent>(msg.EntityUid);
+        EnsureComp<NavMapComponent>(msg.EntityUid);
     }
 
     private void OnComponentInit(EntityUid uid, ShipTrackerComponent component, ComponentInit args)
@@ -61,7 +71,7 @@ public sealed class ShipTrackerSystem : EntitySystem
             return true;
         }
         ship.ShieldAmount--;
-        ship.TimeSinceLastShieldRegen = 5f;
+        ship.TimeSinceLastShieldRegen = 0f; // reset the shield timer
         return false;
     }
 
@@ -76,8 +86,10 @@ public sealed class ShipTrackerSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        foreach (var comp in EntityManager.EntityQuery<ShipTrackerComponent>())
+        var shipTrackerQuery = EntityQueryEnumerator <ShipTrackerComponent>();
+        while (shipTrackerQuery.MoveNext(out var entity, out var comp))
         {
+
             comp.TimeSinceLastAttack += frameTime;
             comp.TimeSinceLastShieldRegen += frameTime;
 
@@ -86,6 +98,7 @@ public sealed class ShipTrackerSystem : EntitySystem
                 comp.ShieldAmount++;
                 comp.TimeSinceLastShieldRegen = 0f;
             }
+
 
             if (comp.HullAmount <= 0)
             {
@@ -96,9 +109,28 @@ public sealed class ShipTrackerSystem : EntitySystem
         var query = EntityQueryEnumerator <FTLActiveShipDestructionComponent>();
         while (query.MoveNext(out var entity, out var comp))
         {
+            if (!TryComp<ShipTrackerComponent>(entity, out var shipTracker))
+            {
+                continue;
+            }
+            var destroyAttempt = new ShipDestroyAttempt(shipTracker);
+            RaiseLocalEvent(entity, ref destroyAttempt);
+
+            if (destroyAttempt.Cancelled)
+            {
+                _entityManager.RemoveComponent<FTLActiveShipDestructionComponent>(entity);
+                shipTracker.HullAmount += 1;
+                continue;
+            }
+            var destroyBefore = new BeforeShipDestroy(shipTracker);
+            RaiseLocalEvent(entity, ref destroyBefore);
+
             _explosionSystem.QueueExplosion(entity, "Default", 500000, 15, 100);
             _entityManager.RemoveComponent<FTLActiveShipDestructionComponent>(entity);
             _entityManager.RemoveComponent<ShipTrackerComponent>(entity);
+
+            var destroyAfter = new AfterShipDestroy(shipTracker);
+            RaiseLocalEvent(entity, ref destroyAfter);
         }
     }
 }
