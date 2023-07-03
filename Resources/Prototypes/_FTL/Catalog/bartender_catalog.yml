@@ -1,0 +1,9 @@
+- type: listing
+  id: BartenderDrinkBeer
+  name: bartender-drink-beer-name
+  description: bartender-drink-beer-desc
+  productEntity: DrinkBeerglass
+  cost:
+    Credits: 3
+  categories:
+  - BartenderDrinks
