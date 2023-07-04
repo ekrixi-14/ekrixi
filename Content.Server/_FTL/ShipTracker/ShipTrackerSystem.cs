@@ -1,6 +1,8 @@
 using Content.Server._FTL.FTLPoints;
 using Content.Server._FTL.ShipTracker.Events;
 using Content.Server._FTL.Weapons;
+using Content.Server.Chat.Managers;
+using Content.Server.Chat.Systems;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.GameTicking.Events;
 using Content.Server.Shuttles.Events;
@@ -20,6 +22,7 @@ public sealed class ShipTrackerSystem : EntitySystem
     [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
     [Dependency] private readonly EntityManager _entityManager = default!;
     [Dependency] private readonly FTLPointsSystem _pointsSystem = default!;
+    [Dependency] private readonly ChatSystem _chatSystem = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
 
     public override void Initialize()
@@ -34,8 +37,6 @@ public sealed class ShipTrackerSystem : EntitySystem
 
     private void OnMapInit(EntityUid uid, ShipTrackerComponent component, MapInitEvent args)
     {
-        Log.Debug("ran");
-
         _pointsSystem.RegeneratePoints();
     }
 
@@ -70,21 +71,33 @@ public sealed class ShipTrackerSystem : EntitySystem
     /// <returns>Whether the ship's *hull* was damaged. Returns false if it hit shields or didn't hit at all.</returns>
     public bool TryDamageShip(ShipTrackerComponent ship, FTLAmmoType prototype)
     {
+        var hit = false;
         if (_random.Prob(ship.PassiveEvasion))
             return false;
 
-        ship.TimeSinceLastAttack = 0f;
-        if (ship.ShieldAmount <= 0 || prototype.ShieldPiercing)
+        for (var i = 0; i < prototype.HitTimes; i++)
         {
-            // damage hull
-            ship.HullAmount -= _random.Next(prototype.HullDamageMin, prototype.HullDamageMax);
-            return true;
+            ship.TimeSinceLastAttack = 0f;
+            if (ship.ShieldAmount <= 0 || prototype.ShieldPiercing)
+            {
+                // damage hull
+                ship.HullAmount -= _random.Next(prototype.HullDamageMin, prototype.HullDamageMax);
+                hit = true;
+                continue;
+            }
+            ship.ShieldAmount--;
+            ship.TimeSinceLastShieldRegen = 0f; // reset the shield timer
         }
-        ship.ShieldAmount--;
-        ship.TimeSinceLastShieldRegen = 0f; // reset the shield timer
-        return false;
+
+        return hit;
     }
 
+    /// <summary>
+    /// Attempts to damage the ship.
+    /// </summary>
+    /// <param name="grid"></param>
+    /// <param name="prototype"></param>
+    /// <returns>Whether the ship's *hull* was damaged. Returns false if it hit shields or didn't hit at all.</returns>
     public bool TryDamageShip(EntityUid grid, FTLAmmoType prototype)
     {
         if (!TryComp<ShipTrackerComponent>(grid, out var tracker))
@@ -103,12 +116,11 @@ public sealed class ShipTrackerSystem : EntitySystem
             comp.TimeSinceLastAttack += frameTime;
             comp.TimeSinceLastShieldRegen += frameTime;
 
-            if (comp.TimeSinceLastShieldRegen >= comp.ShieldRegenTime && comp.ShieldAmount <= comp.ShieldCapacity)
+            if (comp.TimeSinceLastShieldRegen >= comp.ShieldRegenTime && comp.ShieldAmount < comp.ShieldCapacity)
             {
                 comp.ShieldAmount++;
                 comp.TimeSinceLastShieldRegen = 0f;
             }
-
 
             if (comp.HullAmount <= 0)
             {
@@ -140,6 +152,8 @@ public sealed class ShipTrackerSystem : EntitySystem
             _explosionSystem.QueueExplosion(entity, "Default", 500000, 15, 100);
             _entityManager.RemoveComponent<FTLActiveShipDestructionComponent>(entity);
             _entityManager.RemoveComponent<ShipTrackerComponent>(entity);
+
+            _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("ship-destroyed-message", ("ship", MetaData(entity).EntityName)));
 
             var destroyAfter = new AfterShipDestroy(shipTracker);
             RaiseLocalEvent(entity, ref destroyAfter);
