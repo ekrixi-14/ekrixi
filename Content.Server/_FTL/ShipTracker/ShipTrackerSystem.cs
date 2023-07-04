@@ -152,6 +152,7 @@ public sealed class ShipTrackerSystem : EntitySystem
             _explosionSystem.QueueExplosion(entity, "Default", 500000, 15, 100);
             _entityManager.RemoveComponent<FTLActiveShipDestructionComponent>(entity);
             _entityManager.RemoveComponent<ShipTrackerComponent>(entity);
+            _entityManager.RemoveComponent<MainCharacterShipComponent>(entity);
 
             _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("ship-destroyed-message", ("ship", MetaData(entity).EntityName)));
 

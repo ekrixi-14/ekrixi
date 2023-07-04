@@ -380,6 +380,7 @@ entities:
       type: NameIdentifier
     - type: NavMap
     - type: ShipTracker
+    - type: MainCharacterShip
 - proto: AirlockAtmospherics
   entities:
   - uid: 204
