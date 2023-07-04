@@ -34,6 +34,7 @@ public sealed class WeaponTargetingSystem : SharedWeaponTargetingSystem
     [Dependency] private readonly EntityManager _entityManager = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly ShipTrackerSystem _shipTrackerSystem = default!;
+    [Dependency] private readonly PopupSystem _popupSystem = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -106,7 +107,6 @@ public sealed class WeaponTargetingSystem : SharedWeaponTargetingSystem
                     TryComp<FTLAmmoComponent>(entity, out var ammoComponent);
                     if (ammoComponent != null)
                     {
-                        Logger.Debug(ammoComponent.Prototype);
                         ammoPrototypeString = ammoComponent.Prototype;
                     }
                     _entityManager.DeleteEntity(entity);
@@ -118,7 +118,7 @@ public sealed class WeaponTargetingSystem : SharedWeaponTargetingSystem
             ammoPrototypeString = component.Prototype;
         }
 
-        var localeMessage = "weapon-pad-message-hit-text";
+        var localeMessage = "weapon-pad-message-miss-text";
         if (ammoPrototypeString == "")
         {
             _audioSystem.PlayPvs(component.CooldownSound, uid);
@@ -126,14 +126,18 @@ public sealed class WeaponTargetingSystem : SharedWeaponTargetingSystem
         }
         var ammoPrototype = _prototypeManager.Index<FTLAmmoType>(ammoPrototypeString);
         TryComp<ShipTrackerComponent>(targetGrid, out var shipHealthComponent);
-        if (shipHealthComponent != null && _shipTrackerSystem.TryDamageShip(shipHealthComponent, ammoPrototype))
+        if (shipHealthComponent != null)
         {
-            _entityManager.SpawnEntity(ammoPrototype.Prototype, coordinates);
-            localeMessage = "weapon-pad-message-miss-text";
-        }
-        _chatSystem.TrySendInGameICMessage(weaponPad, Loc.GetString(localeMessage), InGameICChatType.Speak, false);
+            if (_shipTrackerSystem.TryDamageShip(shipHealthComponent, ammoPrototype))
+            {
+                _entityManager.SpawnEntity(ammoPrototype.Prototype, coordinates);
+                localeMessage = "weapon-pad-message-hit-text";
+            }
 
+            _popupSystem.PopupEntity(Loc.GetString(localeMessage, ("hull", shipHealthComponent.HullAmount), ("maxHull", shipHealthComponent.HullCapacity), ("shields", shipHealthComponent.ShieldAmount)), weaponPad);
+        }
         _audioSystem.PlayPvs(component.FireSound, uid);
+
         component.CanBeUsed = false;
         TryCooldownWeapon(uid, component);
     }

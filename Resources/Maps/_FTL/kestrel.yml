@@ -272,7 +272,6 @@ entities:
     - type: RadiationGridResistance
     - id: Kestrel
       type: BecomesStation
-    - type: FTLShipHealth
     - group: ""
       type: NameIdentifier
     - type: NavMap

@@ -119,6 +119,8 @@ public sealed class ShipTrackerSystem : EntitySystem
         var query = EntityQueryEnumerator <FTLActiveShipDestructionComponent>();
         while (query.MoveNext(out var entity, out var comp))
         {
+            Log.Debug(entity.ToString());
+
             if (!TryComp<ShipTrackerComponent>(entity, out var shipTracker))
             {
                 continue;
