@@ -42,5 +42,5 @@ public sealed class FTLAmmoType : IPrototype
     /// Entity prototype that is spawned
     /// </summary>
     [DataField("prototype", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string Prototype { get; set; } = "";
+    public string BulletPrototype { get; set; } = "";
 }

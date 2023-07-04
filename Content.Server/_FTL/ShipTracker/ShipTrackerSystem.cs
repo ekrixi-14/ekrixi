@@ -1,3 +1,4 @@
+using Content.Server._FTL.AutomatedCombat;
 using Content.Server._FTL.FTLPoints;
 using Content.Server._FTL.ShipTracker.Events;
 using Content.Server._FTL.Weapons;
@@ -149,10 +150,13 @@ public sealed class ShipTrackerSystem : EntitySystem
             var destroyBefore = new BeforeShipDestroy(shipTracker);
             RaiseLocalEvent(entity, ref destroyBefore);
 
+            // should really just make this an event...
             _explosionSystem.QueueExplosion(entity, "Default", 500000, 15, 100);
             _entityManager.RemoveComponent<FTLActiveShipDestructionComponent>(entity);
             _entityManager.RemoveComponent<ShipTrackerComponent>(entity);
             _entityManager.RemoveComponent<MainCharacterShipComponent>(entity);
+            _entityManager.RemoveComponent<AutomatedCombatComponent>(entity);
+            _entityManager.RemoveComponent<ActiveAutomatedCombatComponent>(entity);
 
             _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("ship-destroyed-message", ("ship", MetaData(entity).EntityName)));
 

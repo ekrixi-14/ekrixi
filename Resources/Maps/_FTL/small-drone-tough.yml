@@ -121,6 +121,7 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: NavMap
+    - type: AutomatedCombat
     - hullCapacity: 20
       hullAmount: 20
       type: ShipTracker

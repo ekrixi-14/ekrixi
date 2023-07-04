@@ -117,6 +117,7 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: NavMap
+    - type: AutomatedCombat
     - shieldCapacity: 0
       shieldAmount: 0
       hullCapacity: 8

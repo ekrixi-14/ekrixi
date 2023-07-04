@@ -147,6 +147,7 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: NavMap
+    - type: AutomatedCombat
     - passiveEvasion: 0.4
       shieldCapacity: 2
       shieldAmount: 2
