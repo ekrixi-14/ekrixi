@@ -16,7 +16,7 @@
   components:
     - type: Explosive
       explosionType: Default
-      maxIntensity: 1
+      maxIntensity: 20
       intensitySlope: 5
       totalIntensity: 1
       maxTileBreak: 0
