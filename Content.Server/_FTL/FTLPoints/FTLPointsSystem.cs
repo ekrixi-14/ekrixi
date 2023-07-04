@@ -68,21 +68,28 @@ public sealed class FTLPointsSystem : EntitySystem
         var point = _prototypeManager.Index<FTLPointPrototype>(picked);
 
         // create map
-        var mapId = _mapManager.CreateMap();
-        _mapManager.AddUninitializedMap(mapId);
-        var mapUid = _mapManager.GetMapEntityId(mapId);
-        _metaDataSystem.SetEntityName(mapUid, $"[{Loc.GetString(point.Tag)}] {
-            SharedSalvageSystem.GetFTLName(_prototypeManager.Index<DatasetPrototype>("names_borer"), _random.Next(0,1000000))}");
-
-        // make it ftlable
-        EnsureComp<FTLDestinationComponent>(_mapManager.GetMapEntityId(mapId));
-        AddComp<DisposalFTLPointComponent>(mapUid);
-        _consoleSystem.RefreshShuttleConsoles();
-
-        // spawn the stuff
-        foreach (var effect in point.FtlPointEffects)
+        if (point.OverrideSpawn == null)
         {
-            effect.Effect(new FTLPointEffect.FTLPointEffectArgs(mapUid, mapId, _entManager, _mapManager));
+            var mapId = _mapManager.CreateMap();
+            _mapManager.AddUninitializedMap(mapId);
+            var mapUid = _mapManager.GetMapEntityId(mapId);
+            _metaDataSystem.SetEntityName(mapUid, $"[{Loc.GetString(point.Tag)}] {
+                SharedSalvageSystem.GetFTLName(_prototypeManager.Index<DatasetPrototype>("names_borer"), _random.Next(0, 1000000))}");
+
+            // make it ftlable
+            EnsureComp<FTLDestinationComponent>(_mapManager.GetMapEntityId(mapId));
+            AddComp<DisposalFTLPointComponent>(mapUid);
+            _consoleSystem.RefreshShuttleConsoles();
+
+            // spawn the stuff
+            foreach (var effect in point.FtlPointEffects)
+            {
+                effect.Effect(new FTLPointEffect.FTLPointEffectArgs(mapUid, mapId, _entManager, _mapManager));
+            }
+        }
+        else
+        {
+            point.OverrideSpawn.Effect(new FTLPointSpawn.FTLPointSpawnArgs(_entManager, _mapManager));
         }
     }
 }

@@ -26,4 +26,6 @@ public sealed class FTLPointPrototype : IPrototype
     /// FTL point effects.
     /// </summary>
     [DataField("effects")] public FTLPointEffect[] FtlPointEffects = default!;
+
+    [DataField("overrideSpawn")] public FTLPointSpawn? OverrideSpawn = default!;
 }

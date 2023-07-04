@@ -37,7 +37,8 @@
 - type: ftlPoint
   id: PlanetPoint
   tag: ship-ftl-tag-planet
-  effects: []
+  effects:
+    - !type:ToPlanetEffect
 
 - type: ftlPoint
   id: StarPoint
@@ -54,7 +55,8 @@
   weights:
     StationPoint: 0.5
     NoDangerPoint: 5
-    LoDangerPoint: 5
+    LoDangerPoint: 7
     HiDangerPoint: 3
     ConfDangerPoint: 3
     StarPoint: 3
+    PlanetPoint: 4
