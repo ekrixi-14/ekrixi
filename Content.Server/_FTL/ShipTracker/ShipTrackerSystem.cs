@@ -5,6 +5,8 @@ using Content.Server.Explosion.EntitySystems;
 using Content.Server.GameTicking.Events;
 using Content.Server.Shuttles.Events;
 using Content.Shared.Pinpointer;
+using Robust.Server.GameObjects;
+using Robust.Shared.Map;
 using Robust.Shared.Random;
 
 namespace Content.Server._FTL.ShipHealth;
@@ -14,10 +16,11 @@ namespace Content.Server._FTL.ShipHealth;
 /// </summary>
 public sealed class ShipTrackerSystem : EntitySystem
 {
-    [Dependency] private IRobustRandom _random = default!;
-    [Dependency] private ExplosionSystem _explosionSystem = default!;
-    [Dependency] private EntityManager _entityManager = default!;
-    [Dependency] private FTLPointsSystem _pointsSystem = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
+    [Dependency] private readonly EntityManager _entityManager = default!;
+    [Dependency] private readonly FTLPointsSystem _pointsSystem = default!;
+    [Dependency] private readonly IMapManager _mapManager = default!;
 
     public override void Initialize()
     {
@@ -26,11 +29,13 @@ public sealed class ShipTrackerSystem : EntitySystem
         SubscribeLocalEvent<ShipTrackerComponent, FTLCompletedEvent>(OnFTLCompletedEvent);
         SubscribeLocalEvent<ShipTrackerComponent, FTLStartedEvent>(OnFTLStartedEvent);
         SubscribeLocalEvent<GridAddEvent>(OnGridAdd);
-        SubscribeLocalEvent<RoundStartingEvent>(OnRoundStart);
+        SubscribeLocalEvent<ShipTrackerComponent, MapInitEvent>(OnMapInit);
     }
 
-    private void OnRoundStart(RoundStartingEvent msg, EntitySessionEventArgs args)
+    private void OnMapInit(EntityUid uid, ShipTrackerComponent component, MapInitEvent args)
     {
+        Log.Debug("ran");
+
         _pointsSystem.RegeneratePoints();
     }
 
@@ -50,6 +55,10 @@ public sealed class ShipTrackerSystem : EntitySystem
     private void OnFTLCompletedEvent(EntityUid uid, ShipTrackerComponent component, ref FTLCompletedEvent args)
     {
         RemComp<DisposalFTLPointComponent>(args.MapUid);
+
+        var mapId = Transform(args.MapUid).MapID;
+        _mapManager.DoMapInitialize(mapId);
+
         _pointsSystem.RegeneratePoints();
     }
 
