@@ -1,23 +1,35 @@
 - type: ftlPoint
   id: StationPoint
   tag: ship-ftl-tag-base
+  probability: 0.9
   effects:
     - !type:SpawnMapEffect
 
 - type: ftlPoint
   id: HiDangerPoint
   tag: ship-ftl-tag-base
-  effects: []
+  probability: 0.8
+  effects:
+    - !type:SpawnMapEffect
+      mapPaths:
+        - /Maps/_FTL/drone.yml
 
 - type: ftlPoint
   id: LoDangerPoint
   tag: ship-ftl-tag-unknown
-  effects: []
+  probability: 0.4
+  effects:
+    - !type:SpawnMapEffect
+      mapPaths:
+        - /Maps/_FTL/drone.yml
 
 - type: ftlPoint
   id: ConfDangerPoint
   tag: ship-ftl-tag-danger
-  effects: []
+  effects:
+    - !type:SpawnMapEffect
+      mapPaths:
+        - /Maps/_FTL/drone.yml
 
 - type: ftlPoint
   id: PlanetPoint
@@ -38,8 +50,8 @@
   id: FTLPoints
   weights:
     StationPoint: 1
-    NoDangerPoint: 10
+    NoDangerPoint: 5
     LoDangerPoint: 5
     HiDangerPoint: 3
     ConfDangerPoint: 3
-    StarPoint: 10
+    StarPoint: 3

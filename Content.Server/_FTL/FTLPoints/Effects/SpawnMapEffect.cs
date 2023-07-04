@@ -8,7 +8,7 @@ namespace Content.Server._FTL.FTLPoints.Effects;
 [DataDefinition]
 public sealed class SpawnMapEffect : FTLPointEffect
 {
-    [DataField("mapPath", required: true)]
+    [DataField("mapPaths", required: true)]
     public List<ResPath> MapPaths { get; } = new List<ResPath>()
     {
         new ResPath("/Maps/_FTL/trade-station.yml")
