@@ -4,6 +4,7 @@ using Content.Server.Parallax;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
 using Content.Shared.Dataset;
+using Content.Shared.Parallax;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Salvage;
@@ -24,6 +25,7 @@ public sealed class FTLPointsSystem : EntitySystem
     [Dependency] private readonly MetaDataSystem _metaDataSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ShuttleConsoleSystem _consoleSystem = default!;
+    [Dependency] private readonly ParallaxSystem _parallaxSystem = default!;
 
     public void RegeneratePoints()
     {
@@ -77,9 +79,21 @@ public sealed class FTLPointsSystem : EntitySystem
                 SharedSalvageSystem.GetFTLName(_prototypeManager.Index<DatasetPrototype>("names_borer"), _random.Next(0, 1000000))}");
 
             // make it ftlable
-            EnsureComp<FTLDestinationComponent>(_mapManager.GetMapEntityId(mapId));
+            EnsureComp<FTLDestinationComponent>(mapUid);
             AddComp<DisposalFTLPointComponent>(mapUid);
             _consoleSystem.RefreshShuttleConsoles();
+
+            // add parallax
+            var parallaxes = new[]
+            {
+                "AspidParallax",
+                "KettleStation",
+                "Default",
+                "Blank",
+                "BagelStation"
+            };
+            var parallax = EnsureComp<ParallaxComponent>(mapUid);
+            parallax.Parallax = _random.Pick(parallaxes);
 
             // spawn the stuff
             foreach (var effect in point.FtlPointEffects)
