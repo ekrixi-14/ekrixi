@@ -10,21 +10,30 @@ public sealed class ShipTrackerComponent : Component
     /// <summary>
     /// How much hull does the ship have?
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)] public int HullAmount = 30;
+    [DataField("hullAmount")]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public int HullAmount = 30;
 
     /// <summary>
     /// The maximum capacity of the hull
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)] public int HullCapacity = 30;
+    [DataField("hullCapacity")]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public int HullCapacity = 30;
 
     /// <summary>
     /// How many shield layers does the ship have?
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)] public int ShieldAmount = 1;
+    [DataField("shieldAmount")]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public int ShieldAmount = 1;
+
     /// <summary>
     /// The maximum capacity of the shields
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)] public int ShieldCapacity = 1;
+    [DataField("shieldCapacity")]
+    [ViewVariables(VVAccess.ReadWrite)]
+    public int ShieldCapacity = 1;
 
     /// <summary>
     /// How much time has passed since the last shield regen?
@@ -44,6 +53,8 @@ public sealed class ShipTrackerComponent : Component
     /// <summary>
     /// How much passive evasion does the ship have?
     /// </summary>
+    [DataField("passiveEvasion")]
+    [ViewVariables(VVAccess.ReadWrite)]
     public float PassiveEvasion = 0.2f;
 }
 

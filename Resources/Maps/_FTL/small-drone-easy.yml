@@ -117,7 +117,11 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: NavMap
-    - type: ShipTracker
+    - shieldCapacity: 0
+      shieldAmount: 0
+      hullCapacity: 8
+      hullAmount: 8
+      type: ShipTracker
 - proto: AirlockMaint
   entities:
   - uid: 6

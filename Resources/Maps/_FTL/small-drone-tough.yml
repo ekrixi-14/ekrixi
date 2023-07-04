@@ -53,13 +53,13 @@ entities:
       data:
         tiles:
           0,0:
-            0: 36863
+            0: 65535
           0,-1:
             0: 65527
           -1,-1:
             0: 65528
           0,1:
-            0: 8
+            0: 13119
           1,0:
             0: 65535
           1,1:
@@ -78,9 +78,13 @@ entities:
           -2,1:
             0: 2254
           -1,0:
-            0: 32767
+            0: 65535
           -1,1:
-            0: 9015
+            0: 9023
+          0,2:
+            0: 4083
+          -1,2:
+            0: 3264
         uniqueMixes:
         - volume: 2500
           temperature: 293.15
@@ -117,7 +121,9 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: NavMap
-    - type: ShipTracker
+    - hullCapacity: 20
+      hullAmount: 20
+      type: ShipTracker
 - proto: AirlockMaint
   entities:
   - uid: 6
