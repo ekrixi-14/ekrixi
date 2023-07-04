@@ -16,7 +16,7 @@
 
 - type: ftlPoint
   id: HiDangerPoint
-  tag: ship-ftl-tag-base
+  tag: ship-ftl-tag-unknown
   probability: 0.8
   effects:
     - !type:SpawnMapEffect

@@ -3,5 +3,7 @@
   storeName: Bartender
   categories:
     - BartenderDrinks
+    - BartenderNonAlcoholic
+    - BartenderUtility
   currencyWhitelist:
     - Credits

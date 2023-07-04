@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Server._FTL.AutomatedCombat;
 using Content.Server._FTL.FTLPoints;
 using Content.Server._FTL.ShipTracker.Events;
@@ -6,6 +7,7 @@ using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.GameTicking.Events;
+using Content.Server.Popups;
 using Content.Server.Shuttles.Events;
 using Content.Shared.Pinpointer;
 using Robust.Server.GameObjects;
@@ -25,6 +27,7 @@ public sealed class ShipTrackerSystem : EntitySystem
     [Dependency] private readonly FTLPointsSystem _pointsSystem = default!;
     [Dependency] private readonly ChatSystem _chatSystem = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly PopupSystem _popupSystem = default!;
 
     public override void Initialize()
     {
@@ -34,6 +37,21 @@ public sealed class ShipTrackerSystem : EntitySystem
         SubscribeLocalEvent<ShipTrackerComponent, FTLStartedEvent>(OnFTLStartedEvent);
         SubscribeLocalEvent<GridAddEvent>(OnGridAdd);
         SubscribeLocalEvent<ShipTrackerComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<RepairMainShipOnInitComponent, MapInitEvent>(OnRepairShipMapInit);
+    }
+
+    private void OnRepairShipMapInit(EntityUid uid, RepairMainShipOnInitComponent component, MapInitEvent args)
+    {
+        var ships = EntityQueryEnumerator<MainCharacterShipComponent>();
+        while (ships.MoveNext(out var ship, out _))
+        {
+            if (TryComp<ShipTrackerComponent>(ship, out var comp))
+            {
+                comp.HullAmount = comp.HullCapacity;
+                _popupSystem.PopupCoordinates(Loc.GetString("repaired-popup-message"), Transform(uid).Coordinates);
+                QueueDel(uid);
+            }
+        }
     }
 
     private void OnMapInit(EntityUid uid, ShipTrackerComponent component, MapInitEvent args)

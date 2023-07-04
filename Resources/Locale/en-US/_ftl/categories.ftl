@@ -1,1 +1,0 @@
-﻿store-category-drinks = Drinks
