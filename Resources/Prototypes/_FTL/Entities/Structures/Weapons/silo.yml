@@ -6,9 +6,10 @@
     mode: SnapgridCenter
   components:
     - type: Sprite
-      sprite: _FTL/silo.rsi
+      sprite: _FTL/Structures/Weapons/silo.rsi
       layers:
         - state: closed
+          map: ["enum.MorgueVisualLayers.Base"]
         - state: tray
           offset: 0, -1
           map: [ "enum.StorageVisualLayers.Door" ]

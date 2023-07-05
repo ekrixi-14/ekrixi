@@ -7,7 +7,7 @@
     mode: SnapgridCenter
   components:
     - type: Sprite
-      sprite: _FTL/silo.rsi
+      sprite: _FTL/Structures/Weapons/silo.rsi
       layers:
         - state: closed
 
@@ -19,7 +19,7 @@
     mode: SnapgridCenter
   components:
     - type: Sprite
-      sprite: _FTL/silo.rsi
+      sprite: _FTL/Structures/Weapons/silo.rsi
       layers:
         - state: closed
     - type: FTLWeapon
