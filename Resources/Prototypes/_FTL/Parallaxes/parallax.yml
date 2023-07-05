@@ -5,7 +5,7 @@
   layers:
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/Parallaxes/Blue_Nebula_01-1024x1024.png"
+        path: "/Textures/_FTL/Parallaxes/Blue_Nebula_01-1024x1024.png"
       slowness: 0.998046875
       scale: "1, 1"
     - texture:
@@ -20,7 +20,7 @@
       slowness: 0.979375
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/Parallaxes/AspidParallaxNeb.png"
+        path: "/Textures/_FTL/Parallaxes/AspidParallaxNeb.png"
       slowness: 0.967046875
       scale: "1, 1"
     - texture:
@@ -47,7 +47,7 @@
   layers:
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/Parallaxes/Blue_Nebula_02-1024x1024.png"
+        path: "/Textures/_FTL/Parallaxes/Blue_Nebula_02-1024x1024.png"
       slowness: 0.998046875
       scale: "1, 1"
     - texture:
@@ -62,7 +62,7 @@
       slowness: 0.979375
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/Parallaxes/AspidParallaxNeb.png"
+        path: "/Textures/_FTL/Parallaxes/AspidParallaxNeb.png"
       slowness: 0.967046875
       scale: "1, 1"
     - texture:
@@ -89,7 +89,7 @@
   layers:
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/Parallaxes/Blue_Nebula_03-1024x1024.png"
+        path: "/Textures/_FTL/Parallaxes/Blue_Nebula_03-1024x1024.png"
       slowness: 0.998046875
       scale: "1, 1"
     - texture:
@@ -104,7 +104,7 @@
       slowness: 0.979375
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/Parallaxes/AspidParallaxNeb.png"
+        path: "/Textures/_FTL/Parallaxes/AspidParallaxNeb.png"
       slowness: 0.967046875
       scale: "1, 1"
     - texture:
@@ -131,7 +131,7 @@
   layers:
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/Parallaxes/Blue_Nebula_04-1024x1024.png"
+        path: "/Textures/_FTL/Parallaxes/Blue_Nebula_04-1024x1024.png"
       slowness: 0.998046875
       scale: "1, 1"
     - texture:
@@ -146,7 +146,7 @@
       slowness: 0.979375
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/Parallaxes/AspidParallaxNeb.png"
+        path: "/Textures/_FTL/Parallaxes/AspidParallaxNeb.png"
       slowness: 0.967046875
       scale: "1, 1"
     - texture:
@@ -173,7 +173,7 @@
   layers:
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/Parallaxes/Green_Nebula_01-1024x1024.png"
+        path: "/Textures/_FTL/Parallaxes/Green_Nebula_01-1024x1024.png"
       slowness: 0.998046875
       scale: "1, 1"
     - texture:
@@ -188,7 +188,7 @@
       slowness: 0.979375
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/Parallaxes/AspidParallaxNeb.png"
+        path: "/Textures/_FTL/Parallaxes/AspidParallaxNeb.png"
       slowness: 0.967046875
       scale: "1, 1"
     - texture:
@@ -215,7 +215,7 @@
   layers:
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/Parallaxes/Green_Nebula_02-1024x1024.png"
+        path: "/Textures/_FTL/Parallaxes/Green_Nebula_02-1024x1024.png"
       slowness: 0.998046875
       scale: "1, 1"
     - texture:
@@ -230,7 +230,7 @@
       slowness: 0.979375
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/Parallaxes/AspidParallaxNeb.png"
+        path: "/Textures/_FTL/Parallaxes/AspidParallaxNeb.png"
       slowness: 0.967046875
       scale: "1, 1"
     - texture:
@@ -257,7 +257,7 @@
   layers:
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/Parallaxes/Green_Nebula_03-1024x1024.png"
+        path: "/Textures/_FTL/Parallaxes/Green_Nebula_03-1024x1024.png"
       slowness: 0.998046875
       scale: "1, 1"
     - texture:
@@ -272,7 +272,7 @@
       slowness: 0.979375
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/Parallaxes/AspidParallaxNeb.png"
+        path: "/Textures/_FTL/Parallaxes/AspidParallaxNeb.png"
       slowness: 0.967046875
       scale: "1, 1"
     - texture:
@@ -299,7 +299,7 @@
   layers:
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/Parallaxes/Green_Nebula_04-1024x1024.png"
+        path: "/Textures/_FTL/Parallaxes/Green_Nebula_04-1024x1024.png"
       slowness: 0.998046875
       scale: "1, 1"
     - texture:
@@ -314,7 +314,7 @@
       slowness: 0.979375
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/Parallaxes/AspidParallaxNeb.png"
+        path: "/Textures/_FTL/Parallaxes/AspidParallaxNeb.png"
       slowness: 0.967046875
       scale: "1, 1"
     - texture:
@@ -341,7 +341,7 @@
   layers:
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/Parallaxes/Green_Nebula_06-1024x1024.png"
+        path: "/Textures/_FTL/Parallaxes/Green_Nebula_06-1024x1024.png"
       slowness: 0.998046875
       scale: "1, 1"
     - texture:
@@ -356,7 +356,7 @@
       slowness: 0.979375
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/Parallaxes/AspidParallaxNeb.png"
+        path: "/Textures/_FTL/Parallaxes/AspidParallaxNeb.png"
       slowness: 0.967046875
       scale: "1, 1"
     - texture:
@@ -383,7 +383,7 @@
   layers:
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/Parallaxes/Green_Nebula_07-1024x1024.png"
+        path: "/Textures/_FTL/Parallaxes/Green_Nebula_07-1024x1024.png"
       slowness: 0.998046875
       scale: "1, 1"
     - texture:
@@ -398,7 +398,7 @@
       slowness: 0.979375
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/Parallaxes/AspidParallaxNeb.png"
+        path: "/Textures/_FTL/Parallaxes/AspidParallaxNeb.png"
       slowness: 0.967046875
       scale: "1, 1"
     - texture:
@@ -425,7 +425,7 @@
   layers:
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/Parallaxes/Green_Nebula_08-1024x1024.png"
+        path: "/Textures/_FTL/Parallaxes/Green_Nebula_08-1024x1024.png"
       slowness: 0.998046875
       scale: "1, 1"
     - texture:
@@ -440,7 +440,7 @@
       slowness: 0.979375
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/Parallaxes/AspidParallaxNeb.png"
+        path: "/Textures/_FTL/Parallaxes/AspidParallaxNeb.png"
       slowness: 0.967046875
       scale: "1, 1"
     - texture:
@@ -467,7 +467,7 @@
   layers:
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/Parallaxes/Purple_Nebula_01-1024x1024.png"
+        path: "/Textures/_FTL/Parallaxes/Purple_Nebula_01-1024x1024.png"
       slowness: 0.998046875
       scale: "1, 1"
     - texture:
@@ -482,7 +482,7 @@
       slowness: 0.979375
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/Parallaxes/AspidParallaxNeb.png"
+        path: "/Textures/_FTL/Parallaxes/AspidParallaxNeb.png"
       slowness: 0.967046875
       scale: "1, 1"
     - texture:
@@ -509,7 +509,7 @@
   layers:
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/Parallaxes/Purple_Nebula_02-1024x1024.png"
+        path: "/Textures/_FTL/Parallaxes/Purple_Nebula_02-1024x1024.png"
       slowness: 0.998046875
       scale: "1, 1"
     - texture:
@@ -524,7 +524,7 @@
       slowness: 0.979375
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/Parallaxes/AspidParallaxNeb.png"
+        path: "/Textures/_FTL/Parallaxes/AspidParallaxNeb.png"
       slowness: 0.967046875
       scale: "1, 1"
     - texture:
@@ -551,7 +551,7 @@
   layers:
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/Parallaxes/Purple_Nebula_03-1024x1024.png"
+        path: "/Textures/_FTL/Parallaxes/Purple_Nebula_03-1024x1024.png"
       slowness: 0.998046875
       scale: "1, 1"
     - texture:
@@ -566,7 +566,7 @@
       slowness: 0.979375
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/Parallaxes/AspidParallaxNeb.png"
+        path: "/Textures/_FTL/Parallaxes/AspidParallaxNeb.png"
       slowness: 0.967046875
       scale: "1, 1"
     - texture:
@@ -593,7 +593,7 @@
   layers:
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/Parallaxes/Purple_Nebula_04-1024x1024.png"
+        path: "/Textures/_FTL/Parallaxes/Purple_Nebula_04-1024x1024.png"
       slowness: 0.998046875
       scale: "1, 1"
     - texture:
@@ -608,7 +608,7 @@
       slowness: 0.979375
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/Parallaxes/AspidParallaxNeb.png"
+        path: "/Textures/_FTL/Parallaxes/AspidParallaxNeb.png"
       slowness: 0.967046875
       scale: "1, 1"
     - texture:
@@ -635,7 +635,7 @@
   layers:
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/Parallaxes/Purple_Nebula_05-1024x1024.png"
+        path: "/Textures/_FTL/Parallaxes/Purple_Nebula_05-1024x1024.png"
       slowness: 0.998046875
       scale: "1, 1"
     - texture:
@@ -650,7 +650,7 @@
       slowness: 0.979375
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/Parallaxes/AspidParallaxNeb.png"
+        path: "/Textures/_FTL/Parallaxes/AspidParallaxNeb.png"
       slowness: 0.967046875
       scale: "1, 1"
     - texture:
@@ -677,7 +677,7 @@
   layers:
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/Parallaxes/Purple_Nebula_08-1024x1024.png"
+        path: "/Textures/_FTL/Parallaxes/Purple_Nebula_08-1024x1024.png"
       slowness: 0.998046875
       scale: "1, 1"
     - texture:
@@ -692,7 +692,7 @@
       slowness: 0.979375
     - texture:
         !type:ImageParallaxTextureSource
-        path: "/Textures/Parallaxes/AspidParallaxNeb.png"
+        path: "/Textures/_FTL/Parallaxes/AspidParallaxNeb.png"
       slowness: 0.967046875
       scale: "1, 1"
     - texture:
