@@ -19,11 +19,6 @@
         configPath: "/Prototypes/Parallaxes/parallax_config_stars_dim.toml"
       slowness: 0.979375
     - texture:
-        !type:ImageParallaxTextureSource
-        path: "/Textures/_FTL/Parallaxes/AspidParallaxNeb.png"
-      slowness: 0.967046875
-      scale: "1, 1"
-    - texture:
         !type:GeneratedParallaxTextureSource
         id: "hq_wizard_stars_faster"
         configPath: "/Prototypes/Parallaxes/parallax_config_stars-2.toml"
@@ -60,11 +55,6 @@
         id: "hq_wizard_stars_dim"
         configPath: "/Prototypes/Parallaxes/parallax_config_stars_dim.toml"
       slowness: 0.979375
-    - texture:
-        !type:ImageParallaxTextureSource
-        path: "/Textures/_FTL/Parallaxes/AspidParallaxNeb.png"
-      slowness: 0.967046875
-      scale: "1, 1"
     - texture:
         !type:GeneratedParallaxTextureSource
         id: "hq_wizard_stars_faster"
@@ -103,11 +93,6 @@
         configPath: "/Prototypes/Parallaxes/parallax_config_stars_dim.toml"
       slowness: 0.979375
     - texture:
-        !type:ImageParallaxTextureSource
-        path: "/Textures/_FTL/Parallaxes/AspidParallaxNeb.png"
-      slowness: 0.967046875
-      scale: "1, 1"
-    - texture:
         !type:GeneratedParallaxTextureSource
         id: "hq_wizard_stars_faster"
         configPath: "/Prototypes/Parallaxes/parallax_config_stars-2.toml"
@@ -144,11 +129,6 @@
         id: "hq_wizard_stars_dim"
         configPath: "/Prototypes/Parallaxes/parallax_config_stars_dim.toml"
       slowness: 0.979375
-    - texture:
-        !type:ImageParallaxTextureSource
-        path: "/Textures/_FTL/Parallaxes/AspidParallaxNeb.png"
-      slowness: 0.967046875
-      scale: "1, 1"
     - texture:
         !type:GeneratedParallaxTextureSource
         id: "hq_wizard_stars_faster"
@@ -187,11 +167,6 @@
         configPath: "/Prototypes/Parallaxes/parallax_config_stars_dim.toml"
       slowness: 0.979375
     - texture:
-        !type:ImageParallaxTextureSource
-        path: "/Textures/_FTL/Parallaxes/AspidParallaxNeb.png"
-      slowness: 0.967046875
-      scale: "1, 1"
-    - texture:
         !type:GeneratedParallaxTextureSource
         id: "hq_wizard_stars_faster"
         configPath: "/Prototypes/Parallaxes/parallax_config_stars-2.toml"
@@ -228,11 +203,6 @@
         id: "hq_wizard_stars_dim"
         configPath: "/Prototypes/Parallaxes/parallax_config_stars_dim.toml"
       slowness: 0.979375
-    - texture:
-        !type:ImageParallaxTextureSource
-        path: "/Textures/_FTL/Parallaxes/AspidParallaxNeb.png"
-      slowness: 0.967046875
-      scale: "1, 1"
     - texture:
         !type:GeneratedParallaxTextureSource
         id: "hq_wizard_stars_faster"
@@ -271,11 +241,6 @@
         configPath: "/Prototypes/Parallaxes/parallax_config_stars_dim.toml"
       slowness: 0.979375
     - texture:
-        !type:ImageParallaxTextureSource
-        path: "/Textures/_FTL/Parallaxes/AspidParallaxNeb.png"
-      slowness: 0.967046875
-      scale: "1, 1"
-    - texture:
         !type:GeneratedParallaxTextureSource
         id: "hq_wizard_stars_faster"
         configPath: "/Prototypes/Parallaxes/parallax_config_stars-2.toml"
@@ -312,11 +277,6 @@
         id: "hq_wizard_stars_dim"
         configPath: "/Prototypes/Parallaxes/parallax_config_stars_dim.toml"
       slowness: 0.979375
-    - texture:
-        !type:ImageParallaxTextureSource
-        path: "/Textures/_FTL/Parallaxes/AspidParallaxNeb.png"
-      slowness: 0.967046875
-      scale: "1, 1"
     - texture:
         !type:GeneratedParallaxTextureSource
         id: "hq_wizard_stars_faster"
@@ -355,11 +315,6 @@
         configPath: "/Prototypes/Parallaxes/parallax_config_stars_dim.toml"
       slowness: 0.979375
     - texture:
-        !type:ImageParallaxTextureSource
-        path: "/Textures/_FTL/Parallaxes/AspidParallaxNeb.png"
-      slowness: 0.967046875
-      scale: "1, 1"
-    - texture:
         !type:GeneratedParallaxTextureSource
         id: "hq_wizard_stars_faster"
         configPath: "/Prototypes/Parallaxes/parallax_config_stars-2.toml"
@@ -397,11 +352,6 @@
         configPath: "/Prototypes/Parallaxes/parallax_config_stars_dim.toml"
       slowness: 0.979375
     - texture:
-        !type:ImageParallaxTextureSource
-        path: "/Textures/_FTL/Parallaxes/AspidParallaxNeb.png"
-      slowness: 0.967046875
-      scale: "1, 1"
-    - texture:
         !type:GeneratedParallaxTextureSource
         id: "hq_wizard_stars_faster"
         configPath: "/Prototypes/Parallaxes/parallax_config_stars-2.toml"
@@ -438,10 +388,6 @@
         id: "hq_wizard_stars_dim"
         configPath: "/Prototypes/Parallaxes/parallax_config_stars_dim.toml"
       slowness: 0.979375
-    - texture:
-        !type:ImageParallaxTextureSource
-        path: "/Textures/_FTL/Parallaxes/AspidParallaxNeb.png"
-      slowness: 0.967046875
       scale: "1, 1"
     - texture:
         !type:GeneratedParallaxTextureSource
@@ -481,11 +427,6 @@
         configPath: "/Prototypes/Parallaxes/parallax_config_stars_dim.toml"
       slowness: 0.979375
     - texture:
-        !type:ImageParallaxTextureSource
-        path: "/Textures/_FTL/Parallaxes/AspidParallaxNeb.png"
-      slowness: 0.967046875
-      scale: "1, 1"
-    - texture:
         !type:GeneratedParallaxTextureSource
         id: "hq_wizard_stars_faster"
         configPath: "/Prototypes/Parallaxes/parallax_config_stars-2.toml"
@@ -522,11 +463,6 @@
         id: "hq_wizard_stars_dim"
         configPath: "/Prototypes/Parallaxes/parallax_config_stars_dim.toml"
       slowness: 0.979375
-    - texture:
-        !type:ImageParallaxTextureSource
-        path: "/Textures/_FTL/Parallaxes/AspidParallaxNeb.png"
-      slowness: 0.967046875
-      scale: "1, 1"
     - texture:
         !type:GeneratedParallaxTextureSource
         id: "hq_wizard_stars_faster"
@@ -565,11 +501,6 @@
         configPath: "/Prototypes/Parallaxes/parallax_config_stars_dim.toml"
       slowness: 0.979375
     - texture:
-        !type:ImageParallaxTextureSource
-        path: "/Textures/_FTL/Parallaxes/AspidParallaxNeb.png"
-      slowness: 0.967046875
-      scale: "1, 1"
-    - texture:
         !type:GeneratedParallaxTextureSource
         id: "hq_wizard_stars_faster"
         configPath: "/Prototypes/Parallaxes/parallax_config_stars-2.toml"
@@ -606,11 +537,6 @@
         id: "hq_wizard_stars_dim"
         configPath: "/Prototypes/Parallaxes/parallax_config_stars_dim.toml"
       slowness: 0.979375
-    - texture:
-        !type:ImageParallaxTextureSource
-        path: "/Textures/_FTL/Parallaxes/AspidParallaxNeb.png"
-      slowness: 0.967046875
-      scale: "1, 1"
     - texture:
         !type:GeneratedParallaxTextureSource
         id: "hq_wizard_stars_faster"
@@ -649,11 +575,6 @@
         configPath: "/Prototypes/Parallaxes/parallax_config_stars_dim.toml"
       slowness: 0.979375
     - texture:
-        !type:ImageParallaxTextureSource
-        path: "/Textures/_FTL/Parallaxes/AspidParallaxNeb.png"
-      slowness: 0.967046875
-      scale: "1, 1"
-    - texture:
         !type:GeneratedParallaxTextureSource
         id: "hq_wizard_stars_faster"
         configPath: "/Prototypes/Parallaxes/parallax_config_stars-2.toml"
@@ -690,11 +611,6 @@
         id: "hq_wizard_stars_dim"
         configPath: "/Prototypes/Parallaxes/parallax_config_stars_dim.toml"
       slowness: 0.979375
-    - texture:
-        !type:ImageParallaxTextureSource
-        path: "/Textures/_FTL/Parallaxes/AspidParallaxNeb.png"
-      slowness: 0.967046875
-      scale: "1, 1"
     - texture:
         !type:GeneratedParallaxTextureSource
         id: "hq_wizard_stars_faster"
