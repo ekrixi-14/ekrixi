@@ -80,7 +80,7 @@ public sealed class FTLPointsSystem : EntitySystem
 
             // make it ftlable
             EnsureComp<FTLDestinationComponent>(mapUid);
-            AddComp<DisposalFTLPointComponent>(mapUid);
+            EnsureComp<DisposalFTLPointComponent>(mapUid);
             _consoleSystem.RefreshShuttleConsoles();
 
             // add parallax

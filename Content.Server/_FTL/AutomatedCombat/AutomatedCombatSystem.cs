@@ -33,7 +33,7 @@ public sealed class AutomatedCombatSystem : EntitySystem
 
     private void OnComponentInit(EntityUid uid, AutomatedCombatComponent component, ComponentInit args)
     {
-        AddComp<ActiveAutomatedCombatComponent>(uid);
+        EnsureComp<ActiveAutomatedCombatComponent>(uid);
     }
 
     private bool TryFindRandomTile(EntityUid targetGrid, out Vector2i tile, out EntityCoordinates targetCoords)

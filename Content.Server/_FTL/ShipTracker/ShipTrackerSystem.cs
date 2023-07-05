@@ -143,7 +143,7 @@ public sealed class ShipTrackerSystem : EntitySystem
 
             if (comp.HullAmount <= 0)
             {
-                AddComp<FTLActiveShipDestructionComponent>(comp.Owner);
+                EnsureComp<FTLActiveShipDestructionComponent>(comp.Owner);
             }
         }
 

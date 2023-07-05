@@ -36,3 +36,6 @@
     - type: Appearance
     - type: Climbable
     - type: SleeperCryopod
+    - type: ContainerContainer
+      containers:
+        body_container: !type:Container
