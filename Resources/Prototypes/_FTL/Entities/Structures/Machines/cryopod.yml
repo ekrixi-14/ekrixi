@@ -38,4 +38,4 @@
     - type: SleeperCryopod
     - type: ContainerContainer
       containers:
-        body_container: !type:Container
+        body_container: !type:ContainerSlot
