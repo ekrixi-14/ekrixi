@@ -11,7 +11,7 @@ namespace Content.Server._FTL.FTLPoints.Effects;
 [DataDefinition]
 public sealed class SpawnDungeonEffect : FTLPointEffect
 {
-    [DataField("configPrototypes", required: true)]
+    [DataField("configPrototypes")]
     public List<string> ConfigPrototypes { get; } = new List<string>()
     {
         "Experiment",
