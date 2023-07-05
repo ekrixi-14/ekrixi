@@ -18,8 +18,8 @@ public sealed class SpawnDungeonEffect : FTLPointEffect
         "LavaBrig",
     };
 
-    [DataField("maxSpawn")] public int MinSpawn = 1;
-    [DataField("minSpawn")] public int MaxSpawn = 2;
+    [DataField("minSpawn")] public int MinSpawn = 1;
+    [DataField("maxSpawn")] public int MaxSpawn = 2;
 
     public override void Effect(FTLPointEffectArgs args)
     {
