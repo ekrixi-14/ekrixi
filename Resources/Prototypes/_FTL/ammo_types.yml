@@ -23,6 +23,13 @@
 - type: ftlAmmo
   id: ArtemisMark1
   bypassShield: true
+  hullMin: 3
+  hullMax: 6
+  prototype: ExplosionArtemisMkI
+
+- type: ftlAmmo
+  id: ArtemisMark2
+  bypassShield: true
   hullMin: 4
   hullMax: 7
   prototype: ExplosionArtemisMkII

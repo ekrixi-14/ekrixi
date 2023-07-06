@@ -72,8 +72,8 @@
 
 - type: entity
   parent: BaseWeaponSilo
-  id: ArtemisMarkIWeaponSilo
-  name: artemis mk.1 weapon silo
+  id: ArtemisMarkIIWeaponSilo
+  name: artemis mk.2 weapon silo
   placement:
     mode: SnapgridCenter
   components:
@@ -83,7 +83,7 @@
           - FTLAmmoTierOne
     - type: FTLWeapon
       cooldownTime: 5
-      prototype: ArtemisMark1
+      prototype: ArtemisMark2
 
 # Tier 3
 
