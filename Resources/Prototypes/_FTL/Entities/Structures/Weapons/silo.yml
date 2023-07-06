@@ -140,7 +140,6 @@
       prototype: PunchMissileMark1
 
 # Tier 3
-
 - type: entity
   parent: BaseWeaponSiloTierThree
   id: RailgunWeaponSilo
@@ -157,3 +156,36 @@
     - type: FTLWeapon
       cooldownTime: 60
       prototype: RailgunLaser
+
+- type: entity
+  parent: BaseWeaponSiloTierThree
+  id: SwarmMarkOneMissileSilo
+  name: swarm mk.2 weapon silo
+  placement:
+    mode: SnapgridCenter
+  components:
+    - type: FTLWeapon
+      cooldownTime: 15
+      prototype: SwarmMark2
+
+- type: entity
+  parent: BaseWeaponSiloTierThree
+  id: HoleMarkOneMissileSilo
+  name: hole mk.2 weapon silo
+  placement:
+    mode: SnapgridCenter
+  components:
+    - type: FTLWeapon
+      cooldownTime: 15
+      prototype: HoleMissileMark2
+
+- type: entity
+  parent: BaseWeaponSiloTierThree
+  id: PunchMarkOneMissileSilo
+  name: punch mk.2 weapon silo
+  placement:
+    mode: SnapgridCenter
+  components:
+    - type: FTLWeapon
+      cooldownTime: 15
+      prototype: PunchMissileMark2

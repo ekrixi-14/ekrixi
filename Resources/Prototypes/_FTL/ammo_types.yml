@@ -20,6 +20,14 @@
   prototype: ExplosionPunch
 
 - type: ftlAmmo
+  id: SwarmMark1
+  bypassShield: true
+  hullMin: 3
+  hullMax: 4
+  hitTimes: 3
+  prototype: ExplosionArtemisMkII
+
+- type: ftlAmmo
   id: HoleMissileMark2
   hullMin: 4
   hullMax: 8
@@ -31,6 +39,14 @@
   hullMin: 3
   hullMax: 6
   prototype: ExplosionPunch
+
+- type: ftlAmmo
+  id: SwarmMark2
+  bypassShield: true
+  hullMin: 6
+  hullMax: 9
+  hitTimes: 3
+  prototype: ExplosionArtemisMkII
 
 - type: ftlAmmo
   id: IncendiaryMissile
@@ -51,14 +67,6 @@
   bypassShield: true
   hullMin: 4
   hullMax: 7
-  prototype: ExplosionArtemisMkII
-
-- type: ftlAmmo
-  id: SwarmMark1
-  bypassShield: true
-  hullMin: 3
-  hullMax: 4
-  hitTimes: 3
   prototype: ExplosionArtemisMkII
 
 - type: ftlAmmo
