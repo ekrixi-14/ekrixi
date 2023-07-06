@@ -48,6 +48,18 @@
       maxTileBreak: 0
 
 - type: entity
+  id: ExplosionArtemisMkI
+  parent: BaseExplosion
+  noSpawn: true
+  components:
+    - type: Explosive
+      explosionType: Default
+      maxIntensity: 40
+      intensitySlope: 5
+      totalIntensity: 200
+      maxTileBreak: 0
+
+- type: entity
   id: ExplosionArtemisMkII
   parent: BaseExplosion
   noSpawn: true
