@@ -69,3 +69,37 @@
     - type: FTLWeapon
       cooldownTime: 5
       prototype: ArtemisMark1
+
+- type: entity
+  parent: BaseWeaponSilo
+  id: ArtemisMarkIWeaponSilo
+  name: artemis mk.1 weapon silo
+  placement:
+    mode: SnapgridCenter
+  components:
+    - type: FTLWeaponSilo
+      ammoWhitelist:
+        tags:
+          - FTLAmmoTierOne
+    - type: FTLWeapon
+      cooldownTime: 5
+      prototype: ArtemisMark1
+
+# Tier 3
+
+- type: entity
+  parent: BaseWeaponSilo
+  id: RailgunWeaponSilo
+  name: railgun weapon silo
+  placement:
+    mode: SnapgridCenter
+  components:
+    - type: Sprite
+      sprite: _FTL/Structures/Weapons/silot3.rsi
+    - type: FTLWeaponSilo
+      ammoWhitelist:
+        tags:
+          - FTLAmmoTierThree
+    - type: FTLWeapon
+      cooldownTime: 60
+      prototype: RailgunLaser

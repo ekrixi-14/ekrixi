@@ -33,6 +33,13 @@
   hullMin: 1000
   hullMax: 1000
 
+- type: ftlAmmo
+  id: RailgunLaser # I know this is a "laser" but its silofed, so...
+  hullMin: 10
+  hullMax: 20
+  noShields: true
+  prototype: ExplosionRailgun
+
 # Laser
 - type: ftlAmmo
   id: GenericLaser
@@ -53,3 +60,4 @@
   hullMax: 5
   hitTimes: 3
   prototype: ExplosionLaser
+

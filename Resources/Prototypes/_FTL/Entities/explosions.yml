@@ -1,9 +1,14 @@
 # Missiles
 - type: entity
   id: BaseExplosion
-  noSpawn: true
+  abstract: true
   components:
     - type: Explosive
+      explosionType: Default
+      maxIntensity: 20
+      intensitySlope: 5
+      totalIntensity: 10
+      maxTileBreak: 1
     - type: ExplodeOnInit
 
 - type: entity
@@ -45,6 +50,18 @@
 # Lasers
 - type: entity
   id: ExplosionLaser
+  parent: BaseExplosion
+  noSpawn: true
+  components:
+    - type: Explosive
+      explosionType: Default
+      maxIntensity: 20
+      intensitySlope: 5
+      totalIntensity: 15
+      maxTileBreak: 0
+
+- type: entity
+  id: ExplosionRailgun
   parent: BaseExplosion
   noSpawn: true
   components:
