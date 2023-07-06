@@ -9,4 +9,4 @@
       - state: green
   - type: ConditionalSpawner
     prototypes:
-      - TraderRecruit
+      - MobHumanTraderRecruit
