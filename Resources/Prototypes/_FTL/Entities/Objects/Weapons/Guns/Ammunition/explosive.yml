@@ -20,16 +20,16 @@
       ignoreResistances: true
       damage:
         types:
-          Blunt: 5
+          Blunt: 10
     - type: DamageOtherOnHit
       damage:
         types:
-          Blunt: 5
+          Blunt: 10
     - type: Explosive
       explosionType: Default
-      maxIntensity: 100
-      intensitySlope: 15
-      totalIntensity: 200
+      maxIntensity: 5
+      intensitySlope: 25
+      totalIntensity: 100
     - type: Damageable
       damageContainer: Inorganic
       damageModifierSet: Metallic
@@ -37,7 +37,7 @@
       thresholds:
         - trigger:
             !type:DamageTrigger
-            damage: 5
+            damage: 60
           behaviors:
             - !type:DoActsBehavior
               acts: [ "Destruction" ]

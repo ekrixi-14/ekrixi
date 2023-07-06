@@ -18,6 +18,6 @@
       explosionType: Default
       maxIntensity: 20
       intensitySlope: 5
-      totalIntensity: 1
+      totalIntensity: 15
       maxTileBreak: 0
     - type: ExplodeOnInit
