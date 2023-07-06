@@ -159,7 +159,7 @@
 
 - type: entity
   parent: BaseWeaponSiloTierThree
-  id: SwarmMarkOneMissileSilo
+  id: SwarmMarkTwoMissileSilo
   name: swarm mk.2 weapon silo
   placement:
     mode: SnapgridCenter
@@ -170,7 +170,7 @@
 
 - type: entity
   parent: BaseWeaponSiloTierThree
-  id: HoleMarkOneMissileSilo
+  id: HoleMarkTwoMissileSilo
   name: hole mk.2 weapon silo
   placement:
     mode: SnapgridCenter
@@ -181,7 +181,7 @@
 
 - type: entity
   parent: BaseWeaponSiloTierThree
-  id: PunchMarkOneMissileSilo
+  id: PunchMarkTwoMissileSilo
   name: punch mk.2 weapon silo
   placement:
     mode: SnapgridCenter
