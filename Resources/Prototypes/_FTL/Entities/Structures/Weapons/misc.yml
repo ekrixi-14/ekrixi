@@ -14,3 +14,26 @@
     - type: FTLWeapon
       cooldownTime: 5
       prototype: IncendiaryMissile
+
+- type: entity
+  parent: BaseWeaponLaserTierTwo
+  id: WeaponFlakGunMkI
+  name: flak mk. 1
+  placement:
+    mode: SnapgridCenter
+  components:
+    - type: FTLWeapon
+      cooldownTime: 15
+      prototype: FlakMk1
+
+- type: entity
+  parent: WeaponFlakGunMkI
+  id: WeaponFlakGunMkII
+  name: flak mk. 2
+  placement:
+    mode: SnapgridCenter
+  components:
+    - type: FTLWeapon
+      cooldownTime: 15
+      prototype: FlakMk2
+

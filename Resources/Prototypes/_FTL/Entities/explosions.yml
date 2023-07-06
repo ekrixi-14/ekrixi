@@ -33,6 +33,18 @@
       maxIntensity: 250
       intensitySlope: 100
       totalIntensity: 100
+      maxTileBreak: 1
+
+- type: entity
+  id: ExplosionPunch
+  parent: ExplosionHole
+  noSpawn: true
+  components:
+    - type: Explosive
+      explosionType: Default
+      maxIntensity: 250
+      intensitySlope: 5
+      totalIntensity: 100
       maxTileBreak: 0
 
 - type: entity
