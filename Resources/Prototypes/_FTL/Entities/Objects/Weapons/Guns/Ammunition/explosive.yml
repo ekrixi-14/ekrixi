@@ -49,6 +49,26 @@
 
 - type: entity
   parent: GenericMissile
+  id: TierTwoMissile
+  name: tier two missile
+  description: A missile designed for both tier 1 and tier 2 weapons.
+  components:
+    - type: Tag
+      tags:
+        - FTLAmmoTierTwo
+
+- type: entity
+  parent: TierTwoMissile
+  id: TierThreeMissile
+  name: tier three missile
+  description: A missile designed for tier 1, 2 and 3 weapons.
+  components:
+    - type: Tag
+      tags:
+        - FTLAmmoTierThree
+
+- type: entity
+  parent: GenericMissile
   id: IncendiaryMissile
   name: incendiary missile
   description: A missile designed to flame up rooms.
