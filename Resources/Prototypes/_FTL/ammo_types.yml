@@ -117,7 +117,7 @@
   prototype: ExplosionLaser
 
 - type: ftlAmmo
-  id: HeavyLaserMk1
+  id: HeavyLaserMk2
   hullMin: 9
   hullMax: 13
   hitTimes: 2
