@@ -1,6 +1,6 @@
 - type: entity
-  parent: BaseFTLWeapon
-  id: BaseFTLWeaponSilo
+  parent: BaseWeaponNaval
+  id: BaseWeaponSilo
   abstract: true
   placement:
     mode: SnapgridCenter
@@ -39,9 +39,33 @@
             True: { visible: true }
             False: { visible: false }
 
+# Tier 1
 - type: entity
-  parent: BaseFTLWeaponSilo
-  id: FTLArtemisMarkIWeaponSilo
+  parent: BaseWeaponSilo
+  id: BasicMissileSilo
+  name: basic weapon silo
+  placement:
+    mode: SnapgridCenter
+  components:
+    - type: FTLWeaponSilo
+      ammoWhitelist:
+        tags:
+          - FTLAmmoTierOne
+    - type: FTLWeapon
+      cooldownTime: 10
+      prototype: GenericMissile
+
+- type: entity
+  parent: BaseWeaponSilo
+  id: ArtemisMarkIWeaponSilo
   name: artemis mk.1 weapon silo
   placement:
     mode: SnapgridCenter
+  components:
+    - type: FTLWeaponSilo
+      ammoWhitelist:
+        tags:
+          - FTLAmmoTierOne
+    - type: FTLWeapon
+      cooldownTime: 5
+      prototype: GenericMissile
