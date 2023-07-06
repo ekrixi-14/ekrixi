@@ -12,5 +12,5 @@ public sealed class FTLWeaponSiloComponent : Component
     public List<EntityUid>? ContainedEntities;
 
     [DataField("ammoWhitelist")]
-    public EntityWhitelist AmmoWhitelist { get; set; } = default!;
+    public EntityWhitelist? AmmoWhitelist { get; set; }
 }

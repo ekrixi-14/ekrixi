@@ -106,7 +106,7 @@ public sealed class WeaponTargetingSystem : SharedWeaponTargetingSystem
             {
                 if (ammoPrototypeString == null)
                 {
-                    if (!siloComponent.AmmoWhitelist.IsValid(entity))
+                    if (siloComponent.AmmoWhitelist != null && !siloComponent.AmmoWhitelist.IsValid(entity))
                     {
                         _popupSystem.PopupCoordinates(Loc.GetString("weapon-popup-incorrect-ammo-message"), Transform(entity).Coordinates);
                         _entityManager.DeleteEntity(entity);
