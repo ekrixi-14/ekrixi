@@ -13,8 +13,25 @@
   name: recruit
   suffix: NPC
   components:
+  - type: GhostRole
+    name: ghost-role-information-recruit-name
+    description: ghost-role-information-recruit-description
+  - type: GhostTakeoverAvailable
   - type: RandomHumanoidSpawner
     settings: TraderRecruit
+
+- type: entity
+  parent: MobHuman
+  id: MobHumanTraderQuartermaster
+  name: quartermaster
+  suffix: NPC
+  components:
+  - type: GhostRole
+    name: ghost-role-information-quartermaster-name
+    description: ghost-role-information-quartermaster-description
+  - type: GhostTakeoverAvailable
+  - type: RandomHumanoidSpawner
+    settings: TraderQuartermaster
 
 - type: randomHumanoidSettings
   id: TraderBartender
@@ -27,3 +44,9 @@
   components:
   - type: Loadout
     prototypes: [ RecruitNTGear ]
+
+- type: randomHumanoidSettings
+  id: TraderQuartermaster
+  components:
+  - type: Loadout
+    prototypes: [ QuartermasterGear ]
