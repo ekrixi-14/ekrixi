@@ -1,6 +1,6 @@
 - type: entity
   name: Human Corpse Spawner
-  id: SalvageHumanCorpseSpawner
+  id: TradeStationRecruitSpawner
   parent: MarkerBase
   components:
   - type: Sprite
