@@ -7,8 +7,23 @@
   - type: RandomHumanoidSpawner
     settings: TraderBartender
 
+- type: entity
+  parent: MobHuman
+  id: MobHumanTraderRecruit
+  name: recruit
+  suffix: NPC
+  components:
+  - type: RandomHumanoidSpawner
+    settings: TraderRecruit
+
 - type: randomHumanoidSettings
   id: TraderBartender
   components:
   - type: Loadout
     prototypes: [ BartenderGear ]
+
+- type: randomHumanoidSettings
+  id: TraderRecruit
+  components:
+  - type: Loadout
+    prototypes: [ RecruitNTGear ]
