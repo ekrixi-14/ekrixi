@@ -68,4 +68,4 @@
           - FTLAmmoTierOne
     - type: FTLWeapon
       cooldownTime: 5
-      prototype: GenericMissile
+      prototype: ArtemisMark1

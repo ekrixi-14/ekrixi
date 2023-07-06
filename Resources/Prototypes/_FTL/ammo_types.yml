@@ -1,3 +1,4 @@
+# Missile
 - type: ftlAmmo
   id: GenericMissile
   bypassShield: true
@@ -6,17 +7,11 @@
   prototype: ExplosionMissile
 
 - type: ftlAmmo
-  id: GenericLaser
+  id: HoleMissile
   hullMin: 2
-  hullMax: 4
+  hullMax: 5
   hitTimes: 3
-  prototype: ExplosionLaser
-
-- type: ftlAmmo
-  id: DebugDestroy
-  bypassShield: true
-  hullMin: 1000
-  hullMax: 1000
+  prototype: ExplosionHole
 
 - type: ftlAmmo
   id: IncendiaryMissile
@@ -24,3 +19,37 @@
   hullMin: 0
   hullMax: 0
   prototype: FTLFire
+
+- type: ftlAmmo
+  id: ArtemisMark1
+  bypassShield: true
+  hullMin: 4
+  hullMax: 7
+  prototype: ExplosionArtemisMkII
+
+- type: ftlAmmo
+  id: DebugDestroy
+  bypassShield: true
+  hullMin: 1000
+  hullMax: 1000
+
+# Laser
+- type: ftlAmmo
+  id: GenericLaser
+  hullMin: 2
+  hullMax: 4
+  prototype: ExplosionLaser
+
+- type: ftlAmmo
+  id: DualLaser
+  hullMin: 2
+  hullMax: 4
+  hitTimes: 2
+  prototype: ExplosionLaser
+
+- type: ftlAmmo
+  id: BurstLaser
+  hullMin: 2
+  hullMax: 5
+  hitTimes: 3
+  prototype: ExplosionLaser

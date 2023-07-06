@@ -29,6 +29,21 @@
 
 - type: entity
   parent: BaseWeaponLaser
+  id: WeaponDualLaser
+  name: dual laser
+  placement:
+    mode: SnapgridCenter
+  components:
+    - type: Sprite
+      sprite: _FTL/Structures/Weapons/silo.rsi
+      layers:
+        - state: closed
+    - type: FTLWeapon
+      cooldownTime: 5
+      prototype: DualLaser
+
+- type: entity
+  parent: BaseWeaponLaser
   id: WeaponBurstLaserMkI
   name: burst laser mk. 1
   placement:
@@ -40,7 +55,7 @@
         - state: closed
     - type: FTLWeapon
       cooldownTime: 4
-      prototype: GenericLaser
+      prototype: BurstLaser
 
 - type: entity
   parent: WeaponBurstLaserMkI
