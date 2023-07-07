@@ -44,32 +44,12 @@ public sealed class WeaponTargetingSystem : SharedWeaponTargetingSystem
         SubscribeLocalEvent<WeaponTargetingComponent, FireWeaponSendMessage>(OnFireWeaponSendMessage);
         SubscribeLocalEvent<WeaponTargetingComponent, NewLinkEvent>(OnNewLink);
         SubscribeLocalEvent<WeaponTargetingComponent, PortDisconnectedEvent>(OnPortDisconnected);
+        SubscribeLocalEvent<WeaponTargetingComponent, ShipScanRequestMessage>(OnShipScanRequest);
 
         SubscribeLocalEvent<FTLWeaponComponent, SignalReceivedEvent>(WeaponSignalReceived);
 
         SubscribeLocalEvent<FTLWeaponSiloComponent, StorageAfterCloseEvent>(OnClose);
         SubscribeLocalEvent<FTLWeaponSiloComponent, StorageAfterOpenEvent>(OnOpen);
-    }
-
-    private void OnUIOpenAttempt(EntityUid uid, WeaponTargetingComponent component, ActivatableUIOpenAttemptEvent args)
-    {
-        if (!component.IsLinked)
-        {
-            args.Cancel();
-            _popupSystem.PopupCoordinates(Loc.GetString("weapon-popup-no-link-message"), Transform(uid).Coordinates);
-        }
-    }
-
-    private void OnPortDisconnected(EntityUid uid, WeaponTargetingComponent component, PortDisconnectedEvent args)
-    {
-        Log.Debug("no link");
-        component.IsLinked = false;
-    }
-
-    private void OnNewLink(EntityUid uid, WeaponTargetingComponent component, NewLinkEvent args)
-    {
-        Log.Debug("new link");
-        component.IsLinked = true;
     }
 
     public override void Update(float delta)
@@ -95,6 +75,23 @@ public sealed class WeaponTargetingSystem : SharedWeaponTargetingSystem
         }
     }
 
+    #region Linking
+
+    private void OnPortDisconnected(EntityUid uid, WeaponTargetingComponent component, PortDisconnectedEvent args)
+    {
+        Log.Debug("no link");
+        component.IsLinked = false;
+    }
+
+    private void OnNewLink(EntityUid uid, WeaponTargetingComponent component, NewLinkEvent args)
+    {
+        Log.Debug("new link");
+        component.IsLinked = true;
+    }
+
+    #endregion
+
+    #region Signals
     private void WeaponSignalReceived(EntityUid uid, FTLWeaponComponent component, ref SignalReceivedEvent args)
     {
         if (!component.CanBeUsed)
@@ -187,6 +184,31 @@ public sealed class WeaponTargetingSystem : SharedWeaponTargetingSystem
         comp.SecondsLeft = component.CooldownTime;
     }
 
+    private void OnFireWeaponSendMessage(EntityUid uid, WeaponTargetingComponent component, FireWeaponSendMessage args)
+    {
+        if (!Equals(args.UiKey, WeaponTargetingUiKey.Key) || args.Session.AttachedEntity == null)
+            return;
+
+        if (TryComp<FTLActiveCooldownWeaponComponent>(uid, out var activeComp))
+        {
+            _audioSystem.PlayPvs(component.CooldownSound, uid);
+            return;
+        }
+
+        var payload = new NetworkPayload
+        {
+            ["message"] = "goofball",
+            ["coordinates"] = args.Coordinates,
+            ["targetGrid"] = args.TargetGrid,
+            ["weaponPad"] = uid,
+        };
+
+        _deviceLinkSystem.InvokePort(uid, "WeaponOutputPort", payload);
+        TryCooldownWeapon(uid, component);
+    }
+    #endregion
+
+    #region UI
     private void OnClose(EntityUid uid, FTLWeaponSiloComponent component, ref StorageAfterCloseEvent args)
     {
         TryComp<EntityStorageComponent>(uid, out var container);
@@ -215,28 +237,30 @@ public sealed class WeaponTargetingSystem : SharedWeaponTargetingSystem
         }
     }
 
-    private void OnFireWeaponSendMessage(EntityUid uid, WeaponTargetingComponent component, FireWeaponSendMessage args)
+    private void OnShipScanRequest(EntityUid uid, WeaponTargetingComponent component, ShipScanRequestMessage args)
     {
-        if (!Equals(args.UiKey, WeaponTargetingUiKey.Key) || args.Session.AttachedEntity == null)
+        TryComp<ShipTrackerComponent>(args.SelectedGrid, out var shipTrackerComponent);
+        if (shipTrackerComponent == null)
             return;
 
-        if (TryComp<FTLActiveCooldownWeaponComponent>(uid, out var activeComp))
-        {
-            _audioSystem.PlayPvs(component.CooldownSound, uid);
-            return;
-        }
-
-        var payload = new NetworkPayload
-        {
-            ["message"] = "goofball",
-            ["coordinates"] = args.Coordinates,
-            ["targetGrid"] = args.TargetGrid,
-            ["weaponPad"] = uid,
-        };
-
-        _deviceLinkSystem.InvokePort(uid, "WeaponOutputPort", payload);
-        TryCooldownWeapon(uid, component);
+        var message = Loc.GetString("weapon-pad-message-scan-text",
+            ("hull", shipTrackerComponent.HullAmount),
+            ("maxHull", shipTrackerComponent.HullCapacity),
+            ("shields", shipTrackerComponent.ShieldAmount),
+            ("maxShields", shipTrackerComponent.ShieldCapacity)
+        );
+        UpdateState(uid, component.CanFire, message);
     }
+
+    private void OnUIOpenAttempt(EntityUid uid, WeaponTargetingComponent component, ActivatableUIOpenAttemptEvent args)
+    {
+        if (!component.IsLinked)
+        {
+            args.Cancel();
+            _popupSystem.PopupCoordinates(Loc.GetString("weapon-popup-no-link-message"), Transform(uid).Coordinates);
+        }
+    }
+
 
     private void OnStationMapClosed(EntityUid uid, WeaponTargetingComponent component, BoundUIClosedEvent args)
     {
@@ -265,11 +289,12 @@ public sealed class WeaponTargetingSystem : SharedWeaponTargetingSystem
         comp.Map = uid;
     }
 
-    private void UpdateState(EntityUid uid, bool canFire)
+    private void UpdateState(EntityUid uid, bool canFire, string? scanText = null)
     {
         // collect grids
         var grids = EntityQuery<ShipTrackerComponent>().Select(x => x.Owner).ToList();
-        var state = new WeaponTargetingUserInterfaceState(canFire, grids);
+        var state = new WeaponTargetingUserInterfaceState(canFire, grids, scanText is null ? "" : scanText);
         _uiSystem.TrySetUiState(uid, WeaponTargetingUiKey.Key, state);
     }
+    #endregion
 }
