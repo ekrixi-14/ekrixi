@@ -1,22 +1,20 @@
 using System.Linq;
 using Content.Server._FTL.ShipHealth;
-using Content.Server.Chat.Systems;
 using Content.Server.DeviceLinking.Events;
 using Content.Server.DeviceLinking.Systems;
 using Content.Server.DeviceNetwork;
 using Content.Server.Popups;
 using Content.Server.Storage.Components;
+using Content.Server.UserInterface;
 using Content.Shared._FTL.Weapons;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Damage.Systems;
+using Content.Shared.DeviceLinking.Events;
 using Content.Shared.FixedPoint;
 using Content.Shared.Storage.Components;
-using Content.Shared.Tag;
 using Robust.Server.GameObjects;
-using Robust.Shared.Containers;
 using Robust.Shared.Map;
-using Robust.Shared.Noise;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._FTL.Weapons;
@@ -25,18 +23,15 @@ namespace Content.Server._FTL.Weapons;
 public sealed class WeaponTargetingSystem : SharedWeaponTargetingSystem
 {
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
-    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly PhysicsSystem _physicsSystem = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly ChatSystem _chatSystem = default!;
     [Dependency] private readonly StaminaSystem _staminaSystem = default!;
     [Dependency] private readonly DeviceLinkSystem _deviceLinkSystem = default!;
     [Dependency] private readonly EntityManager _entityManager = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly ShipTrackerSystem _shipTrackerSystem = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
-    [Dependency] private readonly TagSystem _tagSystem = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -44,8 +39,11 @@ public sealed class WeaponTargetingSystem : SharedWeaponTargetingSystem
         base.Initialize();
         SubscribeLocalEvent<WeaponTargetingUserComponent, EntParentChangedMessage>(OnUserParentChanged);
         SubscribeLocalEvent<WeaponTargetingComponent, BoundUIOpenedEvent>(OnStationMapOpened);
+        SubscribeLocalEvent<WeaponTargetingComponent, ActivatableUIOpenAttemptEvent>(OnUIOpenAttempt);
         SubscribeLocalEvent<WeaponTargetingComponent, BoundUIClosedEvent>(OnStationMapClosed);
         SubscribeLocalEvent<WeaponTargetingComponent, FireWeaponSendMessage>(OnFireWeaponSendMessage);
+        SubscribeLocalEvent<WeaponTargetingComponent, NewLinkEvent>(OnNewLink);
+        SubscribeLocalEvent<WeaponTargetingComponent, PortDisconnectedEvent>(OnPortDisconnected);
 
         SubscribeLocalEvent<FTLWeaponComponent, SignalReceivedEvent>(WeaponSignalReceived);
 
@@ -53,21 +51,46 @@ public sealed class WeaponTargetingSystem : SharedWeaponTargetingSystem
         SubscribeLocalEvent<FTLWeaponSiloComponent, StorageAfterOpenEvent>(OnOpen);
     }
 
+    private void OnUIOpenAttempt(EntityUid uid, WeaponTargetingComponent component, ActivatableUIOpenAttemptEvent args)
+    {
+        if (!component.IsLinked)
+        {
+            args.Cancel();
+            _popupSystem.PopupCoordinates(Loc.GetString("weapon-popup-no-link-message"), Transform(uid).Coordinates);
+        }
+    }
+
+    private void OnPortDisconnected(EntityUid uid, WeaponTargetingComponent component, PortDisconnectedEvent args)
+    {
+        Log.Debug("no link");
+        component.IsLinked = false;
+    }
+
+    private void OnNewLink(EntityUid uid, WeaponTargetingComponent component, NewLinkEvent args)
+    {
+        Log.Debug("new link");
+        component.IsLinked = true;
+    }
+
     public override void Update(float delta)
     {
-        foreach (var comp in EntityManager.EntityQuery<FTLActiveCooldownWeaponComponent>())
+        var query = EntityQueryEnumerator<FTLActiveCooldownWeaponComponent>();
+        while (query.MoveNext(out var entityUid, out var comp))
         {
             comp.SecondsLeft -= delta;
             if (comp.SecondsLeft <= 0)
             {
-                TryComp<FTLWeaponComponent>(comp.Owner, out var weaponComponent);
-                TryComp<WeaponTargetingComponent>(comp.Owner, out var targetingComponent);
+                TryComp<FTLWeaponComponent>(entityUid, out var weaponComponent);
+                TryComp<WeaponTargetingComponent>(entityUid, out var targetingComponent);
                 if (weaponComponent != null)
                     weaponComponent.CanBeUsed = true;
                 if (targetingComponent != null)
+                {
                     targetingComponent.CanFire = true;
+                    UpdateState(entityUid, targetingComponent.CanFire);
+                }
 
-                _entityManager.RemoveComponent<FTLActiveCooldownWeaponComponent>(comp.Owner);
+                _entityManager.RemoveComponent<FTLActiveCooldownWeaponComponent>(entityUid);
             }
         }
     }
@@ -83,9 +106,13 @@ public sealed class WeaponTargetingSystem : SharedWeaponTargetingSystem
         if (args.Data == null)
             return;
 
-        foreach(KeyValuePair<string, object> entry in args.Data)
+        if (
+            args.Data["coordinates"] is not EntityCoordinates &&
+            args.Data["targetGrid"] is not EntityUid &&
+            args.Data["weaponPad"] is not EntityUid
+        )
         {
-            Logger.Debug($"{entry.Key}: {entry.Value}");
+            return;
         }
 
         var coordinates = (EntityCoordinates) args.Data["coordinates"];
@@ -180,9 +207,9 @@ public sealed class WeaponTargetingSystem : SharedWeaponTargetingSystem
         var transform = Transform(uid);
         foreach (var entity in component.ContainedEntities)
         {
-            _physicsSystem.ApplyLinearImpulse(entity, -(transform.LocalRotation.ToWorldVec() * 100000f));
+            _physicsSystem.ApplyLinearImpulse(entity, -(transform.LocalRotation.ToWorldVec() * 100f));
             var damage = new DamageSpecifier(_prototypeManager.Index<DamageGroupPrototype>("Brute"),
-                FixedPoint2.New(50));
+                FixedPoint2.New(25));
             _damageableSystem.TryChangeDamage(entity, damage);
             _staminaSystem.TakeStaminaDamage(entity, 100f);
         }
@@ -233,14 +260,16 @@ public sealed class WeaponTargetingSystem : SharedWeaponTargetingSystem
             return;
 
         var comp = EnsureComp<WeaponTargetingUserComponent>(args.Session.AttachedEntity.Value);
+
+        UpdateState(uid, component.CanFire);
+        comp.Map = uid;
+    }
+
+    private void UpdateState(EntityUid uid, bool canFire)
+    {
         // collect grids
         var grids = EntityQuery<ShipTrackerComponent>().Select(x => x.Owner).ToList();
-        var state = new WeaponTargetingUserInterfaceState(component.CanFire, grids);
-        foreach (var grid in grids)
-        {
-            Logger.Debug(grid.ToString());
-        }
+        var state = new WeaponTargetingUserInterfaceState(canFire, grids);
         _uiSystem.TrySetUiState(uid, WeaponTargetingUiKey.Key, state);
-        comp.Map = uid;
     }
 }
