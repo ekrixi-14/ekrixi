@@ -10,21 +10,6 @@
           state: icon
     - type: RandomSpawner
       prototypes:
-        - BeakerAluminium
-        - BeakerCarbon
-        - BeakerChlorine
-        - BeakerCopper
-        - BeakerEthanol
-        - BeakerFluorine
-        - BeakerHydrogen
-        - BeakerIodine
-        - BeakerMercury
-        - BeakerNitrogen
-        - BeakerOxygen
-        - BeakerPhosphorus
-        - BeakerPotassium
-        - BeakerSilicon
-        - BeakerSodium
-        - BeakerSulfur
-      chance: 0.5
+        - CrateRandomChemistryBeakers
+      chance: 0.9
       offset: 0.0
