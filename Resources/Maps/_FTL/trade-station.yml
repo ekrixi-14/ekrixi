@@ -4741,7 +4741,7 @@ entities:
     - pos: 5.534777,12.445309
       parent: 2
       type: Transform
-- proto: ComputerBroken
+- proto: ComputerATM
   entities:
   - uid: 737
     components:
