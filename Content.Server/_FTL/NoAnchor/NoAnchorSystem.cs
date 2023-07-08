@@ -22,7 +22,7 @@ public sealed class NoAnchorSystem : EntitySystem
         if (!component.StopOnUnanchorAttempt)
             return;
         args.Cancel();
-        _popupSystem.PopupClient(Loc.GetString("unanchor-ftl-message"), uid, args.User);
+        _popupSystem.PopupEntity(Loc.GetString("unanchor-ftl-message"), uid);
     }
 
     private void OnAnchorAttempt(EntityUid uid, NoAnchorComponent component, UnanchorAttemptEvent args)
@@ -30,6 +30,6 @@ public sealed class NoAnchorSystem : EntitySystem
         if (!component.StopOnAnchorAttempt)
             return;
         args.Cancel();
-        _popupSystem.PopupClient(Loc.GetString("unanchor-ftl-message"), uid, args.User);
+        _popupSystem.PopupEntity(Loc.GetString("unanchor-ftl-message"), uid);
     }
 }
