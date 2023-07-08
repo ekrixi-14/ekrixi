@@ -85,6 +85,8 @@ public sealed class FTLPointsSystem : EntitySystem
             // make it ftlable
             EnsureComp<FTLDestinationComponent>(mapUid);
             EnsureComp<DisposalFTLPointComponent>(mapUid);
+            _metaDataSystem.SetEntityName(mapUid, $"[{Loc.GetString(point.Tag)}] {
+                SharedSalvageSystem.GetFTLName(_prototypeManager.Index<DatasetPrototype>("names_borer"), _random.Next())}");
             _consoleSystem.RefreshShuttleConsoles();
 
             // add parallax
@@ -125,8 +127,6 @@ public sealed class FTLPointsSystem : EntitySystem
                 }
             }
 
-            _metaDataSystem.SetEntityName(mapUid, $"[{Loc.GetString(point.Tag)}] {
-                SharedSalvageSystem.GetFTLName(_prototypeManager.Index<DatasetPrototype>("names_borer"), _random.Next())}");
         }
         else
         {
