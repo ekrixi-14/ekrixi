@@ -38,9 +38,16 @@ public sealed class ShipTrackerSystem : EntitySystem
         SubscribeLocalEvent<ShipTrackerComponent, FTLCompletedEvent>(OnFTLCompletedEvent);
         SubscribeLocalEvent<ShipTrackerComponent, FTLStartedEvent>(OnFTLStartedEvent);
         SubscribeLocalEvent<ShipTrackerComponent, FTLRequestEvent>(OnFTLRequestEvent);
-        SubscribeLocalEvent<GridAddEvent>(OnGridAdd);
-        SubscribeLocalEvent<ShipTrackerComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<MainCharacterShipComponent, ComponentInit>(OnComponentInit);
+
         SubscribeLocalEvent<RepairMainShipOnInitComponent, MapInitEvent>(OnRepairShipMapInit);
+
+        SubscribeLocalEvent<GridAddEvent>(OnGridAdd);
+    }
+
+    private void OnComponentInit(EntityUid uid, MainCharacterShipComponent component, ComponentInit args)
+    {
+        _pointsSystem.RegeneratePoints();
     }
 
     private void OnFTLRequestEvent(EntityUid uid, ShipTrackerComponent component, ref FTLRequestEvent args)
@@ -60,11 +67,6 @@ public sealed class ShipTrackerSystem : EntitySystem
                 QueueDel(uid);
             }
         }
-    }
-
-    private void OnMapInit(EntityUid uid, ShipTrackerComponent component, MapInitEvent args)
-    {
-        _pointsSystem.RegeneratePoints();
     }
 
     private void OnGridAdd(GridAddEvent msg, EntitySessionEventArgs args)
