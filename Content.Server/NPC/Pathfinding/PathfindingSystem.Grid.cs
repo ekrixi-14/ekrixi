@@ -58,8 +58,7 @@ public sealed partial class PathfindingSystem
         if (ev.OldTile.IsEmpty == ev.NewTile.Tile.IsEmpty)
             return;
 
-        if (TryComp<MapGridComponent>(ev.Entity, out var comp))
-            DirtyChunk(ev.Entity, comp.GridTileToLocal(ev.NewTile.GridIndices));
+        DirtyChunk(ev.Entity, comp.GridTileToLocal(ev.NewTile.GridIndices));
     }
 
     private void OnGridPathPause(EntityUid uid, GridPathfindingComponent component, ref EntityUnpausedEvent args)
