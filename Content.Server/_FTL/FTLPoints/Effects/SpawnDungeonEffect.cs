@@ -48,6 +48,12 @@ public sealed class SpawnDungeonEffect : FTLPointEffect
                 return;
             }
 
+            if (!args.EntityManager.TryGetComponent<MapGridComponent>(dungeonUid, out var _))
+            {
+                Logger.Warning($"Dungeon {dungeonUid} did not have a MapGridComponent.");
+                return;
+            }
+
             dungeon.GenerateDungeon(dungeonProto, dungeonUid, dungeonGrid, position, seed);
 
             foreach (var tile in dungeonGrid.GetAllTiles())
