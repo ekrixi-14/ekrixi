@@ -10,8 +10,10 @@ using Content.Server.Explosion.EntitySystems;
 using Content.Server.GameTicking.Events;
 using Content.Server.Popups;
 using Content.Server.Shuttles.Events;
+using Content.Shared.CCVar;
 using Content.Shared.Pinpointer;
 using Robust.Server.GameObjects;
+using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
 
@@ -30,6 +32,7 @@ public sealed class ShipTrackerSystem : EntitySystem
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly AlertLevelSystem _alertLevelSystem = default!;
+    [Dependency] private readonly IConfigurationManager _configurationManager = default!;
 
     public override void Initialize()
     {
@@ -47,7 +50,10 @@ public sealed class ShipTrackerSystem : EntitySystem
 
     private void OnComponentInit(EntityUid uid, MainCharacterShipComponent component, ComponentInit args)
     {
-        _pointsSystem.RegeneratePoints();
+        if (_configurationManager.GetCVar(CCVars.GenerateFTLPointsRoundstart))
+        {
+            _pointsSystem.RegeneratePoints();
+        }
     }
 
     private void OnFTLRequestEvent(EntityUid uid, ShipTrackerComponent component, ref FTLRequestEvent args)
