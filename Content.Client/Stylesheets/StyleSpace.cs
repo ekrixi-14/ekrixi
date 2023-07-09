@@ -27,6 +27,14 @@ namespace Content.Client.Stylesheets
 
         public StyleSpace(IResourceCache resCache) : base(resCache)
         {
+            var whiteRabbit = resCache.GetFont
+            (
+                new []
+                {
+                    "/Fonts/WhiteRabbit/whiterabbit.ttf"
+                },
+                10
+            );
             var notoSans10 = resCache.GetFont
             (
                 new []
@@ -65,11 +73,11 @@ namespace Content.Client.Stylesheets
             Stylesheet = new Stylesheet(BaseRules.Concat(new StyleRule[]
             {
                 Element<Label>().Class(StyleClassLabelHeading)
-                    .Prop(Label.StylePropertyFont, notoSansBold16)
+                    .Prop(Label.StylePropertyFont, whiteRabbit)
                     .Prop(Label.StylePropertyFontColor, SpaceRed),
 
                 Element<Label>().Class(StyleClassLabelSubText)
-                    .Prop(Label.StylePropertyFont, notoSans10)
+                    .Prop(Label.StylePropertyFont, whiteRabbit)
                     .Prop(Label.StylePropertyFontColor, Color.DarkGray),
 
                 Element<PanelContainer>().Class(ClassHighDivider)
