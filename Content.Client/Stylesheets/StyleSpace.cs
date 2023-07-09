@@ -11,17 +11,17 @@ namespace Content.Client.Stylesheets
 {
     public sealed class StyleSpace : StyleBase
     {
-        public static readonly Color SpaceRed = Color.FromHex("#9b2236");
+        public static readonly Color SpaceRed = Color.FromHex("#960000");
 
-        public static readonly Color ButtonColorDefault = Color.FromHex("#464966");
-        public static readonly Color ButtonColorHovered = Color.FromHex("#575b7f");
-        public static readonly Color ButtonColorPressed = Color.FromHex("#3e6c45");
-        public static readonly Color ButtonColorDisabled = Color.FromHex("#30313c");
+        public static readonly Color ButtonColorDefault = Color.FromHex("#232323");
+        public static readonly Color ButtonColorHovered = Color.FromHex("#2d2d2d");
+        public static readonly Color ButtonColorPressed = Color.FromHex("#0f0f0f");
+        public static readonly Color ButtonColorDisabled = Color.FromHex("#0f0f0f");
 
-        public static readonly Color ButtonColorCautionDefault = Color.FromHex("#ab3232");
-        public static readonly Color ButtonColorCautionHovered = Color.FromHex("#cf2f2f");
-        public static readonly Color ButtonColorCautionPressed = Color.FromHex("#3e6c45");
-        public static readonly Color ButtonColorCautionDisabled = Color.FromHex("#602a2a");
+        public static readonly Color ButtonColorCautionDefault = Color.FromHex("#640000");
+        public static readonly Color ButtonColorCautionHovered = Color.FromHex("#960000");
+        public static readonly Color ButtonColorCautionPressed = Color.FromHex("#0f0f0f");
+        public static readonly Color ButtonColorCautionDisabled = Color.FromHex("#0f0f0f");
 
         public override Stylesheet Stylesheet { get; }
 
@@ -146,7 +146,7 @@ namespace Content.Client.Stylesheets
 
                 Element<PanelContainer>().Class(ClassAngleRect)
                     .Prop(PanelContainer.StylePropertyPanel, BaseAngleRect)
-                    .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#202030")),
+                    .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#191919")),
 
                 Child()
                     .Parent(Element<Button>().Class(ContainerButton.StylePseudoClassDisabled))
