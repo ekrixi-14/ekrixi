@@ -37,11 +37,11 @@ public sealed class SpawnDungeonEffect : FTLPointEffect
             if (!args.EntityManager.TryGetComponent<MapGridComponent>(dungeonUid, out var dungeonGrid))
             {
                 dungeonUid = args.EntityManager.CreateEntityUninitialized(null, new EntityCoordinates(dungeonUid, position));
-                dungeonGrid = args.EntityManager.AddComponent<MapGridComponent>(dungeonUid);
+                dungeonGrid = args.EntityManager.EnsureComponent<MapGridComponent>(dungeonUid);
                 args.EntityManager.InitializeAndStartEntity(dungeonUid, args.MapId);
             }
 
-            int seed = new Random().Next();
+            var seed = new Random().Next();
 
             if (!prototype.TryIndex<DungeonConfigPrototype>(random.Pick(ConfigPrototypes), out var dungeonProto))
             {
