@@ -38,8 +38,24 @@
   tag: ship-ftl-tag-planet
   effects:
     - !type:ToPlanetEffect
+      biomeTemplates:
+        - Grasslands
+        - Lava
+        - Snow
+        - LowDesert
+        - Caves
     - !type:SpawnDungeonEffect
-      range: 50
+      range: 75
+
+- type: ftlPoint
+  id: PlanetPoint
+  tag: ship-ftl-tag-moon
+  effects:
+    - !type:ToPlanetEffect
+      biomeTemplates:
+        - Caves
+    - !type:SpawnDungeonEffect
+      range: 100
 
 - type: ftlPoint
   id: StarPoint
