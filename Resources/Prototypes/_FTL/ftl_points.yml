@@ -48,7 +48,7 @@
       range: 75
 
 - type: ftlPoint
-  id: PlanetPoint
+  id: MoonPoint
   tag: ship-ftl-tag-moon
   effects:
     - !type:ToPlanetEffect
@@ -85,4 +85,5 @@
     ConfDangerPoint: 0.5
     StarPoint: 1
     PlanetPoint: 1
+    MoonPoint: 0.25
     RuinPoint: 0.15
