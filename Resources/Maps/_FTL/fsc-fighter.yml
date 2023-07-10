@@ -94,7 +94,6 @@ entities:
       hullAmount: 18
       type: ShipTracker
     - type: AutomatedCombat
-    - type: ActiveAutomatedCombat
     - type: RadiationGridResistance
 - proto: AirCanister
   entities:
