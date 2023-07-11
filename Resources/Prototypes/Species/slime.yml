@@ -8,8 +8,7 @@
   markingLimits: MobSlimeMarkingLimits
   dollPrototype: MobSlimePersonDummy
   skinColoration: Hues
-  minHeight: 0.7
-  maxHeight: 1.2
+  defaultHeight: 0.9 # slightly short
 
 - type: speciesBaseSprites
   id: MobSlimeSprites

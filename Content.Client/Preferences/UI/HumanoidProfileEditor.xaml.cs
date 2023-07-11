@@ -1164,13 +1164,13 @@ namespace Content.Client.Preferences.UI
         public void UpdateControls()
         {
             if (Profile is null) return;
+            UpdateHeightControls();
             UpdateNameEdit();
             UpdateFlavorTextEdit();
             UpdateSexControls();
             UpdateGenderControls();
             UpdateSkinColor();
             UpdateSpecies();
-            UpdateHeightControls();
             UpdateClothingControls();
             UpdateBackpackControls();
             UpdateAgeEdit();
