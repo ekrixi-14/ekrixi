@@ -627,7 +627,7 @@ entities:
   entities:
   - uid: 460
     components:
-    - name: South Airlock Right APC
+    - name: South Airlock Right
       type: MetaData
     - rot: -1.5707963267948966 rad
       pos: 3.5,-34.5
@@ -667,21 +667,21 @@ entities:
       type: Transform
   - uid: 465
     components:
-    - name: Weapons Bay APC
+    - name: Weapons Bay
       type: MetaData
     - pos: 0.5,-21.5
       parent: 2
       type: Transform
   - uid: 466
     components:
-    - name: Engineering Bay APC
+    - name: Engineering Bay
       type: MetaData
     - pos: 1.5,-27.5
       parent: 2
       type: Transform
   - uid: 467
     components:
-    - name: Living Quarters APC
+    - name: Living Quarters
       type: MetaData
     - rot: 1.5707963267948966 rad
       pos: -4.5,-18.5
@@ -689,7 +689,7 @@ entities:
       type: Transform
   - uid: 468
     components:
-    - name: 'Vacant Room #4 APC'
+    - name: 'Vacant Room #4'
       type: MetaData
     - rot: -1.5707963267948966 rad
       pos: 5.5,-18.5
@@ -697,14 +697,14 @@ entities:
       type: Transform
   - uid: 469
     components:
-    - name: East Airlock APC
+    - name: East Airlock
       type: MetaData
     - pos: 7.5,-16.5
       parent: 2
       type: Transform
   - uid: 470
     components:
-    - name: West Airlock APC
+    - name: West Airlock
       type: MetaData
     - pos: -6.5,-16.5
       parent: 2
@@ -743,7 +743,7 @@ entities:
       type: Transform
   - uid: 482
     components:
-    - name: Bridge APC
+    - name: Bridge
       type: MetaData
     - rot: 3.141592653589793 rad
       pos: 0.5,-2.5
@@ -751,7 +751,7 @@ entities:
       type: Transform
   - uid: 691
     components:
-    - name: Inner Bridge APC
+    - name: Inner Bridge
       type: MetaData
     - rot: 1.5707963267948966 rad
       pos: -2.5,-4.5
@@ -759,7 +759,7 @@ entities:
       type: Transform
   - uid: 886
     components:
-    - name: South Airlock Left APC
+    - name: South Airlock Left
       type: MetaData
     - rot: 1.5707963267948966 rad
       pos: -2.5,-34.5
