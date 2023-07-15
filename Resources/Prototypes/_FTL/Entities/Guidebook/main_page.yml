@@ -41,7 +41,7 @@
         - state: idcaptain
     - type: GuideHelp
       guides:
-        - Command
+        - Jobs
 
 - type: entity
   parent: BaseGuidebookHyperlink
