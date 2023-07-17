@@ -47,9 +47,32 @@ public sealed class EconomySystem : SharedEconomySystem
         SubscribeLocalEvent<IdAtmComponent, ComponentInit>(OnMoneyHolderComponentInit);
         SubscribeLocalEvent<IdAtmComponent, ComponentRemove>(OnMoneyHolderComponentRemove);
         SubscribeLocalEvent<IdAtmComponent, AfterActivatableUIOpenEvent>(OnToggleInterface);
-        SubscribeLocalEvent<IdAtmComponent, IdAtmUiMessageEvent>(OnIdAtmAction);
         SubscribeLocalEvent<IdAtmComponent, EntInsertedIntoContainerMessage>(OnIdAtmItemInserted);
         SubscribeLocalEvent<IdAtmComponent, EntRemovedFromContainerMessage>(OnIdAtmItemRemoved);
+        SubscribeLocalEvent<IdAtmComponent, IdAtmUiMessageEvent>(OnIdAtmAction);
+        SubscribeLocalEvent<IdAtmComponent, PinActionMessageEvent>(OnRequestUnlock);
+    }
+
+    private void OnRequestUnlock(EntityUid uid, IdAtmComponent component, PinActionMessageEvent args)
+    {
+        if (!TryComp<CreditCardComponent>(component.IdSlot.Item, out var cardComponent))
+            return;
+        switch (args.Action)
+        {
+            case IdAtmPinAction.Unlock:
+                if (args.PinAttempt == cardComponent.Pin)
+                {
+                    cardComponent.Locked = false;
+                }
+                break;
+            case IdAtmPinAction.Lock:
+                cardComponent.Locked = true;
+                break;
+            case IdAtmPinAction.Change:
+                cardComponent.Pin = args.PinAttempt;
+                break;
+        }
+        UpdateUserInterface(uid, component);
     }
 
     private void OnIdAtmItemRemoved(EntityUid uid, IdAtmComponent component, EntRemovedFromContainerMessage args)
@@ -135,7 +158,7 @@ public sealed class EconomySystem : SharedEconomySystem
 
         Log.Debug("id in:" + component.IdSlot.HasItem);
 
-        var state = new IdAtmUiState(name == null ? "John Doe" : name, component.IdSlot.HasItem, bank, cash);
+        var state = new IdAtmUiState(name == null ? "John Doe" : name, bank, cash, component.IdSlot.HasItem, cardComponent?.Locked ?? false);
         _userInterfaceSystem.TrySetUiState(uid, IdAtmUiKey.Key, state);
     }
 

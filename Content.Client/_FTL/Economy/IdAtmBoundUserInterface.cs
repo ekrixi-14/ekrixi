@@ -24,13 +24,25 @@ public sealed class IdAtmBoundUserInterface : BoundUserInterface
         _window.OpenCentered();
         _window.OnClose += Close;
 
-        _window.OnWithdrawRequest += () =>
+        _window.OnWithdrawRequest += (amount) =>
         {
-            SendIdAtmMessage(IdAtmUiAction.Withdrawal, _window.Amount);
+            SendIdAtmMessage(IdAtmUiAction.Withdrawal, amount);
         };
         _window.OnDepositRequest += () =>
         {
-            SendIdAtmMessage(IdAtmUiAction.Deposit, _window.Amount);
+            SendIdAtmMessage(IdAtmUiAction.Deposit, 0);
+        };
+        _window.OnLockRequest += () =>
+        {
+            SendIdAtmPinMessage(IdAtmPinAction.Lock, "");
+        };
+        _window.OnUnlockRequest += (attempt) =>
+        {
+            SendIdAtmPinMessage(IdAtmPinAction.Unlock, attempt);
+        };
+        _window.OnPinChangeRequest += (newPin) =>
+        {
+            SendIdAtmPinMessage(IdAtmPinAction.Change, newPin);
         };
     }
 
@@ -46,8 +58,17 @@ public sealed class IdAtmBoundUserInterface : BoundUserInterface
         _window.SetWelcomeMessage(pdaState.IdName, pdaState.Bank);
         _window.SetDisabledWithdrawButton(pdaState.Bank == 0);
         _window.SetDisabledDepositButton(pdaState.Cash == 0);
-        _window.SetVisibleNoId(!pdaState.IdCardIn);
-        Logger.Debug("id in:" + pdaState.IdCardIn);
+
+        var windowState = PdaAtmUiWindow.CurrentUIScreen.NoID;
+
+        if (pdaState.IdCardIn)
+        {
+            windowState = pdaState.IdCardLocked
+                ? PdaAtmUiWindow.CurrentUIScreen.Locked
+                : PdaAtmUiWindow.CurrentUIScreen.Transaction;
+        }
+
+        _window.SetCurrentScreen(windowState);
     }
 
     protected override void Dispose(bool disposing)
@@ -57,6 +78,12 @@ public sealed class IdAtmBoundUserInterface : BoundUserInterface
             return;
 
         _window?.Dispose();
+    }
+
+    private void SendIdAtmPinMessage(IdAtmPinAction action, string attempt)
+    {
+        var message = new PinActionMessageEvent(action, attempt);
+        SendMessage(message);
     }
 
     private void SendIdAtmMessage(IdAtmUiAction action, int amount)

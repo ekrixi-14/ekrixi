@@ -7,14 +7,16 @@ public sealed class IdAtmUiState : BoundUserInterfaceState
 {
     public string IdName { get; }
     public bool IdCardIn { get; }
+    public bool IdCardLocked { get; }
     public int Bank { get; }
     public int Cash { get; }
 
-    public IdAtmUiState(string name, bool idCardIn, int bank, int cash)
+    public IdAtmUiState(string name, int bank, int cash, bool idCardIn, bool idCardLocked)
     {
         IdName = name;
-        IdCardIn = idCardIn;
         Bank = bank;
         Cash = cash;
+        IdCardIn = idCardIn;
+        IdCardLocked = idCardLocked;
     }
 }

@@ -8,10 +8,15 @@
                              Resizable="False">
     <!-- <PanelContainer StyleClasses="BackgroundDark"></PanelContainer> -->
     <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
-        <BoxContainer Orientation="Vertical" Name="NoIdCard" Visible="False" HorizontalAlignment="Center" HorizontalExpand="True" VerticalExpand="True" Margin="0 5 0 5">
+        <BoxContainer Orientation="Vertical" Name="NoIdCard" Visible="False" MaxWidth="350" HorizontalAlignment="Center" HorizontalExpand="True" VerticalExpand="True" Margin="0 5 0 5">
             <RichTextLabel Name="NoIdCardMessage"/>
         </BoxContainer>
-        <BoxContainer Orientation="Vertical" Name="WithIdCard" HorizontalAlignment="Center" HorizontalExpand="True" VerticalExpand="True">
+        <BoxContainer Orientation="Vertical" Name="PinScreen" Visible="False" MaxWidth="350" HorizontalAlignment="Center" HorizontalExpand="True" VerticalExpand="True" Margin="0 5 0 5">
+            <RichTextLabel Name="LockedIdCardMessage"/>
+            <LineEdit Name="PinEdit" MaxWidth="250" />
+            <Button Name="RequestUnlock" Text="{Loc 'credit-app-ui-generic-unlock'}" Disabled="True" MaxWidth="250" VerticalAlignment="Center" Margin="4"/>
+        </BoxContainer>
+        <BoxContainer Orientation="Vertical" Visible="False" Name="WithIdCard" MaxWidth="350" HorizontalAlignment="Center" HorizontalExpand="True" VerticalExpand="True" Margin="0 5 0 5">
             <RichTextLabel Name="WelcomeMessage"/>
             <Control MinHeight="2" />
             <PanelContainer StyleClasses="LowDivider" />
@@ -20,34 +25,43 @@
             <BoxContainer Orientation="Vertical" Name="RequestMenu" HorizontalExpand="True" VerticalExpand="True" HorizontalAlignment="Center">
                 <Label Text="{Loc 'credit-app-ui-request-message'}"/>
                 <!-- <PanelContainer MinHeight="10"/> -->
-                <Button Name="RequestWithdraw" Text="{Loc 'credit-app-ui-withdraw-button-message'}" HorizontalExpand="True" VerticalAlignment="Center" Margin="4"/>
-                <Button Name="RequestDeposit" Text="{Loc 'credit-app-ui-deposit-button-message'}" HorizontalExpand="True" VerticalAlignment="Center" Margin="4"/>
+                <Button Name="RequestWithdraw" Text="{Loc 'credit-app-ui-withdraw-button-message'}" MaxWidth="250" VerticalAlignment="Center" Margin="4"/>
+                <Button Name="RequestDeposit" Text="{Loc 'credit-app-ui-deposit-button-message'}" MaxWidth="250" VerticalAlignment="Center" Margin="4"/>
+                <Button Name="RequestLock" Text="{Loc 'credit-app-ui-generic-lock'}" MaxWidth="250" VerticalAlignment="Center" Margin="4"/>
+                <Button Name="RequestPinChange" Text="{Loc 'credit-app-ui-change-pin-button-message'}" MaxWidth="250" VerticalAlignment="Center" Margin="4"/>
+            </BoxContainer>
+
+            <!-- PIN Change -->
+            <BoxContainer Orientation="Vertical" Name="CPinScreen" Visible="False" HorizontalAlignment="Center" HorizontalExpand="True" VerticalExpand="True" Margin="0 5 0 5">
+                <RichTextLabel Name="CPinMessage"/>
+                <LineEdit Name="CPinEdit" MaxWidth="250" />
+                <Button Name="CPinChange" Text="{Loc 'credit-app-ui-generic-confirm'}" Disabled="True" MaxWidth="250" VerticalAlignment="Center" Margin="4"/>
             </BoxContainer>
 
             <!-- Withdraw -->
             <BoxContainer Orientation="Vertical" Name="WithdrawMenu" Visible="False" HorizontalExpand="True" VerticalExpand="True" HorizontalAlignment="Center">
                 <SliderIntInput Name="AmountEdit" MinWidth="300" MinValue="0" MaxValue="0" />
-                <Button Name="WithdrawButton" Text="{Loc 'credit-app-ui-withdraw-button-message'}" HorizontalExpand="True" VerticalAlignment="Center" Margin="4"/>
-                <Button Name="CancelWithdrawal" Text="{Loc 'credit-app-ui-generic-cancel'}" HorizontalExpand="True" VerticalAlignment="Center" Margin="4"/>
+                <Button Name="WithdrawButton" Text="{Loc 'credit-app-ui-withdraw-button-message'}" MaxWidth="250" VerticalAlignment="Center" Margin="4"/>
+                <Button Name="CancelWithdrawal" Text="{Loc 'credit-app-ui-generic-cancel'}" MaxWidth="250" VerticalAlignment="Center" Margin="4"/>
             </BoxContainer>
 
             <!-- ConfirmWithdraw -->
             <BoxContainer Orientation="Vertical" Name="ConfirmWithdrawMenu" Visible="False" HorizontalExpand="True" VerticalExpand="True" HorizontalAlignment="Center">
                 <RichTextLabel Name="ConfirmWithdrawalMessage"/>
-                <Button Name="ConfirmWithdrawButton" Text="{Loc 'credit-app-ui-withdraw-button-message'}" HorizontalExpand="True" VerticalAlignment="Center" Margin="4"/>
-                <Button Name="ConfirmCancelWithdrawal" Text="{Loc 'credit-app-ui-generic-cancel'}" HorizontalExpand="True" VerticalAlignment="Center" Margin="4"/>
+                <Button Name="ConfirmWithdrawButton" Text="{Loc 'credit-app-ui-withdraw-button-message'}" MaxWidth="250" VerticalAlignment="Center" Margin="4"/>
+                <Button Name="ConfirmCancelWithdrawal" Text="{Loc 'credit-app-ui-generic-cancel'}" MaxWidth="250" VerticalAlignment="Center" Margin="4"/>
             </BoxContainer>
 
             <!-- Deposit -->
             <BoxContainer Orientation="Vertical" Name="DepositMenu" Visible="False" HorizontalExpand="True" VerticalExpand="True" HorizontalAlignment="Center">
                 <RichTextLabel Name="DepositWarning"/>
-                <Button Name="DepositButton" Text="{Loc 'credit-app-ui-deposit-button-message'}" HorizontalExpand="True" VerticalAlignment="Center" Margin="4"/>
-                <Button Name="CancelDeposit" Text="{Loc 'credit-app-ui-generic-cancel'}" HorizontalExpand="True" VerticalAlignment="Center" Margin="4"/>
+                <Button Name="DepositButton" Text="{Loc 'credit-app-ui-deposit-button-message'}" MaxWidth="250" VerticalAlignment="Center" Margin="4"/>
+                <Button Name="CancelDeposit" Text="{Loc 'credit-app-ui-generic-cancel'}" MaxWidth="250" VerticalAlignment="Center" Margin="4"/>
             </BoxContainer>
 
             <!-- Success -->
             <BoxContainer Orientation="Vertical" Name="SuccessMenu" Visible="False" HorizontalExpand="True" VerticalExpand="True" HorizontalAlignment="Center">
-                <Label Text="{Loc 'credit-app-ui-generic-success'}" ClipText="True"/>
+                <RichTextLabel Name="SuccessMenuLabel"/>
                 <Button Name="CloseSuccessMenu" Text="{Loc 'credit-app-ui-generic-close'}" HorizontalExpand="True" VerticalAlignment="Center" Margin="4"/>
             </BoxContainer>
         </BoxContainer>

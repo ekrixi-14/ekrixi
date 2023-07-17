@@ -9,8 +9,11 @@ namespace Content.Client._FTL.Economy;
 [GenerateTypedNameReferences]
 public sealed partial class PdaAtmUiWindow : FancyWindow
 {
-    public event Action? OnWithdrawRequest;
+    public event Action<int>? OnWithdrawRequest;
     public event Action? OnDepositRequest;
+    public event Action? OnLockRequest;
+    public event Action<string>? OnUnlockRequest;
+    public event Action<string>? OnPinChangeRequest;
     public int Amount;
 
     public PdaAtmUiWindow(IdAtmBoundUserInterface ui, EntityUid entity)
@@ -30,7 +33,7 @@ public sealed partial class PdaAtmUiWindow : FancyWindow
         {
             ConfirmWithdrawMenu.Visible = false;
             SuccessMenu.Visible = true;
-            OnWithdrawRequest?.Invoke();
+            OnWithdrawRequest?.Invoke(Amount);
         };
 
         // cancel
@@ -61,6 +64,27 @@ public sealed partial class PdaAtmUiWindow : FancyWindow
             WithdrawMenu.Visible = true;
             RequestMenu.Visible = false;
         };
+        RequestLock.OnPressed += _ =>
+        {
+            OnLockRequest?.Invoke();
+        };
+        RequestUnlock.OnPressed += _ =>
+        {
+            OnUnlockRequest?.Invoke(PinEdit.Text);
+            PinEdit.Clear();
+        };
+        CPinChange.OnPressed += _ =>
+        {
+            OnPinChangeRequest?.Invoke(CPinEdit.Text);
+            CPinScreen.Visible = false;
+            SuccessMenu.Visible = true;
+            CPinEdit.Clear();
+        };
+        RequestPinChange.OnPressed += _ =>
+        {
+            CPinScreen.Visible = true;
+            RequestMenu.Visible = false;
+        };
 
         // deposit
         DepositButton.OnPressed += _ =>
@@ -80,9 +104,41 @@ public sealed partial class PdaAtmUiWindow : FancyWindow
         // text and other
         DepositWarning.SetMarkup(Loc.GetString("credit-app-ui-deposit-review-message"));
         NoIdCardMessage.SetMarkup(Loc.GetString("credit-app-ui-error-no-id"));
+        LockedIdCardMessage.SetMarkup(Loc.GetString("credit-app-ui-error-card-locked"));
+        SuccessMenuLabel.SetMarkup(Loc.GetString("credit-app-ui-generic-success"));
+        CPinMessage.SetMarkup(Loc.GetString("credit-app-ui-change-pin-review-message"));
         ConfirmCancelWithdrawal.AddStyleClass("ButtonColorRed");
         CancelWithdrawal.AddStyleClass("ButtonColorRed");
         CancelDeposit.AddStyleClass("ButtonColorRed");
+
+        // change pin screen
+        CPinEdit.IsValid += text =>
+        {
+            if (int.TryParse(text, out _))
+            {
+                return true;
+            }
+            return false;
+        };
+        CPinEdit.OnTextChanged += text =>
+        {
+            CPinChange.Disabled = text.Text.Length != 4;
+        };
+
+        // lock screen
+        PinEdit.IsValid += text =>
+        {
+            if (int.TryParse(text, out _))
+            {
+                return true;
+            }
+            return false;
+        };
+        PinEdit.OnTextChanged += text =>
+        {
+            RequestUnlock.Disabled = text.Text.Length != 4;
+        };
+        RequestUnlock.Disabled = true;
     }
 
     public void SetWelcomeMessage(string name, int credits)
@@ -100,14 +156,37 @@ public sealed partial class PdaAtmUiWindow : FancyWindow
         RequestDeposit.Disabled = disabled;
     }
 
-    public void SetVisibleNoId(bool visible)
+    public void SetCurrentScreen(CurrentUIScreen state)
     {
-        NoIdCard.Visible = visible;
-        WithIdCard.Visible = !visible;
+        switch (state)
+        {
+            case CurrentUIScreen.Locked:
+                NoIdCard.Visible = false;
+                PinScreen.Visible = true;
+                WithIdCard.Visible = false;
+                break;
+            case CurrentUIScreen.Transaction:
+                NoIdCard.Visible = false;
+                PinScreen.Visible = false;
+                WithIdCard.Visible = true;
+                break;
+            default:
+                NoIdCard.Visible = true;
+                PinScreen.Visible = false;
+                WithIdCard.Visible = false;
+                break;
+        }
     }
 
     public void SetMaxValueSlider(int maxValue)
     {
         AmountEdit.MaxValue = maxValue;
+    }
+
+    public enum CurrentUIScreen
+    {
+        NoID,
+        Locked,
+        Transaction
     }
 }
