@@ -56,6 +56,7 @@
         collection: Keyboard
     - type: ContainerContainer
       containers:
+        board: !type:Container
         Money-Slot: !type:ContainerSlot {}
         Id-Slot: !type:ContainerSlot {}
     - type: ItemSlots
