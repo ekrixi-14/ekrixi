@@ -22,7 +22,7 @@ entities:
       name: Trade Station
       type: MetaData
     - pos: -0.48431396,-0.39056396
-      parent: invalid
+      parent: 2717
       type: Transform
     - chunks:
         0,0:
@@ -478,6 +478,16 @@ entities:
     - type: RadiationGridResistance
     - id: TradeStation
       type: BecomesStation
+  - uid: 2717
+    components:
+    - type: MetaData
+    - type: Transform
+    - type: Map
+    - type: PhysicsMap
+    - type: GridTree
+    - type: MovedGrids
+    - type: Broadphase
+    - type: OccluderTree
 - proto: AirCanister
   entities:
   - uid: 2365
@@ -7122,6 +7132,13 @@ entities:
     - pos: 29.524105,31.421255
       parent: 2
       type: Transform
+- proto: BoxHandcuff
+  entities:
+  - uid: 2727
+    components:
+    - pos: 6.990858,4.594269
+      parent: 2
+      type: Transform
 - proto: BoxLethalshot
   entities:
   - uid: 2387
@@ -10441,15 +10458,11 @@ entities:
     - pos: 21.5,20.5
       parent: 2
       type: Transform
-    - enabled: True
-      type: GasFilter
   - uid: 2446
     components:
     - pos: 21.5,19.5
       parent: 2
       type: Transform
-    - enabled: True
-      type: GasFilter
     - color: '#FF0000FF'
       type: AtmosPipeColor
 - proto: GasMinerNitrogenStation
@@ -14397,6 +14410,13 @@ entities:
     - pos: 29.081112,31.34522
       parent: 2
       type: Transform
+- proto: Stunbaton
+  entities:
+  - uid: 2726
+    components:
+    - pos: 7.387583,4.4969034
+      parent: 2
+      type: Transform
 - proto: SubstationBasic
   entities:
   - uid: 1423
@@ -14617,6 +14637,48 @@ entities:
   - uid: 1866
     components:
     - pos: 30.5,31.5
+      parent: 2
+      type: Transform
+- proto: TradeStationRecruitSpawner
+  entities:
+  - uid: 2718
+    components:
+    - pos: 0.5,14.5
+      parent: 2
+      type: Transform
+  - uid: 2719
+    components:
+    - pos: 0.5,15.5
+      parent: 2
+      type: Transform
+  - uid: 2720
+    components:
+    - pos: 0.5,17.5
+      parent: 2
+      type: Transform
+  - uid: 2721
+    components:
+    - pos: 3.5,16.5
+      parent: 2
+      type: Transform
+  - uid: 2722
+    components:
+    - pos: 5.5,15.5
+      parent: 2
+      type: Transform
+  - uid: 2723
+    components:
+    - pos: 6.5,14.5
+      parent: 2
+      type: Transform
+  - uid: 2724
+    components:
+    - pos: 4.5,13.5
+      parent: 2
+      type: Transform
+  - uid: 2725
+    components:
+    - pos: 6.5,5.5
       parent: 2
       type: Transform
 - proto: VendingBarDrobe
