@@ -1,0 +1,68 @@
+- type: entity
+  save: false
+  name: Urist McIPC
+  parent: BaseMobOrganic # TODO make metallic
+  id: BaseMobIPC
+  abstract: true
+  components:
+    # The important nessessities
+    - type: MovementSpeedModifier
+    - type: Body
+      prototype: IPC
+      requiredLegs: 2
+    - type: HumanoidAppearance
+      species: IPC
+    - type: Damageable
+      damageContainer: Inorganic
+      damageModifierSet: Metalli
+    - type: Icon
+      sprite: Mobs/Species/Arachnid/parts.rsi
+      state: full
+    # Damage and speed
+    - type: Bloodstream
+      bloodReagent: Oil
+    - type: Temperature
+      heatDamageThreshold: 452.875 # melting point of iron 1/4th, cause fuck physics you know
+      coldDamageThreshold: 288 # 15c aka cold should fuck em up
+      currentTemperature: 313.15
+      specificHeat: 46
+      coldDamage:
+        types:
+          Cold: 3
+      heatDamage:
+        types:
+          Heat: 3
+    - type: Repairable
+      fuelcost: 30
+      doAfterDelay: 10
+    - type: Barotrauma
+      damage:
+        types:
+          Blunt: 1
+    - type: SlowOnDamage
+      speedModifierThresholds:
+        50: 0.6
+        70: 0.4
+    # Misc
+    - type: Speech
+      speechSounds: IPC
+    - type: Vocal
+      sounds:
+        Male: UnisexIPC
+        Female: UnisexIPC
+        Unsexed: UnisexIPC
+    - type: Inventory
+      templateId: ipc
+
+- type: entity
+  save: false
+  name: Urist McIPC
+  parent: MobHumanDummy
+  id: MobIPCDummy
+  noSpawn: true
+  description: A dummy arachnid meant to be used in character setup. # Hey! It's not dumb :(
+  components:
+    - type: Inventory
+      templateId: ipc
+    - type: HumanoidAppearance
+      species: IPC
