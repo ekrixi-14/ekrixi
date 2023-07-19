@@ -12,6 +12,8 @@
         eyes: OrganIPCGPU
     torso:
       part: TorsoIPC
+      organs:
+        lungs: OrganIPCFan
       connections:
         - left arm
         - right arm

@@ -8,9 +8,9 @@
   markingLimits: MobIPCMarkingLimits
   dollPrototype: MobIPCDummy
   skinColoration: Hues
-  maleFirstNames: names_arachnid_first
-  femaleFirstNames: names_arachnid_first
-  lastNames: names_arachnid_last
+  maleFirstNames: names_ai
+  femaleFirstNames: names_ai
+  lastNames: names_ai
   sexes:
     - Unsexed
 
@@ -47,6 +47,9 @@
     HeadSide:
       points: 1
       required: false
+    Head:
+      points: 1
+      required: false
     Chest:
       points: 1
       required: false
@@ -58,7 +61,31 @@
     state: head
 
 - type: humanoidBaseSprite
+  id: MobIPCHeadMale
+  baseSprite:
+    sprite: _FTL/Mobs/Species/IPCs/parts.rsi
+    state: head
+
+- type: humanoidBaseSprite
+  id: MobIPCHeadFemale
+  baseSprite:
+    sprite: _FTL/Mobs/Species/IPCs/parts.rsi
+    state: head
+
+- type: humanoidBaseSprite
   id: MobIPCTorso
+  baseSprite:
+    sprite: _FTL/Mobs/Species/IPCs/parts.rsi
+    state: chest
+
+- type: humanoidBaseSprite
+  id: MobIPCTorsoMale
+  baseSprite:
+    sprite: _FTL/Mobs/Species/IPCs/parts.rsi
+    state: chest
+
+- type: humanoidBaseSprite
+  id: MobIPCTorsoFemale
   baseSprite:
     sprite: _FTL/Mobs/Species/IPCs/parts.rsi
     state: chest

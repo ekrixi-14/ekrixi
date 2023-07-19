@@ -13,28 +13,41 @@
     - type: HumanoidAppearance
       species: IPC
     - type: Damageable
-      damageContainer: Inorganic
-      damageModifierSet: Metalli
+      damageContainer: Biological
+      damageModifierSet: Metallic
     - type: Icon
       sprite: Mobs/Species/Arachnid/parts.rsi
       state: full
     # Damage and speed
     - type: Bloodstream
       bloodReagent: Oil
+      bloodlossDamage:
+        types:
+          Heat: 1.0
     - type: Temperature
       heatDamageThreshold: 452.875 # melting point of iron 1/4th, cause fuck physics you know
-      coldDamageThreshold: 288 # 15c aka cold should fuck em up
+      coldDamageThreshold: 288 # 15c aka "cold" should fuck (freeze) em up
       currentTemperature: 313.15
       specificHeat: 46
       coldDamage:
         types:
-          Cold: 3
+          Blunt: 1
       heatDamage:
         types:
-          Heat: 3
+          Blunt: 1
+    - type: Respirator
+      damage:
+        types:
+          Blunt: 1.0 # it cant cool or something
+      damageRecovery:
+        types:
+          Blunt: -1.0
     - type: Repairable
-      fuelcost: 30
-      doAfterDelay: 10
+      fuelcost: 5 # cause most of the fuel is used how long its turned on for
+      doAfterDelay: 7 # one whole minute to reach max hp
+      damage:
+        types:
+          Blunt: -25.0
     - type: Barotrauma
       damage:
         types:
@@ -55,12 +68,11 @@
       templateId: ipc
 
 - type: entity
-  save: false
   name: Urist McIPC
   parent: MobHumanDummy
   id: MobIPCDummy
   noSpawn: true
-  description: A dummy arachnid meant to be used in character setup. # Hey! It's not dumb :(
+  save: false
   components:
     - type: Inventory
       templateId: ipc

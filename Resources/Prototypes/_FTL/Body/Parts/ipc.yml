@@ -7,7 +7,7 @@
     - type: Sprite
       sprite: _FTL/Mobs/Species/IPCs/parts.rsi
     - type: Damageable
-      damageContainer: Inorganic
+      damageContainer: Biological
     - type: BodyPart
     - type: ContainerContainer
       containers:
@@ -21,13 +21,16 @@
   components:
     - type: Sprite
       state: "head"
+      sprite: _FTL/Mobs/Species/IPCs/parts.rsi
     - type: Icon
       state: "head"
+      sprite: _FTL/Mobs/Species/IPCs/parts.rsi
     - type: BodyPart
       partType: Head
       vital: true
     - type: Input
       context: "ghost"
+      sprite: _FTL/Mobs/Species/IPCs/parts.rsi
     - type: MovementSpeedModifier
       baseWalkSpeed: 0
       baseSprintSpeed: 0
@@ -44,8 +47,10 @@
   components:
     - type: Sprite
       state: "chest"
+      sprite: _FTL/Mobs/Species/IPCs/parts.rsi
     - type: Icon
       state: "chest"
+      sprite: _FTL/Mobs/Species/IPCs/parts.rsi
     - type: BodyPart
       partType: Torso
 
@@ -56,8 +61,10 @@
   components:
     - type: Sprite
       state: "l_arm"
+      sprite: _FTL/Mobs/Species/IPCs/parts.rsi
     - type: Icon
       state: "l_arm"
+      sprite: _FTL/Mobs/Species/IPCs/parts.rsi
     - type: BodyPart
       partType: Arm
       symmetry: Left
@@ -69,8 +76,10 @@
   components:
     - type: Sprite
       state: "r_arm"
+      sprite: _FTL/Mobs/Species/IPCs/parts.rsi
     - type: Icon
       state: "r_arm"
+      sprite: _FTL/Mobs/Species/IPCs/parts.rsi
     - type: BodyPart
       partType: Arm
       symmetry: Right
@@ -82,8 +91,10 @@
   components:
     - type: Sprite
       state: "l_hand"
+      sprite: _FTL/Mobs/Species/IPCs/parts.rsi
     - type: Icon
       state: "l_hand"
+      sprite: _FTL/Mobs/Species/IPCs/parts.rsi
     - type: BodyPart
       partType: Hand
       symmetry: Left
@@ -95,8 +106,10 @@
   components:
     - type: Sprite
       state: "r_hand"
+      sprite: _FTL/Mobs/Species/IPCs/parts.rsi
     - type: Icon
       state: "r_hand"
+      sprite: _FTL/Mobs/Species/IPCs/parts.rsi
     - type: BodyPart
       partType: Hand
       symmetry: Right
@@ -108,8 +121,10 @@
   components:
     - type: Sprite
       state: "l_leg"
+      sprite: _FTL/Mobs/Species/IPCs/parts.rsi
     - type: Icon
       state: "l_leg"
+      sprite: _FTL/Mobs/Species/IPCs/parts.rsi
     - type: BodyPart
       partType: Leg
       symmetry: Left
@@ -122,8 +137,10 @@
   components:
     - type: Sprite
       state: "r_leg"
+      sprite: _FTL/Mobs/Species/IPCs/parts.rsi
     - type: Icon
       state: "r_leg"
+      sprite: _FTL/Mobs/Species/IPCs/parts.rsi
     - type: BodyPart
       partType: Leg
       symmetry: Right
@@ -136,8 +153,10 @@
   components:
     - type: Sprite
       state: "l_foot"
+      sprite: _FTL/Mobs/Species/IPCs/parts.rsi
     - type: Icon
       state: "l_foot"
+      sprite: _FTL/Mobs/Species/IPCs/parts.rsi
     - type: BodyPart
       partType: Foot
       symmetry: Left
@@ -149,8 +168,10 @@
   components:
     - type: Sprite
       state: "r_foot"
+      sprite: _FTL/Mobs/Species/IPCs/parts.rsi
     - type: Icon
       state: "r_foot"
+      sprite: _FTL/Mobs/Species/IPCs/parts.rsi
     - type: BodyPart
       partType: Foot
       symmetry: Right
