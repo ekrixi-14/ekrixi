@@ -44,10 +44,10 @@
           Blunt: -1.0
     - type: Repairable
       fuelcost: 5 # cause most of the fuel is used how long its turned on for
-      doAfterDelay: 7 # one whole minute to reach max hp
+      doAfterDelay: 7 # ~1 minute to reach max hp
       damage:
         types:
-          Blunt: -25.0
+          Blunt: -35.0
     - type: Barotrauma
       damage:
         types:
