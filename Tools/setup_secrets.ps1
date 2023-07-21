@@ -1,3 +1,4 @@
-git submodule add https://github.com/ekrixi-14/secrets secrets
+git submodule add -f https://github.com/ekrixi-14/secrets Secrets
 New-Item -ItemType SymbolicLink -Path "Content.ServerSecret\Code" -Target "Secrets\ServerCode"
-New-Item -ItemType SymbolicLink -Path "Resources\SecretResources" -Target "Secrets\Resources"
+New-Item -ItemType SymbolicLink -Path "Resources\SecretResources" -Target "Secrets\SecretResources"
+pause
