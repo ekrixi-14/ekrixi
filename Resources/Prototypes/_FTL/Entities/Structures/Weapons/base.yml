@@ -36,4 +36,4 @@
       ports:
         - WeaponInputPort
     - type: StaticPrice
-      price: 3000 # these should be super rare
+      price: 1500 # these should be super rare
