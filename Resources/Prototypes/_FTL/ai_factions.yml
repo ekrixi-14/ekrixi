@@ -1,0 +1,33 @@
+# !!!!!!HEY HEY READ THIS HEY HEY!!!!!!
+# USE THESE FOR SHIPS ONLY I BEG
+# THANK YOU!!!!!!!!!!
+
+- type: npcFaction
+  id: IndependentShip
+
+- type: npcFaction
+  id: CoreGovShip
+
+- type: npcFaction
+  id: A2BShip
+
+- type: npcFaction
+  id: IncSekShip
+  hostile:
+    - CoreGovShip
+    - IndependentShip
+    - FSCShip
+
+- type: npcFaction
+  id: FSCShip
+  hostile:
+    - CoreGovShip
+    - IndependentShip
+    - A2BShip
+    - ACKsShip
+
+- type: npcFaction
+  id: ACKsShip
+  hostile:
+    - CoreGovShip
+    - IndependentShip
