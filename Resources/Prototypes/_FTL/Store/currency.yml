@@ -4,3 +4,8 @@
   cash:
     1: SpaceCash
   canWithdraw: true
+
+- type: currency
+  id: ObtainedPower
+  displayName: store-currency-display-obtained-power
+  canWithdraw: false

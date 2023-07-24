@@ -1,4 +1,5 @@
 store-currency-display-credits = Credits
+store-currency-display-obtained-power = Obtained Power
 
 outpost-atm-component-verb-withdraw = Withdraw
 outpost-atm-component-popup-insufficient-balance = Insufficient balance!

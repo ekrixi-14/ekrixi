@@ -7,8 +7,12 @@
   id: BartenderNonAlcoholic
   name: store-category-alcoholic-drinks
   priority: 1
-- type: storeCategory
 
+- type: storeCategory
   id: BartenderUtility
   name: store-category-utility
   priority: 0
+
+- type: storeCategory
+  id: PsionAbilities
+  name: store-category-abilities

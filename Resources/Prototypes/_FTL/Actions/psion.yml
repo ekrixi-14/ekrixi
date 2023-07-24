@@ -1,0 +1,6 @@
+- type: instantAction
+  id: PsionShop
+  icon: Interface/Actions/shop.png
+  name: Shop
+  description: Opens the psion shop.
+  serverEvent: !type:PsionShopActionEvent

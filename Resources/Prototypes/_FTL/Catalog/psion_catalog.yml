@@ -1,0 +1,12 @@
+- type: listing
+  id: PsionDefile
+  name: Defile
+  description: Defiles the surrounding area, ripping up floors, damaging windows, opening containers, and throwing items.
+  productAction: RevenantDefile
+  cost:
+    ObtainedPower: 10
+  categories:
+    - PsionAbilities
+  conditions:
+    - !type:ListingLimitedStockCondition
+      stock: 1

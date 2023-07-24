@@ -1637,5 +1637,12 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<bool> GenerateFTLPointsRoundstart =
             CVarDef.Create("ftlpoints.generate_roundstart", false, CVar.ARCHIVE);
+
+        /*
+         * Psions
+         */
+
+        public static readonly CVarDef<int> StowawayMinPlayers =
+            CVarDef.Create("psion.min_players", 6);
     }
 }
