@@ -12,11 +12,13 @@
 
 - type: npcFaction
   id: CoreGovShip
-  hostile: HostileIndependentShip
+  hostile:
+    - HostileIndependentShip
 
 - type: npcFaction
   id: A2BShip
-  hostile: HostileIndependentShip
+  hostile:
+    - HostileIndependentShip
 
 - type: npcFaction
   id: IncSekShip
