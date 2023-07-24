@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Server._FTL.AutomatedShip.Components;
 using Content.Server._FTL.ShipTracker;
+using Content.Server._FTL.ShipTracker.Events;
 using Content.Server._FTL.Weapons;
 using Robust.Shared.Random;
 
@@ -42,5 +43,15 @@ public sealed partial class AutomatedShipSystem
 
        activeComponent.TimeSinceLastAttack = 0;
        _weaponTargetingSystem.TryFireWeapon(weapon, weaponComponent, mainShip, coordinates, null);
+    }
+
+    private void OnShipDamaged(EntityUid uid, AutomatedShipComponent component, ref ShipDamagedEvent args)
+    {
+        if (component.AiState == AutomatedShipComponent.AiStates.Fighting || component.HostileShips.Contains(args.Source))
+            return;
+        // we were just minding our own business and we were shot at! prepare for combat!
+        Log.Debug("We've been shot at! Fight back!");
+        component.AiState = AutomatedShipComponent.AiStates.Fighting;
+        component.HostileShips.Add(args.Source);
     }
 }

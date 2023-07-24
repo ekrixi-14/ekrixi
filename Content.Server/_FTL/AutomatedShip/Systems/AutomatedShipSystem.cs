@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Server._FTL.AutomatedShip.Components;
 using Content.Server._FTL.ShipTracker;
+using Content.Server._FTL.ShipTracker.Events;
 using Content.Server._FTL.Weapons;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.NPC.Components;
@@ -9,6 +10,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
+using Robust.Shared.Utility;
 
 namespace Content.Server._FTL.AutomatedShip.Systems;
 
@@ -27,10 +29,11 @@ public sealed partial class AutomatedShipSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<AutomatedShipComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<AutomatedShipComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<AutomatedShipComponent, ShipDamagedEvent>(OnShipDamaged);
     }
 
-    private void OnMapInit(EntityUid uid, AutomatedShipComponent component, MapInitEvent args)
+    private void OnInit(EntityUid uid, AutomatedShipComponent component, ComponentInit args)
     {
         EnsureComp<ActiveAutomatedShipComponent>(uid);
     }
@@ -69,6 +72,11 @@ public sealed partial class AutomatedShipSystem : EntitySystem
         return found;
     }
 
+    public void AutomatedShipJump()
+    {
+        // TODO: Make all ships jump to a random point in range
+    }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -79,30 +87,43 @@ public sealed partial class AutomatedShipSystem : EntitySystem
             // makes sure it's on the same map, not the same grid, and is hostile
             var transform = transformComponent;
 
-            var otherShips = EntityQuery<ShipTrackerComponent>().Where(shipTrackerComponent =>
-                Transform(shipTrackerComponent.Owner).MapID == transform.MapID &&
-                Transform(shipTrackerComponent.Owner).GridUid != transform.GridUid);
-            var hostileShips =
-                otherShips.Where(shipTrackerComponent => _npcFactionSystem.IsFactionHostile(aiTrackerComponent.Faction,
-                    shipTrackerComponent.Faction)).ToList();
+            var hostileShips = EntityQuery<ShipTrackerComponent>().Where(shipTrackerComponent =>
+            {
+                var owner = shipTrackerComponent.Owner;
+                var otherTransform = Transform(owner);
+
+                Log.Debug($"Same map: {otherTransform.MapID == transform.MapID}, Different grid: {otherTransform.GridUid != transform.GridUid}, Hostile: {_npcFactionSystem.IsFactionHostile(aiTrackerComponent.Faction,
+                    shipTrackerComponent.Faction)}");
+
+                return otherTransform.MapID == transform.MapID && otherTransform.GridUid != transform.GridUid &&
+                       (_npcFactionSystem.IsFactionHostile(aiTrackerComponent.Faction,
+                           shipTrackerComponent.Faction) ||
+                       aiComponent.HostileShips.Contains(owner));
+            }).ToList();
+
+            if (hostileShips.Count <= 0)
+                continue;
 
             var mainShip = _random.Pick(hostileShips).Owner;
 
             // I seperated these into partial systems because I hate large line counts!!!
             switch (aiComponent.AiState)
             {
-                case (AutomatedShipComponent.AiStates.Cruising):
+                case AutomatedShipComponent.AiStates.Cruising:
                 {
-                    // TODO: Cruising
                     if (hostileShips.Count > 0)
+                    {
                         aiComponent.AiState = AutomatedShipComponent.AiStates.Fighting;
+                        Log.Debug("Hostile ship inbound!");
+                    }
                     break;
                 }
-                case (AutomatedShipComponent.AiStates.Fighting):
+                case AutomatedShipComponent.AiStates.Fighting:
                 {
                     if (hostileShips.Count <= 0)
                     {
                         aiComponent.AiState = AutomatedShipComponent.AiStates.Cruising;
+                        Log.Debug("Lack of a hostile ship.");
                         break;
                     }
                     PerformCombat(entity,
@@ -115,7 +136,8 @@ public sealed partial class AutomatedShipSystem : EntitySystem
                 }
                 default:
                 {
-                    throw new ArgumentOutOfRangeException();
+                    Log.Fatal("Non-existent AI state!");
+                    break;
                 }
             }
 

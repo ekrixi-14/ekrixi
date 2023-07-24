@@ -34,7 +34,7 @@ public sealed class DamageShipCommand : LocalizedCommands
             return;
         }
 
-        var outcome = _ent.System<ShipTrackerSystem>().TryDamageShip(gridUid, _proto.Index<FTLAmmoType>(args[1]));
+        var outcome = _ent.System<ShipTrackerSystem>().TryDamageShip(gridUid, _proto.Index<FTLAmmoType>(args[1]), null);
 
         shell.WriteLine("Damaged ship. Hit: " + outcome.ToString());
     }

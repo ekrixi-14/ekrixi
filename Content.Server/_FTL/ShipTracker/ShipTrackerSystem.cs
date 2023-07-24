@@ -9,6 +9,7 @@ using Content.Server.Chat.Systems;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Popups;
 using Content.Server.Shuttles.Events;
+using Content.Server.Station.Systems;
 using Content.Shared.Pinpointer;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
@@ -28,6 +29,7 @@ public sealed class ShipTrackerSystem : EntitySystem
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly AlertLevelSystem _alertLevelSystem = default!;
+    [Dependency] private readonly StationSystem _stationSystem = default!;
 
     public override void Initialize()
     {
@@ -74,7 +76,7 @@ public sealed class ShipTrackerSystem : EntitySystem
         if (args.FromMapUid != null)
             Del(args.FromMapUid.Value);
 
-        _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("ship-ftl-jump-jumped-message"), colorOverride: Color.Gold);
+        _chatSystem.DispatchStationAnnouncement(uid, Loc.GetString("ship-ftl-jump-jumped-message"), colorOverride: Color.Gold);
     }
 
     private void OnFTLCompletedEvent(EntityUid uid, ShipTrackerComponent component, ref FTLCompletedEvent args)
@@ -88,7 +90,7 @@ public sealed class ShipTrackerSystem : EntitySystem
         if (amount > 0)
         {
             _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("ship-inbound-message", ("amount", amount)));
-            _alertLevelSystem.SetLevel(args.Entity, "blue", true, true);
+            _alertLevelSystem.SetLevel(args.Entity, "blue", true, true, true);
         }
         else
         {
@@ -101,11 +103,16 @@ public sealed class ShipTrackerSystem : EntitySystem
     /// <summary>
     /// Attempts to damage the ship.
     /// </summary>
-    /// <param name="ship"></param>
-    /// <param name="prototype"></param>
+    /// <param name="target">The grid entity ID being targeted</param>
+    /// <param name="prototype">The ammo prototype used for damage</param>
+    /// <param name="ship">The ship tracker component of the target</param>
+    /// <param name="source">The grid entity ID that caused the attack, used for hit tracking purposes</param>
     /// <returns>Whether the ship's *hull* was damaged. Returns false if it hit shields or didn't hit at all.</returns>
-    public bool TryDamageShip(ShipTrackerComponent ship, FTLAmmoType prototype)
+    public bool TryDamageShip(EntityUid target, FTLAmmoType prototype, ShipTrackerComponent? ship = null, EntityUid? source = null)
     {
+        if (!Resolve(target, ref ship))
+            return false;
+
         var hit = false;
         if (_random.Prob(ship.PassiveEvasion))
             return false;
@@ -127,20 +134,25 @@ public sealed class ShipTrackerSystem : EntitySystem
             ship.TimeSinceLastShieldRegen = 0f; // reset the shield timer
         }
 
+        if (source.HasValue)
+        {
+            var ev = new ShipDamagedEvent(source.Value, ship);
+            RaiseLocalEvent(target, ref ev);
+        }
+
         return hit;
     }
 
     /// <summary>
     /// Attempts to damage the ship.
     /// </summary>
-    /// <param name="grid"></param>
-    /// <param name="prototype"></param>
+    /// <param name="targetGrid">The target grid</param>
+    /// <param name="prototype">The damage prototype</param>
+    /// <param name="source">The source grid, used for hit tracking</param>
     /// <returns>Whether the ship's *hull* was damaged. Returns false if it hit shields or didn't hit at all.</returns>
-    public bool TryDamageShip(EntityUid grid, FTLAmmoType prototype)
+    public bool TryDamageShip(EntityUid targetGrid, FTLAmmoType prototype, EntityUid? source = null)
     {
-        if (!TryComp<ShipTrackerComponent>(grid, out var tracker))
-            return false;
-        return TryDamageShip(tracker, prototype);
+        return TryComp<ShipTrackerComponent>(targetGrid, out var tracker) && TryDamageShip(targetGrid, prototype, tracker, source);
     }
 
     public override void Update(float frameTime)
