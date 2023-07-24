@@ -33,7 +33,6 @@ public sealed partial class AutomatedShipSystem : EntitySystem
     private void OnMapInit(EntityUid uid, AutomatedShipComponent component, MapInitEvent args)
     {
         EnsureComp<ActiveAutomatedShipComponent>(uid);
-        EnsureComp<NpcFactionMemberComponent>(uid);
     }
 
     private bool TryFindRandomTile(EntityUid targetGrid, out Vector2i tile, out EntityCoordinates targetCoords)
