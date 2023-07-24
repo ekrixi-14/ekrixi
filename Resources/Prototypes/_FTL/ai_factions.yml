@@ -6,10 +6,17 @@
   id: IndependentShip
 
 - type: npcFaction
+  id: HostileIndependentShip
+  hostile:
+    - IndependentShip
+
+- type: npcFaction
   id: CoreGovShip
+  hostile: HostileIndependentShip
 
 - type: npcFaction
   id: A2BShip
+  hostile: HostileIndependentShip
 
 - type: npcFaction
   id: IncSekShip
@@ -17,6 +24,7 @@
     - CoreGovShip
     - IndependentShip
     - FSCShip
+    - HostileIndependentShip
 
 - type: npcFaction
   id: FSCShip
@@ -25,9 +33,11 @@
     - IndependentShip
     - A2BShip
     - ACKsShip
+    - HostileIndependentShip
 
 - type: npcFaction
   id: ACKsShip
   hostile:
     - CoreGovShip
     - IndependentShip
+    - HostileIndependentShip
