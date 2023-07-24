@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Server._FTL.AutomatedShip.Components;
-using Content.Server._FTL.FTLPoints;
+using Content.Server._FTL.FTLPoints.Components;
+using Content.Server._FTL.FTLPoints.Systems;
 using Content.Server._FTL.ShipTracker.Events;
 using Content.Server._FTL.Weapons;
 using Content.Server.AlertLevel;

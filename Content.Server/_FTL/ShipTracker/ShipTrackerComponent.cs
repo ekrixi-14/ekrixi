@@ -48,6 +48,7 @@ public sealed class ShipTrackerComponent : Component
     /// <summary>
     /// How much time does it take to regen a shield layer?
     /// </summary>
+    [DataField("shieldRegenTime"), ViewVariables(VVAccess.ReadWrite)]
     public float ShieldRegenTime = 5f;
 
     /// <summary>

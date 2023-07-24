@@ -28,29 +28,19 @@ public sealed partial class AutomatedShipSystem
         ActiveAutomatedShipComponent activeComponent,
         AutomatedShipComponent aiComponent,
         TransformComponent transformComponent,
-        ShipTrackerComponent aiTrackerComponent
+        ShipTrackerComponent aiTrackerComponent,
+        EntityUid mainShip
         )
     {
-        if (activeComponent.TimeSinceLastAttack >= aiComponent.AttackRepetition)
-        {
-            var transform = transformComponent;
-            // makes sure it's on the same map, not the same grid, and is hostile
-            var otherShips = EntityQuery<ShipTrackerComponent>().Where(shipTrackerComponent => Transform(shipTrackerComponent.Owner).MapID == transform.MapID && Transform(shipTrackerComponent.Owner).GridUid != transform.GridUid && _npcFactionSystem.IsFactionHostile(aiTrackerComponent.Faction, shipTrackerComponent.Faction)).ToList();
+        if (activeComponent.TimeSinceLastAttack < aiComponent.AttackRepetition)
+            return;
 
-            if (otherShips.Count <= 0)
-                return;
+        var weapon = _random.Pick(GetWeaponsOnGrid(entity));
 
-            var mainShip = _random.Pick(otherShips).Owner;
+       if (!TryComp<FTLWeaponComponent>(weapon, out var weaponComponent) ||  !TryFindRandomTile(mainShip, out _, out var coordinates))
+           return;
 
-            var weapons = GetWeaponsOnGrid(entity);
-            var weapon = _random.Pick(weapons);
-
-            if (TryComp<FTLWeaponComponent>(weapon, out var weaponComponent) && TryFindRandomTile(mainShip, out _, out var coordinates))
-            {
-                activeComponent.TimeSinceLastAttack = 0;
-                Log.Debug(coordinates.ToString());
-                _weaponTargetingSystem.TryFireWeapon(weapon, weaponComponent, mainShip, coordinates, null);
-            }
-        }
+       activeComponent.TimeSinceLastAttack = 0;
+       _weaponTargetingSystem.TryFireWeapon(weapon, weaponComponent, mainShip, coordinates, null);
     }
 }
