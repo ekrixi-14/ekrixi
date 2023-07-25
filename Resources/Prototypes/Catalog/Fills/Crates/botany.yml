@@ -50,6 +50,7 @@
       - id: PestSpray
       - id: HydroponicsToolScythe
       - id: HydroponicsToolHatchet
+      - id: HydroponicsToolClippers
       - id: ClothingOuterApronBotanist
       - id: ClothingHandsGlovesLeather
 
