@@ -4,6 +4,10 @@
   id: BoxSurvival
   description: It's a box with basic internals inside.
   components:
+  - type: Item
+    size: 40
+  - type: Storage
+    capacity: 40
   - type: StorageFill
     contents:
       - id: ClothingMaskBreath
@@ -12,6 +16,7 @@
       - id: EmergencyMedipen
       - id: Flare
       - id: FoodTinMRE
+      - id: CrowbarRed
   - type: Sprite
     layers:
       - state: internals
@@ -43,6 +48,10 @@
   description: It's a box with basic internals inside.
   suffix: Security
   components:
+  - type: Item
+    size: 40
+  - type: Storage
+    capacity: 40
   - type: StorageFill
     contents:
       - id: ClothingMaskGasSecurity
@@ -51,6 +60,7 @@
       - id: EmergencyMedipen
       - id: Flare
       - id: FoodTinMRE
+      - id: CrowbarRed
   - type: Sprite
     layers:
       - state: internals
@@ -63,6 +73,10 @@
   description: It's a box with basic internals inside.
   suffix: MedSec
   components:
+  - type: Item
+    size: 40
+  - type: Storage
+    capacity: 40
   - type: StorageFill
     contents:
       - id: ClothingMaskBreathMedicalSecurity
@@ -71,6 +85,7 @@
       - id: EmergencyMedipen
       - id: EmergencyMedipen
       - id: FoodTinMRE
+      - id: CrowbarRed
   - type: Sprite
     layers:
       - state: internals
@@ -83,6 +98,10 @@
   description: It's a box with basic internals inside.
   suffix: Medical
   components:
+  - type: Item
+    size: 40
+  - type: Storage
+    capacity: 40
   - type: StorageFill
     contents:
       - id: ClothingMaskBreathMedical
@@ -91,6 +110,7 @@
       - id: EmergencyMedipen
       - id: Flare
       - id: FoodTinMRE
+      - id: CrowbarRed
   - type: Sprite
     layers:
       - state: internals
