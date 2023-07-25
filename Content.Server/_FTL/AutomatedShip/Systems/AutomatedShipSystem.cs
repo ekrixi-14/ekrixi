@@ -34,15 +34,17 @@ public sealed partial class AutomatedShipSystem : EntitySystem
         UpdateName(uid, component);
     }
 
-    public void UpdateName(EntityUid uid, AutomatedShipComponent component)
+    private void UpdateName(EntityUid uid, AutomatedShipComponent component)
     {
         var meta = MetaData(uid);
-        var tag = component.AiState == AutomatedShipComponent.AiStates.Cruising ? Loc.GetString("ship-state-tag-neutral") : Loc.GetString("ship-state-tag-hostile");
+        var tag = "[" + (component.AiState == AutomatedShipComponent.AiStates.Cruising
+            ? Loc.GetString("ship-state-tag-neutral")
+            : Loc.GetString("ship-state-tag-hostile")) + "] ";
 
         // has the tag
         if (meta.EntityName.StartsWith("["))
         {
-            _metaDataSystem.SetEntityName(uid,tag + meta.EntityName.Substring(5, meta.EntityName.Length));
+            _metaDataSystem.SetEntityName(uid, string.Concat(tag, meta.EntityName.Substring(7, meta.EntityName.Length - 7)));
             return;
         }
         _metaDataSystem.SetEntityName(uid, tag + meta.EntityName);
