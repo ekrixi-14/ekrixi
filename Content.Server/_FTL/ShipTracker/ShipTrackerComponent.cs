@@ -1,3 +1,5 @@
+using Content.Server._FTL.ShipTracker.Systems;
+
 namespace Content.Server._FTL.ShipTracker;
 
 /// <summary>
@@ -24,15 +26,13 @@ public sealed class ShipTrackerComponent : Component
     /// <summary>
     /// How many shield layers does the ship have?
     /// </summary>
-    [DataField("shieldAmount")]
-    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("shieldAmount"), ViewVariables(VVAccess.ReadOnly), Obsolete("Use the dedicated function in ShipTrackerSystem")]
     public int ShieldAmount = 1;
 
     /// <summary>
     /// The maximum capacity of the shields
     /// </summary>
-    [DataField("shieldCapacity")]
-    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("shieldCapacity"), ViewVariables(VVAccess.ReadOnly), Obsolete("Use the dedicated function in ShipTrackerSystem")]
     public int ShieldCapacity = 1;
 
     /// <summary>
@@ -70,7 +70,24 @@ public sealed class ShipTrackerComponent : Component
 public sealed class FTLActiveShipDestructionComponent : Component
 {
     /// <summary>
-    /// How much time has passed?
+    /// How much time has passed since destruction has begun?
     /// </summary>
-    public float TimePassed = 0f;
+    [ViewVariables(VVAccess.ReadOnly)]
+    public float TimePassed { get; set; } = 0f;
+
+    /// <summary>
+    /// How much time has passed since destruction has begun?
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
+    public float TimePassedSinceLastExplosion { get; set; } = 0f;
+
+    /// <summary>
+    /// If TimePassed is bigger than the limit, it will finish
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)] public readonly float ShipDestructionLimit = 15f;
+
+    /// <summary>
+    /// If TimePassed is bigger than the limit, it will spawn a minor explosion
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)] public readonly float ShipExplosionLimit = 1f;
 }
