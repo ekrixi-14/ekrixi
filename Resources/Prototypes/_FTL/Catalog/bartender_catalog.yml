@@ -125,6 +125,6 @@
   description: bartender-drink-repair-ship-desc
   productEntity: RepairOnInitObject
   cost:
-    Credits: 5000
+    Credits: 2500
   categories:
     - BartenderDrinks
