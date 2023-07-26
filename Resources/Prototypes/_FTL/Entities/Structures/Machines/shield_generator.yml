@@ -1,6 +1,6 @@
 - type: entity
   id: ShieldGenerator
-  parent: BaseMachinePowered
+  parent: BaseMachine
   name: shield generator
   description: The reliable shield generator, even while used in the old-world - is still reliable after hundreds of thousands of improvements. No shield generator is the same internally, but they function the same regardless.
   placement:
