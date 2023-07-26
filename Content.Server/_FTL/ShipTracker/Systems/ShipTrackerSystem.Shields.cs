@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Shared.Examine;
+using Robust.Shared.Audio;
 using Robust.Shared.Random;
 
 namespace Content.Server._FTL.ShipTracker.Systems;
@@ -23,8 +24,8 @@ public sealed partial class ShipTrackerSystem
             return false;
 
         var capacityGenerators = EntityQuery<ShieldGeneratorComponent>().Where(shield => Transform(shield.Owner).GridUid == grid).ToList();
-        var activeGenerators = EntityQuery<ActiveShieldGeneratorComponent>()
-            .Where(shield => Transform(shield.Owner).GridUid == grid).ToList();
+        var activeGenerators = EntityQuery<ShieldGeneratorComponent>()
+            .Where(shield => shield.Enabled && Transform(shield.Owner).GridUid == grid).ToList();
 
         shieldCapacity = capacityGenerators.Count;
         shieldAmount = activeGenerators.Count;
@@ -44,14 +45,16 @@ public sealed partial class ShipTrackerSystem
         if (!Resolve(grid, ref component))
             return false;
 
-        var activeGenerators = EntityQuery<ActiveShieldGeneratorComponent>()
+        var activeGenerators = EntityQuery<ShieldGeneratorComponent>()
             .Where(shield => Transform(shield.Owner).GridUid == grid).ToList();
 
         for (var i = 0; i < Math.Clamp(damage, 0, activeGenerators.Count); i++)
         {
-            var owner = _random.PickAndTake(activeGenerators).Owner;
-            RemComp<ActiveShieldGeneratorComponent>(owner);
+            var generator = _random.PickAndTake(activeGenerators);
+            var owner = generator.Owner;
             _appearanceSystem.SetData(owner, ShieldGeneratorVisuals.State, false);
+            _sharedAudioSystem.PlayPvs(generator.DamageSound, owner);
+            generator.Enabled = false;
         }
 
         return damage > activeGenerators.Count;
@@ -63,13 +66,15 @@ public sealed partial class ShipTrackerSystem
             return false;
 
         var activeGenerators = EntityQuery<ShieldGeneratorComponent>()
-            .Where(shield => Transform(shield.Owner).GridUid == grid && !TryComp<ActiveShieldGeneratorComponent>(shield.Owner, out _)).ToList();
+            .Where(shield => Transform(shield.Owner).GridUid == grid && !shield.Enabled).ToList();
 
         for (var i = 0; i < Math.Clamp(health, 0, activeGenerators.Count); i++)
         {
-            var owner = _random.PickAndTake(activeGenerators).Owner;
-            EnsureComp<ActiveShieldGeneratorComponent>(owner);
+            var generator = _random.PickAndTake(activeGenerators);
+            var owner = component.Owner;
             _appearanceSystem.SetData(owner, ShieldGeneratorVisuals.State, true);
+            _sharedAudioSystem.PlayPvs(generator.RechargeSound, owner);
+            generator.Enabled = true;
         }
 
         return true;
@@ -77,8 +82,8 @@ public sealed partial class ShipTrackerSystem
 
     private void OnShieldsExamined(EntityUid uid, ShieldGeneratorComponent component, ExaminedEvent args)
     {
-        args.Message.AddMarkup((TryComp<ActiveShieldGeneratorComponent>(uid, out _)
+        args.Message.AddMarkup("\n" + (component.Enabled
             ? Loc.GetString("ship-shield-examine-active-message")
-            : Loc.GetString("ship-shield-examine-inactive-message")) + "\n");
+            : Loc.GetString("ship-shield-examine-inactive-message")));
     }
 }

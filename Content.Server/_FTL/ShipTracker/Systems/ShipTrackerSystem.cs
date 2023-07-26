@@ -26,6 +26,7 @@ namespace Content.Server._FTL.ShipTracker.Systems;
 /// </summary>
 public sealed partial class ShipTrackerSystem : SharedShipTrackerSystem
 {
+    [Dependency] private readonly SharedAudioSystem _sharedAudioSystem = default!;
     [Dependency] private readonly AlertLevelSystem _alertLevelSystem = default!;
     [Dependency] private readonly AppearanceSystem _appearanceSystem = default!;
     [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
@@ -217,6 +218,7 @@ public sealed partial class ShipTrackerSystem : SharedShipTrackerSystem
 
             if (comp.TimeSinceLastShieldRegen >= comp.ShieldRegenTime && shieldAmount < shieldCapacity)
             {
+                Log.Debug("YES I HEALED");
                 TryRegenerateShieldHealth(entity, 1, comp);
                 comp.TimeSinceLastShieldRegen = 0f;
             }
