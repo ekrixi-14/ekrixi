@@ -1,4 +1,15 @@
 - type: entity
+  id: StandardIndependentShip
+  parent:
+    - StandardIndependentStation
+    - BaseStationJobsSpawning
+  noSpawn: true
+  components:
+    - type: Transform
+    - type: NavMap
+    - type: ShipTracker
+
+- type: entity
   id: StandardIndependentStation
   parent:
     - BaseStation
@@ -13,4 +24,3 @@
   components:
     - type: Transform
     - type: NavMap
-    - type: ShipTracker

@@ -5,7 +5,7 @@
   minPlayers: 0
   stations:
     TradeStation:
-      stationProto: StandardIndependentStation
+      stationProto: StandardIndependentShip
       components:
         - type: StationNameSetup
           mapNameTemplate: '{0} Trade Station {1}'
