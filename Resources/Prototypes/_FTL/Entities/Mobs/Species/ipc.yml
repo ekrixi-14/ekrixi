@@ -23,7 +23,7 @@
       bloodReagent: Oil
       bloodlossDamage:
         types:
-          Heat: 1.0
+          Heat: 0.25
     - type: Temperature
       heatDamageThreshold: 452.875 # melting point of iron 1/4th, cause fuck physics you know
       coldDamageThreshold: 288 # 15c aka "cold" should fuck (freeze) em up
@@ -38,24 +38,24 @@
     - type: Respirator
       damage:
         types:
-          Blunt: 1.0 # it cant cool or something
+          Blunt: 0.25 # it cant cool or something
       damageRecovery:
         types:
-          Blunt: -1.0
+          Blunt: -0.25
     - type: Repairable
       fuelcost: 5 # cause most of the fuel is used how long its turned on for
-      doAfterDelay: 7 # ~1 minute to reach max hp
+      doAfterDelay: 7
       damage:
         types:
-          Blunt: -35.0
+          Blunt: -75.0
     - type: Barotrauma
       damage:
         types:
-          Blunt: 1
+          Blunt: 0.25
     - type: SlowOnDamage
       speedModifierThresholds:
-        50: 0.6
-        70: 0.4
+        70: 0.6
+        90: 0.4
     # Misc
     - type: Speech
       speechSounds: IPC
