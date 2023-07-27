@@ -1,6 +1,6 @@
 using System.Linq;
 using Content.Server.Climbing;
-using Content.Server.Power.Components;
+using Content.Server.Mind.Components;
 using Content.Server.Spawners.EntitySystems;
 using Content.Server.Station.Systems;
 using Content.Shared._FTL.SleeperCryopod;
@@ -9,7 +9,6 @@ using Content.Shared.Bed.Sleep;
 using Content.Shared.Destructible;
 using Content.Shared.DragDrop;
 using Content.Shared.Examine;
-using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs.Components;
 using Content.Shared.StatusEffect;
 using Content.Shared.Verbs;
@@ -30,6 +29,8 @@ public sealed class SleeperCryopodSystem : EntitySystem
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly AppearanceSystem _appearanceSystem = default!;
+    [Dependency] private readonly StationJobsSystem _jobsSystem = default!;
+    [Dependency] private readonly StationSystem _stationSystem = default!;
 
     public override void Initialize()
     {
@@ -37,7 +38,6 @@ public sealed class SleeperCryopodSystem : EntitySystem
 
         SubscribeLocalEvent<SleeperCryopodComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<SleeperCryopodComponent, GetVerbsEvent<AlternativeVerb>>(AddAlternativeVerbs);
-        SubscribeLocalEvent<SleeperCryopodComponent, SuicideEvent>(OnSuicide);
         SubscribeLocalEvent<SleeperCryopodComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<SleeperCryopodComponent, DestructionEventArgs>((e,c,_) => EjectBody(e, c));
         SubscribeLocalEvent<SleeperCryopodComponent, DragDropDraggedEvent>(OnDragDrop);
@@ -122,20 +122,6 @@ public sealed class SleeperCryopodSystem : EntitySystem
         }
     }
 
-    private void OnSuicide(EntityUid uid, SleeperCryopodComponent component, SuicideEvent args)
-    {
-        if (args.Handled)
-            return;
-
-        if (args.Victim != component.BodyContainer.ContainedEntity)
-            return;
-
-        EntityManager.DeleteEntity(args.Victim);
-        _audio.PlayPvs(component.LeaveSound, uid);
-        SetAppearance(uid, true);
-        args.SetHandled(SuicideKind.Special);
-    }
-
     private void OnExamine(EntityUid uid, SleeperCryopodComponent component, ExaminedEvent args)
     {
         var message = component.BodyContainer.ContainedEntity == null
@@ -145,7 +131,7 @@ public sealed class SleeperCryopodSystem : EntitySystem
         args.PushMarkup(Loc.GetString(message));
     }
 
-    public bool InsertBody(EntityUid uid, EntityUid? toInsert, SleeperCryopodComponent component)
+    private bool InsertBody(EntityUid uid, EntityUid? toInsert, SleeperCryopodComponent component)
     {
         if (toInsert == null)
             return false;
@@ -161,7 +147,7 @@ public sealed class SleeperCryopodSystem : EntitySystem
         return inserted;
     }
 
-    public bool EjectBody(EntityUid pod, SleeperCryopodComponent component)
+    private bool EjectBody(EntityUid pod, SleeperCryopodComponent component)
     {
         if (!IsOccupied(component))
             return false;
@@ -177,7 +163,7 @@ public sealed class SleeperCryopodSystem : EntitySystem
         return true;
     }
 
-    public bool IsOccupied(SleeperCryopodComponent component)
+    private bool IsOccupied(SleeperCryopodComponent component)
     {
         return component.BodyContainer.ContainedEntity != null;
     }
@@ -185,5 +171,54 @@ public sealed class SleeperCryopodSystem : EntitySystem
     private void SetAppearance(EntityUid uid, bool open)
     {
         _appearanceSystem.SetData(uid, SleeperCryopodVisuals.Open, open);
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var query = EntityQueryEnumerator<SleeperCryopodComponent>();
+        while (query.MoveNext(out var entity, out var component))
+        {
+            if (!component.BodyContainer.ContainedEntity.HasValue)
+                continue;
+
+            if (!TryComp<MindContainerComponent>(component.BodyContainer.ContainedEntity.Value, out var mindContainer))
+                continue;
+
+            if (mindContainer.HasMind)
+            {
+                component.TimeSinceBraindeath = 0f;
+                component.CryosleptJob = mindContainer.Mind.CurrentJob?.Prototype;
+                continue;
+            }
+
+            component.TimeSinceBraindeath += frameTime;
+
+            if (component.TimeSinceBraindeath < component.BraindeadMaxTimer)
+                continue;
+
+            var job = component.CryosleptJob;
+            EntityManager.DeleteEntity(component.BodyContainer.ContainedEntity.Value);
+            Log.Debug("Deleted entity after exceeding braindead timer");
+            _audio.PlayPvs(component.LeaveSound, entity);
+            SetAppearance(entity, true);
+
+            component.TimeSinceBraindeath = 0f;
+
+            // sets job slot
+            var xform = Transform(entity);
+            if (!xform.GridUid.HasValue)
+                return;
+            var station = _stationSystem.GetOwningStation(xform.GridUid.Value);
+            if (!station.HasValue)
+                return;
+            if (job == null)
+                return;
+            _jobsSystem.TryGetJobSlot(station.Value, job, out var amount);
+            if (!amount.HasValue)
+                return;
+            _jobsSystem.TrySetJobSlot(station.Value, job, (int) amount.Value + 1, true);
+        }
     }
 }

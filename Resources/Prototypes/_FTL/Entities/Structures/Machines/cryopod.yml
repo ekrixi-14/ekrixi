@@ -45,6 +45,7 @@
     - type: MaterialStorage
     - type: Appearance
     - type: SleeperCryopod
+    - type: RadioMicrophone
     - type: ContainerContainer
       containers:
         body_container: !type:ContainerSlot

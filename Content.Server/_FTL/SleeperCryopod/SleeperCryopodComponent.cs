@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared.Roles;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 
@@ -21,7 +22,22 @@ public sealed class SleeperCryopodComponent : Component
     /// <summary>
     /// The sound that is played when a player leaves the game via a pod.
     /// </summary>
-    [DataField("leaveSound")] public SoundSpecifier LeaveSound = new SoundPathSpecifier("/Audio/Effects/radpulse1.ogg");
+    [DataField("leaveSound")] public SoundSpecifier LeaveSound = new SoundPathSpecifier("/Audio/Effects/radpulse3.ogg");
+
+    /// <summary>
+    /// The maximum limit to being SSD/braindead before they are removed from the round.
+    /// </summary>
+    [DataField("ssdMaxTimer")] public float BraindeadMaxTimer = 60f;
+
+    /// <summary>
+    /// How much time since a braindead person was put inside?
+    /// </summary>
+    public float TimeSinceBraindeath = 0f;
+
+    /// <summary>
+    /// The job of the person inside of cryosleep.
+    /// </summary>
+    public JobPrototype? CryosleptJob;
 
     /// <summary>
     /// How long the entity initially is asleep for upon joining.
