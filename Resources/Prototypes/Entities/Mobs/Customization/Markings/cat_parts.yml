@@ -32,8 +32,6 @@
         !type:CategoryColoring
           category: Hair
       fallbackTypes:
-        - !type:CategoryColoring
-          category: FacialHair
         - !type:SkinColoring
   sprites:
   - sprite: Mobs/Customization/cat_parts.rsi
