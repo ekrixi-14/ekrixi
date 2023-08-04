@@ -12,26 +12,31 @@ public sealed class SleeperCryopodComponent : Component
     /// <summary>
     /// Whether or not spawns are routed through the cryopod.
     /// </summary>
-    [DataField("doSpawns")] public bool DoSpawns = true;
+    [DataField("doSpawns")]
+    public bool DoSpawns = true;
 
     /// <summary>
     /// The sound that is played when a player spawns in the pod.
     /// </summary>
-    [DataField("arrivalSound")] public SoundSpecifier ArrivalSound = new SoundPathSpecifier("/Audio/Effects/teleport_arrival.ogg");
+    [DataField("arrivalSound")]
+    public SoundSpecifier ArrivalSound = new SoundPathSpecifier("/Audio/Effects/teleport_arrival.ogg");
 
     /// <summary>
     /// The sound that is played when a player leaves the game via a pod.
     /// </summary>
-    [DataField("leaveSound")] public SoundSpecifier LeaveSound = new SoundPathSpecifier("/Audio/Effects/radpulse3.ogg");
+    [DataField("leaveSound")]
+    public SoundSpecifier LeaveSound = new SoundPathSpecifier("/Audio/Effects/radpulse3.ogg");
 
     /// <summary>
     /// The maximum limit to being SSD/braindead before they are removed from the round.
     /// </summary>
-    [DataField("ssdMaxTimer")] public float BraindeadMaxTimer = 60f;
+    [DataField("ssdMaxTimer")]
+    public float BraindeadMaxTimer = 60f;
 
     /// <summary>
     /// How much time since a braindead person was put inside?
     /// </summary>
+    [DataField("timeSinceBraindeath")]
     public float TimeSinceBraindeath = 0f;
 
     /// <summary>
