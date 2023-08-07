@@ -1,0 +1,4 @@
+- type: shader
+  id: Hologram
+  kind: source
+  path: "/Textures/_FTL/Shaders/hologram.swsl"

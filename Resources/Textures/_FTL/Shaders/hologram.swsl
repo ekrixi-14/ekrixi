@@ -1,0 +1,27 @@
+uniform highp int lines = 100;
+uniform highp vec4 color1 = vec4(0.0, 0.0, 1.0, 1.0);
+uniform highp vec4 color2 = vec4(1.0, 0.0, 0.0, 1.0);
+uniform highp float speed = 0.4;
+uniform highp float alpha = 0.5;
+uniform highp float noise_amount = 0.05;
+uniform highp float effect_factor = 0.4;
+
+const highp float PI = 3.14159265;
+
+void fragment() {
+	highp float lineN = floor((UV.y - TIME*speed) * float(lines));
+	highp float line_grade = abs(sin(lineN*PI/4.0));
+	highp float smooth_line_grade = abs(sin((UV.y - TIME*speed) * float(lines)));
+
+	highp vec4 line_color = mix(color1, color2, line_grade);
+
+	// change the "240.0" literal to control line color shifting
+    COLOR = texture(TEXTURE, UV - vec2(1.0, 0.0)*smooth_line_grade/240.0*effect_factor);
+
+    // noise
+    highp float a = fract(sin(dot(UV, vec2(12.9898, 78.233) * TIME)) * 438.5453) * 1.9;
+    COLOR.rgb = mix(COLOR.rgb, vec3(a), noise_amount);
+
+	COLOR.rgb = mix(COLOR.rgb, line_color.rgb, effect_factor);
+	COLOR.a = alpha * COLOR.a * line_color.a;
+}

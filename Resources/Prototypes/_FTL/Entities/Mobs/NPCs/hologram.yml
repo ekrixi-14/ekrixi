@@ -1,0 +1,9 @@
+- type: entity
+  parent: MobHuman
+  id: MobHumanHologram
+  name: holographic entity
+  suffix: NPC
+  components:
+  - type: RandomHumanoidSpawner
+    settings: CentcomOfficial
+  - type: HologramVisuals
