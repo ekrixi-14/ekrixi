@@ -237,6 +237,7 @@ public sealed partial class ShuttleSystem
             var xform = Transform(uid);
             PhysicsComponent? body;
             ShuttleComponent? shuttle;
+            TryComp(uid, out shuttle);
 
             switch (comp.State)
             {
@@ -257,7 +258,8 @@ public sealed partial class ShuttleSystem
 
                     if (TryComp(uid, out body))
                     {
-                        Enable(uid, body);
+                        if (shuttle != null)
+                            Enable(uid, body, shuttle);
                         _physics.SetLinearVelocity(uid, new Vector2(0f, 20f), body: body);
                         _physics.SetAngularVelocity(uid, 0f, body: body);
                         _physics.SetLinearDamping(body, 0f);
@@ -284,7 +286,7 @@ public sealed partial class ShuttleSystem
                     // TODO: Arrival effects
                     // For now we'll just use the ss13 bubbles but we can do fancier.
 
-                    if (TryComp(uid, out shuttle))
+                    if (shuttle != null)
                     {
                         _thruster.DisableLinearThrusters(shuttle);
                         _thruster.EnableLinearThrustDirection(shuttle, DirectionFlag.South);
@@ -302,11 +304,13 @@ public sealed partial class ShuttleSystem
                     {
                         _physics.SetLinearVelocity(uid, Vector2.Zero, body: body);
                         _physics.SetAngularVelocity(uid, 0f, body: body);
-                        _physics.SetLinearDamping(body, ShuttleLinearDamping);
-                        _physics.SetAngularDamping(body, ShuttleAngularDamping);
+                        if (shuttle != null)
+                        {
+                            _physics.SetLinearDamping(body, shuttle.LinearDamping);
+                            _physics.SetAngularDamping(body, shuttle.AngularDamping);
+                        }
                     }
 
-                    TryComp(uid, out shuttle);
                     MapId mapId;
 
                     if (comp.TargetUid != null && shuttle != null)
@@ -348,9 +352,9 @@ public sealed partial class ShuttleSystem
                         {
                             Disable(uid, body);
                         }
-                        else
+                        else if (shuttle != null)
                         {
-                            Enable(uid, body);
+                            Enable(uid, body, shuttle);
                         }
                     }
 
