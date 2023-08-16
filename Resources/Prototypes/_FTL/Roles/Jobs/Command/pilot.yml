@@ -3,7 +3,7 @@
   name: job-name-pilot
   playTimeTracker: JobPilot
   startingGear: PilotGear
-  icon: "Captain"
+  icon: "JobIconCaptain"
   supervisors: job-supervisors-captain
   setPreference: true
   accessGroups:

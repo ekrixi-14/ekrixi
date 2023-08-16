@@ -1,6 +1,7 @@
 using Content.Server.Procedural;
 using Content.Shared.Maps;
 using Content.Shared.Procedural;
+using Content.Shared.Random.Helpers;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
@@ -56,13 +57,6 @@ public sealed class SpawnDungeonEffect : FTLPointEffect
             }
 
             dungeon.GenerateDungeon(dungeonProto, dungeonUid, dungeonGrid, position, seed);
-
-            foreach (var tile in dungeonGrid.GetAllTiles())
-            {
-                var def = tile.GetContentTileDefinition();
-                var newTile = new Tile(tile.Tile.TypeId, tile.Tile.Flags, random.Pick(def.PlacementVariants));
-                dungeonGrid.SetTile(tile.GridIndices, newTile);
-            }
         }
     }
 }
