@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Linq;
 using System.Numerics;
 using Content.Client.Humanoid;
@@ -199,15 +200,18 @@ namespace Content.Client.Preferences.UI
 
             #region Height
 
-            CHeight.OnValueChanged += args =>
+            CHeight.OnTextChanged += args =>
             {
-                CHeightLabel.Text = MathF.Round(args.Value, 1).ToString("G");
-                SetHeight(args.Value);
+                if (!float.TryParse(args.Text, out var newHeight))
+                    return;
+
+                CHeightLabel.Text = MathF.Round(newHeight, 1).ToString("G");
+                SetHeight(newHeight);
             };
 
             CHeightReset.OnPressed += _ =>
             {
-                CHeight.Value = _defaultHeight;
+                CHeight.Text = _defaultHeight.ToString(CultureInfo.InvariantCulture);
             };
 
             #endregion Height
@@ -1010,11 +1014,9 @@ namespace Content.Client.Preferences.UI
                 return;
             }
 
-            var species = _speciesList.Find(x => x.ID == Profile.Species)!;
-            CHeight.MaxValue = species.MaxHeight;
-            CHeight.MinValue = species.MinHeight;
-            CHeight.Value = Math.Clamp(Profile.Height, species.MinHeight, species.MaxHeight);
-            _defaultHeight = species.DefaultHeight;
+            var species = _speciesList.Find(x => x.ID == Profile.Species);
+            if (species != null)
+                _defaultHeight = species.DefaultHeight;
         }
 
         private void UpdateGenderControls()

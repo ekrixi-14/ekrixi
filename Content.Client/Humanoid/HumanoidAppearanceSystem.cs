@@ -45,8 +45,8 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         component.PermanentlyHidden = new(state.PermanentlyHidden);
 
         var species = _prototypeManager.Index<SpeciesPrototype>(state.Species);
-        var height = Math.Clamp(state.Height, species.MinHeight, species.MaxHeight); // should NOT be locked, at all
-        sprite.Scale = new Vector2(height, height);
+        var height = Math.Clamp(MathF.Round(state.Height, 1), species.MinHeight, species.MaxHeight); // should NOT be locked, at all
+        sprite.Scale = new Vector2(species.ScaleWidth ? height : species.DefaultHeight, height);
 
         component.CustomBaseLayers = state.CustomBaseLayers.ShallowClone();
 

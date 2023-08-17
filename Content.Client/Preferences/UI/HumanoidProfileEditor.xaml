@@ -100,7 +100,7 @@
                                     <Label Text="{Loc 'humanoid-profile-editor-height-label'}" />
                                     <Label Name="CHeightLabel" Text="1" />
                                     <Button Name="CHeightReset" Text="{Loc 'humanoid-profile-editor-reset-height-button'}"/>
-                                    <Slider HorizontalAlignment="Right" HorizontalExpand="True" Name="CHeight" MinValue="0.7" MaxWidth="250" MaxValue="1.3" Value="1.0" />
+                                    <LineEdit HorizontalAlignment="Right" HorizontalExpand="True" Name="CHeight" MinSize="40 0" Text="1.0" />
                                 </BoxContainer>
                             </BoxContainer>
                             <!-- Skin -->
