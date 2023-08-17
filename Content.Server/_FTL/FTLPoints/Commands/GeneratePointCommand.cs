@@ -5,30 +5,35 @@ using Content.Server.Administration;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Toolshed;
 
 namespace Content.Server._FTL.FTLPoints.Commands;
 
-[AdminCommand(AdminFlags.Mapping)]
-public sealed class GeneratePointCommand : IConsoleCommand
+[ToolshedCommand, AdminCommand(AdminFlags.Mapping)]
+public sealed class GeneratePointCommand : ToolshedCommand
 {
     [Dependency] private readonly EntityManager _entityManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
-    public string Command => "genpoint";
-    public string Description => Loc.GetString("Generates an FTL point of a specific prototype, or a random weighted prototype if left unspecified.");
-    public string Help => Loc.GetString("genpoint <point prototype>");
-
-    public void Execute(IConsoleShell shell, string argStr, string[] args)
+    [CommandImplementation("id")]
+    public void GenerateWithId(
+        [CommandInvocationContext] IInvocationContext ctx,
+        [PipedArgument] string id
+    )
     {
-        if (args.Count() == 1 && _prototypeManager.TryIndex<FTLPointPrototype>(args[0], out var prototype))
+        if (!_prototypeManager.TryIndex<FTLPointPrototype>(id, out var prototype))
         {
-            _entityManager.System<FTLPointsSystem>().GenerateDisposablePoint(prototype);
-            shell.WriteLine("Generated FTL point.");
+            ctx.WriteLine("Invalid ID.");
+            return;
         }
-        else
-        {
-            _entityManager.System<FTLPointsSystem>().GenerateDisposablePoint();
-            shell.WriteLine("Generated random FTL point.");
-        }
+        _entityManager.System<FTLPointsSystem>().GenerateDisposablePoint(prototype);
+        ctx.WriteLine("Generated FTL point.");
+    }
+
+    [CommandImplementation]
+    public void GenerateRandom([CommandInvocationContext] IInvocationContext ctx)
+    {
+        _entityManager.System<FTLPointsSystem>().GenerateDisposablePoint();
+        ctx.WriteLine("Generated random FTL point.");
     }
 }

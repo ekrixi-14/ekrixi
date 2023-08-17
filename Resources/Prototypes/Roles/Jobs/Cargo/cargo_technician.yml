@@ -4,7 +4,7 @@
   description: job-description-cargotech
   playTimeTracker: JobCargoTechnician
   startingGear: CargoTechGear
-  icon: "CargoTechnician"
+  icon: "JobIconCargoTechnician"
   supervisors: job-supervisors-qm
   setPreference: true
   access:
@@ -12,18 +12,17 @@
   - Maintenance
   - External
   - Salvage
-  - Security
 
 - type: startingGear
   id: CargoTechGear
   equipment:
-    head: ClothingHeadHatRedsoft
-    jumpsuit: ClothingUniformJumpsuitColorRed
-    back: ClothingBackpackSecurityFilled
-    shoes: ClothingShoesBootsJack
+    head: ClothingHeadHatCargosoft
+    jumpsuit: ClothingUniformJumpsuitCargo
+    back: ClothingBackpackCargoFilled
+    shoes: ClothingShoesColorBlack
     id: CargoPDA
-    ears: ClothingHeadsetSecurity
+    ears: ClothingHeadsetCargo
     pocket1: AppraisalTool
-  innerclothingskirt: ClothingUniformJumpskirtColorRed
-  satchel: ClothingBackpackSatchelSecurityFilled
-  duffelbag: ClothingBackpackDuffelSecurityFilled
+  innerclothingskirt: ClothingUniformJumpskirtCargo
+  satchel: ClothingBackpackSatchelCargoFilled
+  duffelbag: ClothingBackpackDuffelCargoFilled

@@ -38,6 +38,16 @@
   category: Atmospherics
   group: market
 
+- type: cargoProduct
+  id: AtmosphericsStorage
+  icon:
+    sprite: Structures/Storage/canister.rsi
+    state: yellow
+  product: StorageCanister
+  cost: 350 # No gases in it so it's cheaper
+  category: Atmospherics
+  group: market
+
 #- type: cargoProduct
 #  name: "water vapor canister"
 #  id: AtmosphericsWaterVapor
