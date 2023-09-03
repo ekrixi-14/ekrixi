@@ -1,7 +1,7 @@
 namespace Content.Server._FTL.AmbientHeater;
 
 [RegisterComponent]
-public sealed class AmbientHeaterComponent : Component
+public sealed partial class AmbientHeaterComponent : Component
 {
     [DataField("targetTemperature")]
     [ViewVariables(VVAccess.ReadWrite)]

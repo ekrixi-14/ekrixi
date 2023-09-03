@@ -5,7 +5,7 @@ using Robust.Shared.Containers;
 
 namespace Content.Server._FTL.SleeperCryopod;
 [RegisterComponent]
-public sealed class SleeperCryopodComponent : Component
+public sealed partial class SleeperCryopodComponent : Component
 {
     public ContainerSlot BodyContainer = default!;
 

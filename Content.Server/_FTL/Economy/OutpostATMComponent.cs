@@ -6,7 +6,7 @@ namespace Content.Server._FTL.Economy;
 /// This is used for tracking outpost ATMs
 /// </summary>
 [RegisterComponent, Access(typeof(EconomySystem))]
-public sealed class OutpostATMComponent : Component
+public sealed partial class OutpostATMComponent : Component
 {
     /// <summary>
     /// Whether you can access the ATM or not.

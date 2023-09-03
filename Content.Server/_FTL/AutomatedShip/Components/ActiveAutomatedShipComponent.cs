@@ -4,7 +4,7 @@ namespace Content.Server._FTL.AutomatedShip.Components;
 /// This is used for tracking things in active combat
 /// </summary>
 [RegisterComponent]
-public sealed class ActiveAutomatedShipComponent : Component
+public sealed partial class ActiveAutomatedShipComponent : Component
 {
     [ViewVariables] public float TimeSinceLastAttack = 5f;
 }

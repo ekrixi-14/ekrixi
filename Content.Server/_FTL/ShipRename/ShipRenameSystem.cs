@@ -1,7 +1,7 @@
 using Content.Server.Administration;
-using Content.Server.Mind.Components;
+using Content.Server.Mind;
 using Content.Server.Station.Systems;
-using Content.Shared.Interaction;
+using Content.Shared.Mind.Components;
 using Content.Shared.Verbs;
 
 namespace Content.Server._FTL.ShipRename;
@@ -13,6 +13,7 @@ public sealed class ShipRenameSystem : EntitySystem
 {
     [Dependency] private readonly QuickDialogSystem _quickDialogSystem = default!;
     [Dependency] private readonly StationSystem _stationSystem = default!;
+    [Dependency] private readonly MindSystem _mindSystem = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -37,9 +38,9 @@ public sealed class ShipRenameSystem : EntitySystem
                     return;
                 if (!mind.HasMind)
                     return;
-                if (mind.Mind.Session == null)
+                if (!_mindSystem.TryGetSession(mind.Mind, out var session))
                     return;
-                _quickDialogSystem.OpenDialog(mind.Mind.Session, Loc.GetString("ship-rename-popup-title"),
+                _quickDialogSystem.OpenDialog(session, Loc.GetString("ship-rename-popup-title"),
                     Loc.GetString("ship-rename-popup-prompt"),
                     (string name) =>
                     {

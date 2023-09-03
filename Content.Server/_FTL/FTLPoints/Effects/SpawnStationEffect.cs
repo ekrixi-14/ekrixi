@@ -10,10 +10,10 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 namespace Content.Server._FTL.FTLPoints.Effects;
 
 [DataDefinition]
-public sealed class SpawnStationEffect : FTLPointEffect
+public sealed partial class SpawnStationEffect : FTLPointEffect
 {
     [DataField("stationIds", required: true)]
-    public List<string> StationIds { get; } = new List<string>()
+    public List<string> StationIds { set; get; } = new List<string>()
     {
         "TradeStation"
     };

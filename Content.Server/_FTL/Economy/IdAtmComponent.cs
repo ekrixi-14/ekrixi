@@ -6,7 +6,7 @@ namespace Content.Server._FTL.Economy;
 /// This is used for...
 /// </summary>
 [RegisterComponent]
-public sealed class IdAtmComponent : Component
+public sealed partial class IdAtmComponent : Component
 {
     [ViewVariables(VVAccess.ReadOnly)] public readonly string MoneyContainerId = "Money-Slot";
     [ViewVariables(VVAccess.ReadOnly)] public readonly string IdContainerId = "Id-Slot";

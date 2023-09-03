@@ -17,10 +17,10 @@ using Serilog;
 namespace Content.Server._FTL.FTLPoints.Effects;
 
 [DataDefinition]
-public sealed class ToPlanetEffect : FTLPointEffect
+public sealed partial class ToPlanetEffect : FTLPointEffect
 {
     [DataField("lightingColors")]
-    public List<string> LightingColors { get; } = new List<string>()
+    public List<string> LightingColors { set; get; } = new List<string>()
     {
         "D8B059",
         "E6CB8B",
@@ -29,7 +29,7 @@ public sealed class ToPlanetEffect : FTLPointEffect
     };
 
     [DataField("biomeTemplates", customTypeSerializer: typeof(PrototypeIdListSerializer<BiomeTemplatePrototype>))]
-    public List<string> BiomeTemplates { get; } = default!;
+    public List<string> BiomeTemplates { set; get; } = default!;
 
     public override void Effect(FTLPointEffectArgs args)
     {
