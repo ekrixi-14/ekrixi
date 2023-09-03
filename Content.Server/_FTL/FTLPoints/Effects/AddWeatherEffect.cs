@@ -7,10 +7,10 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 namespace Content.Server._FTL.FTLPoints.Effects;
 
 [DataDefinition]
-public sealed class AddWeatherEffect : FTLPointEffect
+public sealed partial class AddWeatherEffect : FTLPointEffect
 {
     [DataField("weatherPrototypes", customTypeSerializer: typeof(PrototypeIdListSerializer<WeatherPrototype>))]
-    public List<string> WeatherPrototypes { get; } = default!;
+    public List<string> WeatherPrototypes { set; get; } = default!;
 
     public override void Effect(FTLPointEffectArgs args)
     {

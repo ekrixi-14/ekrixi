@@ -13,7 +13,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 namespace Content.Server._FTL.FTLPoints.Effects;
 
 [DataDefinition]
-public sealed class ApplyWorldGenConfigEffect : FTLPointEffect
+public sealed partial class ApplyWorldGenConfigEffect : FTLPointEffect
 {
     [DataField("config", customTypeSerializer:typeof(PrototypeIdSerializer<WorldgenConfigPrototype>))]
     public string ConfigPrototype = "Default";

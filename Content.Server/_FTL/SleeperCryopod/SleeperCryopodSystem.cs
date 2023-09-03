@@ -1,6 +1,6 @@
 using System.Linq;
 using Content.Server.Climbing;
-using Content.Server.Mind.Components;
+using Content.Server.Mind;
 using Content.Server.Players;
 using Content.Server.Spawners.EntitySystems;
 using Content.Server.Station.Systems;
@@ -11,6 +11,7 @@ using Content.Shared.Destructible;
 using Content.Shared.DragDrop;
 using Content.Shared.Examine;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Roles.Jobs;
 using Content.Shared.StatusEffect;
 using Content.Shared.Verbs;
 using Robust.Server.Containers;
@@ -30,8 +31,10 @@ public sealed class SleeperCryopodSystem : EntitySystem
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly AppearanceSystem _appearanceSystem = default!;
-    [Dependency] private readonly StationJobsSystem _jobsSystem = default!;
+    [Dependency] private readonly StationJobsSystem _stationJobsSystem = default!;
+    [Dependency] private readonly SharedJobSystem _sharedJobSystem = default!;
     [Dependency] private readonly StationSystem _stationSystem = default!;
+    [Dependency] private readonly MindSystem _mindSystem = default!;
 
     public override void Initialize()
     {
@@ -188,7 +191,9 @@ public sealed class SleeperCryopodSystem : EntitySystem
             {
                 component.TimeSinceBraindeath = 0f;
                 var mind = actorComponent.PlayerSession.GetMind();
-                component.CryosleptJob = mind?.CurrentJob?.Prototype;
+                if (!_sharedJobSystem.MindTryGetJob(mind, out _, out var prototype))
+                    return;
+                component.CryosleptJob = prototype;
                 continue;
             }
 
@@ -214,10 +219,10 @@ public sealed class SleeperCryopodSystem : EntitySystem
                 return;
             if (job == null)
                 return;
-            _jobsSystem.TryGetJobSlot(station.Value, job, out var amount);
+            _stationJobsSystem.TryGetJobSlot(station.Value, job, out var amount);
             if (!amount.HasValue)
                 return;
-            _jobsSystem.TrySetJobSlot(station.Value, job, (int) amount.Value + 1, true);
+            _stationJobsSystem.TrySetJobSlot(station.Value, job, (int) amount.Value + 1, true);
         }
     }
 }

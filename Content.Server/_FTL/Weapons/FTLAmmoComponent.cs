@@ -7,7 +7,7 @@ namespace Content.Server._FTL.Weapons;
 /// This is used for tracking the physical ammo used by silos.
 /// </summary>
 [RegisterComponent]
-public sealed class FTLAmmoComponent : Component
+public sealed partial class FTLAmmoComponent : Component
 {
 
 }

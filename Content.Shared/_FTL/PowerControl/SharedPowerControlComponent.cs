@@ -5,7 +5,7 @@ namespace Content.Shared._FTL.PowerControl;
 /// <summary>
 /// This is used for...
 /// </summary>
-public abstract class SharedPowerControlComponent : Component
+public abstract partial class SharedPowerControlComponent : Component
 {
 
 }

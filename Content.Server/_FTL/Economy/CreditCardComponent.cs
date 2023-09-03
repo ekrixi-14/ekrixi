@@ -4,7 +4,7 @@ namespace Content.Server._FTL.Economy;
 /// This is used for tracking credits
 /// </summary>
 [RegisterComponent, Access(typeof(EconomySystem))]
-public sealed class CreditCardComponent : Component
+public sealed partial class CreditCardComponent : Component
 {
     [DataField("balance"), ViewVariables(VVAccess.ReadWrite)]
     public int Balance;

@@ -10,10 +10,10 @@ using Robust.Shared.Random;
 namespace Content.Server._FTL.FTLPoints.Effects;
 
 [DataDefinition]
-public sealed class SpawnDungeonEffect : FTLPointEffect
+public sealed partial class SpawnDungeonEffect : FTLPointEffect
 {
     [DataField("configPrototypes")]
-    public List<string> ConfigPrototypes { get; } = new List<string>()
+    public List<string> ConfigPrototypes { set; get; } = new List<string>()
     {
         "Experiment",
         "LavaBrig",

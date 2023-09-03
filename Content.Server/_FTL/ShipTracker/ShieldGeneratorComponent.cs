@@ -6,7 +6,7 @@ namespace Content.Server._FTL.ShipTracker;
 /// By having this on a grid, they get +1 shield capacity
 /// </summary>
 [RegisterComponent]
-public sealed class ShieldGeneratorComponent : Component
+public sealed partial class ShieldGeneratorComponent : Component
 {
     /// <summary>
     /// Sound that is played when the shield is damaged

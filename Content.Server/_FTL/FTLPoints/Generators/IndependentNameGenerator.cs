@@ -5,7 +5,7 @@ using Robust.Shared.Random;
 namespace Content.Server._FTL.FTLPoints.Generators;
 
 [UsedImplicitly]
-public sealed class IndependentNameGenerator : StationNameGenerator
+public sealed partial class IndependentNameGenerator : StationNameGenerator
 {
     /// <summary>
     ///     Where the map comes from. Should be a two or three letter code, for example "VG" for Packedstation.

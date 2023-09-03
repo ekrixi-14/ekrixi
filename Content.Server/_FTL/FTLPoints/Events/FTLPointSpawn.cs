@@ -8,7 +8,7 @@ namespace Content.Server._FTL.FTLPoints.Events;
 /// </summary>
 ///
 [ImplicitDataDefinitionForInheritors, MeansImplicitUse]
-public abstract class FTLPointSpawn
+public abstract partial class FTLPointSpawn
 {
     public abstract void Effect(FTLPointSpawnArgs args);
 

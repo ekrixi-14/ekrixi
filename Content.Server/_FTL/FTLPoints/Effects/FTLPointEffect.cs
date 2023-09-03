@@ -8,7 +8,7 @@ namespace Content.Server._FTL.FTLPoints.Effects;
 /// </summary>
 ///
 [ImplicitDataDefinitionForInheritors, MeansImplicitUse]
-public abstract class FTLPointEffect
+public abstract partial class FTLPointEffect
 {
     [DataField("probability")] public float Probability = 1f;
     public abstract void Effect(FTLPointEffectArgs args);

@@ -7,7 +7,7 @@ namespace Content.Server._FTL.Weapons;
 /// This is used for tracking weapons.
 /// </summary>
 [RegisterComponent]
-public sealed class FTLWeaponComponent : Component
+public sealed partial class FTLWeaponComponent : Component
 {
     [ViewVariables(VVAccess.ReadOnly)] public bool CanBeUsed = true;
 
@@ -29,7 +29,7 @@ public sealed class FTLWeaponComponent : Component
 /// Used for tracking that the weapon is on a cooldown.
 /// </summary>
 [RegisterComponent]
-public sealed class FTLActiveCooldownWeaponComponent : Component
+public sealed partial class FTLActiveCooldownWeaponComponent : Component
 {
     public float SecondsLeft = 0f;
 }

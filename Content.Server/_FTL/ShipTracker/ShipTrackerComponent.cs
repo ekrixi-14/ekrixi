@@ -7,7 +7,7 @@ namespace Content.Server._FTL.ShipTracker;
 /// </summary>
 [RegisterComponent]
 [Access(typeof(ShipTrackerSystem))]
-public sealed class ShipTrackerComponent : Component
+public sealed partial class ShipTrackerComponent : Component
 {
     /// <summary>
     /// How much hull does the ship have?
@@ -67,7 +67,7 @@ public sealed class ShipTrackerComponent : Component
 }
 
 [RegisterComponent]
-public sealed class FTLActiveShipDestructionComponent : Component
+public sealed partial class FTLActiveShipDestructionComponent : Component
 {
     /// <summary>
     /// How much time has passed since destruction has begun?

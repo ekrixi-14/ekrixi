@@ -4,7 +4,7 @@ namespace Content.Server._FTL.AutomatedShip.Components;
 /// This is used for...
 /// </summary>
 [RegisterComponent]
-public sealed class AutomatedShipComponent : Component
+public sealed partial class AutomatedShipComponent : Component
 {
     /// <summary>
     /// The two states of an AI. It can either cruise, AKA idle or go into combat.

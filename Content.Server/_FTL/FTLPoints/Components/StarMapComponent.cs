@@ -7,7 +7,7 @@ namespace Content.Server._FTL.FTLPoints.Components;
 /// This is used for tracking FTL points and their positioning.
 /// </summary>
 [RegisterComponent, Access(typeof(FTLPointsSystem), Other = AccessPermissions.Read)]
-public sealed class StarMapComponent : Component
+public sealed partial class StarMapComponent : Component
 {
     public Dictionary<Vector2, EntityUid> StarMap = new ();
 }
