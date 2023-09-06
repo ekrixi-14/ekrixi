@@ -1,18 +1,18 @@
 - type: font
   id: Default
-  path: /Fonts/NotoSans/NotoSans-Regular.ttf
+  path: /Fonts/IBMPlexMono/IBMPlexMono-Regular.ttf
 
 - type: font
   id: DefaultItalic
-  path: /Fonts/NotoSans/NotoSans-Italic.ttf
+  path: /Fonts/IBMPlexMono/IBMPlexMono-Italic.ttf
 
 - type: font
   id: DefaultBold
-  path: /Fonts/NotoSans/NotoSans-Bold.ttf
+  path: /Fonts/IBMPlexMono/IBMPlexMono-Bold.ttf
 
 - type: font
   id: DefaultBoldItalic
-  path: /Fonts/NotoSans/NotoSans-BoldItalic.ttf
+  path: /Fonts/IBMPlexMono/IBMPlexMono-BoldItalic.ttf
 
 - type: font
   id: NotoSansDisplay

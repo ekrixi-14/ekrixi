@@ -154,7 +154,7 @@ namespace Content.Client.NPC
             _inputManager = inputManager;
             _mapManager = mapManager;
             _system = system;
-            _font = new VectorFont(cache.GetResource<FontResource>("/Fonts/NotoSans/NotoSans-Regular.ttf"), 10);
+            _font = new VectorFont(cache.GetResource<FontResource>("/Fonts/IBMPlexMono/IBMPlexMono-Regular.ttf"), 10);
         }
 
         protected override void Draw(in OverlayDrawArgs args)

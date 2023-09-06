@@ -29,7 +29,7 @@ namespace Content.Client.Stylesheets
                 // Ew, but ok
                 new[]
                 {
-                    "/Fonts/WhiteRabbit/whiterabbit.ttf"
+                    "/Fonts/IBMPlexMono/IBMPlexMono-Regular.ttf"
                 },
                 size
             );
