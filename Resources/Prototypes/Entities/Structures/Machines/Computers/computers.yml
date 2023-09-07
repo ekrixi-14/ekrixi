@@ -67,7 +67,7 @@
 - type: entity
   parent: BaseComputerShuttle
   id: ComputerShuttle
-  name: shuttle console
+  name: piloting console
   description: Used to pilot a shuttle.
   components:
   - type: Sprite
@@ -82,6 +82,25 @@
       state: generic_keys
   - type: Computer
     board: ShuttleConsoleCircuitboard
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+          - !type:PlaySoundBehavior
+            sound:
+              collection: GlassBreak
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              StationMapBroken:
+                min: 1
+                max: 1
+              ShuttleConsoleCircuitboard:
+                min: 1
+                max: 1
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
 
 - type: entity
   parent: BaseComputerShuttle

@@ -40,6 +40,8 @@
       - id: ClothingMaskGasCaptain
       - id: WeaponDisabler
       - id: CommsComputerCircuitboard
+      - id: ShuttleConsoleCircuitboard
+        amount: 3 # more than enough?
       - id: ClothingHeadsetAltCommand
       - id: SpaceCash1000
       - id: PlushieNuke
