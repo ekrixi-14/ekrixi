@@ -74,6 +74,7 @@
   bypassShield: true
   hullMin: 1000
   hullMax: 1000
+  prototype: FTLFire # might as well
 
 - type: ftlAmmo
   id: RailgunLaser # I know this is a "laser" but its silofed, so...
