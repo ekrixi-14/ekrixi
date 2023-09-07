@@ -1,0 +1,7 @@
+- type: htnCompound
+  id: SimpleHumanoidNeutralCompound
+  branches:
+    # TODO: RevengeCompound, in which they'll fight back?
+    - tasks:
+        - !type:HTNCompoundTask
+          task: IdleCompound

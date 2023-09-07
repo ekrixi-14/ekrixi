@@ -1,52 +1,60 @@
 - type: entity
   parent: MobHuman
-  id: MobHumanTraderBartender
-  name: bartender
-  suffix: NPC
-  components:
-  - type: RandomHumanoidSpawner
-    settings: TraderBartender
-
-- type: entity
-  parent: MobHuman
   id: MobHumanTraderRecruit
   name: recruit
-  suffix: NPC
+  suffix: Spawnable, NPC
   components:
-  - type: RandomHumanoidSpawner
-    settings: TraderRecruit
+    - type: RandomHumanoidSpawner
+      settings: TraderRecruit
 
 - type: entity
   parent: MobHuman
   id: MobHumanTraderQuartermaster
   name: quartermaster
+  suffix: Spawnable, NPC
+  components:
+    - type: RandomHumanoidSpawner
+      settings: TraderQuartermaster
+
+- type: entity
+  parent: BaseMobHuman
+  id: MobCargoWorker
+  name: cargo worker
   suffix: NPC
   components:
-  - type: RandomHumanoidSpawner
-    settings: TraderQuartermaster
-
-- type: randomHumanoidSettings
-  id: TraderBartender
-  components:
-  - type: Loadout
-    prototypes: [ BartenderGear ]
+    - type: RandomHumanoidSpawner
+      settings: TraderCargoWorker
 
 - type: randomHumanoidSettings
   id: TraderRecruit
   components:
-  - type: Loadout
-    prototypes: [ RecruitNTGear ]
-  - type: GhostRole
-    name: ghost-role-information-recruit-name
-    description: ghost-role-information-recruit-description
-  - type: GhostTakeoverAvailable
+    - type: Loadout
+      prototypes: [ RecruitNTGear ]
+    - type: GhostRole
+      name: ghost-role-information-recruit-name
+      description: ghost-role-information-recruit-description
+    - type: GhostTakeoverAvailable
 
 - type: randomHumanoidSettings
   id: TraderQuartermaster
   components:
-  - type: Loadout
-    prototypes: [ QuartermasterGear ]
-  - type: GhostRole
-    name: ghost-role-information-quartermaster-name
-    description: ghost-role-information-quartermaster-description
-  - type: GhostTakeoverAvailable
+    - type: Loadout
+      prototypes: [ QuartermasterGear ]
+    - type: GhostRole
+      name: ghost-role-information-quartermaster-name
+      description: ghost-role-information-quartermaster-description
+    - type: GhostTakeoverAvailable
+
+- type: randomHumanoidSettings
+  id: TraderCargoWorker
+  components:
+    - type: Loadout
+      prototypes: [ CargoTechGear ]
+    - type: NpcFactionMember
+      factions:
+        - SimpleNeutral
+    - type: InputMover
+    - type: MobMover
+    - type: HTN
+      rootTask:
+        task: SimpleHumanoidNeutralCompound
