@@ -134,6 +134,12 @@ public sealed class SpeciesPrototype : IPrototype
     public float DefaultHeight = 1f;
 
     /// <summary>
+    /// The default height for this species
+    /// </summary>
+    [DataField("defaultWidth")]
+    public float DefaultWidth = 1f;
+
+    /// <summary>
     /// The maximum height for this species
     /// </summary>
     [DataField("maxHeight")]
@@ -143,7 +149,13 @@ public sealed class SpeciesPrototype : IPrototype
     /// Whether to scale horizontally or not
     /// </summary>
     [DataField("scaleWidth")]
-    public bool ScaleWidth;
+    public bool ScaleWidth = true;
+
+    /// <summary>
+    /// Whether to scale vertically or not
+    /// </summary>
+    [DataField("scaleHeight")]
+    public bool ScaleHeight = true;
 }
 
 public enum SpeciesNaming : byte
