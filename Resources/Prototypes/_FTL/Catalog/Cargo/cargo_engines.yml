@@ -2,7 +2,7 @@
   id: ShieldGenerator
   icon:
     sprite: Structures/Power/Generation/portable_generator.rsi
-    state: portgen1_1
+    state: portgen0
   product: ShieldGenerator
   cost: 6000
   category: Engineering
