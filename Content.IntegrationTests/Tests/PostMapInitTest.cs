@@ -63,6 +63,7 @@ namespace Content.IntegrationTests.Tests
             "Kettle",
             "MeteorArena",
             "Kestrel",
+            "PaperPlane",
             "TradeStation"
         };
 
