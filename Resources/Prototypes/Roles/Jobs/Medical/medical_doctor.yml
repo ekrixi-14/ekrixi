@@ -14,7 +14,7 @@
   access:
   - Medical
   - Maintenance
-  extendedAccess:
+  - External
   - Chemistry
 
 - type: startingGear
@@ -27,6 +27,7 @@
     id: MedicalPDA
     ears: ClothingHeadsetMedical
     belt: ClothingBeltMedicalFilled
+    pocket2: SurvivalKnife
   innerclothingskirt: ClothingUniformJumpskirtMedicalDoctor
   satchel: ClothingBackpackSatchelMedicalFilled
   duffelbag: ClothingBackpackDuffelMedicalFilled
