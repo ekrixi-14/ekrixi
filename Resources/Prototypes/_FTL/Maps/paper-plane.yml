@@ -1,14 +1,15 @@
 - type: gameMap
-  id: Kestrel
-  mapName: 'Kestrel'
-  mapPath: /Maps/_FTL/kestrel.yml
-  minPlayers: 3
+  id: PaperPlane
+  mapName: 'Paper Plane'
+  mapPath: /Maps/_FTL/paper-plane.yml
+  minPlayers: 0
+  maxPlayers: 6
   stations:
-    Kestrel:
+    PaperPlane:
       stationProto: StandardIndependentStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'CG Kestrel-Class Freighter'
+          mapNameTemplate: 'A2B Paper Plane-Class Freighter (UNREGISTERED)' # The crew stole it lol
         - type: StationJobs
           overflowJobs:
             - Passenger
@@ -18,10 +19,9 @@
             ChiefMedicalOfficer: [ 1, 1 ]
             HeadOfSecurity: [ 1, 1 ]
             ChiefEngineer: [ 1, 1 ]
-            SecurityOfficer: [ 3, 3 ] # Security
-            CargoTechnician: [ 2, 2 ]
-            StationEngineer: [ 2, 2 ] # Engi
-            MedicalDoctor: [ 3, 3 ] # Medical
+            SecurityOfficer: [ 1, 1 ] # Security
+            CargoTechnician: [ 3, 3 ]
+            StationEngineer: [ 1, 1 ] # Engi
+            MedicalDoctor: [ 1, 1 ] # Medical
             SeniorPhysician: [ 1, 1 ]
             Passenger: [ -1, -1 ] # Everyone else
-            # SalvageSpecialist: [ 2, 2 ] # One day
