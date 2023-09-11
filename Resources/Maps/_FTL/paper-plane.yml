@@ -701,15 +701,15 @@ entities:
       type: Transform
 - proto: AirlockCommandLocked
   entities:
-  - uid: 237
-    components:
-    - pos: 1.5,9.5
-      parent: 2
-      type: Transform
   - uid: 238
     components:
     - rot: -1.5707963267948966 rad
       pos: 0.5,13.5
+      parent: 2
+      type: Transform
+  - uid: 284
+    components:
+    - pos: 1.5,9.5
       parent: 2
       type: Transform
 - proto: AirlockEngineeringLocked
@@ -799,7 +799,7 @@ entities:
       type: Transform
 - proto: AirlockSecurityLocked
   entities:
-  - uid: 297
+  - uid: 298
     components:
     - pos: -0.5,9.5
       parent: 2
@@ -846,7 +846,7 @@ entities:
       pos: 1.5,13.5
       parent: 2
       type: Transform
-  - uid: 299
+  - uid: 300
     components:
     - rot: 3.141592653589793 rad
       pos: 0.5,9.5
@@ -937,14 +937,14 @@ entities:
       type: DeviceLinkSink
 - proto: CableApcExtension
   entities:
-  - uid: 192
+  - uid: 237
     components:
     - pos: 0.5,10.5
       parent: 2
       type: Transform
     - enabled: True
       type: AmbientSound
-  - uid: 298
+  - uid: 299
     components:
     - pos: 0.5,9.5
       parent: 2
@@ -1320,48 +1320,48 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-  - uid: 557
+  - uid: 559
     components:
     - pos: -3.5,7.5
       parent: 2
       type: Transform
-  - uid: 558
+  - uid: 560
     components:
     - pos: -3.5,8.5
       parent: 2
       type: Transform
     - enabled: True
       type: AmbientSound
-  - uid: 559
+  - uid: 561
     components:
     - pos: 4.5,7.5
       parent: 2
       type: Transform
-  - uid: 560
+  - uid: 562
     components:
     - pos: 4.5,8.5
       parent: 2
       type: Transform
     - enabled: True
       type: AmbientSound
-  - uid: 561
+  - uid: 563
     components:
     - pos: 6.5,5.5
       parent: 2
       type: Transform
-  - uid: 562
+  - uid: 564
     components:
     - pos: -5.5,5.5
       parent: 2
       type: Transform
     - enabled: True
       type: AmbientSound
-  - uid: 563
+  - uid: 565
     components:
     - pos: 7.5,-3.5
       parent: 2
       type: Transform
-  - uid: 564
+  - uid: 566
     components:
     - pos: -6.5,-3.5
       parent: 2
@@ -1457,7 +1457,7 @@ entities:
       type: AmbientSound
 - proto: CableMV
   entities:
-  - uid: 178
+  - uid: 192
     components:
     - pos: 0.5,9.5
       parent: 2
@@ -1711,13 +1711,6 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-  - uid: 310
-    components:
-    - pos: 0.5,10.5
-      parent: 2
-      type: Transform
-    - enabled: True
-      type: AmbientSound
   - uid: 318
     components:
     - pos: -0.5,5.5
@@ -1725,9 +1718,16 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
+  - uid: 403
+    components:
+    - pos: 0.5,10.5
+      parent: 2
+      type: Transform
+    - enabled: True
+      type: AmbientSound
 - proto: CaptainIDCard
   entities:
-  - uid: 567
+  - uid: 569
     components:
     - pos: 2.3405328,16.116665
       parent: 2
@@ -1914,7 +1914,7 @@ entities:
       type: Transform
 - proto: DefibrillatorCabinetFilled
   entities:
-  - uid: 565
+  - uid: 567
     components:
     - pos: 7.5,-1.5
       parent: 2
@@ -2035,7 +2035,7 @@ entities:
       pos: 0.5,13.5
       parent: 2
       type: Transform
-  - uid: 568
+  - uid: 570
     components:
     - pos: 1.5,9.5
       parent: 2
@@ -2659,7 +2659,7 @@ entities:
       type: Transform
 - proto: Gyroscope
   entities:
-  - uid: 566
+  - uid: 568
     components:
     - pos: 0.5,2.5
       parent: 2
@@ -2854,7 +2854,7 @@ entities:
       type: Transform
 - proto: PowerCellRecharger
   entities:
-  - uid: 284
+  - uid: 297
     components:
     - pos: 7.5,-5.5
       parent: 2
@@ -3233,6 +3233,13 @@ entities:
         53:
         - Pressed: Toggle
       type: DeviceLinkSource
+- proto: SpawnPointAssistant
+  entities:
+  - uid: 178
+    components:
+    - pos: 0.5,7.5
+      parent: 2
+      type: Transform
 - proto: SpawnPointCaptain
   entities:
   - uid: 412
@@ -3264,6 +3271,13 @@ entities:
   - uid: 416
     components:
     - pos: 6.5,-4.5
+      parent: 2
+      type: Transform
+- proto: SpawnPointHeadOfSecurity
+  entities:
+  - uid: 311
+    components:
+    - pos: -1.5,10.5
       parent: 2
       type: Transform
 - proto: SpawnPointMedicalDoctor
@@ -3382,69 +3396,69 @@ entities:
       type: Transform
 - proto: Thruster
   entities:
-  - uid: 311
+  - uid: 547
     components:
     - rot: 3.141592653589793 rad
       pos: -8.5,-4.5
       parent: 2
       type: Transform
-  - uid: 403
+  - uid: 548
     components:
     - rot: 3.141592653589793 rad
       pos: -8.5,-3.5
       parent: 2
       type: Transform
-  - uid: 547
+  - uid: 549
     components:
     - rot: 3.141592653589793 rad
       pos: 9.5,-4.5
       parent: 2
       type: Transform
-  - uid: 548
+  - uid: 550
     components:
     - rot: 3.141592653589793 rad
       pos: 9.5,-3.5
       parent: 2
       type: Transform
-  - uid: 549
+  - uid: 551
     components:
     - pos: 8.5,4.5
       parent: 2
       type: Transform
-  - uid: 550
+  - uid: 552
     components:
     - pos: 8.5,5.5
       parent: 2
       type: Transform
-  - uid: 551
+  - uid: 553
     components:
     - pos: -7.5,4.5
       parent: 2
       type: Transform
-  - uid: 552
+  - uid: 554
     components:
     - pos: -7.5,5.5
       parent: 2
       type: Transform
-  - uid: 553
+  - uid: 555
     components:
     - rot: 1.5707963267948966 rad
       pos: -6.5,7.5
       parent: 2
       type: Transform
-  - uid: 554
+  - uid: 556
     components:
     - rot: -1.5707963267948966 rad
       pos: 7.5,7.5
       parent: 2
       type: Transform
-  - uid: 555
+  - uid: 557
     components:
     - rot: -1.5707963267948966 rad
       pos: 6.5,8.5
       parent: 2
       type: Transform
-  - uid: 556
+  - uid: 558
     components:
     - rot: 1.5707963267948966 rad
       pos: -5.5,8.5
@@ -4101,7 +4115,7 @@ entities:
     - pos: -3.5,-4.5
       parent: 2
       type: Transform
-  - uid: 300
+  - uid: 310
     components:
     - rot: 3.141592653589793 rad
       pos: 0.5,9.5
