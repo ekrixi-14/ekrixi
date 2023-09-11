@@ -1,9 +1,7 @@
-using System.Linq;
 using Content.Server._FTL.FTLPoints.Prototypes;
 using Content.Server._FTL.FTLPoints.Systems;
 using Content.Server.Administration;
 using Content.Shared.Administration;
-using Robust.Shared.Console;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Toolshed;
 
@@ -15,7 +13,14 @@ public sealed class GeneratePointCommand : ToolshedCommand
     [Dependency] private readonly EntityManager _entityManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
-    [CommandImplementation("id")]
+    [CommandImplementation]
+    public void GenerateRandom([CommandInvocationContext] IInvocationContext ctx)
+    {
+        _entityManager.System<FTLPointsSystem>().GenerateDisposablePoint();
+        ctx.WriteLine("Generated random FTL point.");
+    }
+
+    [CommandImplementation]
     public void GenerateWithId(
         [CommandInvocationContext] IInvocationContext ctx,
         [PipedArgument] string id
@@ -28,12 +33,5 @@ public sealed class GeneratePointCommand : ToolshedCommand
         }
         _entityManager.System<FTLPointsSystem>().GenerateDisposablePoint(prototype);
         ctx.WriteLine("Generated FTL point.");
-    }
-
-    [CommandImplementation]
-    public void GenerateRandom([CommandInvocationContext] IInvocationContext ctx)
-    {
-        _entityManager.System<FTLPointsSystem>().GenerateDisposablePoint();
-        ctx.WriteLine("Generated random FTL point.");
     }
 }
