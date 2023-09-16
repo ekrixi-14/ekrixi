@@ -169,7 +169,7 @@ public sealed partial class ShipTrackerSystem : SharedShipTrackerSystem
         return TryComp<ShipTrackerComponent>(targetGrid, out var tracker) && TryDamageShip(targetGrid, prototype, tracker, source);
     }
 
-    public bool TryFindRandomTile(EntityUid targetGrid, out Vector2i tile, out EntityCoordinates targetCoords, bool checkSpacedOrBlocked = true)
+    public bool TryFindRandomTile(EntityUid targetGrid, out Vector2i tile, out EntityCoordinates targetCoords)
     {
         tile = default;
 
@@ -188,9 +188,9 @@ public sealed partial class ShipTrackerSystem : SharedShipTrackerSystem
             var randomY = _random.Next((int) gridBounds.Bottom, (int) gridBounds.Top);
 
             tile = new Vector2i(randomX - (int) gridPos.X, randomY - (int) gridPos.Y);
-            if (checkSpacedOrBlocked && (_atmosphereSystem.IsTileSpace(targetGrid, Transform(targetGrid).MapUid, tile,
-                                         mapGridComp: gridComp)
-                                     || _atmosphereSystem.IsTileAirBlocked(targetGrid, tile, mapGridComp: gridComp)))
+            if (_atmosphereSystem.IsTileSpace(targetGrid, Transform(targetGrid).MapUid, tile,
+                    mapGridComp: gridComp)
+                || _atmosphereSystem.IsTileAirBlocked(targetGrid, tile, mapGridComp: gridComp))
             {
                 continue;
             }
@@ -261,7 +261,7 @@ public sealed partial class ShipTrackerSystem : SharedShipTrackerSystem
 
             if (component.TimePassedSinceLastExplosion >= component.ShipExplosionLimit)
             {
-                if (!TryFindRandomTile(entity, out _, out var coordinates, false))
+                if (!TryFindRandomTile(entity, out _, out var coordinates))
                 {
                     Log.Error("Unable to find a tile!");
                 }
