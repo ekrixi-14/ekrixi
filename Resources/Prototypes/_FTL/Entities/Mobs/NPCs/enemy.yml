@@ -1,0 +1,54 @@
+- type: entity
+  name: hostile defender
+  parent: BaseMobHuman
+  id: MobBaseDefender
+  abstract: true
+  components:
+    - type: NpcFactionMember
+      factions:
+        - SimpleHostile
+    - type: RandomMetadata
+      nameSegments:
+        - names_first
+        - names_last
+    - type: InputMover
+    - type: MobMover
+    - type: HTN
+      rootTask:
+        task: SimpleHumanoidHostileCompound
+
+- type: entity
+  name: hostile defender
+  parent: MobBaseDefender
+  id: MobDefenderSecoff
+  suffix: secoff, hostile
+  components:
+    - type: Loadout
+      prototypes: [SecurityOfficerGear]
+
+- type: entity
+  name: hostile defender
+  parent: MobBaseDefender
+  id: MobDefenderDeckhand
+  suffix: deckhand, hostile
+  components:
+    - type: Loadout
+      prototypes: [PassengerGear]
+
+- type: entity
+  name: hostile defender
+  parent: MobBaseDefender
+  id: MobDefenderSyndi
+  suffix: syndi, hostile
+  components:
+    - type: Loadout
+      prototypes: [SyndicateOperativeGearExtremelyBasic]
+
+- type: entity
+  name: hostile defender
+  parent: MobBaseDefender
+  id: MobDefenderCaptain
+  suffix: captain, hostile
+  components:
+    - type: Loadout
+      prototypes: [CaptainGear]

@@ -1,0 +1,41 @@
+- type: entity
+  id: SpawnPointCaptainNPC
+  parent: MarkerBase
+  name: captain hostile npc spawn
+  components:
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      layers:
+        - state: green
+        - state: captain
+    - type: ConditionalSpawner
+      prototypes:
+        - MobDefenderCaptain
+
+- type: entity
+  id: SpawnPointSecurityOfficerNPC
+  parent: MarkerBase
+  name: secoff hostile npc spawn
+  components:
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      layers:
+        - state: green
+        - state: security_officer
+    - type: ConditionalSpawner
+      prototypes:
+        - MobDefenderSecoff
+
+- type: entity
+  id: SpawnPointDeckhandNPC
+  parent: MarkerBase
+  name: deckhand hostile npc spawn
+  components:
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      layers:
+        - state: green
+        - state: passenger
+    - type: ConditionalSpawner
+      prototypes:
+        - MobDefenderDeckhand
