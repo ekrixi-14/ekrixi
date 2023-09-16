@@ -1,11 +1,11 @@
+using Content.Server._FTL.ShipTracker.Systems;
 using Content.Server.Procedural;
-using Content.Shared.Maps;
 using Content.Shared.Procedural;
-using Content.Shared.Random.Helpers;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
 namespace Content.Server._FTL.FTLPoints.Effects;
 
@@ -13,7 +13,7 @@ namespace Content.Server._FTL.FTLPoints.Effects;
 public sealed partial class SpawnDungeonEffect : FTLPointEffect
 {
     [DataField("configPrototypes")]
-    public List<string> ConfigPrototypes { set; get; } = new List<string>()
+    public List<string> ConfigPrototypes { set; get; } = new()
     {
         "Experiment",
         "LavaBrig",
@@ -23,12 +23,28 @@ public sealed partial class SpawnDungeonEffect : FTLPointEffect
     [DataField("maxSpawn")] public int MaxSpawn = 2;
     [DataField("range")] public int SpawnRange = 200;
 
+    // fauna spawn
+    [DataField("faunaSpawns", customTypeSerializer: typeof(PrototypeIdListSerializer<EntityPrototype>))]
+    public List<string> FaunaSpawns = new()
+    {
+        "MobXeno",
+        "MobXenoPraetorian",
+        "MobXenoDrone",
+        "MobXenoRavager",
+        "MobXenoRunner",
+        "MobXenoSpitter",
+        "MobSpirate"
+    };
+    [DataField("maxFaunaSpawn")] public int MaxFaunaSpawn = 5;
+    [DataField("faunaSpawnMultiplier")] public int FaunaSpawnMultiplier = 5;
+
     public override void Effect(FTLPointEffectArgs args)
     {
         var random = IoCManager.Resolve<IRobustRandom>();
+        var shipTracker = IoCManager.Resolve<ShipTrackerSystem>();
         var amountToSpawn = random.Next(MinSpawn, MaxSpawn);
 
-        for (int i = 0; i < amountToSpawn; i++)
+        for (var i = 0; i < amountToSpawn; i++)
         {
             var dungeon = args.EntityManager.System<DungeonSystem>();
             var prototype = IoCManager.Resolve<IPrototypeManager>();
@@ -57,6 +73,20 @@ public sealed partial class SpawnDungeonEffect : FTLPointEffect
             }
 
             dungeon.GenerateDungeon(dungeonProto, dungeonUid, dungeonGrid, position, seed);
+
+            if (FaunaSpawns.Count <= 0)
+                continue;
+
+            var amountFaunaToSpawn = random.Next(0, MaxFaunaSpawn * FaunaSpawnMultiplier);
+
+            for (var j = 0; j < amountFaunaToSpawn; j++)
+            {
+                var entityPrototype = random.Pick(FaunaSpawns);
+                if (!shipTracker.TryFindRandomTile(dungeonUid, out var tile, out var targetCoords))
+                    continue;
+
+                args.EntityManager.SpawnEntity(entityPrototype, targetCoords);
+            }
         }
     }
 }
