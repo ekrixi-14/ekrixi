@@ -3,10 +3,8 @@
   parent: MarkerBase
   name: captain hostile npc spawn
   components:
-    - type: SpawnPoint
-      sprite: Markers/jobs.rsi
-      job_id: Captain
     - type: Sprite
+      sprite: Markers/jobs.rsi
       layers:
         - state: green
         - state: captain
