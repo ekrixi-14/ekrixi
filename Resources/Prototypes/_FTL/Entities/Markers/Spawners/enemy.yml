@@ -3,6 +3,8 @@
   parent: MarkerBase
   name: captain hostile npc spawn
   components:
+    - type: Sprite
+      sprite: Markers/jobs.rsi
     - type: SpawnPoint
       job_id: Captain
     - type: Sprite
@@ -19,6 +21,8 @@
   name: secoff hostile npc spawn
   components:
     - type: Sprite
+      sprite: Markers/jobs.rsi
+    - type: Sprite
       layers:
         - state: green
         - state: security_officer
@@ -31,6 +35,8 @@
   parent: MarkerBase
   name: deckhand hostile npc spawn
   components:
+    - type: Sprite
+      sprite: Markers/jobs.rsi
     - type: Sprite
       layers:
         - state: green
