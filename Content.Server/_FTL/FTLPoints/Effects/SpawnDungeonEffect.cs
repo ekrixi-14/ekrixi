@@ -32,16 +32,15 @@ public sealed partial class SpawnDungeonEffect : FTLPointEffect
         "MobXenoDrone",
         "MobXenoRavager",
         "MobXenoRunner",
-        "MobXenoSpitter",
-        "MobSpirate"
+        "MobXenoSpitter"
     };
     [DataField("maxFaunaSpawn")] public int MaxFaunaSpawn = 5;
-    [DataField("faunaSpawnMultiplier")] public int FaunaSpawnMultiplier = 5;
+    [DataField("faunaSpawnMultiplier")] public int FaunaSpawnMultiplier = 10;
 
     public override void Effect(FTLPointEffectArgs args)
     {
         var random = IoCManager.Resolve<IRobustRandom>();
-        var shipTracker = IoCManager.Resolve<ShipTrackerSystem>();
+        var shipTracker = args.EntityManager.System<ShipTrackerSystem>();
         var amountToSpawn = random.Next(MinSpawn, MaxSpawn);
 
         for (var i = 0; i < amountToSpawn; i++)
@@ -75,14 +74,14 @@ public sealed partial class SpawnDungeonEffect : FTLPointEffect
             dungeon.GenerateDungeon(dungeonProto, dungeonUid, dungeonGrid, position, seed);
 
             if (FaunaSpawns.Count <= 0)
-                continue;
+                return;
 
-            var amountFaunaToSpawn = random.Next(0, MaxFaunaSpawn * FaunaSpawnMultiplier);
+            var amountFaunaToSpawn = random.Next(1, MaxFaunaSpawn * FaunaSpawnMultiplier);
 
             for (var j = 0; j < amountFaunaToSpawn; j++)
             {
                 var entityPrototype = random.Pick(FaunaSpawns);
-                if (!shipTracker.TryFindRandomTile(dungeonUid, out var tile, out var targetCoords))
+                if (!shipTracker.TryFindRandomTile(dungeonUid, out var tile, out var targetCoords, false))
                     continue;
 
                 args.EntityManager.SpawnEntity(entityPrototype, targetCoords);
