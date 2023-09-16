@@ -12,3 +12,8 @@
   license: "CC-BY-3.0"
   copyright: "https://github.com/tgstation/tgstation/commit/95731342b97167d7883ff091d389f79c36442ee6"
   source: "https://github.com/tgstation/tgstation/blob/ea4870f6d1c0d6b553bb0540d3f4d6efd6f4a3a3/sound/ai/intern/alerts/9.ogg"
+
+- files: ["arrest_the-qm.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "Recorded by eclips_e on Discord, first voiceline by loupat28r on Discord, bluealert.ogg from https://github.com/Skyrat-SS13/Skyrat13/commit/2d4f2d1b489590b559e4073f41b126cef56f4c50, announce.ogg taken from /tg/station https://github.com/tgstation/tgstation/commit/40d89d11ea4a5cb81d61dc1018b46f4e7d32c62a cut from the beginning of shuttlerecalled.ogg used under CC-BY-SA-3.0, mk58.ogg from https://gitlab.com/cmdevs/colonial-warfare/-/tree/32cb5892413243cc74bb2d11df8e3085f8ef1164/sound/weapons, malescream_1 from https://github.com/tgstation/tgstation/commit/3d049e69fe71a0be2133005e65ea469135d648c8, beep1.ogg from https://freesound.org/people/thisusernameis/sounds/426891/, other files used but unable to find copyright: explosion1.ogg, gib1.ogg, and bodyfall1.ogg"
+  source: "https://github.com/Just-a-Unity-Dev/ekrixi/issues/149"
