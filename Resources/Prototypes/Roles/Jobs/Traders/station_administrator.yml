@@ -1,5 +1,5 @@
 - type: job
-  id: stationadministrator
+  id: StationAdministrator
   name: job-name-qm
   description: job-description-qm
   playTimeTracker: JobStationAdmin

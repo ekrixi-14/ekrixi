@@ -43,7 +43,7 @@
 - type: entity
   parent: AirlockCommandGlass
   id: AirlockCoregovGlassLocked
-  suffix: Coregov, Locked
+  suffix: Coregov, Glass, Locked
   components:
   - type: AccessReader
     access: [["Coregov"]]
@@ -61,7 +61,7 @@
 - type: entity
   parent: AirlockCommandGlass
   id: AirlockCoregovCommandGlassLocked
-  Suffix: Coregov, Command, Locked
+  suffix: Coregov, Command, Glass, Locked
   components:
   - type: AccessReader
     access: [["CoregovCommand"]]
@@ -110,10 +110,11 @@
   - type: AccessReader
     access: [["IncSek"]]
 
+#This one is displaying as just [security] when you look up incsek in the entity spawner, I have no idea why or how to fix it.
 - type: entity
   parent: AirlockSecurityGlass
   id: AirlockIncsekGlassLocked
-  suffix: Incsek, Locked
+  suffix: Incsek, Glass, Locked
   components:
   - type: AccessReader
     access: [["IncSek"]]
@@ -131,7 +132,7 @@
 - type: entity
   parent: AirlockSecurityGlass
   id: AirlockIncsekCommandGlassLocked
-  Suffix: Incsek, Command, Locked
+  suffix: Incsek, Command, Glass, Locked
   components:
   - type: AccessReader
     access: [["IncSekCommand"]]

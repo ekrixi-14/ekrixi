@@ -36,6 +36,32 @@
   - type: SpawnPoint
     spawn_type: LateJoin
 
+# Traders
+
+- type: entity
+  id: SpawnPointStationAdmin
+  parent: SpawnPointJobBase
+  name: stationadministrator
+  components:
+  - type: SpawnPoint
+    job_id: StationAdministrator
+  - type: Sprite
+    layers:
+      - state: green
+      - state: qm
+
+- type: entity
+  id: SpawnPointTraderTechnician
+  parent: SpawnPointJobBase
+  name: tradertechnician
+  components:
+  - type: SpawnPoint
+    job_id: TraderTechnician
+  - type: Sprite
+    layers:
+      - state: green
+      - state: cargo_tech
+
 # Cargo
 
 - type: entity
