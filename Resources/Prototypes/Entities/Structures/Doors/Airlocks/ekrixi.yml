@@ -110,7 +110,6 @@
   - type: AccessReader
     access: [["IncSek"]]
 
-#This one is displaying as just [security] when you look up incsek in the entity spawner, I have no idea why or how to fix it.
 - type: entity
   parent: AirlockSecurityGlass
   id: AirlockIncsekGlassLocked
@@ -171,3 +170,21 @@
   components:
   - type: AccessReader
     access: [["TradeStation"]]
+
+#Hostile airlocks
+- type: entity
+  parent: AirlockExternal
+  id: AirlockExternalHostileLocked
+  suffix: Hostile, Locked
+  components:
+  - type: AccessReader
+    access: [["Hostile"]]
+
+- type: entity
+  parent: AirlockExternalGlass
+  id: AirlockExternalHostileGlassLocked
+  suffix: Hostile, Glass, Locked
+  components:
+  - type: AccessReader
+    access: [["Hostile"]]
+
