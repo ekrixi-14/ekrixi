@@ -1,0 +1,32 @@
+- type: job
+  id: stationadministrator
+  name: job-name-qm
+  description: job-description-qm
+  playTimeTracker: JobStationAdmin
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 1 #0 hrs because I don't know what happens if I remove all the playtime requirement and don't want to find out.           
+  weight: 10
+  startingGear: StationAdminGear
+  icon: "JobIconQuarterMaster"
+  supervisors: job-supervisors-captain
+  canBeAntag: false
+  access:
+  - TradeStation
+  - TradeStationCommand
+  - Maintenance
+  - External
+
+- type: startingGear
+  id: StationAdminGear
+  equipment:
+    head: ClothingHeadHatQMsoft
+    jumpsuit: ClothingUniformJumpsuitQM
+    back: ClothingBackpackQuartermasterFilled
+    shoes: ClothingShoesColorBrown
+    id: QuartermasterPDA
+    ears: ClothingHeadsetQM
+    pocket1: AppraisalTool
+  innerclothingskirt: ClothingUniformJumpskirtQM
+  satchel: ClothingBackpackSatchelQuartermasterFilled
+  duffelbag: ClothingBackpackDuffelQuartermasterFilled

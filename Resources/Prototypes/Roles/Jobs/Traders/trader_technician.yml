@@ -1,0 +1,28 @@
+- type: job
+  id: TraderTechnician
+  name: job-name-cargotech
+  description: job-description-cargotech
+  playTimeTracker: JobCargoTechnician
+  startingGear: TraderTechGear
+  icon: "JobIconCargoTechnician"
+  supervisors: job-supervisors-qm
+  setPreference: true
+  access:
+  - TradeStation
+  - Maintenance
+  - External
+
+- type: startingGear
+  id: TraderTechGear
+  equipment:
+    head: ClothingHeadHatCargosoft
+    jumpsuit: ClothingUniformJumpsuitCargo
+    back: ClothingBackpackCargoFilled
+    shoes: ClothingShoesColorBlack
+    id: CargoPDA
+    ears: ClothingHeadsetCargo
+    pocket1: AppraisalTool
+    pocket2: SurvivalKnife
+  innerclothingskirt: ClothingUniformJumpskirtCargo
+  satchel: ClothingBackpackSatchelCargoFilled
+  duffelbag: ClothingBackpackDuffelCargoFilled
