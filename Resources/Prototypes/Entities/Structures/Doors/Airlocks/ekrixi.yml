@@ -149,7 +149,7 @@
 
 - type: entity
   parent: AirlockCommandGlass
-  id: AirlockTraderCommandLocked
+  id: AirlockTraderCommandGlassLocked
   suffix: Trader, Command, Locked
   components:
   - type: AccessReader
@@ -165,7 +165,7 @@
 
 - type: entity
   parent: AirlockCargoGlass
-  id: AirlockTraderLocked
+  id: AirlockTraderGlassLocked
   suffix: Trader, Locked
   components:
   - type: AccessReader
