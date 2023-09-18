@@ -148,7 +148,23 @@
     access: [["TradeStationCommand"]]
 
 - type: entity
+  parent: AirlockCommandGlass
+  id: AirlockTraderCommandLocked
+  suffix: Trader, Command, Locked
+  components:
+  - type: AccessReader
+    access: [["TradeStationCommand"]]
+
+- type: entity
   parent: AirlockCargo
+  id: AirlockTraderLocked
+  suffix: Trader, Locked
+  components:
+  - type: AccessReader
+    access: [["TradeStation"]]
+
+- type: entity
+  parent: AirlockCargoGlass
   id: AirlockTraderLocked
   suffix: Trader, Locked
   components:
