@@ -1,0 +1,156 @@
+#Coregov Airlocks
+- type: entity
+  parent: AirlockExternal
+  id: AirlockExternalCoregovLocked
+  suffix: Coregov, Locked
+  components:
+  - type: AccessReader
+    access: [["Coregov"]]
+
+- type: entity
+  parent: AirlockExternalGlass
+  id: AirlockExternalCoregovGlassLocked
+  suffix: Coregov, Glass, Locked
+  components:
+  - type: AccessReader
+    access: [["Coregov"]]
+
+- type: entity
+  parent: AirlockShuttle
+  id: AirlockCoregovShuttleLocked
+  suffix: Coregov, Docking, Locked
+  components:
+  - type: AccessReader
+    access: [["Coregov"]]
+
+- type: entity
+  parent: AirlockGlassShuttle
+  id: AirlockCoregovGlassShuttleLocked
+  suffix: Coregov, Glass, Docking, Locked
+  components:
+  - type: AccessReader
+    access: [["Coregov"]]
+
+#A custom airlock sprite for coregov would be nice, I'll just use the command airlock for now though.
+- type: entity
+  parent: AirlockCommand
+  id: AirlockCoregovLocked
+  suffix: Coregov, Locked
+  components:
+  - type: AccessReader
+    access: [["Coregov"]]
+
+- type: entity
+  parent: AirlockCommandGlass
+  id: AirlockCoregovGlassLocked
+  suffix: Coregov, Locked
+  components:
+  - type: AccessReader
+    access: [["Coregov"]]
+
+- type: entity
+  parent: AirlockCommand
+  id: AirlockCoregovCommandLocked
+  suffix: Coregov, Command, Locked
+  components:
+  - type: AccessReader
+    access: [["CoregovCommand"]]
+  - type: Wires
+    LayoutId: AirlockCommand
+
+- type: entity
+  parent: AirlockCommandGlass
+  id: AirlockCoregovCommandGlassLocked
+  Suffix: Coregov, Command, Locked
+  components:
+  - type: AccessReader
+    access: [["CoregovCommand"]]
+  - type: Wires
+    LayoutId: AirlockCommand
+
+ #IncSek Airlocks
+- type: entity
+  parent: AirlockExternal
+  id: AirlockExternalIncsekLocked
+  suffix: IncSek, Locked
+  components:
+  - type: AccessReader
+    access: [["IncSek"]]
+
+- type: entity
+  parent: AirlockExternalGlass
+  id: AirlockExternalIncsekGlassLocked
+  suffix: IncSek, Glass, Locked
+  components:
+  - type: AccessReader
+    access: [["IncSek"]]
+
+- type: entity
+  parent: AirlockShuttle
+  id: AirlockIncsekShuttleLocked
+  suffix: IncSek, Docking, Locked
+  components:
+  - type: AccessReader
+    access: [["IncSek"]]
+
+- type: entity
+  parent: AirlockGlassShuttle
+  id: AirlockIncsekGlassShuttleLocked
+  suffix: IncSek, Glass, Docking, Locked
+  components:
+  - type: AccessReader
+    access: [["IncSek"]]
+
+#A custom airlock sprite for IncSek would be nice, I'll just use the security airlock for now though.
+- type: entity
+  parent: AirlockSecurity
+  id: AirlockIncsekLocked
+  suffix: Incsek, Locked
+  components:
+  - type: AccessReader
+    access: [["IncSek"]]
+
+- type: entity
+  parent: AirlockSecurityGlass
+  id: AirlockIncsekGlassLocked
+  suffix: Incsek, Locked
+  components:
+  - type: AccessReader
+    access: [["IncSek"]]
+
+- type: entity
+  parent: AirlockSecurity
+  id: AirlockIncsekCommandLocked
+  suffix: Incsek, Command, Locked
+  components:
+  - type: AccessReader
+    access: [["IncSekCommand"]]
+  - type: Wires
+    LayoutId: AirlockCommand
+
+- type: entity
+  parent: AirlockSecurityGlass
+  id: AirlockIncsekCommandGlassLocked
+  Suffix: Incsek, Command, Locked
+  components:
+  - type: AccessReader
+    access: [["IncSekCommand"]]
+  - type: Wires
+    LayoutId: AirlockCommand
+
+#Trade station airlocks
+- type: entity
+  parent: AirlockCommand
+  id: AirlockTraderCommandLocked
+  suffix: Trader, Command, Locked
+  components:
+  - type: AccessReader
+    access: [["TradeStationCommand"]]
+
+- type: entity
+  parent: AirlockCargo
+  id: AirlockTraderLocked
+  suffix: Trader, Locked
+  components:
+  - type: AccessReader
+    access: [["TradeStation"]]
