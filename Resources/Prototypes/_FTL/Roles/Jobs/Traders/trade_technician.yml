@@ -1,9 +1,9 @@
 - type: job
-  id: TraderTechnician
+  id: TradeTechnician
   name: job-name-cargotech
   description: job-description-cargotech
   playTimeTracker: JobCargoTechnician
-  startingGear: TraderTechGear
+  startingGear: TradeTechGear
   icon: "JobIconCargoTechnician"
   supervisors: job-supervisors-qm
   setPreference: true
@@ -13,7 +13,7 @@
   - External
 
 - type: startingGear
-  id: TraderTechGear
+  id: TradeTechGear
   equipment:
     head: ClothingHeadHatCargosoft
     jumpsuit: ClothingUniformJumpsuitCargo
