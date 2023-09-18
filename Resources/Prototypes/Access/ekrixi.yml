@@ -26,3 +26,11 @@
 - type: accessLevel
   id: Hostile
   name: id-card-access-level-hostile
+
+- type: accessLevel
+  id: TradeStation
+  name: id-card-access-level-trader
+
+- type: accessLevel
+  id: TradeStationCommand
+  name: id-card-access-level-trader-command
