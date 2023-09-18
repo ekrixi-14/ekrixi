@@ -64,64 +64,88 @@ entities:
           decals:
             0: -2,-1
             1: -2,0
-            3: 1,1
-            4: 4,0
-            5: 6,-1
-            7: -5,-1
-            8: -5,1
-            10: 2,-1
-            11: 0,-2
-            12: 0,3
-            34: -4,0
+            2: 1,1
+            3: 4,0
+            4: 6,-1
+            5: -5,-1
+            6: -5,1
+            7: 2,-1
+            8: 0,-2
+            9: 0,3
+            27: -4,0
         - node:
             color: '#FFFFFFFF'
             id: DirtHeavyMonotile
           decals:
-            17: -6,0
-            18: 2,-3
-            19: 3,-4
-            20: -2,-2
-            23: 5,1
-            24: 5,1
-            28: -1,1
-            30: 4,1
+            13: -6,0
+            14: 2,-3
+            15: 3,-4
+            16: -2,-2
+            17: 5,1
+            18: 5,1
+            22: -1,1
+            24: 4,1
         - node:
             color: '#FFFFFFFF'
             id: DirtLight
           decals:
-            25: 0,0
-            26: -5,0
-            27: 1,-1
-            29: 2,0
-            35: 0,1
+            19: 0,0
+            20: -5,0
+            21: 1,-1
+            23: 2,0
+            28: 0,1
         - node:
             color: '#FFFFFFFF'
             id: DirtMedium
           decals:
-            13: -2,1
-            14: 0,0
-            15: 5,0
-            31: -1,4
-            32: 1,3
+            10: -2,1
+            11: 0,0
+            12: 5,0
+            25: -1,4
+            26: 1,3
       type: DecalGrid
     - type: NavMap
     - version: 2
       data:
         tiles:
           -1,0:
-            0: 52428
+            0: 65535
           -1,1:
             0: 19660
           -1,2:
             0: 4
           -1,-1:
-            0: 52424
+            0: 65535
           0,0:
-            0: 30583
+            0: 65535
           0,1:
             0: 1911
           0,-1:
-            0: 30583
+            0: 65535
+          -3,0:
+            0: 8
+          -2,0:
+            0: 36607
+          -3,-1:
+            0: 32768
+          -2,-1:
+            0: 65516
+          -2,-2:
+            0: 32768
+          -1,-2:
+            0: 61440
+          1,0:
+            0: 16383
+          2,0:
+            0: 19
+          0,-2:
+            0: 61440
+          1,-2:
+            0: 12288
+          1,-1:
+            0: 65527
+          2,-1:
+            0: 12544
         uniqueMixes:
         - volume: 2500
           temperature: 293.15
@@ -590,14 +614,16 @@ entities:
       type: Transform
 - proto: ClosetEmergencyFilledRandom
   entities:
-  - uid: 153
-    components:
-    - pos: -1.5,-3.5
-      parent: 1
-      type: Transform
   - uid: 154
     components:
     - pos: 2.5,1.5
+      parent: 1
+      type: Transform
+- proto: ClosetFireFilled
+  entities:
+  - uid: 85
+    components:
+    - pos: -1.5,-3.5
       parent: 1
       type: Transform
 - proto: ClosetMaintenanceFilledRandom
@@ -619,6 +645,13 @@ entities:
   - uid: 143
     components:
     - pos: 0.5,4.5
+      parent: 1
+      type: Transform
+- proto: ExtinguisherCabinetFilled
+  entities:
+  - uid: 205
+    components:
+    - pos: 1.5,2.5
       parent: 1
       type: Transform
 - proto: FirelockGlass
@@ -754,6 +787,13 @@ entities:
     - pos: -0.5,3.5
       parent: 1
       type: Transform
+- proto: LockerSecurityFilled
+  entities:
+  - uid: 210
+    components:
+    - pos: 4.5,1.5
+      parent: 1
+      type: Transform
 - proto: MedicalBed
   entities:
   - uid: 132
@@ -886,6 +926,18 @@ entities:
     - pos: 2.5,4.5
       parent: 1
       type: Transform
+- proto: SalvageMaterialCrateSpawner
+  entities:
+  - uid: 203
+    components:
+    - pos: 0.5,0.5
+      parent: 1
+      type: Transform
+  - uid: 204
+    components:
+    - pos: 1.5,-0.5
+      parent: 1
+      type: Transform
 - proto: SignSpace
   entities:
   - uid: 182
@@ -898,6 +950,44 @@ entities:
   - uid: 139
     components:
     - pos: 3.5,-3.5
+      parent: 1
+      type: Transform
+- proto: SpawnPointCaptainNPC
+  entities:
+  - uid: 200
+    components:
+    - pos: 0.5,3.5
+      parent: 1
+      type: Transform
+- proto: SpawnPointDeckhandNPC
+  entities:
+  - uid: 206
+    components:
+    - pos: -3.5,0.5
+      parent: 1
+      type: Transform
+  - uid: 207
+    components:
+    - pos: 1.5,0.5
+      parent: 1
+      type: Transform
+  - uid: 208
+    components:
+    - pos: 2.5,-2.5
+      parent: 1
+      type: Transform
+- proto: SpawnPointSecurityOfficerNPC
+  entities:
+  - uid: 209
+    components:
+    - pos: 4.5,0.5
+      parent: 1
+      type: Transform
+- proto: Stunbaton
+  entities:
+  - uid: 202
+    components:
+    - pos: 5.5,-0.5
       parent: 1
       type: Transform
 - proto: SubstationBasic
@@ -997,6 +1087,13 @@ entities:
     components:
     - rot: 1.5707963267948966 rad
       pos: -8.5,0.5
+      parent: 1
+      type: Transform
+- proto: ToolboxElectrical
+  entities:
+  - uid: 201
+    components:
+    - pos: 2.5,-2.5
       parent: 1
       type: Transform
 - proto: WallReinforced
@@ -1263,10 +1360,9 @@ entities:
       type: Transform
 - proto: WeaponNonSiloFedSpawner
   entities:
-  - uid: 85
+  - uid: 153
     components:
-    - rot: 1.5707963267948966 rad
-      pos: 5.5,1.5
+    - pos: 5.5,1.5
       parent: 1
       type: Transform
 - proto: WeaponPistolMk58
