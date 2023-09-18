@@ -1,0 +1,28 @@
+- type: accessLevel
+  id: Coregov
+  name: id-card-access-level-coregov
+
+- type: accessLevel
+  id: Coregov Command
+  name: id-card-access-level-coregovcommand
+
+- type: accessLevel
+  id: IncSek
+  name: id-card-access-level-incsek
+
+- type: accessLevel
+  id: ACKs
+  name: id-card-access-level-acks
+
+- type: accessLevel
+  id: FSC
+  name: id-card-access-level-fsc
+
+- type: accessLevel
+  id: A2B
+  name: id-card-access-level-atob
+
+#for independent ships nobody should be getting on without breaking in
+- type: accessLevel
+  id: Hostile
+  name: id-card-access-level-hostile
