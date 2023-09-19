@@ -1,0 +1,16 @@
+#Hostile
+- type: entity
+  parent: AirlockExternal
+  id: AirlockExternalHostileLocked
+  suffix: Hostile, Locked
+  components:
+  - type: AccessReader
+    access: [["Hostile"]]
+
+- type: entity
+  parent: AirlockExternalGlass
+  id: AirlockExternalHostileGlassLocked
+  suffix: Hostile, Glass, Locked
+  components:
+  - type: AccessReader
+    access: [["Hostile"]]
