@@ -2,10 +2,7 @@
   id: StationAdministrator
   name: job-name-qm
   description: job-description-qm
-  playTimeTracker: JobStationAdmin
-  requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 1 #0 hrs because I don't know what happens if I remove all the playtime requirement and don't want to find out.           
+  playTimeTracker: JobStationAdmin       
   weight: 10
   startingGear: StationAdminGear
   icon: "JobIconQuarterMaster"
