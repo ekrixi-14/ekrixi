@@ -145,7 +145,7 @@
   suffix: Trader, Command, Locked
   components:
   - type: AccessReader
-    access: [["TradeStationCommand"]]
+    access: [["TraderCommand"]]
 
 - type: entity
   parent: AirlockCommandGlass
@@ -153,7 +153,7 @@
   suffix: Trader, Command, Locked
   components:
   - type: AccessReader
-    access: [["TradeStationCommand"]]
+    access: [["TraderCommand"]]
 
 - type: entity
   parent: AirlockCargo
@@ -161,7 +161,7 @@
   suffix: Trader, Locked
   components:
   - type: AccessReader
-    access: [["TradeStation"]]
+    access: [["Trader"]]
 
 - type: entity
   parent: AirlockCargoGlass
@@ -169,7 +169,7 @@
   suffix: Trader, Locked
   components:
   - type: AccessReader
-    access: [["TradeStation"]]
+    access: [["Trader"]]
 
 #Hostile airlocks
 - type: entity

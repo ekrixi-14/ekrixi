@@ -1,0 +1,13 @@
+- type: accessLevel
+  id: ACKs
+  name: id-card-access-level-acks
+
+- type: accessLevel
+  id: ACKsCommand
+  name: id-card-access-level-acks-command
+
+- type: accessGroup
+  id: ACKsGroup
+  tags:
+  - ACKs
+  - ACKsCommand

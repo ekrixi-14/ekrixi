@@ -1,0 +1,13 @@
+- type: accessLevel
+  id: FSC
+  name: id-card-access-level-fsc
+
+- type: accessLevel
+  id: FSCCommand
+  name: id-card-access-level-fsc-command
+
+- type: accessGroup
+  id: FSCGroup
+  tags:
+  - FSC
+  - FSCCommand

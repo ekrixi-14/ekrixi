@@ -1,0 +1,13 @@
+- type: accessLevel
+  id: Trader
+  name: id-card-access-level-trader
+
+- type: accessLevel
+  id: TraderCommand
+  name: id-card-access-level-trader-command
+
+- type: accessGroup
+  id: TraderGroup
+  tags:
+  - Trader
+  - TraderCommand
