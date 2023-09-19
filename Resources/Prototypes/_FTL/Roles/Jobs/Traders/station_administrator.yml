@@ -2,7 +2,6 @@
   id: StationAdministrator
   name: job-name-qm
   description: job-description-qm
-  playTimeTracker: JobStationAdmin       
   weight: 10
   startingGear: StationAdminGear
   icon: "JobIconQuarterMaster"
