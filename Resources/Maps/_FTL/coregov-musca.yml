@@ -16,7 +16,7 @@ entities:
   entities:
   - uid: 1
     components:
-    - name: '[NTRL] Musca-class'
+    - name: '[NTRL] CG Musca-class Explorer'
       type: MetaData
     - pos: -0.53131104,-0.40631104
       parent: invalid
@@ -165,8 +165,7 @@ entities:
         chunkSize: 4
       type: GridAtmosphere
     - type: GasTileOverlay
-    - faction: HostileIndependentShip
-      shieldCapacity: 0
+    - shieldCapacity: 0
       shieldAmount: 0
       hullCapacity: 10
       hullAmount: 10
@@ -206,18 +205,16 @@ entities:
       type: Transform
 - proto: AirlockMaint
   entities:
-  - uid: 79
+  - uid: 77
     components:
-    - rot: 1.5707963267948966 rad
-      pos: -1.5,-1.5
+    - pos: -1.5,-1.5
       parent: 1
       type: Transform
 - proto: AirlockMedicalGlassLocked
   entities:
-  - uid: 77
+  - uid: 79
     components:
-    - rot: 1.5707963267948966 rad
-      pos: -2.5,0.5
+    - pos: -2.5,0.5
       parent: 1
       type: Transform
 - proto: AirlockSecurityLocked
@@ -589,13 +586,6 @@ entities:
       type: Transform
     - enabled: True
       type: AmbientSound
-- proto: CableTerminal
-  entities:
-  - uid: 91
-    components:
-    - pos: 3.5,-2.5
-      parent: 1
-      type: Transform
 - proto: Chair
   entities:
   - uid: 149
@@ -654,6 +644,13 @@ entities:
     - pos: 1.5,2.5
       parent: 1
       type: Transform
+- proto: FaxMachineCaptain
+  entities:
+  - uid: 213
+    components:
+    - pos: 1.5,4.5
+      parent: 1
+      type: Transform
 - proto: FirelockGlass
   entities:
   - uid: 80
@@ -684,6 +681,13 @@ entities:
     components:
     - rot: 1.5707963267948966 rad
       pos: -2.5,0.5
+      parent: 1
+      type: Transform
+- proto: GravityGeneratorMini
+  entities:
+  - uid: 91
+    components:
+    - pos: 3.5,-3.5
       parent: 1
       type: Transform
 - proto: Grille
@@ -721,6 +725,13 @@ entities:
   - uid: 181
     components:
     - pos: -1.5,3.5
+      parent: 1
+      type: Transform
+- proto: Gyroscope
+  entities:
+  - uid: 139
+    components:
+    - pos: -1.5,1.5
       parent: 1
       type: Transform
 - proto: HospitalCurtainsOpen
@@ -813,6 +824,50 @@ entities:
     - pos: -3.5,1.5
       parent: 1
       type: Transform
+  - uid: 211
+    components:
+    - pos: -3.5,1.5
+      parent: 1
+      type: Transform
+- proto: Paper
+  entities:
+  - uid: 212
+    components:
+    - pos: -0.5,4.5
+      parent: 1
+      type: Transform
+    - content: >
+        Thank you for purchasing your very own CG Musca-Class! The ship has come pre-equipped (for free!) with a basic laser, however you may wish to purchase a more reliable weapon at a shipyard.
+
+        We understand that buying your very own ship is a big investment, which is why we offer you a 10% discount on insuring your new Musca for the next 3 days, get it now while the offer's available!
+
+        Fees:
+
+        x1 CG Musca-class Explorer - cERR
+
+        x1 Standard Ship Equipment kit - c29,999
+
+        x2 Standard First Aid kit - c1,198
+
+        x1 Standard Security kit - c3,749
+
+        x2 Medical-Grade bed - c2,398
+
+        x1 Standard Rookie Captain kit - c6,499
+
+        Total: c43,843
+
+        Tax: 15%
+
+        Total: c50,419
+      type: Paper
+  - uid: 214
+    components:
+    - pos: 1.5,4.5
+      parent: 1
+      type: Transform
+    - content: Your Musca-class was not properly paid for due to a system error, please return immediately, pay remotely, or face legal consequences.
+      type: Paper
 - proto: PortableGeneratorPacman
   entities:
   - uid: 136
@@ -943,13 +998,6 @@ entities:
   - uid: 182
     components:
     - pos: 1.5,-1.5
-      parent: 1
-      type: Transform
-- proto: SMESBasic
-  entities:
-  - uid: 139
-    components:
-    - pos: 3.5,-3.5
       parent: 1
       type: Transform
 - proto: SpawnPointCaptainNPC
@@ -1365,7 +1413,7 @@ entities:
     - pos: 5.5,1.5
       parent: 1
       type: Transform
-- proto: WeaponPistolMk58
+- proto: WeaponRevolverDeckard
   entities:
   - uid: 144
     components:
