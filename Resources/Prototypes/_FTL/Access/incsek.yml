@@ -1,0 +1,13 @@
+- type: accessLevel
+  id: IncSek
+  name: id-card-access-level-incsek
+
+- type: accessLevel
+  id: IncSekCommand
+  name: id-card-access-level-incsek-command
+
+- type: accessGroup
+  id: IncSekGroup
+  tags:
+  - IncSek
+  - IncSekCommand
