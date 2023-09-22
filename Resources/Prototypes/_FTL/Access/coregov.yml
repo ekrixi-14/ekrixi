@@ -1,0 +1,13 @@
+- type: accessLevel
+  id: Coregov
+  name: id-card-access-level-coregov
+
+- type: accessLevel
+  id: CoregovCommand
+  name: id-card-access-level-coregov-command
+
+- type: accessGroup
+  id: CoregovGroup
+  tags:
+  - Coregov
+  - CoregovCommand
