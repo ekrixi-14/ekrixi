@@ -168,7 +168,7 @@ entities:
     - shieldCapacity: 0
       shieldAmount: 0
       hullCapacity: 10
-      hullAmount: 10
+      hullAmount: 15
       type: ShipTracker
     - type: AutomatedShip
     - type: ActiveAutomatedShip
