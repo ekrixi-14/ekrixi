@@ -35,9 +35,10 @@
   placement:
     mode: SnapgridCenter
   components:
-#    - type: WeaponTargeting
+#   - type: WeaponTargeting
     - type: Transform
       anchored: true
+      noRot: true
     - type: InteractionOutline
     - type: Clickable
     - type: Sprite
