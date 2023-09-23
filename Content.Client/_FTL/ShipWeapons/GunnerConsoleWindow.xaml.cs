@@ -36,7 +36,6 @@ public sealed partial class GunnerConsoleWindow : FancyWindow,
 
     private void RadarClick(EntityCoordinates coordinates)
     {
-        Logger.Debug(coordinates.ToString());
         _entityManager.SpawnAtPosition("PlushieLizard", coordinates);
     }
 
