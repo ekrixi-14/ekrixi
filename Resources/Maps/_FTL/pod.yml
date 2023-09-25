@@ -10,7 +10,7 @@ entities:
   entities:
   - uid: 1
     components:
-    - name: '[NTRL] Escape Pod'
+    - name: 'Escape Pod'
       type: MetaData
     - pos: -0.53131104,-0.40631104
       parent: invalid

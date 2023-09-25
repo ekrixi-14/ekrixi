@@ -15,7 +15,7 @@ entities:
   entities:
   - uid: 1
     components:
-    - name: '[NTRL] CG Medusa-Class Fighter'
+    - name: 'CG Medusa-Class Fighter'
       type: MetaData
     - pos: -0.53131104,-0.40631104
       parent: invalid

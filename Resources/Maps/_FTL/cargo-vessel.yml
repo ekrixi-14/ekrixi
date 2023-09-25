@@ -12,7 +12,7 @@ entities:
   entities:
   - uid: 1
     components:
-    - name: '[HSTL] Hijacked Cargo Vessel'
+    - name: 'Hijacked Cargo Vessel'
       type: MetaData
     - pos: -0.53131104,-0.40631104
       parent: invalid

@@ -20,7 +20,7 @@ entities:
   entities:
   - uid: 1
     components:
-    - name: '[NTRL] CG Retribution-Class Small Crusier'
+    - name: 'CG Retribution-Class Small Crusier'
       type: MetaData
     - pos: -0.53131104,-0.40631104
       parent: invalid

@@ -17,7 +17,7 @@ entities:
   entities:
   - uid: 1
     components:
-    - name: '[NTRL] CG Fang-Class Fighter'
+    - name: 'CG Fang-Class Fighter'
       type: MetaData
     - pos: -0.53131104,-0.40631104
       parent: invalid

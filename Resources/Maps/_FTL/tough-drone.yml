@@ -11,7 +11,7 @@ entities:
   entities:
   - uid: 2
     components:
-    - name: '[HSTL] Automated Drone Vessel'
+    - name: 'Automated Drone Vessel'
       type: MetaData
     - pos: -0.53131104,-0.40631104
       parent: invalid
