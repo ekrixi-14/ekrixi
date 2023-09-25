@@ -14,7 +14,7 @@ entities:
   entities:
   - uid: 1
     components:
-    - name: '[NTRL] FSC Fighter'
+    - name: '[HSTL] FSC Fighter'
       type: MetaData
     - pos: -0.53131104,-0.40631104
       parent: invalid
