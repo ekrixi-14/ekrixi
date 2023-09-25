@@ -13,7 +13,7 @@ entities:
     - name: '[NTRL] Escape Pod'
       type: MetaData
     - pos: -0.53131104,-0.40631104
-      parent: 8
+      parent: invalid
       type: Transform
     - chunks:
         -1,-1:
@@ -95,16 +95,13 @@ entities:
     - type: AutomatedShip
     - type: RadiationGridResistance
     - type: ActiveAutomatedShip
+- proto: AirlockExternalHostileLocked
+  entities:
   - uid: 8
     components:
-    - type: MetaData
-    - type: Transform
-    - type: Map
-    - type: PhysicsMap
-    - type: GridTree
-    - type: MovedGrids
-    - type: Broadphase
-    - type: OccluderTree
+    - pos: 2.5,-1.5
+      parent: 1
+      type: Transform
 - proto: APCBasic
   entities:
   - uid: 27
@@ -395,12 +392,6 @@ entities:
     components:
     - rot: 1.5707963267948966 rad
       pos: 2.5,-2.5
-      parent: 1
-      type: Transform
-  - uid: 22
-    components:
-    - rot: 1.5707963267948966 rad
-      pos: 2.5,-1.5
       parent: 1
       type: Transform
 - proto: WeaponNonSiloFedSpawner

@@ -95,7 +95,7 @@ entities:
     - type: AutomatedShip
     - type: RadiationGridResistance
     - type: ActiveAutomatedShip
-- proto: AirlockExternalHostileGlassLocked
+- proto: AirlockExternalHostileLocked
   entities:
   - uid: 22
     components:
