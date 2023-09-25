@@ -2,7 +2,7 @@
   id: StationAdministrator
   name: job-name-sa
   description: job-description-sa
-  playTimeTracker: JobStationAdministator
+  playTimeTracker: JobStationAdministrator
   setPreference: false
   startingGear: StationAdministratorGear
   icon: "JobIconQuarterMaster"
