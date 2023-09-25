@@ -1,0 +1,29 @@
+- type: job
+  id: StationAdministrator
+  name: job-name-sa
+  description: job-description-sa
+  playTimeTracker: JobStationAdministator
+  setPreference: false
+  startingGear: StationAdministratorGear
+  icon: "JobIconQuarterMaster"
+  supervisors: job-supervisors-law
+  canBeAntag: false
+  access:
+  - Trader
+  - TraderCommand
+  - Maintenance
+  - External
+
+- type: startingGear
+  id: StationAdministratorGear
+  equipment:
+    head: ClothingHeadHatQMsoft
+    jumpsuit: ClothingUniformJumpsuitQM
+    back: ClothingBackpackQuartermasterFilled
+    shoes: ClothingShoesColorBrown
+    id: QuartermasterPDA
+    ears: ClothingHeadsetQM
+    pocket1: AppraisalTool
+  innerclothingskirt: ClothingUniformJumpskirtQM
+  satchel: ClothingBackpackSatchelQuartermasterFilled
+  duffelbag: ClothingBackpackDuffelQuartermasterFilled
