@@ -141,7 +141,7 @@ public sealed class ShipWeaponsSystem : SharedShipWeaponsSystem
                     var ev = new GetAmmoCountEvent();
                     RaiseLocalEvent(entity, ref ev);
 
-                    totalAmmo += ev.Capacity;
+                    totalAmmo += ev.Capacity - 1;
                     remainingAmmo += ev.Count;
                 }
             }
