@@ -1,7 +1,4 @@
-using Content.Client.Shuttles.UI;
 using Content.Shared._FTL.ShipWeapons;
-using Content.Shared.Shuttles.BUIStates;
-using Content.Shared.Shuttles.Events;
 using JetBrains.Annotations;
 using Robust.Client.GameObjects;
 
@@ -23,6 +20,21 @@ public sealed class GunnerConsoleBoundUserInterface : BoundUserInterface
         _window = new GunnerConsoleWindow();
         _window.OpenCentered();
         _window.OnClose += OnClose;
+        _window.OnRadarClick += args =>
+        {
+            var msg = new RotateWeaponSendMessage(args);
+            SendMessage(msg);
+        };
+        _window.OnFireClick += () =>
+        {
+            var msg = new PerformActionWeaponSendMessage(ShipWeaponAction.Fire);
+            SendMessage(msg);
+        };
+        _window.OnEjectClick += () =>
+        {
+            var msg = new PerformActionWeaponSendMessage(ShipWeaponAction.Eject);
+            SendMessage(msg);
+        };
     }
 
     private void OnClose()
