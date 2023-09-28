@@ -1,20 +1,22 @@
 - type: entity
-  id: GenericMissile
+  id: BaseMissile
   name: missile
   parent: BaseItem
+  abstract: true
   description: A missile designed to be fired by missile launchers.
   components:
     - type: Item
       size: 999
     - type: MultiHandedItem
-    - type: FTLAmmo
     - type: Sprite
-      netsync: false
-      sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
-      state: rpg
+      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      state: sdm
     - type: Tag
       tags:
-        - FTLAmmoTierOne
+        - Missile
+    - type: CartridgeAmmo
+      proto: BulletSDM
+      deleteOnSpawn: true
     - type: StaticPrice
       price: 150
     - type: DamageOnLand
@@ -34,39 +36,39 @@
     - type: Damageable
       damageContainer: Inorganic
       damageModifierSet: Metallic
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 200
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+        - trigger:
+            !type:DamageTrigger
+            damage: 30
+          behaviors:
+            - !type:ExplodeBehavior
 
 - type: entity
-  parent: GenericMissile
-  id: TierTwoMissile
-  name: tier two missile
-  description: A missile designed for both tier 1 and tier 2 weapons.
+  id: MissileSDM
+  name: SDM-VC-SR40
+  parent: BaseItem
+  description: A Structural Damage Missile that requires Visual Contact and has a Short Range of 40 KM
+
+- type: entity
+  id: Cartridge20mm
+  name: cartridge (20mm)
+  parent: BaseCartridge
   components:
     - type: Tag
       tags:
-        - FTLAmmoTierTwo
-
-- type: entity
-  parent: TierTwoMissile
-  id: TierThreeMissile
-  name: tier three missile
-  description: A missile designed for tier 1, 2 and 3 weapons.
-  components:
-    - type: Tag
-      tags:
-        - FTLAmmoTierThree
-
-- type: entity
-  parent: GenericMissile
-  id: IncendiaryMissile
-  name: incendiary missile
-  description: A missile designed to flame up rooms.
-  components:
-    - type: FTLAmmo
-
-- type: entity
-  parent: GenericMissile
-  id: DebugMissile
-  name: debug missile
-  description: A missile designed to debug.
-  components:
-    - type: FTLAmmo
+        - Cartridge
+        - Cartridge20mm
+    - type: Sprite
+      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      layers:
+        - state: 20mm
+    - type: Appearance
+    - type: CartridgeAmmo
+      proto: Bullet20mm

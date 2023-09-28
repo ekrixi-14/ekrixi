@@ -1,0 +1,66 @@
+- type: entity
+  id: Bullet20mm
+  name: 20mm
+  parent: BaseBulletTrigger
+  noSpawn: true
+  components:
+    - type: Sprite
+      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      layers:
+        - state: 20mm
+    - type: ExplodeOnTrigger
+    - type: Explosive
+      explosionType: Default
+      totalIntensity: 50.0
+      intensitySlope: 20 # around 2 tiles
+      maxIntensity: 100
+      maxTileBreak: 0.2
+    - type: PointLight
+      radius: 3.5
+      color: orange
+      energy: 0.5
+
+# missiles
+- type: entity
+  id: BulletSDM
+  name: sdm
+  parent: BaseBulletTrigger
+  noSpawn: true
+  components:
+    - type: Sprite
+      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      layers:
+        - state: sdm
+    - type: ExplodeOnTrigger
+    - type: Explosive
+      explosionType: Default
+      totalIntensity: 1000.0
+      intensitySlope: 20 # around 50 tiles
+      maxIntensity: 400
+      maxTileBreak: 1
+    - type: PointLight
+      radius: 3.5
+      color: orange
+      energy: 0.5
+
+- type: entity
+  id: BulletSAM
+  name: sam
+  parent: BaseBulletTrigger
+  noSpawn: true
+  components:
+    - type: Sprite
+      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      layers:
+        - state: sam
+    - type: ExplodeOnTrigger
+    - type: Explosive
+      explosionType: Default
+      totalIntensity: 1000.0
+      intensitySlope: 10 # around 100 tiles
+      maxIntensity: 400
+      maxTileBreak: 1
+    - type: PointLight
+      radius: 3.5
+      color: orange
+      energy: 0.5

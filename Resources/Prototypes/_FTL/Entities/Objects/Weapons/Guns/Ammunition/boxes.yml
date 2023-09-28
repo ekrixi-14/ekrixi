@@ -1,0 +1,32 @@
+- type: entity
+  id: MagazineBox20mm
+  name: ammo box (20mm)
+  parent: BaseItem
+  components:
+    - type: Tag
+      tags:
+        - Magazine20mm
+    - type: BallisticAmmoProvider
+      mayTransfer: true
+      whitelist:
+        tags:
+          - Cartridge20mm
+      proto: Cartridge20mm
+      capacity: 500
+    - type: Item
+      size: 20
+    - type: ContainerContainer
+      containers:
+        ballistic-ammo: !type:Container
+    - type: Sprite
+      sprite: Objects/Weapons/Guns/Ammunition/Boxes/light_rifle.rsi
+      layers:
+        - state: base-b
+          map: ["enum.GunVisualLayers.Base"]
+        - state: magb-1
+          map: ["enum.GunVisualLayers.Mag"]
+    - type: MagazineVisuals
+      magState: mag
+      steps: 2
+      zeroVisible: false
+    - type: Appearance

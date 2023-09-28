@@ -1,0 +1,26 @@
+- type: entity
+  parent: BaseWeaponNaval
+  id: Weapon20mm
+  name: 20mm autocannon
+  description: A 20mm autocannon.
+  placement:
+    mode: SnapgridCenter
+  components:
+    - type: ItemSlots
+      slots:
+        gun_magazine:
+          name: Magazine
+          startingItem: MagazineBox20mm
+          insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+          ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+          priority: 2
+          whitelist:
+            tags:
+              - Magazine20mm
+        gun_chamber:
+          name: Chamber
+          startingItem: Cartridge20mm
+          priority: 1
+          whitelist:
+            tags:
+              - Cartridge20mm
