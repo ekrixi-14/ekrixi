@@ -13,6 +13,7 @@
         - state: 20mm
     - type: Appearance
     - type: CartridgeAmmo
+      deleteOnSpawn: true
       proto: Bullet20mm
 
 - type: entity
@@ -30,6 +31,7 @@
         - state: 20mm
     - type: Appearance
     - type: CartridgeAmmo
+      deleteOnSpawn: true
       proto: Bullet20mm
 
 - type: entity
@@ -47,6 +49,7 @@
         - state: 53mm
     - type: Appearance
     - type: CartridgeAmmo
+      deleteOnSpawn: true
       proto: Bullet53mm
 
 - type: entity
@@ -64,6 +67,7 @@
         - state: 105mm
     - type: Appearance
     - type: CartridgeAmmo
+      deleteOnSpawn: true
       proto: Bullet105mm
 
 - type: entity
@@ -81,4 +85,5 @@
         - state: 140mm
     - type: Appearance
     - type: CartridgeAmmo
+      deleteOnSpawn: true
       proto: Bullet140mm
