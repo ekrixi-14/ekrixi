@@ -50,25 +50,57 @@
           behaviors:
             - !type:ExplodeBehavior
 
+# Missiles
 - type: entity
   id: MissileSDM
   name: SDM-VC-SR40
   parent: BaseItem
-  description: A Structural Damage Missile that requires Visual Contact and has a Short Range of 40 KM
+  description: A structural damage missile that requires visual contact and has a short range of 40 kilometers.
 
 - type: entity
-  id: Cartridge20mm
-  name: cartridge (20mm)
-  parent: BaseCartridge
+  id: MissileSAM
+  name: SAM-RC-LR40
+  parent: BaseItem
+  description: A ship attack missile that requires radar contact and has a long range of 4000 kilometers.
   components:
-    - type: Tag
-      tags:
-        - Cartridge
-        - Cartridge20mm
     - type: Sprite
       sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
-      layers:
-        - state: 20mm
-    - type: Appearance
+      state: sam
+    - type: Tag
+      tags:
+        - Missile
     - type: CartridgeAmmo
-      proto: Bullet20mm
+      proto: BulletSAM
+      deleteOnSpawn: true
+
+- type: entity
+  id: MissileTAD
+  name: TAD-FB-IR-R50
+  parent: BaseItem
+  description: A total area destruction device that you should fire blindly with infinite range and has an expected blast radius of 50 meters.
+  components:
+    - type: Sprite
+      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      state: tad
+    - type: Tag
+      tags:
+        - Missile
+    - type: CartridgeAmmo
+      proto: BulletTAD
+      deleteOnSpawn: true
+
+- type: entity
+  id: MissileTND
+  name: TND-FB-IR-R150
+  parent: BaseItem
+  description: A total nuclear destruction device that you should fire blindly with infinite range and has an expected blast radius of 150 meters.
+  components:
+    - type: Sprite
+      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      state: tnd
+    - type: Tag
+      tags:
+        - Missile
+    - type: CartridgeAmmo
+      proto: BulletTND
+      deleteOnSpawn: true

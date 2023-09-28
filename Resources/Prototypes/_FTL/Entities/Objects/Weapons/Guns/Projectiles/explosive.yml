@@ -12,13 +12,63 @@
     - type: Explosive
       explosionType: Default
       totalIntensity: 50.0
-      intensitySlope: 20 # around 2 tiles
+      intensitySlope: 8
       maxIntensity: 100
-      maxTileBreak: 0.2
-    - type: PointLight
-      radius: 3.5
-      color: orange
-      energy: 0.5
+      maxTileBreak: 0
+
+- type: entity
+  id: Bullet53mm
+  name: 53mm
+  parent: BaseBulletTrigger
+  noSpawn: true
+  components:
+    - type: Sprite
+      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      layers:
+        - state: 53mm
+    - type: ExplodeOnTrigger
+    - type: Explosive
+      explosionType: Default
+      totalIntensity: 500.0
+      intensitySlope: 50
+      maxIntensity: 100
+      maxTileBreak: 0
+
+- type: entity
+  id: Bullet105mm
+  name: 105mm
+  parent: BaseBulletTrigger
+  noSpawn: true
+  components:
+    - type: Sprite
+      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      layers:
+        - state: 105mm
+    - type: ExplodeOnTrigger
+    - type: Explosive
+      explosionType: Default
+      totalIntensity: 1000.0
+      intensitySlope: 15
+      maxIntensity: 100
+      maxTileBreak: 1
+
+- type: entity
+  id: Bullet140mm
+  name: 140mm
+  parent: BaseBulletTrigger
+  noSpawn: true
+  components:
+    - type: Sprite
+      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      layers:
+        - state: 140mm
+    - type: ExplodeOnTrigger
+    - type: Explosive
+      explosionType: Default
+      totalIntensity: 3000.0
+      intensitySlope: 1
+      maxIntensity: 500
+      maxTileBreak: 0
 
 # missiles
 - type: entity
@@ -56,9 +106,53 @@
     - type: ExplodeOnTrigger
     - type: Explosive
       explosionType: Default
-      totalIntensity: 1000.0
-      intensitySlope: 10 # around 100 tiles
-      maxIntensity: 400
+      totalIntensity: 3000.0 # large
+      intensitySlope: 1
+      maxIntensity: 500
+      maxTileBreak: 1
+    - type: PointLight
+      radius: 3.5
+      color: orange
+      energy: 0.5
+
+- type: entity
+  id: BulletTAD
+  name: tad
+  parent: BaseBulletTrigger
+  noSpawn: true
+  components:
+    - type: Sprite
+      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      layers:
+        - state: sam
+    - type: ExplodeOnTrigger
+    - type: Explosive
+      explosionType: Default
+      totalIntensity: 300000.0 # large
+      intensitySlope: 5
+      maxIntensity: 500
+      maxTileBreak: 1
+    - type: PointLight
+      radius: 3.5
+      color: orange
+      energy: 0.5
+
+- type: entity
+  id: BulletTND
+  name: tnd
+  parent: BaseBulletTrigger
+  noSpawn: true
+  components:
+    - type: Sprite
+      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      layers:
+        - state: sam
+    - type: ExplodeOnTrigger
+    - type: Explosive
+      explosionType: Default
+      totalIntensity: 500000.0 # large
+      intensitySlope: 1
+      maxIntensity: 500
       maxTileBreak: 1
     - type: PointLight
       radius: 3.5
