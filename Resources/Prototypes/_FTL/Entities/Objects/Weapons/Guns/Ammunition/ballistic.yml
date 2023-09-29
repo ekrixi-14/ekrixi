@@ -17,24 +17,6 @@
       proto: Bullet20mm
 
 - type: entity
-  id: Cartridge20mm
-  name: cartridge (20mm)
-  parent: BaseCartridge
-  components:
-    - type: Tag
-      tags:
-        - Cartridge
-        - Cartridge20mm
-    - type: Sprite
-      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
-      layers:
-        - state: 20mm
-    - type: Appearance
-    - type: CartridgeAmmo
-      deleteOnSpawn: true
-      proto: Bullet20mm
-
-- type: entity
   id: Cartridge53mm
   name: cartridge (53mm)
   parent: BaseCartridge
