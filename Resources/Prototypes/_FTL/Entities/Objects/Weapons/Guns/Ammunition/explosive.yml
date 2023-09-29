@@ -56,6 +56,10 @@
   name: SDM-VC-SR40
   parent: BaseItem
   description: A structural damage missile that requires visual contact and has a short range of 40 kilometers.
+  components:
+    - type: Sprite
+      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      state: sdm
 
 - type: entity
   id: MissileSAM

@@ -1,5 +1,6 @@
 job-name-warden = Warden
 job-name-security = ship mercenary
+job-name-marine = marine
 job-name-cadet = Security Cadet
 job-name-hos = head of security
 job-name-detective = Detective

@@ -1,0 +1,20 @@
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltMarineWebbingFilled
+  name: marine chest rig
+  description: A set of tactical webbing worn by marines.
+  components:
+    - type: Sprite
+      sprite: Clothing/Belt/militarywebbingmed.rsi
+    - type: Clothing
+      sprite: Clothing/Belt/militarywebbingmed.rsi
+    - type: Item
+      size: 70
+    - type: Storage
+      capacity: 70
+    - type: StorageFill
+      contents:
+        - id: EnergySword
+        - id: C4
+        - id: MagazineRifle
+          amount: 3

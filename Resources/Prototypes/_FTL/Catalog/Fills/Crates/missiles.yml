@@ -4,7 +4,7 @@
   components:
     - type: StorageFill
       contents:
-        - id: GenericMissile
+        - id: MissileSDM
           amount: 10
 
 - type: entity
@@ -13,7 +13,7 @@
   components:
     - type: StorageFill
       contents:
-        - id: TierTwoMissile
+        - id: MissileSAM
           amount: 10
 
 - type: entity
@@ -22,5 +22,5 @@
   components:
     - type: StorageFill
       contents:
-        - id: TierThreeMissile
+        - id: MissileTAD
           amount: 10

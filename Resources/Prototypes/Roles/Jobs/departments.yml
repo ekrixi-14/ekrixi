@@ -80,6 +80,7 @@
   - SeniorOfficer
   - Detective
   - Warden
+  - Marine
 
 - type: department
   id: Science
