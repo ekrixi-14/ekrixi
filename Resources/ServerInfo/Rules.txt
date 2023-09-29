@@ -1,32 +1,50 @@
-[color=#ff0000]TERMINOLOGY[/color]
-CNT - Complete No Tolerance. Upon a report of breaking a CNT rule, you will be permanently banned with no chance of appeal.
-NT - No Tolerance Rules are No Tolerance. Upon being noticed or ahelped, you will be banned permanently with a chance of appeal.
-LT - Low Tolerance Rules are rules that are enforced heavily but you should be warned/reprimanded/punished on first/second offenses.
-MT - Medium Tolerance Rules means that you should just follow them. These are usually minor.
-C - Clarification rules.
+[color=#ff0000]YOU MUST BE 16 YEARS OF AGE TO PLAY ON EKRIXI.[/color]
+[color=#ff0000]DISCONNECTING FROM OR IGNORING/EVADING ADMIN-HELPS WILL RESULT IN AN APPEAL ONLY BAN.[/color]
 
-[color=#ff0000]C00[/color]. Don't be a dick. We're all here to have fun.
-[color=#ff0000]C01[/color]. Admins have final say.
+These are the rules for Ekrixi to maintain a fun experience for everyone.
+
+[color=#ff0000]No Tolerance Rules[/color]
+No Tolerance Rules are No Tolerance. Upon being noticed or ahelped, you will be banned permanently with a chance of appeal.
+
+[color=#a4885c]NT0[/color]. EKRIXI AT IT'S HEART IS A ROLEPLAY SERVER. YOU ARE EXPECTED TO IMITATE AN ACTUAL PERSON.
 
 [color=#a4885c]NT1[/color]. Do not harass other users, for any reason.
+  - Don't harass or target players across rounds for actions in prior rounds or for actions outside of the game (this is referred to as "Metagrudging".)
 [color=#a4885c]NT2[/color]. Do not post, link to, or provide instructions to access illegal or adult material. Sexual and NSFW content is prohibited both in-game and on the Discord server.
-  - Extension: Do not be a disgusting degenerate. Kindly avoid the usage of "pissing"
 [color=#a4885c]NT3[/color]. Do not use real slurs, or fictional slurs based on real slurs.
   - This includes gestures, whether real or fictional, that could be construed as deeply offensive, e.g. the Nazi/Roman salute.
 [color=#a4885c]NT4[/color]. Do not evade bans or use multiple accounts.
 [color=#a4885c]NT5[/color]. Do not use an account name that is offensive.
 [color=#a4885c]NT6[/color]. Do not use non-English languages to communicate.
-[color=#a4885c]NT7[/color]. Do not use bugs or exploits. When in doubt whereas something is an exploit or bug - ahelp.
-[color=#a4885c]NT8[/color]. Do not engage in ERP, do not discuss sexual topics IC or OOC.
+[color=#a4885c]NT7[/color]. Do not engage in ERP, do not discuss sexual topics IC or OOC.
+
+[color=#ff0000]LOW TOLERANCE[/color]
+Low Tolerance Rules are rules that are enforced heavily but you should be warned/reprimanded/punished on first/second offenses.
+
+[color=#5ca488]LT0[/color]. Don't be a dick. You are playing a multiplayer game with other people who also want to enjoy the game.
+  - Do not intentionally make other players' lives hell for your own amusement.
+  - Do not convert rounds into 'crew PvP rounds'.
 
 [color=#5ca488]LT1[/color]. Do not grief or deathmatch before round-end.
-  - PLEASE do not shoot your own ship with the intention to kill a player on your side.
 [color=#5ca488]LT2[/color]. Do not share in-character information in OOC or anywhere else, including Discord server.
-  - Extension: You may post lore documents (in-character information) only after the round is over.
 [color=#5ca488]LT3[/color]. Your character's name must be believable within the universe of Ekrixi.
 [color=#5ca488]LT4[/color]. Do not use information used outside of in-character means.
-[color=#5ca488]LT5[/color]. Do not overthrow your captain (without permission).
-  - Your captain is essentially the boss. They can implement whatever rules they want, and if you don't like it, then you can oppose them.
-  - You are allowed to unionize however you are not allowed to cause riots/etc without permission via ahelp. Please. Do not abuse this.
+[color=#5ca488]LT5[/color]. Do not overthrow your captain without admin permission.
+[color=#a4885c]LT7[/color]. Do not use bugs or exploits. When in doubt whereas something is an exploit or bug - ahelp.
+[color=#a4885c]LT8[/color]. Command personnel are expected to act competent in their roles.
+
+[color=#ff0000]Medium Tolerance[/color]
+Medium Tolerance Rules means that you should just follow them. These are usually for minor offenses regarding roleplay or general etiquette.
 
 [color=#885ca4]MT1[/color]. Do not use OOC slang in IC such as textspeak (:), :D, XD, etc)
+
+[color=#ff0000]ESCALATION RULES[/color]
+When escalating, follow this checklist.
+1. Self Defense: Is there an immediate threat to the safety of my life, another crewmember's life, or the ship's stability? If yes, proceed to step 4.
+2. Negotiation : Is it possible for me to talk my way out of this situation? If yes, proceed to step 3.
+3. Disable the threat (verbally), then go back to step 1.
+4. Disable the threat (lethally or non-lethally).
+5. Alert security or other command personnel if you haven't already.
+
+[color=#ff0000]Errata And Clarification[/color]
+[color=#ff0000]E01[/color]. None yet.

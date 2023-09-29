@@ -1,0 +1,13 @@
+- type: accessLevel
+  id: A2B
+  name: id-card-access-level-atob
+
+- type: accessLevel
+  id: A2BCommand
+  name: id-card-access-level-atob-command
+
+- type: accessGroup
+  id: A2BGroup
+  tags:
+  - A2B
+  - A2BCommand
