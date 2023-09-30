@@ -18540,28 +18540,6 @@ entities:
     - pos: 4.5,28.5
       parent: 1
       type: Transform
-- proto: Weapon105mm
-  entities:
-  - uid: 3069
-    components:
-    - flags: SessionSpecific
-      type: MetaData
-    - pos: -12.5,-1.5
-      parent: 1
-      type: Transform
-    - links:
-      - 2097
-      type: DeviceLinkSink
-  - uid: 3106
-    components:
-    - flags: SessionSpecific
-      type: MetaData
-    - pos: 13.5,-1.5
-      parent: 1
-      type: Transform
-    - links:
-      - 3065
-      type: DeviceLinkSink
 - proto: Weapon20mm
   entities:
   - uid: 1636
@@ -18645,48 +18623,66 @@ entities:
     - pos: 1.5,-2.5
       parent: 1
       type: Transform
-- proto: Weapon53mm
-  entities:
+  - uid: 3069
+    components:
+      - flags: SessionSpecific
+        type: MetaData
+      - pos: -12.5,-1.5
+        parent: 1
+        type: Transform
+      - links:
+          - 2097
+        type: DeviceLinkSink
+  - uid: 3106
+    components:
+      - flags: SessionSpecific
+        type: MetaData
+      - pos: 13.5,-1.5
+        parent: 1
+        type: Transform
+      - links:
+          - 3065
+        type: DeviceLinkSink
   - uid: 2100
     components:
-    - flags: SessionSpecific
-      type: MetaData
-    - pos: -12.5,3.5
-      parent: 1
-      type: Transform
-    - links:
-      - 2097
-      type: DeviceLinkSink
+      - flags: SessionSpecific
+        type: MetaData
+      - pos: -12.5,3.5
+        parent: 1
+        type: Transform
+      - links:
+          - 2097
+        type: DeviceLinkSink
   - uid: 2101
     components:
-    - flags: SessionSpecific
-      type: MetaData
-    - pos: 10.5,28.5
-      parent: 1
-      type: Transform
-    - links:
-      - 2098
-      type: DeviceLinkSink
+      - flags: SessionSpecific
+        type: MetaData
+      - pos: 10.5,28.5
+        parent: 1
+        type: Transform
+      - links:
+          - 2098
+        type: DeviceLinkSink
   - uid: 3072
     components:
-    - flags: SessionSpecific
-      type: MetaData
-    - pos: -9.5,28.5
-      parent: 1
-      type: Transform
-    - links:
-      - 2096
-      type: DeviceLinkSink
+      - flags: SessionSpecific
+        type: MetaData
+      - pos: -9.5,28.5
+        parent: 1
+        type: Transform
+      - links:
+          - 2096
+        type: DeviceLinkSink
   - uid: 3107
     components:
-    - flags: SessionSpecific
-      type: MetaData
-    - pos: 13.5,3.5
-      parent: 1
-      type: Transform
-    - links:
-      - 3065
-      type: DeviceLinkSink
+      - flags: SessionSpecific
+        type: MetaData
+      - pos: 13.5,3.5
+        parent: 1
+        type: Transform
+      - links:
+          - 3065
+        type: DeviceLinkSink
 - proto: WeaponAdvancedLaser
   entities:
   - uid: 1838

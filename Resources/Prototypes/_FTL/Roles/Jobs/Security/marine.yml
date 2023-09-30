@@ -23,7 +23,7 @@
     mask: ClothingMaskBreath
     shoes: ClothingShoesBootsCombatFilled
     eyes: ClothingEyesGlassesSecurity
-    outerClothing: ClothingOuterHardsuitSyndie
+    outerClothing: ClothingOuterVestWebMerc
     id: SecurityPDA
     ears: ClothingHeadsetSecurity
     belt: ClothingBeltMarineWebbingFilled
