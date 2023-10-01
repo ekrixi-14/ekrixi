@@ -2,6 +2,7 @@ using System.Linq;
 using Content.Server._FTL.AutomatedShip.Components;
 using Content.Server._FTL.FTLPoints.Components;
 using Content.Server._FTL.FTLPoints.Systems;
+using Content.Server._FTL.ShipTracker.Components;
 using Content.Server.AlertLevel;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;

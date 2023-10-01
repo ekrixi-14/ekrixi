@@ -1,6 +1,6 @@
 using Content.Server._FTL.ShipTracker.Systems;
 
-namespace Content.Server._FTL.ShipTracker;
+namespace Content.Server._FTL.ShipTracker.Components;
 
 /// <summary>
 /// This is used for tracking the damage on ships

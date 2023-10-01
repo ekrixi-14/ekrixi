@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Server._FTL.FTLPoints;
 using Content.Server._FTL.FTLPoints.Systems;
+using Content.Server._FTL.ShipTracker.Components;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
 using Content.Server.GameTicking.Rules.Components;
@@ -35,11 +36,6 @@ public sealed class EndOnShipDestructionSystem : GameRuleSystem<EndOnShipDestruc
 
         while (query.MoveNext(out var eosComponent, out _))
         {
-            if (_configurationManager.GetCVar(CCVars.GenerateFTLPointsRoundstart))
-            {
-                _pointsSystem.RegeneratePoints();
-            }
-
             if (!ev.Station.HasValue)
             {
                 Log.Fatal("Unable to get station on player spawning, does it exist?");
