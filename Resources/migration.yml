@@ -92,6 +92,8 @@ GeneratorUraniumMachineCircuitboard: PortableGeneratorSuperPacmanMachineCircuitb
 ChemMasterMachineCircuitboard: null
 chem_master: null
 GenericMissile: MissileSDM
+ShieldGenerator: null
+
 BaseWeaponLaser: null
 BaseWeaponLaserTierTwo: null
 BaseWeaponLaserTierThree: null

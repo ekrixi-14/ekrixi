@@ -125,9 +125,10 @@ public sealed class ShipWeaponsSystem : SharedShipWeaponsSystem
         var remainingAmmo = 0;
 
         var weapons = new List<DockingInterfaceState>();
-        // Render every gun as a DIS
+        // Render every gun as a DockingInterfaceState
         if (TryComp<DeviceLinkSourceComponent>(uid, out var sourceComponent))
         {
+            // yeah we loop through everything
             foreach (var (_, outputs) in sourceComponent.Outputs)
             {
                 foreach (var entity in outputs)
@@ -135,13 +136,14 @@ public sealed class ShipWeaponsSystem : SharedShipWeaponsSystem
                     var gunTransform = Transform(entity);
                     weapons.Add(new DockingInterfaceState() { Angle = gunTransform.LocalRotation, Coordinates = gunTransform.Coordinates, Entity = entity, Color = Color.Red });
 
-                    if (!TryComp<GunComponent>(entity, out var gunComponent))
+                    // we cant really do ammo count if it has no guns, so...
+                    if (!TryComp<GunComponent>(entity, out _))
                         continue;
 
                     var ev = new GetAmmoCountEvent();
                     RaiseLocalEvent(entity, ref ev);
 
-                    totalAmmo += ev.Capacity - 1;
+                    totalAmmo += ev.Capacity;
                     remainingAmmo += ev.Count;
                 }
             }

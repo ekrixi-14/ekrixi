@@ -1,9 +1,6 @@
 using System.Linq;
 using Content.Server._FTL.AutomatedShip.Components;
 using Content.Server._FTL.ShipTracker;
-using Content.Server._FTL.ShipTracker.Events;
-using Content.Server._FTL.ShipTracker.Systems;
-using Content.Server._FTL.Weapons;
 using Content.Server.NPC.Systems;
 using Robust.Shared.Random;
 
@@ -14,9 +11,7 @@ namespace Content.Server._FTL.AutomatedShip.Systems;
 /// </summary>
 public sealed partial class AutomatedShipSystem : EntitySystem
 {
-    [Dependency] private readonly WeaponTargetingSystem _weaponTargetingSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ShipTrackerSystem _shipTracker = default!;
     [Dependency] private readonly NpcFactionSystem _npcFactionSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaDataSystem = default!;
 
@@ -25,7 +20,6 @@ public sealed partial class AutomatedShipSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<AutomatedShipComponent, ComponentInit>(OnInit);
-        SubscribeLocalEvent<AutomatedShipComponent, ShipDamagedEvent>(OnShipDamaged);
     }
 
     private void OnInit(EntityUid uid, AutomatedShipComponent component, ComponentInit args)

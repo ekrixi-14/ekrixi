@@ -35,7 +35,6 @@
   placement:
     mode: SnapgridCenter
   components:
-#   - type: WeaponTargeting
     - type: Transform
       anchored: true
       noRot: true

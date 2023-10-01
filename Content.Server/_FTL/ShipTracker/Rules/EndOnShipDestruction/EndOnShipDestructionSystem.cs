@@ -81,8 +81,7 @@ public sealed class EndOnShipDestructionSystem : GameRuleSystem<EndOnShipDestruc
             return;
         }
 
-        if (trackerComponent.HullAmount <= 0)
-            _roundEndSystem.EndRound();
-
+        // if (trackerComponent.HullAmount <= 0)
+        //     _roundEndSystem.EndRound();
     }
 }
