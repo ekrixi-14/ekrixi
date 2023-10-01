@@ -6,5 +6,5 @@ namespace Content.Server._FTL.AutomatedShip.Components;
 [RegisterComponent]
 public sealed partial class ActiveAutomatedShipComponent : Component
 {
-    [ViewVariables] public float TimeSinceLastAttack = 5f;
+
 }
