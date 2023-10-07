@@ -4,7 +4,7 @@ using Content.Client.Light;
 using Content.Client.UserInterface.Systems.Guidebook;
 using Content.Client.Verbs;
 using Content.Shared.Interaction;
-using Content.Shared.Light.Component;
+using Content.Shared.Light.Components;
 using Content.Shared.Speech;
 using Content.Shared.Tag;
 using Content.Shared.Verbs;
