@@ -64,7 +64,9 @@ namespace Content.IntegrationTests.Tests
             "MeteorArena",
             "Kestrel",
             "PaperPlane",
-            "TradeStation"
+            "TradeStation",
+            "Endstre",
+            "PvPHub"
         };
 
         /// <summary>
