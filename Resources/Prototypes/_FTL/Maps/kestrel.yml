@@ -1,14 +1,14 @@
 - type: gameMap
   id: Kestrel
   mapName: 'Kestrel'
-  mapPath: /Maps/_FTL/kestrel.yml
+  mapPath: /Maps/_FTL/coregov/kestrel.yml
   minPlayers: 3
   stations:
     Kestrel:
-      stationProto: StandardIndependentStation
+      stationProto: StandardIndependentShip
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'CG Kestrel-Class Freighter'
+          mapNameTemplate: 'CG Kestrel-Class Fighter'
         - type: StationJobs
           overflowJobs:
             - Passenger

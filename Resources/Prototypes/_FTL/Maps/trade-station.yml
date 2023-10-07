@@ -1,11 +1,11 @@
 - type: gameMap
   id: TradeStation
   mapName: 'Trade Station'
-  mapPath: /Maps/_FTL/trade-station.yml
+  mapPath: /Maps/_FTL/independent/trade-station.yml
   minPlayers: 0
   stations:
     TradeStation:
-      stationProto: StandardIndependentShip
+      stationProto: StandardIndependentStation
       components:
         - type: StationNameSetup
           mapNameTemplate: '{0} Trade Station {1}'

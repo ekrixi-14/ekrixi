@@ -16,7 +16,7 @@ entities:
   entities:
   - uid: 1
     components:
-    - name: '[NTRL] CG Musca-class Explorer'
+    - name: '[NTRL] CG Musca-Class Explorer'
       type: MetaData
     - pos: -0.53131104,-0.40631104
       parent: invalid
@@ -165,11 +165,7 @@ entities:
         chunkSize: 4
       type: GridAtmosphere
     - type: GasTileOverlay
-    - shieldCapacity: 0
-      shieldAmount: 0
-      hullCapacity: 10
-      hullAmount: 15
-      type: ShipTracker
+    - type: ShipTracker
     - type: AutomatedShip
     - type: ActiveAutomatedShip
     - type: RadiationGridResistance
@@ -1507,13 +1503,6 @@ entities:
     components:
     - rot: 3.141592653589793 rad
       pos: 5.5,-2.5
-      parent: 1
-      type: Transform
-- proto: WeaponNonSiloFedSpawner
-  entities:
-  - uid: 153
-    components:
-    - pos: 5.5,1.5
       parent: 1
       type: Transform
 - proto: WeaponRevolverDeckard

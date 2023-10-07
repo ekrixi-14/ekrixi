@@ -15,7 +15,7 @@ entities:
   entities:
   - uid: 1
     components:
-    - name: 'Recon Drone'
+    - name: '[NTRL] Recon Drone'
       type: MetaData
     - pos: -0.53131104,-0.40631104
       parent: invalid
@@ -162,9 +162,6 @@ entities:
       type: GridAtmosphere
     - type: GasTileOverlay
     - faction: HostileIndependentShip
-      shieldAmount: 0
-      hullCapacity: 10
-      hullAmount: 10
       type: ShipTracker
     - type: AutomatedShip
     - type: ActiveAutomatedShip
@@ -937,54 +934,65 @@ entities:
       pos: 3.5,3.5
       parent: 1
       type: Transform
-- proto: WeaponNonSiloFedSpawner
+- proto: Weapon20mm
   entities:
   - uid: 136
     components:
-    - rot: 1.5707963267948966 rad
-      pos: -0.5,0.5
+    - flags: SessionSpecific
+      type: MetaData
+    - pos: 0.5,7.5
       parent: 1
       type: Transform
-  - uid: 137
-    components:
-    - rot: 1.5707963267948966 rad
-      pos: 1.5,2.5
-      parent: 1
-      type: Transform
-- proto: WeaponTurretHostile
-  entities:
+    - links:
+      - 137
+      type: DeviceLinkSink
   - uid: 138
     components:
     - flags: SessionSpecific
       type: MetaData
-    - rot: 1.5707963267948966 rad
-      pos: 0.5,-4.5
+    - pos: -5.5,1.5
       parent: 1
       type: Transform
+    - links:
+      - 137
+      type: DeviceLinkSink
   - uid: 139
     components:
     - flags: SessionSpecific
       type: MetaData
-    - rot: 1.5707963267948966 rad
-      pos: 6.5,1.5
+    - pos: 0.5,-4.5
       parent: 1
       type: Transform
+    - links:
+      - 137
+      type: DeviceLinkSink
   - uid: 140
     components:
     - flags: SessionSpecific
       type: MetaData
-    - rot: 1.5707963267948966 rad
-      pos: 0.5,7.5
+    - pos: 6.5,1.5
       parent: 1
       type: Transform
-  - uid: 141
+    - links:
+      - 137
+      type: DeviceLinkSink
+- proto: WeaponTargetingPad
+  entities:
+  - uid: 137
     components:
-    - flags: SessionSpecific
-      type: MetaData
-    - rot: 1.5707963267948966 rad
-      pos: -5.5,1.5
+    - pos: 1.5,1.5
       parent: 1
       type: Transform
+    - linkedPorts:
+        140:
+        - WeaponOutputPort: WeaponInputPort
+        136:
+        - WeaponOutputPort: WeaponInputPort
+        138:
+        - WeaponOutputPort: WeaponInputPort
+        139:
+        - WeaponOutputPort: WeaponInputPort
+      type: DeviceLinkSource
 - proto: WindowReinforcedDirectional
   entities:
   - uid: 123
