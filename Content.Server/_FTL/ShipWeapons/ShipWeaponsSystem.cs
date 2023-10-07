@@ -130,7 +130,7 @@ public sealed class ShipWeaponsSystem : SharedShipWeaponsSystem
                 foreach (var entity in outputs)
                 {
                     var gunTransform = Transform(entity);
-                    weapons.Add(new DockingInterfaceState() { Angle = gunTransform.LocalRotation, Coordinates = gunTransform.Coordinates, Entity = entity, Color = Color.Red });
+                    weapons.Add(new DockingInterfaceState { Angle = gunTransform.LocalRotation, Coordinates = gunTransform.Coordinates, Entity = entity, Color = Color.Red });
 
                     // we cant really do ammo count if it has no guns, so...
                     if (!TryComp<GunComponent>(entity, out _))
