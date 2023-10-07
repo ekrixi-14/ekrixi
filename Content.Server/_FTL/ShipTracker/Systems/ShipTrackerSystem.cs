@@ -6,6 +6,7 @@ using Content.Server._FTL.ShipTracker.Components;
 using Content.Server.AlertLevel;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;
+using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
 using Content.Shared._FTL.ShipTracker;
 using Content.Shared.Pinpointer;
@@ -104,5 +105,34 @@ public sealed partial class ShipTrackerSystem : SharedShipTrackerSystem
         }
 
         return found;
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var query = EntityQueryEnumerator<ShuttleConsoleComponent, TransformComponent>();
+        var allShips = EntityQueryEnumerator<ShipTrackerComponent>();
+        while (allShips.MoveNext(out var entity, out var shipTrackerComponent))
+        {
+            if (shipTrackerComponent.Destroyed)
+                continue;
+
+            var destroyed = false;
+            while (query.MoveNext(out _, out _, out var transform))
+            {
+                if (transform.GridUid != entity)
+                    continue;
+                destroyed = true;
+                break;
+            }
+
+            if (!destroyed)
+                continue;
+            shipTrackerComponent.Destroyed = true;
+
+            _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("ship-destroyed-message",
+                ("ship", MetaData(entity).EntityName)));
+        }
     }
 }

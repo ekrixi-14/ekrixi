@@ -8,8 +8,6 @@ using Content.Server.GameTicking.Rules.Components;
 using Content.Server.RoundEnd;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
-using Content.Shared.CCVar;
-using Robust.Shared.Configuration;
 
 namespace Content.Server._FTL.ShipTracker.Rules.EndOnShipDestruction;
 
@@ -19,8 +17,6 @@ namespace Content.Server._FTL.ShipTracker.Rules.EndOnShipDestruction;
 public sealed class EndOnShipDestructionSystem : GameRuleSystem<EndOnShipDestructionComponent>
 {
     [Dependency] private readonly RoundEndSystem _roundEndSystem = default!;
-    [Dependency] private readonly IConfigurationManager _configurationManager = default!;
-    [Dependency] private readonly FTLPointsSystem _pointsSystem = default!;
     [Dependency] private readonly StationSystem _stationSystem = default!;
 
     public override void Initialize()
@@ -77,7 +73,7 @@ public sealed class EndOnShipDestructionSystem : GameRuleSystem<EndOnShipDestruc
             return;
         }
 
-        // if (trackerComponent.HullAmount <= 0)
-        //     _roundEndSystem.EndRound();
+        if (trackerComponent.Destroyed)
+            _roundEndSystem.EndRound();
     }
 }

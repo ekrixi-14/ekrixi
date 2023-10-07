@@ -10,9 +10,15 @@ namespace Content.Server._FTL.ShipTracker.Components;
 public sealed partial class ShipTrackerComponent : Component
 {
     /// <summary>
-    /// The maximum capacity of the shields
+    /// The faction of the current ship.
     /// </summary>
     [DataField("faction")]
     [ViewVariables(VVAccess.ReadWrite)]
     public string Faction = "IndependentShip";
+
+    /// <summary>
+    /// Is the ship destroyed?
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
+    public bool Destroyed = false;
 }
