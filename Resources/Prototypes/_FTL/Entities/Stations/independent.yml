@@ -7,14 +7,12 @@
   components:
     - type: Transform
     - type: NavMap
-    - type: ShipTracker
 
 - type: entity
   id: StandardIndependentStation
   parent:
     - BaseStation
     - BaseStationCargo
-    - BaseStationJobsSpawning
     - BaseStationRecords
     - BaseStationShuttles
     - BaseStationAlertLevels

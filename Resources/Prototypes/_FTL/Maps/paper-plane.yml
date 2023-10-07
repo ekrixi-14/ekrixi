@@ -1,12 +1,12 @@
 - type: gameMap
   id: PaperPlane
   mapName: 'Paper Plane'
-  mapPath: /Maps/_FTL/paper-plane.yml
+  mapPath: /Maps/_FTL/a2b/paper-plane.yml
   minPlayers: 0
   maxPlayers: 6
   stations:
     PaperPlane:
-      stationProto: StandardIndependentStation
+      stationProto: StandardIndependentShip
       components:
         - type: StationNameSetup
           mapNameTemplate: 'A2B Paper Plane-Class Freighter (UNREGISTERED)' # The crew stole it lol
