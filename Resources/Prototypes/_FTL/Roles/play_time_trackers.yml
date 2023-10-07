@@ -5,4 +5,7 @@
   id: JobPilot
 
 - type: playTimeTracker
+  id: JobStationAdministrator
+
+- type: playTimeTracker
   id: JobEkrixiCommandWhitelist
