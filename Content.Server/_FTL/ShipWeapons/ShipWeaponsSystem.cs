@@ -30,10 +30,10 @@ public sealed class ShipWeaponsSystem : SharedShipWeaponsSystem
         SubscribeLocalEvent<GunnerConsoleComponent, AfterActivatableUIOpenEvent>(OnToggleInterface);
         SubscribeLocalEvent<GunnerConsoleComponent, RotateWeaponSendMessage>(OnRotateWeapon);
         SubscribeLocalEvent<GunnerConsoleComponent, PerformActionWeaponSendMessage>(OnPerformActionWeapon);
-        SubscribeLocalEvent<GunnerConsoleComponent, ComponentInit>(ComponentInit);
+        SubscribeLocalEvent<ShipWeaponComponent, ComponentInit>(ComponentInit);
     }
 
-    private void ComponentInit(EntityUid uid, GunnerConsoleComponent component, ComponentInit args)
+    private void ComponentInit(EntityUid uid, ShipWeaponComponent component, ComponentInit args)
     {
         _containerSystem.EnsureContainer<ContainerSlot>(uid, "gun_magazine");
         _containerSystem.EnsureContainer<ContainerSlot>(uid, "gun_chamber");
