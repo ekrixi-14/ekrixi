@@ -70,6 +70,8 @@
   name: piloting console
   description: Used to pilot a shuttle.
   components:
+  - type: PriorityEntity
+    priority: -1
   - type: Sprite
     layers:
     - map: ["computerLayerBody"]

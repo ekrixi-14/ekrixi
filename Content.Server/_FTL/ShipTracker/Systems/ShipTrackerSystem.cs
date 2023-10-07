@@ -36,20 +36,11 @@ public sealed partial class ShipTrackerSystem : SharedShipTrackerSystem
         SubscribeLocalEvent<ShipTrackerComponent, FTLCompletedEvent>(OnFTLCompletedEvent);
         SubscribeLocalEvent<ShipTrackerComponent, FTLStartedEvent>(OnFTLStartedEvent);
         SubscribeLocalEvent<ShipTrackerComponent, FTLRequestEvent>(OnFTLRequestEvent);
-
-        SubscribeLocalEvent<GridAddEvent>(OnGridAdd);
     }
 
     private void OnFTLRequestEvent(EntityUid uid, ShipTrackerComponent component, ref FTLRequestEvent args)
     {
         _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("ship-ftl-jump-jumped-message"), colorOverride: Color.Gold);
-    }
-
-    private void OnGridAdd(GridAddEvent msg, EntitySessionEventArgs args)
-    {
-        // icky
-        EnsureComp<ShipTrackerComponent>(msg.EntityUid);
-        EnsureComp<NavMapComponent>(msg.EntityUid);
     }
 
     private void OnFTLStartedEvent(EntityUid uid, ShipTrackerComponent component, ref FTLStartedEvent args)

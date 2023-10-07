@@ -1,6 +1,3 @@
-using System.Linq;
-using System.Numerics;
-using Content.Server.DeviceLinking.Systems;
 using Content.Server.UserInterface;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared._FTL.ShipWeapons;
@@ -9,7 +6,6 @@ using Content.Shared.DeviceLinking;
 using Content.Shared.Shuttles.BUIStates;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Shuttles.Systems;
-using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Server.Containers;
@@ -90,7 +86,7 @@ public sealed class ShipWeaponsSystem : SharedShipWeaponsSystem
             foreach (var entity in outputs)
             {
                 if (!TryComp<ShipWeaponComponent>(entity, out var shipWeaponComponent))
-                    return;
+                    continue;
                 var entityXform = Transform(entity);
 
                 // i didnt even need to use trig for this fml

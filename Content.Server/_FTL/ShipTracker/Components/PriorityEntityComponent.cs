@@ -4,7 +4,7 @@ namespace Content.Server._FTL.ShipTracker.Components;
 /// Marks the entity as a priority object which the AI will prioritize regarding a number of factors (distance, armor, etc)
 /// </summary>
 [RegisterComponent]
-public sealed partial class PriorityObject : Component
+public sealed partial class PriorityEntityComponent : Component
 {
     /// <summary>
     /// The priority of this object.
