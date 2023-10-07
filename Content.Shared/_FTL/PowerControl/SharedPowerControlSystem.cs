@@ -9,9 +9,9 @@ namespace Content.Shared._FTL.PowerControl;
 [Serializable, NetSerializable]
 public sealed class ToggleApcMessage : BoundUserInterfaceMessage
 {
-    public EntityUid ApcEntity;
+    public NetEntity ApcEntity;
 
-    public ToggleApcMessage(EntityUid entity)
+    public ToggleApcMessage(NetEntity entity)
     {
         ApcEntity = entity;
     }

@@ -5,7 +5,7 @@ namespace Content.Shared._FTL.Areas;
 [Serializable, NetSerializable]
 public struct Area
 {
-    public EntityUid Entity;
+    public NetEntity Entity;
     public string Name;
     public bool Enabled;
 }

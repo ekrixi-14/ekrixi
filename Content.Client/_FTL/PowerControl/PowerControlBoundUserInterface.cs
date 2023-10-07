@@ -9,8 +9,12 @@ namespace Content.Client._FTL.PowerControl
     public sealed class PowerControlBoundUserInterface : BoundUserInterface
     {
         private PowerControlWindow? _window;
+        private readonly IEntityManager _entityManager;
 
-        public PowerControlBoundUserInterface(EntityUid owner, Enum uiKey) : base (owner, uiKey) {}
+        public PowerControlBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
+        {
+            _entityManager = IoCManager.Resolve<IEntityManager>();
+        }
 
         protected override void Open()
         {
@@ -22,7 +26,7 @@ namespace Content.Client._FTL.PowerControl
             _window.OnClose += Close;
         }
 
-        public void ToggleApc(EntityUid entity)
+        public void ToggleApc(NetEntity entity)
         {
             SendMessage(new ToggleApcMessage(entity));
         }
