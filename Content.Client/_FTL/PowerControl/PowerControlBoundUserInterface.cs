@@ -9,12 +9,8 @@ namespace Content.Client._FTL.PowerControl
     public sealed class PowerControlBoundUserInterface : BoundUserInterface
     {
         private PowerControlWindow? _window;
-        private readonly IEntityManager _entityManager;
 
-        public PowerControlBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
-        {
-            _entityManager = IoCManager.Resolve<IEntityManager>();
-        }
+        public PowerControlBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey) { }
 
         protected override void Open()
         {

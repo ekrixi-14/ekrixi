@@ -11,6 +11,7 @@ namespace Content.Server._FTL.PowerControl;
 public sealed class PowerControlSystem : SharedPowerControlSystem
 {
     [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
+    [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly AreaSystem _areas = default!;
     [Dependency] private readonly ApcSystem _apc = default!;
 
@@ -24,7 +25,7 @@ public sealed class PowerControlSystem : SharedPowerControlSystem
 
     private void OnApcToggleRequestMessage(EntityUid uid, PowerControlComponent component, ToggleApcMessage message)
     {
-        var apc = message.ApcEntity;
+        var apc = _entityManager.GetEntity(message.ApcEntity);
 ;
         _apc.ApcToggleBreaker(apc);
         UpdateUserInterface(uid, component);
