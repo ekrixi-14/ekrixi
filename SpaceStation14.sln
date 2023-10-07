@@ -127,6 +127,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Robust.Shared.CompNetworkGe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Robust.Serialization.Generator", "RobustToolbox\Robust.Serialization.Generator\Robust.Serialization.Generator.csproj", "{6FBF108E-5CB5-47DE-8D7E-B496ABA9E3E2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Content.ServerSecret", "Content.ServerSecret\Content.ServerSecret.csproj", "{1A54B8D0-7ED1-4FC7-8629-0CEC8E5AB4DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -430,6 +432,14 @@ Global
 		{6FBF108E-5CB5-47DE-8D7E-B496ABA9E3E2}.DebugOpt|Any CPU.Build.0 = Debug|Any CPU
 		{6FBF108E-5CB5-47DE-8D7E-B496ABA9E3E2}.Tools|Any CPU.ActiveCfg = Debug|Any CPU
 		{6FBF108E-5CB5-47DE-8D7E-B496ABA9E3E2}.Tools|Any CPU.Build.0 = Debug|Any CPU
+		{1A54B8D0-7ED1-4FC7-8629-0CEC8E5AB4DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A54B8D0-7ED1-4FC7-8629-0CEC8E5AB4DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A54B8D0-7ED1-4FC7-8629-0CEC8E5AB4DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A54B8D0-7ED1-4FC7-8629-0CEC8E5AB4DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A54B8D0-7ED1-4FC7-8629-0CEC8E5AB4DF}.DebugOpt|Any CPU.ActiveCfg = DebugOpt|Any CPU
+		{1A54B8D0-7ED1-4FC7-8629-0CEC8E5AB4DF}.DebugOpt|Any CPU.Build.0 = DebugOpt|Any CPU
+		{1A54B8D0-7ED1-4FC7-8629-0CEC8E5AB4DF}.Tools|Any CPU.ActiveCfg = Tools|Any CPU
+		{1A54B8D0-7ED1-4FC7-8629-0CEC8E5AB4DF}.Tools|Any CPU.Build.0 = Tools|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

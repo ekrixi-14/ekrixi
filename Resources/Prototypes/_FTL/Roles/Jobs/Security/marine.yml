@@ -1,0 +1,31 @@
+- type: job
+  id: Marine
+  name: job-name-marine
+  description: job-description-security
+  playTimeTracker: JobMarine
+  startingGear: MarineGear
+  icon: "JobIconSecurityOfficer"
+  supervisors: job-supervisors-hos
+  canBeAntag: false
+  setPreference: true
+  access:
+    - Security
+    - Brig
+    - Maintenance
+    - Service
+    - External
+
+- type: startingGear
+  id: MarineGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSec
+    back: WeaponRifleLecter
+    mask: ClothingMaskBreath
+    shoes: ClothingShoesBootsCombatFilled
+    eyes: ClothingEyesGlassesSecurity
+    outerClothing: ClothingOuterVestWebMerc
+    id: SecurityPDA
+    ears: ClothingHeadsetSecurity
+    belt: ClothingBeltMarineWebbingFilled
+    pocket1: DoubleEmergencyOxygenTankFilled
+    pocket2: WeaponGrapplingGun

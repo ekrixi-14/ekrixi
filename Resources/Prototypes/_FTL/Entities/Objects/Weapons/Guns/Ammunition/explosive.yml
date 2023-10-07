@@ -1,20 +1,22 @@
 - type: entity
-  id: GenericMissile
+  id: BaseMissile
   name: missile
   parent: BaseItem
+  abstract: true
   description: A missile designed to be fired by missile launchers.
   components:
     - type: Item
       size: 999
     - type: MultiHandedItem
-    - type: FTLAmmo
     - type: Sprite
-      netsync: false
-      sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
-      state: rpg
+      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      state: sdm
     - type: Tag
       tags:
-        - FTLAmmoTierOne
+        - Missile
+    - type: CartridgeAmmo
+      proto: BulletSDM
+      deleteOnSpawn: true
     - type: StaticPrice
       price: 150
     - type: DamageOnLand
@@ -34,39 +36,75 @@
     - type: Damageable
       damageContainer: Inorganic
       damageModifierSet: Metallic
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 200
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+        - trigger:
+            !type:DamageTrigger
+            damage: 30
+          behaviors:
+            - !type:ExplodeBehavior
+
+# Missiles
+- type: entity
+  id: MissileSDM
+  name: SDM-VC-SR40
+  parent: BaseItem
+  description: A structural damage missile that requires visual contact and has a short range of 40 kilometers.
+  components:
+    - type: Sprite
+      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      state: sdm
 
 - type: entity
-  parent: GenericMissile
-  id: TierTwoMissile
-  name: tier two missile
-  description: A missile designed for both tier 1 and tier 2 weapons.
+  id: MissileSAM
+  name: SAM-RC-LR40
+  parent: BaseItem
+  description: A ship attack missile that requires radar contact and has a long range of 4000 kilometers.
   components:
+    - type: Sprite
+      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      state: sam
     - type: Tag
       tags:
-        - FTLAmmoTierTwo
+        - Missile
+    - type: CartridgeAmmo
+      proto: BulletSAM
+      deleteOnSpawn: true
 
 - type: entity
-  parent: TierTwoMissile
-  id: TierThreeMissile
-  name: tier three missile
-  description: A missile designed for tier 1, 2 and 3 weapons.
+  id: MissileTAD
+  name: TAD-FB-IR-R50
+  parent: BaseItem
+  description: A total area destruction device that you should fire blindly with infinite range and has an expected blast radius of 50 meters.
   components:
+    - type: Sprite
+      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      state: tad
     - type: Tag
       tags:
-        - FTLAmmoTierThree
+        - Missile
+    - type: CartridgeAmmo
+      proto: BulletTAD
+      deleteOnSpawn: true
 
 - type: entity
-  parent: GenericMissile
-  id: IncendiaryMissile
-  name: incendiary missile
-  description: A missile designed to flame up rooms.
+  id: MissileTND
+  name: TND-FB-IR-R150
+  parent: BaseItem
+  description: A total nuclear destruction device that you should fire blindly with infinite range and has an expected blast radius of 150 meters.
   components:
-    - type: FTLAmmo
-
-- type: entity
-  parent: GenericMissile
-  id: DebugMissile
-  name: debug missile
-  description: A missile designed to debug.
-  components:
-    - type: FTLAmmo
+    - type: Sprite
+      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      state: tnd
+    - type: Tag
+      tags:
+        - Missile
+    - type: CartridgeAmmo
+      proto: BulletTND
+      deleteOnSpawn: true

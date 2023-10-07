@@ -118,13 +118,3 @@
     Credits: 10
   categories:
     - BartenderDrinks
-
-- type: listing
-  id: BartenderRepairShip
-  name: bartender-drink-repair-ship-name
-  description: bartender-drink-repair-ship-desc
-  productEntity: RepairOnInitObject
-  cost:
-    Credits: 2500
-  categories:
-    - BartenderDrinks

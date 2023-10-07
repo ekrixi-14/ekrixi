@@ -4159,8 +4159,6 @@ entities:
       pos: -1.5,11.5
       parent: 2
       type: Transform
-    - isLinked: True
-      type: WeaponTargeting
     - linkedPorts:
         374:
         - WeaponOutputPort: WeaponInputPort
@@ -4171,8 +4169,6 @@ entities:
       pos: 2.5,11.5
       parent: 2
       type: Transform
-    - isLinked: True
-      type: WeaponTargeting
     - linkedPorts:
         375:
         - WeaponOutputPort: WeaponInputPort

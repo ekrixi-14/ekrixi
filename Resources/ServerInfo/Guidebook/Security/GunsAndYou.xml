@@ -13,7 +13,7 @@
   - Tier 2: Intermediate weaponry, not very common on the Edge however very common amongst fleets.
   - Tier 3: Advanced weaponry or powerful weaponry, such as the railgun.
   - Tier 4: Experimental weaponry. Unstable, prone to breaking, none exist... or?
-  
+
   These 2 weapons all show up in a "packaged" form, a 1x1 block that represents the object. This may be a loader, a battery or some other object that requires to be linked onto a weapon pad.
   The actual gun exists, you just cant see it. It's ontop of the ship. However, ammo handling, cooldowns and others are handled by the package.
 
@@ -30,9 +30,4 @@
   On roundstart, depending on the map, you will usually start with [color=#a4885c]one silo-fed weapon[/color] and [color=#a4885c]one non silo-fed weapon[/color], alongside the ammunition for said weaponry.
 
   The weapons and weapon pads may not be linked by default, and it is best to ask engineering to either double check or link it. Better safe than sorry.
-
-  <Box>
-    <GuideEntityEmbed Entity="WeaponBurstLaserMkI"/>
-    <GuideEntityEmbed Entity="ArtemisMarkIWeaponSilo"/>
-  </Box>
 </Document>

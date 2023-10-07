@@ -1,4 +1,7 @@
 - type: playTimeTracker
+  id: JobMarine
+
+- type: playTimeTracker
   id: JobPilot
 
 - type: playTimeTracker

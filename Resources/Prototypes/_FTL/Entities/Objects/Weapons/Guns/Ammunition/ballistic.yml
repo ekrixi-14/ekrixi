@@ -1,0 +1,71 @@
+- type: entity
+  id: Cartridge20mm
+  name: cartridge (20mm)
+  parent: BaseCartridge
+  components:
+    - type: Tag
+      tags:
+        - Cartridge
+        - Cartridge20mm
+    - type: Sprite
+      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      layers:
+        - state: 20mm
+    - type: Appearance
+    - type: CartridgeAmmo
+      deleteOnSpawn: true
+      proto: Bullet20mm
+
+- type: entity
+  id: Cartridge53mm
+  name: cartridge (53mm)
+  parent: BaseCartridge
+  components:
+    - type: Tag
+      tags:
+        - Cartridge
+        - Cartridge53mm
+    - type: Sprite
+      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      layers:
+        - state: 53mm
+    - type: Appearance
+    - type: CartridgeAmmo
+      deleteOnSpawn: true
+      proto: Bullet53mm
+
+- type: entity
+  id: Cartridge105mm
+  name: cartridge (105mm)
+  parent: BaseCartridge
+  components:
+    - type: Tag
+      tags:
+        - Cartridge
+        - Cartridge105mm
+    - type: Sprite
+      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      layers:
+        - state: 105mm
+    - type: Appearance
+    - type: CartridgeAmmo
+      deleteOnSpawn: true
+      proto: Bullet105mm
+
+- type: entity
+  id: Cartridge140mm
+  name: cartridge (140mm)
+  parent: BaseCartridge
+  components:
+    - type: Tag
+      tags:
+        - Cartridge
+        - Cartridge140mm
+    - type: Sprite
+      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      layers:
+        - state: 140mm
+    - type: Appearance
+    - type: CartridgeAmmo
+      deleteOnSpawn: true
+      proto: Bullet140mm

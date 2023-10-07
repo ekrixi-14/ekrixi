@@ -91,3 +91,34 @@ GeneratorUraniumMachineCircuitboard: PortableGeneratorSuperPacmanMachineCircuitb
 # ekrixi
 ChemMasterMachineCircuitboard: null
 chem_master: null
+GenericMissile: MissileSDM
+ShieldGenerator: null
+
+WeaponSiloFedSpawner: null
+WeaponNonSiloFedSpawner: null
+
+BaseWeaponLaser: null
+BaseWeaponLaserTierTwo: null
+BaseWeaponLaserTierThree: null
+WeaponBasicLaser: null
+WeaponDualLaser: null
+WeaponBurstLaserMkI: null
+WeaponBurstLaserMkII: null
+WeaponBurstLaserMkIII: null
+WeaponHeavyLaserMkI: null
+IncendiaryMissileSilo: null
+WeaponFlakGunMkI: null
+WeaponFlakGunMkII: null
+BaseWeaponSilo: null
+BaseWeaponSiloTierTwo: null
+BaseWeaponSiloTierThree: null
+BasicMissileSilo: null
+ArtemisMarkIWeaponSilo: null
+ArtemisMarkIIWeaponSilo: null
+SwarmMarkOneMissileSilo: null
+HoleMarkOneMissileSilo: null
+PunchMarkOneMissileSilo: null
+RailgunWeaponSilo: null
+SwarmMarkTwoMissileSilo: null
+HoleMarkTwoMissileSilo: null
+PunchMarkTwoMissileSilo: null

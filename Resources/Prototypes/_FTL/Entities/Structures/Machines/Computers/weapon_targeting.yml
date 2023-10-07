@@ -35,9 +35,9 @@
   placement:
     mode: SnapgridCenter
   components:
-    - type: WeaponTargeting
     - type: Transform
       anchored: true
+      noRot: true
     - type: InteractionOutline
     - type: Clickable
     - type: Sprite
@@ -55,7 +55,7 @@
     - type: ExtensionCableReceiver
     - type: ActivatableUIRequiresPower
     - type: ActivatableUI
-      key: enum.WeaponTargetingUiKey.Key
+      key: enum.ShipWeaponTargetingUiKey.Key
     - type: Destructible
       thresholds:
         - trigger:
@@ -77,8 +77,10 @@
               acts: [ "Destruction" ]
     - type: UserInterface
       interfaces:
-        - key: enum.WeaponTargetingUiKey.Key
-          type: WeaponTargetingBoundUserInterface
+        - key: enum.ShipWeaponTargetingUiKey.Key
+          type: GunnerConsoleBoundUserInterface
+    - type: RadarConsole
+    - type: GunnerConsole
     - type: DeviceNetwork
       deviceNetId: Wireless
       receiveFrequencyId: BasicDevice

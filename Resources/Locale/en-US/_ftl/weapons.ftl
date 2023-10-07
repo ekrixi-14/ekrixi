@@ -12,8 +12,3 @@ weapon-pad-message-scan-text = Sensor array ping. Hull: {$hull}/{$maxHull} | Shi
 weapon-popup-incorrect-ammo-message = BEEP! Incorrect ammunition type loaded. It has been safely discarded.
 weapon-popup-no-link-message = You need to link the pad!
 
-signal-port-name-weapons-output = Weapon Output Port
-signal-port-name-weapons-output-description = Link the output port to the input port here.
-
-signal-port-name-weapons-input = Weapon Input Port
-signal-port-name-weapons-input-description = Link the output port to the input port here.

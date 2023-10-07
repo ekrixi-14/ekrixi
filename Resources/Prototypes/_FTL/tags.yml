@@ -2,16 +2,37 @@
   id: Credit
 
 - type: Tag
-  id: FTLMissile
+  id: Cartridge20mm
 
 - type: Tag
-  id: FTLAmmoTierOne
+  id: Magazine20mm
 
 - type: Tag
-  id: FTLAmmoTierTwo
+  id: Cartridge53mm
 
 - type: Tag
-  id: FTLAmmoTierThree
+  id: Magazine53mm
+
+- type: Tag
+  id: Cartridge105mm
+
+- type: Tag
+  id: Magazine105mm
+
+- type: Tag
+  id: Cartridge140mm
+
+- type: Tag
+  id: Magazine140mm
+
+- type: Tag
+  id: Cartridge180mm
+
+- type: Tag
+  id: Magazine180mm
+
+- type: Tag
+  id: Missile
 
 - type: Tag
   id: WeaponPadElectronics

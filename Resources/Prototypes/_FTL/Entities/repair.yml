@@ -1,6 +1,0 @@
-- type: entity
-  id: RepairOnInitObject
-  parent: Wrench
-  noSpawn: true
-  components:
-    - type: RepairMainShipOnInit

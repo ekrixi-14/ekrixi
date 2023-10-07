@@ -407,30 +407,6 @@ entities:
     - pos: 1.5,1.5
       parent: 1
       type: Transform
-- proto: TierTwoMissile
-  entities:
-  - uid: 80
-    components:
-    - pos: 1.484436,1.7468497
-      parent: 1
-      type: Transform
-  - uid: 81
-    components:
-    - pos: 1.484436,1.6530997
-      parent: 1
-      type: Transform
-  - uid: 82
-    components:
-    - pos: 1.484436,1.5749747
-      parent: 1
-      type: Transform
-- proto: ToolboxElectrical
-  entities:
-  - uid: 90
-    components:
-    - pos: 1.515686,-3.5567844
-      parent: 1
-      type: Transform
 - proto: WallReinforced
   entities:
   - uid: 2

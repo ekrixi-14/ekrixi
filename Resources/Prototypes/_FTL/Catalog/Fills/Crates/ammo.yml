@@ -1,0 +1,35 @@
+- type: entity
+  id: Crate20mmAmmo
+  parent: CrateGenericSteel
+  components:
+    - type: StorageFill
+      contents:
+        - id: MagazineBox20mm
+          amount: 10
+
+- type: entity
+  id: Crate53mmAmmo
+  parent: CrateGenericSteel
+  components:
+    - type: StorageFill
+      contents:
+        - id: MagazineBox53mm
+          amount: 5
+
+- type: entity
+  id: Crate105mmAmmo
+  parent: CrateGenericSteel
+  components:
+    - type: StorageFill
+      contents:
+        - id: MagazineBox105mm
+          amount: 3
+
+- type: entity
+  id: Crate140mmAmmo
+  parent: CrateGenericSteel
+  components:
+    - type: StorageFill
+      contents:
+        - id: MagazineBox140mm
+          amount: 1

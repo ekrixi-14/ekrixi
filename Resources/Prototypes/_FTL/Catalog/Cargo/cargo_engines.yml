@@ -1,14 +1,4 @@
 - type: cargoProduct
-  id: ShieldGenerator
-  icon:
-    sprite: Structures/Power/Generation/portable_generator.rsi
-    state: portgen0
-  product: ShieldGenerator
-  cost: 6000
-  category: Engineering
-  group: market
-
-- type: cargoProduct
   id: GravityGenerator
   icon:
     sprite: Structures/Machines/gravity_generator_mini.rsi

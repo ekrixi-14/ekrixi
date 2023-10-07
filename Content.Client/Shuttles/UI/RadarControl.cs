@@ -55,7 +55,7 @@ public sealed class RadarControl : MapGridControl
     /// <summary>
     /// Raised if the user left-clicks on the radar control with the relevant entitycoordinates.
     /// </summary>
-    public Action<EntityCoordinates>? OnRadarClick;
+    public event Action<EntityCoordinates>? OnRadarClick;
 
     public RadarControl() : base(64f, 256f, 256f)
     {

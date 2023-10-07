@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "https://github.com/BeeStation/NSV13/blob/e486a252723a9b71546fe01836cae00d199cecdd/icons/obj/ammo.dmi and modified by Just-a-Unity-Dev",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+      {
+          "name": "20mm"
+      },
+      {
+          "name": "53mm"
+      },
+      {
+          "name": "105mm"
+      },
+      {
+          "name": "140mm"
+      },
+      {
+          "name": "sam"
+      },
+      {
+          "name": "sdm"
+      },
+      {
+          "name": "tad"
+      },
+      {
+          "name": "tnd"
+      }
+  ]
+}
