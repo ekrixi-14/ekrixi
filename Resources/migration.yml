@@ -94,6 +94,9 @@ chem_master: null
 GenericMissile: MissileSDM
 ShieldGenerator: null
 
+WeaponSiloFedSpawner: null
+WeaponNonSiloFedSpawner: null
+
 BaseWeaponLaser: null
 BaseWeaponLaserTierTwo: null
 BaseWeaponLaserTierThree: null
