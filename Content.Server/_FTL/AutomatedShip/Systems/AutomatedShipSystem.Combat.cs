@@ -2,7 +2,9 @@ using Content.Server._FTL.AutomatedShip.Components;
 using Content.Server._FTL.ShipTracker.Components;
 using Content.Server._FTL.ShipWeapons;
 using Content.Shared.DeviceLinking;
+using Content.Shared.Physics;
 using Content.Shared.Weapons.Ranged.Components;
+using Robust.Shared.Physics;
 using Robust.Shared.Random;
 
 namespace Content.Server._FTL.AutomatedShip.Systems;
@@ -27,6 +29,7 @@ public sealed partial class AutomatedShipSystem
     /// </summary>
     /// <param name="grid">Grid UID</param>
     /// <returns>A list of priority entities</returns>
+    // ReSharper disable once MemberCanBePrivate.Global
     public List<EntityUid> GetPriorityEntities(EntityUid grid)
     {
         var query = EntityQueryEnumerator<PriorityEntityComponent, TransformComponent>();
@@ -89,6 +92,28 @@ public sealed partial class AutomatedShipSystem
                 var angle = (prioTransform.Coordinates.ToMapPos(_entityManager, _transformSystem) - gunTransform.MapPosition.Position).ToWorldAngle();
                 shipWeaponComponent.DesiredAngle = angle;
                 shipWeaponComponent.Target = prioTransform.Coordinates;
+
+                // don't shoot if it will hit ourselves
+                var ray = new CollisionRay(gunTransform.MapPosition.Position, gunTransform.LocalRotation.ToWorldVec(), (int) (CollisionGroup.Impassable | CollisionGroup.BulletImpassable));
+                var results = _physics.IntersectRay(gunTransform.MapID, ray, 1000f, weaponEntity);
+                var aimHitFriendly = false;
+
+                foreach (var result in results)
+                {
+                    if (!result.HitEntity.IsValid())
+                        continue;
+                    var hitEntityXform = Transform(result.HitEntity);
+                    if (hitEntityXform.GridUid != gunTransform.GridUid)
+                        continue;
+                    Log.Info("a: " + hitEntityXform.GridUid.ToString());
+                    Log.Info("b: " + result.HitEntity.ToString());
+                    aimHitFriendly = true;
+                }
+
+                if (aimHitFriendly)
+                    continue;
+
+                // fire!
                 if (!_gunSystem.CanShoot(gunComponent))
                     continue;
 

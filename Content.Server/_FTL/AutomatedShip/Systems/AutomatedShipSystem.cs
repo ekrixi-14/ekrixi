@@ -17,6 +17,7 @@ public sealed partial class AutomatedShipSystem : EntitySystem
     [Dependency] private readonly MetaDataSystem _metaDataSystem = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly TransformSystem _transformSystem = default!;
+    [Dependency] private readonly PhysicsSystem _physics = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly GunSystem _gunSystem = default!;
 
@@ -41,6 +42,7 @@ public sealed partial class AutomatedShipSystem : EntitySystem
             : Loc.GetString("ship-state-tag-hostile")) + "] ";
 
         // has the tag
+        // really shitty way of doing this btw
         if (meta.EntityName.StartsWith("["))
         {
             _metaDataSystem.SetEntityName(uid, string.Concat(tag, meta.EntityName.Substring(7, meta.EntityName.Length - 7)));
