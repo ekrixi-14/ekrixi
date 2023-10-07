@@ -8,8 +8,6 @@
   placement:
     mode: SnapgridCenter
   components:
-  - type: PriorityEntity
-    priority: 2
   - type: AmbientSound
     range: 5
     sound:

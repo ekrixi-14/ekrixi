@@ -95,6 +95,8 @@
   parent: PortableGeneratorBase
   id: PortableGeneratorSwitchableBase
   components:
+    - type: PriorityEntity
+      priority: 2
     - type: PowerSwitchableGenerator
       switchSound:
         path: /Audio/Machines/button.ogg
