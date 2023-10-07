@@ -490,7 +490,7 @@
 - type: entity
   parent: BaseWall
   id: WallReinforced
-  name: reinforced wall
+  name: armor plating
   components:
   - type: Sprite
     sprite: Structures/Walls/solid.rsi
@@ -771,13 +771,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 600
+        damage: 4000
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
     - trigger:
         !type:DamageTrigger
-        damage: 300
+        damage: 3000
       behaviors:
       - !type:PlaySoundBehavior
         sound:
