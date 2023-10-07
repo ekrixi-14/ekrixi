@@ -15,7 +15,7 @@ entities:
   entities:
   - uid: 1
     components:
-    - name: 'Newton-Class Auto-Surveyor'
+    - name: '[NTRL] Newton-Class Auto-Surveyor'
       type: MetaData
     - pos: -0.53131104,-0.40631104
       parent: invalid
@@ -188,10 +188,6 @@ entities:
       type: GridAtmosphere
     - type: GasTileOverlay
     - faction: CoreGovShip
-      shieldCapacity: 0
-      shieldAmount: 0
-      hullCapacity: 15
-      hullAmount: 15
       type: ShipTracker
     - type: AutomatedShip
     - type: ActiveAutomatedShip
@@ -856,26 +852,6 @@ entities:
       pos: 1.5,17.5
       parent: 1
       type: Transform
-- proto: StationMapAssembly
-  entities:
-  - uid: 173
-    components:
-    - rot: 1.5707963267948966 rad
-      pos: 1.5,12.5
-      parent: 1
-      type: Transform
-- proto: StationMapBroken
-  entities:
-  - uid: 174
-    components:
-    - pos: -0.5,6.5
-      parent: 1
-      type: Transform
-  - uid: 175
-    components:
-    - pos: 1.5,6.5
-      parent: 1
-      type: Transform
 - proto: StorageCanister
   entities:
   - uid: 156
@@ -1288,20 +1264,72 @@ entities:
       pos: -0.5,12.5
       parent: 1
       type: Transform
-- proto: WeaponNonSiloFedSpawner
+- proto: Weapon20mm
   entities:
+  - uid: 134
+    components:
+    - flags: SessionSpecific
+      type: MetaData
+    - pos: 3.5,11.5
+      parent: 1
+      type: Transform
+    - links:
+      - 133
+      type: DeviceLinkSink
+  - uid: 135
+    components:
+    - flags: SessionSpecific
+      type: MetaData
+    - pos: 3.5,6.5
+      parent: 1
+      type: Transform
+    - links:
+      - 133
+      type: DeviceLinkSink
   - uid: 148
     components:
-    - rot: -1.5707963267948966 rad
-      pos: -2.5,9.5
+    - flags: SessionSpecific
+      type: MetaData
+    - pos: -2.5,11.5
       parent: 1
       type: Transform
+    - links:
+      - 132
+      type: DeviceLinkSink
   - uid: 149
     components:
-    - rot: -1.5707963267948966 rad
-      pos: 3.5,9.5
+    - flags: SessionSpecific
+      type: MetaData
+    - pos: -2.5,6.5
       parent: 1
       type: Transform
+    - links:
+      - 132
+      type: DeviceLinkSink
+- proto: WeaponTargetingPad
+  entities:
+  - uid: 132
+    components:
+    - pos: -3.5,9.5
+      parent: 1
+      type: Transform
+    - linkedPorts:
+        148:
+        - WeaponOutputPort: WeaponInputPort
+        149:
+        - WeaponOutputPort: WeaponInputPort
+      type: DeviceLinkSource
+  - uid: 133
+    components:
+    - pos: 4.5,9.5
+      parent: 1
+      type: Transform
+    - linkedPorts:
+        135:
+        - WeaponOutputPort: WeaponInputPort
+        134:
+        - WeaponOutputPort: WeaponInputPort
+      type: DeviceLinkSource
 - proto: WeaponTurretHostile
   entities:
   - uid: 130
@@ -1318,38 +1346,6 @@ entities:
       type: MetaData
     - rot: 3.141592653589793 rad
       pos: 2.5,18.5
-      parent: 1
-      type: Transform
-  - uid: 132
-    components:
-    - flags: SessionSpecific
-      type: MetaData
-    - rot: 3.141592653589793 rad
-      pos: 3.5,11.5
-      parent: 1
-      type: Transform
-  - uid: 133
-    components:
-    - flags: SessionSpecific
-      type: MetaData
-    - rot: 3.141592653589793 rad
-      pos: -2.5,11.5
-      parent: 1
-      type: Transform
-  - uid: 134
-    components:
-    - flags: SessionSpecific
-      type: MetaData
-    - rot: 3.141592653589793 rad
-      pos: 3.5,6.5
-      parent: 1
-      type: Transform
-  - uid: 135
-    components:
-    - flags: SessionSpecific
-      type: MetaData
-    - rot: 3.141592653589793 rad
-      pos: -2.5,6.5
       parent: 1
       type: Transform
   - uid: 136
