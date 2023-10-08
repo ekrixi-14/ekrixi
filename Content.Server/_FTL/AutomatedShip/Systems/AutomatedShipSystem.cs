@@ -63,6 +63,9 @@ public sealed partial class AutomatedShipSystem : EntitySystem
         var query = EntityQueryEnumerator<AutomatedShipComponent, TransformComponent, ShipTrackerComponent>();
         while (query.MoveNext(out var entity, out var aiComponent, out var xform, out var aiTrackerComponent))
         {
+            if (aiTrackerComponent.Destroyed)
+                continue;
+        
             // makes sure it's on the same map, not the same grid, and is hostile
             Log.Info("Retargeting");
 

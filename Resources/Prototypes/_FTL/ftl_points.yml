@@ -11,11 +11,11 @@
   effects:
     - !type:SpawnMapEffect
       mapPaths:
-        - /Maps/_FTL/hostile-escape-pod.yml
-        - /Maps/_FTL/easy-drone.yml
-        - /Maps/_FTL/tough-drone.yml
-        - /Maps/_FTL/pod.yml
-        - /Maps/_FTL/orb.yml
+        - /Maps/_FTL/ancient/easy-drone.yml
+        - /Maps/_FTL/ancient/tough-drone.yml
+        - /Maps/_FTL/independent/orb.yml
+        - /Maps/_FTL/independent/pod.yml
+        - /Maps/_FTL/independent/hostile-escape-pod.yml
 
 - type: ftlPoint
   id: HiDangerPoint
@@ -24,12 +24,12 @@
   effects:
     - !type:SpawnMapEffect
       mapPaths:
-        - /Maps/_FTL/hostile-escape-pod.yml
-        - /Maps/_FTL/incsek-bomber.yml
-        - /Maps/_FTL/easy-drone.yml
-        - /Maps/_FTL/tough-drone.yml
-        - /Maps/_FTL/cargo-vessel.yml
-        - /Maps/_FTL/rod.yml
+        - /Maps/_FTL/ancient/easy-drone.yml
+        - /Maps/_FTL/ancient/tough-drone.yml
+        - /Maps/_FTL/incsek/bomber.yml
+        - /Maps/_FTL/independent/cargo-vessel.yml
+        - /Maps/_FTL/independent/rod.yml
+        - /Maps/_FTL/independent/hostile-escape-pod.yml
 
 - type: ftlPoint
   id: ConfDangerPoint
@@ -37,13 +37,13 @@
   effects:
     - !type:SpawnMapEffect
       mapPaths:
-        - /Maps/_FTL/hostile-escape-pod.yml
-        - /Maps/_FTL/incsek-bomber.yml
-        - /Maps/_FTL/cargo-vessel.yml
-        - /Maps/_FTL/tough-drone.yml
-        - /Maps/_FTL/fsc-fighter.yml
-        - /Maps/_FTL/rod.yml
-        - /Maps/_FTL/coregov-retribution.yml
+        - /Maps/_FTL/ancient/tough-drone.yml
+        - /Maps/_FTL/coregov/retribution.yml
+        - /Maps/_FTL/incsek/bomber.yml
+        - /Maps/_FTL/independent/cargo-vessel.yml
+        - /Maps/_FTL/independent/hostile-escape-pod.yml
+        - /Maps/_FTL/independent/rod.yml
+        - /Maps/_FTL/fsc/fighter.yml
 
 - type: ftlPoint
   id: PlanetPoint

@@ -21,4 +21,16 @@ public sealed partial class ShipTrackerComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
     public bool Destroyed = false;
+
+    /// <summary>
+    /// How many seconds has the ship lost piloting?
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
+    public float SecondsWithoutPiloting = 0;
+
+    /// <summary>
+    /// The number that SecondsWithoutPiloting must exceed for Destroyed to be set to true
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
+    public float CallDestroyedSeconds = 10;
 }

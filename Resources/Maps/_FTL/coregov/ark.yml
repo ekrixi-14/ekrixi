@@ -18,7 +18,7 @@ entities:
   entities:
   - uid: 1
     components:
-    - name: 'CG Ark-Class Prisoner Transport'
+    - name: '[NTRL] CG Ark-Class Prisoner Transport'
       type: MetaData
     - pos: -0.53131104,-0.40631104
       parent: invalid
@@ -180,10 +180,6 @@ entities:
       type: GridAtmosphere
     - type: GasTileOverlay
     - faction: CoreGovShip
-      shieldCapacity: 0
-      shieldAmount: 0
-      hullCapacity: 10
-      hullAmount: 10
       type: ShipTracker
     - type: AutomatedShip
     - type: ActiveAutomatedShip
@@ -766,13 +762,6 @@ entities:
     - pos: 2.5,-1.5
       parent: 1
       type: Transform
-- proto: ShieldGenerator
-  entities:
-  - uid: 95
-    components:
-    - pos: -0.5,1.5
-      parent: 1
-      type: Transform
 - proto: SignPrison
   entities:
   - uid: 134
@@ -830,18 +819,6 @@ entities:
   - uid: 7
     components:
     - pos: 0.5,10.5
-      parent: 1
-      type: Transform
-- proto: WallmountTelescreenFrame
-  entities:
-  - uid: 100
-    components:
-    - pos: 1.5,5.5
-      parent: 1
-      type: Transform
-  - uid: 101
-    components:
-    - pos: -0.5,5.5
       parent: 1
       type: Transform
 - proto: WallSolid
@@ -1130,20 +1107,28 @@ entities:
       pos: 1.5,9.5
       parent: 1
       type: Transform
-- proto: WeaponNonSiloFedSpawner
+- proto: Weapon20mm
   entities:
   - uid: 29
     components:
-    - rot: 3.141592653589793 rad
-      pos: 0.5,6.5
+    - flags: SessionSpecific
+      type: MetaData
+    - pos: -1.5,7.5
       parent: 1
       type: Transform
-  - uid: 107
+    - links:
+      - 100
+      type: DeviceLinkSink
+  - uid: 95
     components:
-    - rot: 3.141592653589793 rad
-      pos: 0.5,8.5
+    - flags: SessionSpecific
+      type: MetaData
+    - pos: 2.5,7.5
       parent: 1
       type: Transform
+    - links:
+      - 101
+      type: DeviceLinkSink
 - proto: WeaponShotgunEnforcer
   entities:
   - uid: 159
@@ -1151,22 +1136,24 @@ entities:
     - pos: 0.45318604,3.6026926
       parent: 1
       type: Transform
-- proto: WeaponTurretHostile
+- proto: WeaponTargetingPad
   entities:
-  - uid: 121
+  - uid: 100
     components:
-    - flags: SessionSpecific
-      type: MetaData
-    - rot: 1.5707963267948966 rad
-      pos: 2.5,7.5
+    - pos: -0.5,5.5
       parent: 1
       type: Transform
-  - uid: 122
+    - linkedPorts:
+        29:
+        - WeaponOutputPort: WeaponInputPort
+      type: DeviceLinkSource
+  - uid: 101
     components:
-    - flags: SessionSpecific
-      type: MetaData
-    - rot: 1.5707963267948966 rad
-      pos: -1.5,7.5
+    - pos: 1.5,5.5
       parent: 1
       type: Transform
+    - linkedPorts:
+        95:
+        - WeaponOutputPort: WeaponInputPort
+      type: DeviceLinkSource
 ...
