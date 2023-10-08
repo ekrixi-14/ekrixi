@@ -738,7 +738,7 @@ entities:
     - pos: -0.5,4.5
       parent: 1
       type: Transform
-- proto: Weapon53mm
+- proto: Weapon20mm
   entities:
   - uid: 102
     components:
