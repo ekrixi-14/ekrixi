@@ -1,0 +1,8 @@
+- type: job
+  id: CommandWhitelist # cause SOME idiot prefixed it with Job :HECK:
+  name: job-name-cw
+  playTimeTracker: JobEkrixiCommandWhitelist
+  startingGear: CaptainGear
+  icon: "JobIconCaptain"
+  supervisors: job-supervisors-captain
+  setPreference: false

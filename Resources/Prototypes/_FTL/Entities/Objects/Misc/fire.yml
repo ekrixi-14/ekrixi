@@ -75,11 +75,6 @@
       sprintSpeedModifier: 0.5
     - type: EdgeSpreader
       id: Fire
-    - type: NodeContainer
-      nodes:
-        kudzu:
-          !type:SpreaderNode
-          nodeGroupID: Spreader
     - type: SolutionContainerManager
       solutions:
         food:
