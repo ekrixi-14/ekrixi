@@ -2,8 +2,8 @@
   id: Nesasio
   mapName: 'Nesasio'
   mapPath: /Maps/_FTL/fsc/nesasio.yml
-  minPlayers: 0
-  maxPlayers: 6
+  minPlayers: 4
+  maxPlayers: 11
   stations:
     PaperPlane:
       stationProto: StandardIndependentShip
