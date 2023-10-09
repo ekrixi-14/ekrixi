@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -64,7 +64,8 @@ namespace Content.IntegrationTests.Tests
             "MeteorArena",
             "Kestrel",
             "PaperPlane",
-            "TradeStation"
+            "TradeStation",
+            "Nesasio"
         };
 
         /// <summary>
