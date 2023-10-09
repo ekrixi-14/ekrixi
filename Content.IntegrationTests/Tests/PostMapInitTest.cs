@@ -65,7 +65,8 @@ namespace Content.IntegrationTests.Tests
             "MeteorArena",
             "Kestrel",
             "PaperPlane",
-            "TradeStation"
+            "TradeStation",
+            "Nesasio"
         };
 
         /// <summary>
