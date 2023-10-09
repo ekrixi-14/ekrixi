@@ -426,6 +426,7 @@ entities:
             0: 65535
           -3,-7:
             0: 34952
+            1: 1094
           -3,-6:
             0: 2184
           -2,-8:
@@ -464,6 +465,7 @@ entities:
             0: 65535
           2,-7:
             0: 13107
+            1: 1100
           2,-6:
             0: 4915
           3,-8:
@@ -526,10 +528,27 @@ entities:
           - 0
           - 0
           - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
         chunkSize: 4
       type: GridAtmosphere
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - id: Nesasio
+      type: BecomesStation
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 564
