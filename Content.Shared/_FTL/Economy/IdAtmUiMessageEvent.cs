@@ -7,11 +7,9 @@ public sealed class IdAtmUiMessageEvent : BoundUserInterfaceMessage
 {
     public readonly IdAtmUiAction Action;
     public readonly int Amount;
-    public readonly EntityUid Entity;
 
-    public IdAtmUiMessageEvent(EntityUid entity, IdAtmUiAction action, int amount)
+    public IdAtmUiMessageEvent(IdAtmUiAction action, int amount)
     {
-        Entity = entity;
         Action = action;
         Amount = amount;
     }

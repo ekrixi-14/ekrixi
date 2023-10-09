@@ -14,12 +14,14 @@ public sealed partial class PowerControlWindow : FancyWindow
 {
     private readonly ButtonGroup _buttonGroup = new();
     private readonly PowerControlBoundUserInterface _owner;
+    private readonly IEntityManager _entityManager;
 
     public PowerControlWindow(PowerControlBoundUserInterface ui, EntityUid entity)
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
         Title = Loc.GetString("power-control-computer-title");
+        _entityManager = IoCManager.Resolve<IEntityManager>();
         _owner = ui;
     }
 
@@ -28,7 +30,7 @@ public sealed partial class PowerControlWindow : FancyWindow
         Apcs.RemoveAllChildren();
         foreach (var area in state.Areas)
         {
-            var button = new Button()
+            var button = new Button
             {
                 Text = Loc.GetString("power-control-computer-button-text", ("enabled", area.Enabled), ("name", area.Name))
             };

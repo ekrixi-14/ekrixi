@@ -18,7 +18,6 @@
       drawdepth: Overdoors
       netsync: false
     - type: Appearance
-    #- type: KudzuVisuals
     - type: Clickable
     - type: Transform
       anchored: true
@@ -75,11 +74,7 @@
       walkSpeedModifier: 0.75
       sprintSpeedModifier: 0.5
     - type: EdgeSpreader
-    - type: NodeContainer
-      nodes:
-        kudzu:
-          !type:SpreaderNode
-          nodeGroupID: Spreader
+      id: Fire
     - type: SolutionContainerManager
       solutions:
         food:

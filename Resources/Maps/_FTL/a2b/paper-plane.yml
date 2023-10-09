@@ -4155,8 +4155,7 @@ entities:
   entities:
   - uid: 370
     components:
-    - rot: 1.5707963267948966 rad
-      pos: -1.5,11.5
+    - pos: -1.5,11.5
       parent: 2
       type: Transform
     - linkedPorts:
@@ -4165,8 +4164,7 @@ entities:
       type: DeviceLinkSource
   - uid: 371
     components:
-    - rot: -1.5707963267948966 rad
-      pos: 2.5,11.5
+    - pos: 2.5,11.5
       parent: 2
       type: Transform
     - linkedPorts:

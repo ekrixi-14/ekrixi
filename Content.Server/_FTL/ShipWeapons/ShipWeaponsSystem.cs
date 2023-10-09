@@ -90,9 +90,9 @@ public sealed class ShipWeaponsSystem : SharedShipWeaponsSystem
                 var entityXform = Transform(entity);
 
                 // i didnt even need to use trig for this fml
-                var angle = (args.Coordinates.ToMapPos(_entityManager, _transformSystem) - entityXform.MapPosition.Position).ToWorldAngle();
+                var angle = (_entityManager.GetCoordinates(args.Coordinates).ToMapPos(_entityManager, _transformSystem) - entityXform.MapPosition.Position).ToWorldAngle();
                 shipWeaponComponent.DesiredAngle = angle;
-                shipWeaponComponent.Target = args.Coordinates;
+                shipWeaponComponent.Target = _entityManager.GetCoordinates(args.Coordinates);
             }
         }
     }
@@ -130,7 +130,7 @@ public sealed class ShipWeaponsSystem : SharedShipWeaponsSystem
                 foreach (var entity in outputs)
                 {
                     var gunTransform = Transform(entity);
-                    weapons.Add(new DockingInterfaceState { Angle = gunTransform.LocalRotation, Coordinates = gunTransform.Coordinates, Entity = entity, Color = Color.Red });
+                    weapons.Add(new DockingInterfaceState { Angle = gunTransform.LocalRotation, Coordinates = _entityManager.GetNetCoordinates(gunTransform.Coordinates), Entity = _entityManager.GetNetEntity(entity), Color = Color.Red });
 
                     // we cant really do ammo count if it has no guns, so...
                     if (!TryComp<GunComponent>(entity, out _))
@@ -146,7 +146,7 @@ public sealed class ShipWeaponsSystem : SharedShipWeaponsSystem
         }
 
         var range = radar?.MaxRange ?? SharedRadarConsoleSystem.DefaultMaxRange;
-        var state = new GunnerConsoleBoundInterfaceState(remainingAmmo, totalAmmo, range, weapons, consoleTransform.Coordinates, consoleTransform.LocalRotation);
+        var state = new GunnerConsoleBoundInterfaceState(remainingAmmo, totalAmmo, range, weapons, _entityManager.GetNetCoordinates(consoleTransform.Coordinates), consoleTransform.LocalRotation);
         _userInterface.TrySetUiState(uid, ShipWeaponTargetingUiKey.Key, state);
     }
 

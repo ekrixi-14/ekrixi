@@ -16,7 +16,7 @@ public sealed class GunnerConsoleBoundInterfaceState : RadarConsoleBoundInterfac
         int maxAmmo,
         float maxRange,
         List<DockingInterfaceState> weapons,
-        EntityCoordinates? coordinates,
+        NetCoordinates? coordinates,
         Angle? angle) : base(maxRange, coordinates, angle, new List<DockingInterfaceState>())
     {
         CurrentAmmo = currentAmmo;

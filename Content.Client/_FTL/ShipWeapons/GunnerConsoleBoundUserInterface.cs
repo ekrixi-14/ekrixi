@@ -9,9 +9,11 @@ public sealed class GunnerConsoleBoundUserInterface : BoundUserInterface
 {
     [ViewVariables]
     private GunnerConsoleWindow? _window;
+    private readonly IEntityManager _entityManager;
 
     public GunnerConsoleBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
+        _entityManager = IoCManager.Resolve<IEntityManager>();
     }
 
     protected override void Open()
@@ -22,7 +24,7 @@ public sealed class GunnerConsoleBoundUserInterface : BoundUserInterface
         _window.OnClose += OnClose;
         _window.OnRadarClick += args =>
         {
-            var msg = new RotateWeaponSendMessage(args);
+            var msg = new RotateWeaponSendMessage(_entityManager.GetNetCoordinates(args));
             SendMessage(msg);
         };
         _window.OnFireClick += () =>
@@ -58,7 +60,7 @@ public sealed class GunnerConsoleBoundUserInterface : BoundUserInterface
         if (state is not GunnerConsoleBoundInterfaceState cState)
             return;
 
-        _window?.SetMatrix(cState.Coordinates, cState.Angle);
+        _window?.SetMatrix(_entityManager.GetCoordinates(cState.Coordinates), cState.Angle);
         _window?.UpdateState(cState);
     }
 }

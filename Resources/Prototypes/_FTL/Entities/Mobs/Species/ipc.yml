@@ -1,7 +1,7 @@
 - type: entity
   save: false
   name: Urist McIPC
-  parent: BaseMobOrganic # TODO make metallic
+  parent: BaseMobSpeciesOrganic
   id: BaseMobIPC
   abstract: true
   components:

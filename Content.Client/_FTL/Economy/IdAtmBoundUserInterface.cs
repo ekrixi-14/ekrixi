@@ -1,10 +1,5 @@
-using Content.Client.UserInterface.Controls;
-using Content.Client.UserInterface.Fragments;
 using Content.Shared._FTL.Economy;
-using Content.Shared.CartridgeLoader;
 using JetBrains.Annotations;
-using Robust.Client.GameObjects;
-using Robust.Client.UserInterface;
 
 namespace Content.Client._FTL.Economy;
 
@@ -59,7 +54,7 @@ public sealed class IdAtmBoundUserInterface : BoundUserInterface
         _window.SetDisabledWithdrawButton(pdaState.Bank == 0);
         _window.SetDisabledDepositButton(pdaState.Cash == 0);
 
-        var windowState = PdaAtmUiWindow.CurrentUIScreen.NoID;
+        var windowState = PdaAtmUiWindow.CurrentUIScreen.NoId;
 
         if (pdaState.IdCardIn)
         {
@@ -94,7 +89,7 @@ public sealed class IdAtmBoundUserInterface : BoundUserInterface
             if (amount == 0)
                 return;
         }
-        var message = new IdAtmUiMessageEvent(Owner, action, amount);
+        var message = new IdAtmUiMessageEvent(action, amount);
         SendMessage(message);
     }
 }

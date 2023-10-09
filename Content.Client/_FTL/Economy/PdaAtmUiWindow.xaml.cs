@@ -112,28 +112,14 @@ public sealed partial class PdaAtmUiWindow : FancyWindow
         CancelDeposit.AddStyleClass("ButtonColorRed");
 
         // change pin screen
-        CPinEdit.IsValid += text =>
-        {
-            if (int.TryParse(text, out _))
-            {
-                return true;
-            }
-            return false;
-        };
+        CPinEdit.IsValid += text => int.TryParse(text, out _);
         CPinEdit.OnTextChanged += text =>
         {
             CPinChange.Disabled = text.Text.Length != 4;
         };
 
         // lock screen
-        PinEdit.IsValid += text =>
-        {
-            if (int.TryParse(text, out _))
-            {
-                return true;
-            }
-            return false;
-        };
+        PinEdit.IsValid += text => int.TryParse(text, out _);
         PinEdit.OnTextChanged += text =>
         {
             RequestUnlock.Disabled = text.Text.Length != 4;
@@ -170,6 +156,7 @@ public sealed partial class PdaAtmUiWindow : FancyWindow
                 PinScreen.Visible = false;
                 WithIdCard.Visible = true;
                 break;
+            case CurrentUIScreen.NoId:
             default:
                 NoIdCard.Visible = true;
                 PinScreen.Visible = false;
@@ -185,7 +172,7 @@ public sealed partial class PdaAtmUiWindow : FancyWindow
 
     public enum CurrentUIScreen
     {
-        NoID,
+        NoId,
         Locked,
         Transaction
     }

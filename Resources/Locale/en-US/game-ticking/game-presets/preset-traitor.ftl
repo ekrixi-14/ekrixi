@@ -1,30 +1,11 @@
-
 ## Traitor
 
-# Shown at the end of a round of Traitor
-traitor-round-end-result = {$traitorCount ->
-    [one] There was one traitor.
-    *[other] There were {$traitorCount} traitors.
-}
-
 traitor-round-end-codewords = The codewords were: [color=White]{$codewords}[/color]
+traitor-round-end-agent-name = traitor
+
+objective-issuer-syndicate = [color=#87cefa]The Syndicate[/color]
 
 # Shown at the end of a round of Traitor
-traitor-user-was-a-traitor = [color=gray]{$user}[/color] was a traitor.
-traitor-user-was-a-traitor-named = [color=White]{$name}[/color] ([color=gray]{$user}[/color]) was a traitor.
-traitor-was-a-traitor-named = [color=White]{$name}[/color] was a traitor.
-
-traitor-user-was-a-traitor-with-objectives = [color=gray]{$user}[/color] was a traitor who had the following objectives:
-traitor-user-was-a-traitor-with-objectives-named = [color=White]{$name}[/color] ([color=gray]{$user}[/color]) was a traitor who had the following objectives:
-traitor-was-a-traitor-with-objectives-named = [color=White]{$name}[/color] was a traitor who had the following objectives:
-
-preset-traitor-objective-issuer-syndicate = [color=#87cefa]The Company[/color]
-
-# Shown at the end of a round of Traitor
-traitor-objective-condition-success = {$condition} | [color={$markupColor}]Success![/color]
-
-# Shown at the end of a round of Traitor
-traitor-objective-condition-fail = {$condition} | [color={$markupColor}]Failure![/color] ({$progress}%)
 
 traitor-title = Traitor
 traitor-description = There are traitors among us...
@@ -45,7 +26,7 @@ traitor-role-greeting =
     You are a traitor.
     Your objectives and codewords are listed in the character menu.
     Use the uplink loaded into your PDA to buy the tools you'll need for this mission.
-    Death to CoreGov!
+    Death to this vessel!
 traitor-role-codewords =
     The codewords are:
     {$codewords}.

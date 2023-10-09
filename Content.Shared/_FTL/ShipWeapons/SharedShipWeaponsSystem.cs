@@ -25,9 +25,9 @@ public enum ShipWeaponAction : byte
 [Serializable, NetSerializable]
 public sealed class RotateWeaponSendMessage : BoundUserInterfaceMessage
 {
-    public EntityCoordinates Coordinates;
+    public NetCoordinates Coordinates;
 
-    public RotateWeaponSendMessage(EntityCoordinates coordinates)
+    public RotateWeaponSendMessage(NetCoordinates coordinates)
     {
         Coordinates = coordinates;
     }

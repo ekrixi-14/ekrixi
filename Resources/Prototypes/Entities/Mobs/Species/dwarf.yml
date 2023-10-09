@@ -1,7 +1,7 @@
 - type: entity
   save: false
   name: Urist McHands The Dwarf
-  parent: BaseMobOrganic
+  parent: BaseMobSpeciesOrganic
   id: BaseMobDwarf
   abstract: true
   components:
@@ -27,6 +27,7 @@
   - type: Body
     prototype: Dwarf
     requiredLegs: 2
+  - type: Perishable
   - type: Butcherable
     butcheringType: Spike
     spawned:
@@ -54,15 +55,11 @@
     accent: dwarf
   - type: Speech
     speechSounds: Bass
-  - type: Perishable
 
 - type: entity
-  save: false
-  name: Urist McHands
-  parent: MobHumanDummy
+  parent: BaseSpeciesDummy
   id: MobDwarfDummy
   noSpawn: true
-  description: A dummy human meant to be used in character setup.
   components:
   - type: Sprite
     noRot: true

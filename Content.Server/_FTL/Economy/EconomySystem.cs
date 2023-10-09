@@ -121,10 +121,7 @@ public sealed class EconomySystem : SharedEconomySystem
                 amount = stackComponent.Count;
                 creditCardComponent.Balance += amount;
                 _itemSlotsSystem.TryEject(uid, component.MoneySlot, null, out var item);
-                if (item != null)
-                    QueueDel(item.Value);
-                else
-                    QueueDel(credits.Value);
+                QueueDel(item ?? credits.Value);
                 UpdateUserInterface(uid, component);
 
                 break;
@@ -158,7 +155,7 @@ public sealed class EconomySystem : SharedEconomySystem
 
         Log.Debug("id in:" + component.IdSlot.HasItem);
 
-        var state = new IdAtmUiState(name == null ? "John Doe" : name, bank, cash, component.IdSlot.HasItem, cardComponent?.Locked ?? false);
+        var state = new IdAtmUiState(name ?? "John Doe", bank, cash, component.IdSlot.HasItem, cardComponent?.Locked ?? false);
         _userInterfaceSystem.TrySetUiState(uid, IdAtmUiKey.Key, state);
     }
 
@@ -173,46 +170,6 @@ public sealed class EconomySystem : SharedEconomySystem
         _itemSlotsSystem.AddItemSlot(uid, component.MoneyContainerId, component.MoneySlot);
         _itemSlotsSystem.AddItemSlot(uid, component.IdContainerId, component.IdSlot);
     }
-
-    //
-    // private void UpdateUiState(EntityUid uid, EntityUid loaderUid, PdaAtmCartridgeComponent? component)
-    // {
-    //     if (!Resolve(uid, ref component))
-    //         return;
-    //
-    //     if (!TryComp<PdaComponent>(loaderUid, out var pda))
-    //         return;
-    //
-    //     var state = new PdaAtmUiState(false, 0, 0);
-    //
-    //     if (!TryComp<MoneyHolderComponent>(loaderUid, out var moneyHolderComponent))
-    //         return;
-    //
-    //     var pdaBalance = 0;
-    //
-    //     if (moneyHolderComponent.MoneySlot.Item.HasValue)
-    //     {
-    //         if (TryComp<StackComponent>(moneyHolderComponent.MoneySlot.Item.Value, out var stackComponent))
-    //             pdaBalance = stackComponent.Count;
-    //     }
-    //
-    //     if (pda.IdSlot.Item.HasValue)
-    //     {
-    //         if (TryComp<CreditCardComponent>(pda.IdSlot.Item, out var creditCardComponent))
-    //         {
-    //             state = new PdaAtmUiState(true, creditCardComponent.Balance, pdaBalance);
-    //         }
-    //     }
-    //
-    //     Logger.Debug(state.IdCardIn.ToString());
-    //
-    //     _cartridgeLoaderSystem.UpdateCartridgeUiState(loaderUid, state);
-    // }
-
-    // private void OnUiReady(EntityUid uid, PdaAtmCartridgeComponent component, CartridgeUiReadyEvent args)
-    // {
-    //     UpdateUiState(uid, args.Loader, component);
-    // }
 
     #region Outpost ATM
 
