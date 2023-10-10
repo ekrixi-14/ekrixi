@@ -25,8 +25,7 @@ public sealed partial class ShipTrackerSystem : SharedShipTrackerSystem
     [Dependency] private readonly AlertLevelSystem _alertLevelSystem = default!;
     [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
     [Dependency] private readonly TransformSystem _transformSystem = default!;
-    [Dependency] private readonly FTLPointsSystem _pointsSystem = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly FtlPointsSystem _pointsSystem = default!;
     [Dependency] private readonly ChatSystem _chatSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
@@ -54,11 +53,7 @@ public sealed partial class ShipTrackerSystem : SharedShipTrackerSystem
 
     private void OnFTLCompletedEvent(EntityUid uid, ShipTrackerComponent component, ref FTLCompletedEvent args)
     {
-        RemComp<DisposalFTLPointComponent>(args.MapUid);
-
         var mapId = Transform(args.MapUid).MapID;
-        _mapManager.DoMapInitialize(mapId);
-
         var amount = EntityQuery<AutomatedShipComponent>().Select(x => Transform(x.Owner).MapID == mapId).Count();
         if (amount > 0)
         {
@@ -70,7 +65,7 @@ public sealed partial class ShipTrackerSystem : SharedShipTrackerSystem
             _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("ship-ftl-jump-arrival-message"),
                 colorOverride: Color.Gold);
         }
-        _pointsSystem.RegeneratePoints();
+        _pointsSystem.GenerateSector(10, 30);
     }
 
     public bool TryFindRandomTile(EntityUid targetGrid, out Vector2i tile, out EntityCoordinates targetCoords)

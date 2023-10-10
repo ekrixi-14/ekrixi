@@ -9,17 +9,11 @@ using Robust.Shared.Map;
 namespace Content.Server._FTL.FTLPoints.Systems;
 
 /// <summary>
-/// This handles managing the starmap singleton, such as getting stars in range, and other stuff.
+/// This handles managing the star map singleton, such as getting stars in range, and other stuff.
 /// </summary>
-public sealed partial class FTLPointsSystem
+public sealed partial class FtlPointsSystem
 {
     [Dependency] private readonly PvsOverrideSystem _pvs = default!;
-
-    /// <inheritdoc/>
-    public override void Initialize()
-    {
-        SubscribeLocalEvent<StarMapComponent, ComponentStartup>(OnInit);
-    }
 
     private void OnInit(EntityUid uid, StarMapComponent component, ComponentStartup args)
     {

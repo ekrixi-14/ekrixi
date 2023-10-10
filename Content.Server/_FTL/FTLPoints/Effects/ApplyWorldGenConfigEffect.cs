@@ -13,12 +13,12 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 namespace Content.Server._FTL.FTLPoints.Effects;
 
 [DataDefinition]
-public sealed partial class ApplyWorldGenConfigEffect : FTLPointEffect
+public sealed partial class ApplyWorldGenConfigEffect : FtlPointEffect
 {
     [DataField("config", customTypeSerializer:typeof(PrototypeIdSerializer<WorldgenConfigPrototype>))]
     public string ConfigPrototype = "Default";
 
-    public override void Effect(FTLPointEffectArgs args)
+    public override void Effect(FtlPointEffectArgs args)
     {
         var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
         var ser = IoCManager.Resolve<ISerializationManager>();

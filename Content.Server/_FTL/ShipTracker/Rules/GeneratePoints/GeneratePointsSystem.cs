@@ -12,7 +12,7 @@ namespace Content.Server._FTL.ShipTracker.Rules.GeneratePoints;
 public sealed class GeneratePointsSystem : GameRuleSystem<GeneratePointsComponent>
 {
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;
-    [Dependency] private readonly FTLPointsSystem _pointsSystem = default!;
+    [Dependency] private readonly FtlPointsSystem _pointsSystem = default!;
 
     public override void Initialize()
     {
@@ -24,7 +24,7 @@ public sealed class GeneratePointsSystem : GameRuleSystem<GeneratePointsComponen
     {
         if (_configurationManager.GetCVar(CCVars.GenerateFTLPointsRoundstart))
         {
-            _pointsSystem.RegeneratePoints();
+            _pointsSystem.GenerateSector(10, 30);
         }
     }
 }

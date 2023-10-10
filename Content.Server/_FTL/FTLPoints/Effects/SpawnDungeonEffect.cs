@@ -10,7 +10,7 @@ using Robust.Shared.Random;
 namespace Content.Server._FTL.FTLPoints.Effects;
 
 [DataDefinition]
-public sealed partial class SpawnDungeonEffect : FTLPointEffect
+public sealed partial class SpawnDungeonEffect : FtlPointEffect
 {
     [DataField("configPrototypes")]
     public List<string> ConfigPrototypes { set; get; } = new List<string>()
@@ -23,7 +23,7 @@ public sealed partial class SpawnDungeonEffect : FTLPointEffect
     [DataField("maxSpawn")] public int MaxSpawn = 2;
     [DataField("range")] public int SpawnRange = 200;
 
-    public override void Effect(FTLPointEffectArgs args)
+    public override void Effect(FtlPointEffectArgs args)
     {
         var random = IoCManager.Resolve<IRobustRandom>();
         var amountToSpawn = random.Next(MinSpawn, MaxSpawn);

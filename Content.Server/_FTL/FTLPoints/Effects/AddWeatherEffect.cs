@@ -7,12 +7,12 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 namespace Content.Server._FTL.FTLPoints.Effects;
 
 [DataDefinition]
-public sealed partial class AddWeatherEffect : FTLPointEffect
+public sealed partial class AddWeatherEffect : FtlPointEffect
 {
     [DataField("weatherPrototypes", customTypeSerializer: typeof(PrototypeIdListSerializer<WeatherPrototype>))]
     public List<string> WeatherPrototypes { set; get; } = default!;
 
-    public override void Effect(FTLPointEffectArgs args)
+    public override void Effect(FtlPointEffectArgs args)
     {
         var random = IoCManager.Resolve<IRobustRandom>();
         var protoManager = IoCManager.Resolve<IPrototypeManager>();
