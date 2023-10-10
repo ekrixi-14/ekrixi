@@ -4,12 +4,14 @@ using Content.Server._FTL.FTLPoints.Effects;
 using Content.Server._FTL.FTLPoints.Prototypes;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
+using Content.Server.UserInterface;
 using Content.Shared._FTL.FtlPoints;
 using Content.Shared.Dataset;
 using Content.Shared.Parallax;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Salvage;
+using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -27,11 +29,13 @@ public sealed partial class FtlPointsSystem : SharedFtlPointsSystem
     [Dependency] private readonly MetaDataSystem _metaDataSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ShuttleConsoleSystem _consoleSystem = default!;
+    [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<StarMapComponent, ComponentStartup>(OnInit);
+        SubscribeLocalEvent<StarmapConsoleComponent, AfterActivatableUIOpenEvent>(OnToggleInterface);
     }
 
     public void GenerateSector(Vector2 starRange)
@@ -56,10 +60,10 @@ public sealed partial class FtlPointsSystem : SharedFtlPointsSystem
                 continue;
             var mapId = GeneratePoint(prototype);
             var mapUid = _mapManager.GetMapEntityId(mapId);
-            TryAddPoint(mapUid, new Vector2(
+            TryAddPoint(mapId, new Vector2(
                 _random.NextFloat(-10, 10),
                 _random.NextFloat(-10, 10)
-            ));
+            ), MetaData(mapUid).EntityName);
         }
 
         Log.Debug("Generated a brand new sector.");
@@ -118,7 +122,6 @@ public sealed partial class FtlPointsSystem : SharedFtlPointsSystem
                 effect.Effect(new FtlPointEffect.FtlPointEffectArgs(mapUid, mapId, _entManager, _mapManager));
             }
         }
-        _mapManager.DoMapInitialize(mapId);
 
         return mapId;
     }

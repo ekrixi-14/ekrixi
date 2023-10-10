@@ -118,7 +118,6 @@
     HiDangerPoint: 3
     NoDangerPoint: 1
     StarPoint: 1
-    PlanetPoint: 1
     StationPoint: 1
     MoonPoint: 0.25
     RuinPoint: 0.15
