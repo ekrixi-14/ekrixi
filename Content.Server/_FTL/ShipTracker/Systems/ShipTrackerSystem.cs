@@ -65,7 +65,6 @@ public sealed partial class ShipTrackerSystem : SharedShipTrackerSystem
             _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("ship-ftl-jump-arrival-message"),
                 colorOverride: Color.Gold);
         }
-        _pointsSystem.GenerateSector(10, 30);
     }
 
     public bool TryFindRandomTile(EntityUid targetGrid, out Vector2i tile, out EntityCoordinates targetCoords)
