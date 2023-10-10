@@ -65,9 +65,9 @@ public sealed partial class AutomatedShipSystem : EntitySystem
         {
             if (aiTrackerComponent.Destroyed)
                 continue;
-        
+
             // makes sure it's on the same map, not the same grid, and is hostile
-            Log.Info("Retargeting");
+            Log.Debug("Retargeting");
 
             var hostileShips = EntityQuery<ShipTrackerComponent>().Where(shipTrackerComponent =>
             {
@@ -85,13 +85,13 @@ public sealed partial class AutomatedShipSystem : EntitySystem
 
             if (hostileShips.Count <= 0)
                 continue;
-            Log.Info("Reset retarget");
+            Log.Debug("Reset retarget");
 
             var mainShip = _random.Pick(hostileShips).Owner;
             UpdateName(entity, aiComponent);
 
             // I seperated these into partial systems because I hate large line counts!!!
-            Log.Info("Determining best course");
+            Log.Debug("Determining best course");
             switch (aiComponent.AiState)
             {
                 case AutomatedShipComponent.AiStates.Cruising:
@@ -111,7 +111,7 @@ public sealed partial class AutomatedShipSystem : EntitySystem
                         Log.Debug("Lack of a hostile ship.");
                         break;
                     }
-                    Log.Info("Fihjying");
+                    Log.Debug("Fihjying");
                     PerformCombat(entity,
                         aiComponent,
                         aiTrackerComponent,
