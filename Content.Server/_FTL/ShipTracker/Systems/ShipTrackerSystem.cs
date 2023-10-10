@@ -8,6 +8,7 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
+using Content.Server.Station.Systems;
 using Content.Shared._FTL.ShipTracker;
 using Content.Shared.Pinpointer;
 using Robust.Server.GameObjects;
@@ -25,7 +26,7 @@ public sealed partial class ShipTrackerSystem : SharedShipTrackerSystem
     [Dependency] private readonly AlertLevelSystem _alertLevelSystem = default!;
     [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
     [Dependency] private readonly TransformSystem _transformSystem = default!;
-    [Dependency] private readonly FtlPointsSystem _pointsSystem = default!;
+    [Dependency] private readonly StationSystem _stationSystem = default!;
     [Dependency] private readonly ChatSystem _chatSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
@@ -54,11 +55,26 @@ public sealed partial class ShipTrackerSystem : SharedShipTrackerSystem
     private void OnFTLCompletedEvent(EntityUid uid, ShipTrackerComponent component, ref FTLCompletedEvent args)
     {
         var mapId = Transform(args.MapUid).MapID;
-        var amount = EntityQuery<AutomatedShipComponent>().Select(x => Transform(x.Owner).MapID == mapId).Count();
+        var amount = EntityQuery<AutomatedShipComponent, TransformComponent>().Select(
+            tuple => tuple.Item2.MapID == mapId
+        ).Count();
+        var hostile = EntityQuery<AutomatedShipComponent>().Select(x => x.AiState == AutomatedShipComponent.AiStates.Fighting).Count();
+
         if (amount > 0)
         {
-            _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("ship-inbound-message", ("amount", amount)));
-            _alertLevelSystem.SetLevel(args.Entity, "blue", true, true, true);
+            _chatSystem.DispatchGlobalAnnouncement(
+                Loc.GetString("ship-inbound-message",
+                    ("amount", amount),
+                    ("hostile", hostile > 0)
+                )
+            );
+
+            var station = _stationSystem.GetOwningStation(args.Entity);
+
+            if (!station.HasValue)
+                return;
+
+            _alertLevelSystem.SetLevel(station.Value, "blue", true, true, false);
         }
         else
         {

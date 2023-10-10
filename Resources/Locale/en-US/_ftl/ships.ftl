@@ -6,7 +6,10 @@ ship-destroyed-message = We are receiving no more inbound pings from {$ship}.
 ship-inbound-message = Alert! Sensor array output have detected {$amount ->
       [one] a ship
       *[other] {$amount} ships
-    } in the area. Hostility unknown. Automatically elevating to Blue alert.
+    } in the area. {$hostile ->
+      [true] Hostilities confirmed!
+      *[false] No hostile activity detected.
+    } Automatically elevating to Blue alert.
 
 ship-ftl-tag-star = STAR
 ship-ftl-tag-base = BASE
