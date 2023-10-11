@@ -54,11 +54,11 @@ public sealed partial class ShipTrackerSystem : SharedShipTrackerSystem
 
     private void OnFTLCompletedEvent(EntityUid uid, ShipTrackerComponent component, ref FTLCompletedEvent args)
     {
+        //wawawawa
+
         var mapId = Transform(args.MapUid).MapID;
-        var amount = EntityQuery<AutomatedShipComponent, TransformComponent>().Select(
-            tuple => tuple.Item2.MapID == mapId
-        ).Count();
-        var hostile = EntityQuery<AutomatedShipComponent>().Select(x => x.AiState == AutomatedShipComponent.AiStates.Fighting).Count();
+        var amount = EntityQuery<AutomatedShipComponent, TransformComponent>().Select(tuple => tuple.Item2.MapID == mapId).Count();
+        var hostile = EntityQuery<AutomatedShipComponent, TransformComponent>().Select(tuple => tuple.Item1.AiState == AutomatedShipComponent.AiStates.Fighting && tuple.Item2.MapID == mapId).Count();
 
         if (amount > 0)
         {

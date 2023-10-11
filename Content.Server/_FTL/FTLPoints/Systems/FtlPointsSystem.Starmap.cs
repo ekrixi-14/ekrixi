@@ -51,8 +51,6 @@ public sealed partial class FtlPointsSystem
 
         var xform = Transform(uid);
         Log.Info("Tried to get transform");
-        if (!xform.MapUid.HasValue)
-            return; // huh???
 
         var star = GetStarWithMapId(xform.MapID);
         Log.Info("Tried to find star");
@@ -61,6 +59,7 @@ public sealed partial class FtlPointsSystem
         Log.Info("Got star, sending state");
 
         var stars = GetStarsInRange(star.Value.Position, 30f);
+        stars.Insert(0, star.Value with {Position = Vector2.Zero});
         var state = new StarmapConsoleBoundUserInterfaceState(stars);
 
         _userInterface.TrySetUiState(uid, StarmapConsoleUiKey.Key, state);
@@ -68,6 +67,13 @@ public sealed partial class FtlPointsSystem
 
     #region Public API
 
+    /// <summary>
+    /// Returns stars in range, and their position's relative to the position.
+    /// </summary>
+    /// <param name="position"></param>
+    /// <param name="range"></param>
+    /// <param name="component"></param>
+    /// <returns></returns>
     [PublicAPI]
     public List<Star> GetStarsInRange(Vector2 position, float range, StarMapComponent? component = null)
     {
@@ -75,7 +81,16 @@ public sealed partial class FtlPointsSystem
         if (!TryGetStarMap(ref component))
             return list;
 
-        list.AddRange(component.StarMap.Where(star => Vector2.Distance(position, star.Position) <= range));
+        foreach (var star in component.StarMap)
+        {
+            if (Vector2.Distance(position, star.Position) <= range)
+            {
+                list.Add(star with
+                {
+                    Position = star.Position - position
+                });
+            }
+        }
 
         return list;
     }

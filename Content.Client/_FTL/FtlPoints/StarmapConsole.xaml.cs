@@ -14,7 +14,6 @@ public sealed partial class StarmapConsole : FancyWindow
     private readonly StarmapConsoleBoundUserInterface _owner;
     private IPrototypeManager _protoManager;
 
-    private const float Ppd = 10f;
 
     public StarmapConsole(StarmapConsoleBoundUserInterface owner, IPrototypeManager protoManager)
     {
@@ -34,22 +33,6 @@ public sealed partial class StarmapConsole : FancyWindow
 
     private void UpdateStars(List<Star> stars)
     {
-        Stars.RemoveAllChildren();
-        foreach (var star in stars)
-        {
-            var button = new Button
-            {
-                Text = star.Name,
-                MinSize = new Vector2(25, 25),
-                MaxSize = new Vector2(25, 25),
-            };
-            button.OnPressed += args => { };
-            Stars.AddChild(button);
-            LayoutContainer.SetPosition(button, (
-                    star.Position - new Vector2(25f / 2f, 25f / 2f) // center star
-                ) * Ppd
-            );
-            Logger.Info("added");
-        }
+        Stars.SetStars(stars);
     }
 }
