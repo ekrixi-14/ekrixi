@@ -88,6 +88,7 @@ entities:
     - gravityShakeSound: !type:SoundPathSpecifier
         path: /Audio/Effects/alert.ogg
       type: Gravity
+    - type: ShipTracker
     - chunkCollection:
         version: 2
         nodes:
