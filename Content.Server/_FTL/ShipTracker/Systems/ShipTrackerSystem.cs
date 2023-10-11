@@ -120,10 +120,7 @@ public sealed partial class ShipTrackerSystem : SharedShipTrackerSystem
 
             var active = EntityQuery<ShuttleConsoleComponent, TransformComponent>()
                 .Count(tuple => tuple.Item2.GridUid == entity);
-
-            Log.Info(entity.ToString());
-            Log.Info(active.ToString());
-
+                
             if (active > 0)
             {
                 // not destroyed, aka piloting is there
