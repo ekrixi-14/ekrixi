@@ -23,12 +23,13 @@ public sealed partial class StarmapConsole : FancyWindow
         _owner = owner;
 
         _protoManager = protoManager;
-        Title = Loc.GetString("es-computer-title");
+        Title = Loc.GetString("starmap-computer-title");
     }
 
     public void UpdateState(StarmapConsoleBoundUserInterfaceState state)
     {
         UpdateStars(state.Stars);
+        Stars.Range = state.Range;
     }
 
     private void UpdateStars(List<Star> stars)

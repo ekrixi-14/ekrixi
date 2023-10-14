@@ -58,9 +58,10 @@ public sealed partial class FtlPointsSystem
             return;
         Log.Info("Got star, sending state");
 
-        var stars = GetStarsInRange(star.Value.Position, 30f);
+        var range = 10f;
+        var stars = GetStarsInRange(star.Value.Position, 50f);
         stars.Insert(0, star.Value with {Position = Vector2.Zero});
-        var state = new StarmapConsoleBoundUserInterfaceState(stars);
+        var state = new StarmapConsoleBoundUserInterfaceState(stars, range);
 
         _userInterface.TrySetUiState(uid, StarmapConsoleUiKey.Key, state);
     }

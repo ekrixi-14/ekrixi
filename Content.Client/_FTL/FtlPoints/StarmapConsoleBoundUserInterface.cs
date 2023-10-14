@@ -37,7 +37,6 @@ public sealed class StarmapConsoleBoundUserInterface : BoundUserInterface
     protected override void UpdateState(BoundUserInterfaceState state)
     {
         base.UpdateState(state);
-        Logger.Info("a");
         var castState = (StarmapConsoleBoundUserInterfaceState) state;
         _window?.UpdateState(castState);
     }

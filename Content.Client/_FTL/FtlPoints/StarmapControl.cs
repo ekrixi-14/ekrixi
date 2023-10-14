@@ -1,6 +1,7 @@
 using System.Numerics;
 using Content.Shared._FTL.FtlPoints;
 using Robust.Client.Graphics;
+using Robust.Client.Input;
 using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
 
@@ -8,10 +9,13 @@ namespace Content.Client._FTL.FtlPoints;
 
 public sealed class StarmapControl : Control
 {
+    [Dependency] private readonly IInputManager _inputManager = default!;
+
+    public float Range = 1f;
+
     private List<Star> _stars = new List<Star>();
     private float _ppd = 15f;
 
-    private Vector2 _mousePos;
     private readonly Font _font;
     private int _stepSize = 1;
 
@@ -33,39 +37,62 @@ public sealed class StarmapControl : Control
         return Size / 2;
     }
 
+    private Vector2 GetMouseCoordinates()
+    {
+        return _inputManager.MouseScreenPosition.Position;
+    }
+
     protected override void MouseWheel(GUIMouseWheelEventArgs args)
     {
         base.MouseWheel(args);
 
-
-        if (args.Delta.Y > 0)
-            _ppd += _stepSize;
-        else if (args.Delta.Y < 0)
-            _ppd -= _stepSize;
+        switch (args.Delta.Y)
+        {
+            case > 0:
+                _ppd += _stepSize;
+                break;
+            case < 0:
+                _ppd -= _stepSize;
+                break;
+        }
     }
 
-    protected override void MouseMove(GUIMouseMoveEventArgs args)
+    private Vector2 GetPositionOfStar(Vector2 position)
     {
-        base.MouseMove(args);
-
-        _mousePos = args.GlobalPosition;
+        return CalculateOffset() + (position * _ppd);
     }
 
     protected override void Draw(DrawingHandleScreen handle)
     {
         base.Draw(handle);
-
-        var offset = CalculateOffset();
+        handle.DrawRect(new UIBox2(Vector2.Zero, Size), Color.Black);
 
         foreach (var star in _stars)
         {
-            var position = offset + (star.Position * _ppd);
+            var position = GetPositionOfStar(star.Position);
             var globalPosition = GlobalPosition + position;
             var radius = 5f;
-            handle.DrawCircle(position, radius, position == Vector2.Zero ? Color.Blue : Color.Red);
 
-            // TODO: show name on hover
-            handle.DrawString(_font, position + new Vector2(10, 0), star.Name);
+            // check if distance is smaller than radius of circle then BOOm
+            var hovered = Vector2.Distance(GetMouseCoordinates(), globalPosition) <= radius * 1.5;
+
+            if (hovered)
+            {
+                handle.DrawString(_font, position + new Vector2(10, 0), star.Name);
+                radius = 10f;
+            }
+
+            var color = Color.White;
+
+            if (Vector2.Distance(Vector2.Zero, position) >= Range)
+                color = Color.Red;
+
+            if (star.Position == Vector2.Zero)
+                color = Color.Blue;
+
+            handle.DrawCircle(position, radius, color);
         }
+
+        handle.DrawCircle(GetPositionOfStar(Vector2.Zero), Range * _ppd, Color.White, false);
     }
 }

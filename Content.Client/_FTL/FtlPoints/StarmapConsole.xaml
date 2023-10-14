@@ -4,17 +4,56 @@
                       xmlns:ftlPoints="clr-namespace:Content.Client._FTL.FtlPoints"
                       Resizable="False"
                       Name="StarmapComputer"
-                      SetSize="750 650"
-                      MinSize="750 650">
+                      SetSize="1000 650"
+                      MinSize="1000 650">
     <BoxContainer Orientation="Vertical" Margin="5 0 5 0">
-        <BoxContainer Margin="0 5 10 10" Orientation="Vertical">
+        <BoxContainer Margin="0 5 10 10" Orientation="Vertical" HorizontalAlignment="Left">
             <ftlPoints:StarmapControl Name="Stars"
-                              HorizontalExpand="True"
-                              VerticalExpand="True"
-                              MinSize="700 600"
-                              Margin="25 0 25 0">
-                <!-- Stars get added here by code -->
+                                      HorizontalExpand="True"
+                                      VerticalExpand="True"
+                                      MinSize="700 600"
+                                      MaxSize="700 600"
+                                      Margin="25 0 25 0">
             </ftlPoints:StarmapControl>
+        </BoxContainer>
+
+        <BoxContainer Margin="0 5 10 10" Orientation="Vertical" HorizontalAlignment="Right">
+            <controls:StripeBack>
+                <Label Name="GeneralDetailsLabel" Text="{Loc 'starmap-details-display-label'}" HorizontalAlignment="Center"/>
+            </controls:StripeBack>
+            <BoxContainer Name="GDReadonlyDisplay">
+                <GridContainer Columns="2"
+                               HorizontalAlignment="Stretch"
+                               VerticalAlignment="Top">
+                    <Label Text="{Loc 'starmap-star-details-current-star'}"/>
+                    <Label Name="CurrentStarName"
+                           Text="0.0"
+                           HorizontalAlignment="Right"/>
+                    <Label Text="{Loc 'starmap-star-details-spin-range'}"/>
+                    <Label Name="MaxSpinRange"
+                           Text="0.0"
+                           HorizontalAlignment="Right"/>
+                    <Label Text="{Loc 'starmap-star-details-crystal-integrity'}"/>
+                    <Label Name="CrystalIntegrity"
+                           Text="0.0"
+                           HorizontalAlignment="Right"/>
+                </GridContainer>
+            </BoxContainer>
+
+
+            <controls:StripeBack>
+                <Label Name="StarDetailsLabel" Text="{Loc 'starmap-details-display-label'}" HorizontalAlignment="Center"/>
+            </controls:StripeBack>
+            <BoxContainer Name="SDReadonlyDisplay">
+                <GridContainer Columns="2"
+                               HorizontalAlignment="Stretch"
+                               VerticalAlignment="Top">
+                    <Label Text="{Loc 'starmap-star-details-coordinates'}"/>
+                    <Label Name="Coordinates"
+                           Text="0.0"
+                           HorizontalAlignment="Right"/>
+                </GridContainer>
+            </BoxContainer>
         </BoxContainer>
     </BoxContainer>
 </controls:FancyWindow>

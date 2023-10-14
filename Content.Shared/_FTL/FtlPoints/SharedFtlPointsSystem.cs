@@ -19,10 +19,12 @@ public enum StarmapConsoleUiKey : byte
 public sealed class StarmapConsoleBoundUserInterfaceState : BoundUserInterfaceState
 {
     public List<Star> Stars;
+    public float Range;
 
-    public StarmapConsoleBoundUserInterfaceState(List<Star> stars)
+    public StarmapConsoleBoundUserInterfaceState(List<Star> stars, float range)
     {
         Stars = stars;
+        Range = range;
     }
 }
 
