@@ -4,20 +4,22 @@
                       xmlns:ftlPoints="clr-namespace:Content.Client._FTL.FtlPoints"
                       Resizable="False"
                       Name="StarmapComputer"
-                      SetSize="1000 650"
-                      MinSize="1000 650">
-    <BoxContainer Orientation="Vertical" Margin="5 0 5 0">
-        <BoxContainer Margin="0 5 10 10" Orientation="Vertical" HorizontalAlignment="Left">
+                      SetSize="1000 725"
+                      MinSize="1000 725">
+    <GridContainer Columns="2" Margin="5 0 5 0">
+        <BoxContainer Margin="0 0 5 0" Orientation="Vertical" HorizontalAlignment="Left">
             <ftlPoints:StarmapControl Name="Stars"
                                       HorizontalExpand="True"
                                       VerticalExpand="True"
-                                      MinSize="700 600"
-                                      MaxSize="700 600"
-                                      Margin="25 0 25 0">
+                                      MinSize="700 700"
+                                      MaxSize="700 700"
+                                      Margin="5 0 0 0">
             </ftlPoints:StarmapControl>
         </BoxContainer>
-
-        <BoxContainer Margin="0 5 10 10" Orientation="Vertical" HorizontalAlignment="Right">
+        <BoxContainer Orientation="Vertical"
+                      HorizontalAlignment="Right"
+                      MinWidth="256"
+                      MaxWidth="256">
             <controls:StripeBack>
                 <Label Name="GeneralDetailsLabel" Text="{Loc 'starmap-details-display-label'}" HorizontalAlignment="Center"/>
             </controls:StripeBack>
@@ -40,9 +42,8 @@
                 </GridContainer>
             </BoxContainer>
 
-
             <controls:StripeBack>
-                <Label Name="StarDetailsLabel" Text="{Loc 'starmap-details-display-label'}" HorizontalAlignment="Center"/>
+                <Label Name="StarDetailsLabel" Text="{Loc 'starmap-star-details-display-label'}" HorizontalAlignment="Center"/>
             </controls:StripeBack>
             <BoxContainer Name="SDReadonlyDisplay">
                 <GridContainer Columns="2"
@@ -55,5 +56,5 @@
                 </GridContainer>
             </BoxContainer>
         </BoxContainer>
-    </BoxContainer>
+    </GridContainer>
 </controls:FancyWindow>

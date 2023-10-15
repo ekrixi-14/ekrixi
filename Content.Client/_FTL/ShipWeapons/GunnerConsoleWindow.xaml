@@ -41,6 +41,7 @@
                            HorizontalAlignment="Right"/>
                 </GridContainer>
             </BoxContainer>
+            
             <controls:StripeBack>
                 <Label Name="GunControlLabel" Text="{Loc 'gunner-console-gun-control-label'}" HorizontalAlignment="Center"/>
             </controls:StripeBack>

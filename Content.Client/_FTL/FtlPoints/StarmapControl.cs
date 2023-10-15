@@ -14,10 +14,12 @@ public sealed class StarmapControl : Control
     public float Range = 1f;
 
     private List<Star> _stars = new List<Star>();
-    private float _ppd = 15f;
+    private const float Ppd = 15f;
 
     private readonly Font _font;
     private int _stepSize = 1;
+
+    public event Action<Star>? OnStarSelect;
 
     public StarmapControl()
     {
@@ -42,24 +44,9 @@ public sealed class StarmapControl : Control
         return _inputManager.MouseScreenPosition.Position;
     }
 
-    protected override void MouseWheel(GUIMouseWheelEventArgs args)
-    {
-        base.MouseWheel(args);
-
-        switch (args.Delta.Y)
-        {
-            case > 0:
-                _ppd += _stepSize;
-                break;
-            case < 0:
-                _ppd -= _stepSize;
-                break;
-        }
-    }
-
     private Vector2 GetPositionOfStar(Vector2 position)
     {
-        return CalculateOffset() + (position * _ppd);
+        return CalculateOffset() + (position * Ppd);
     }
 
     protected override void Draw(DrawingHandleScreen handle)
@@ -67,32 +54,62 @@ public sealed class StarmapControl : Control
         base.Draw(handle);
         handle.DrawRect(new UIBox2(Vector2.Zero, Size), Color.Black);
 
+        // Draw lines in a grid
+        var lines = 10;
+
+        for (var i = 0; i < lines; i++)
+        {
+            var xStep = Size.X / lines;
+            var yStep = Size.X / lines;
+            handle.DrawLine(new Vector2(i * xStep, 0), new Vector2(i * xStep, Size.Y), Color.DarkSlateGray);
+            handle.DrawLine(new Vector2(0, i * yStep), new Vector2(Size.X, i * yStep), Color.DarkSlateGray);
+        }
+
+        // Draw warp range
+        handle.DrawCircle(GetPositionOfStar(Vector2.Zero), Range * Ppd, Color.White, false);
+        handle.DrawCircle(GetPositionOfStar(Vector2.Zero), Range * Ppd, new Color(47, 79, 79, 127));
+
+        // Draw sensor range
+        handle.DrawCircle(GetPositionOfStar(Vector2.Zero), (int) (Range * 1.5) * Ppd, Color.Blue, false);
+
         foreach (var star in _stars)
         {
-            var position = GetPositionOfStar(star.Position);
-            var globalPosition = GlobalPosition + position;
+            var uiPosition = GetPositionOfStar(star.Position);
+            var globalPosition = GlobalPosition + uiPosition;
             var radius = 5f;
 
             // check if distance is smaller than radius of circle then BOOm
             var hovered = Vector2.Distance(GetMouseCoordinates(), globalPosition) <= radius * 1.5;
 
-            if (hovered)
-            {
-                handle.DrawString(_font, position + new Vector2(10, 0), star.Name);
-                radius = 10f;
-            }
-
             var color = Color.White;
+            var name = star.Name;
 
-            if (Vector2.Distance(Vector2.Zero, position) >= Range)
+            // out of warp range
+            if (Vector2.Distance(Vector2.Zero, star.Position) >= Range)
                 color = Color.Red;
+
+            // out of scanning range
+            if (Vector2.Distance(Vector2.Zero, star.Position) >= Range * 1.5)
+            {
+                color = Color.DarkRed;
+                name = Loc.GetString("ship-ftl-tag-oor");
+            }
 
             if (star.Position == Vector2.Zero)
                 color = Color.Blue;
 
-            handle.DrawCircle(position, radius, color);
-        }
+            // before circle rendering so that we can change whats rendered
+            if (hovered)
+            {
+                radius = 10f;
+            }
+            handle.DrawCircle(uiPosition, radius, color);
 
-        handle.DrawCircle(GetPositionOfStar(Vector2.Zero), Range * _ppd, Color.White, false);
+            // after circle rendering incase we wish to show text/etc
+            if (hovered)
+            {
+                handle.DrawString(_font, uiPosition + new Vector2(10, 0), name);
+            }
+        }
     }
 }
