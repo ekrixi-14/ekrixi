@@ -1,9 +1,76 @@
+# having to explicitly variantize things so you DON'T get variations on beep and whirr is fucking bad
+# TODO complain to upstream
+
 - type: emoteSounds
   id: UnisexIPC
-  params:
-    variation: 0.125
   sounds:
     Scream:
       path: /Audio/Effects/beep1.ogg
+      params:
+        variation: 0.125
     Laugh:
       path: /Audio/Effects/sparks1.ogg
+      params:
+        variation: 0.125
+    Ping:
+      path: /Audio/Effects/beep1.ogg
+      params:
+        variation: 0.125
+    Beep:
+      collection: IPCBeeps
+    Whirr:
+      collection: IPCWhirrs
+    Honk:
+      collection: BikeHorn
+      params:
+        variation: 0.125
+
+# these should be parentable but apparently not???
+
+- type: emoteSounds
+  id: MaleIPC
+  sounds:
+    Scream:
+      path: /Audio/Effects/beep1.ogg
+      params:
+        variation: 0.125
+    Laugh:
+      path: /Audio/Effects/sparks1.ogg
+      params:
+        variation: 0.125
+    Ping:
+      path: /Audio/Effects/beep1.ogg
+      params:
+        variation: 0.125
+    Beep:
+      path: /Audio/_FTL/Voice/IPC/beep_500.ogg
+    Whirr:
+      collection: IPCWhirrs
+    Honk:
+      collection: BikeHorn
+      params:
+        variation: 0.125
+
+- type: emoteSounds
+  id: FemaleIPC
+  sounds:
+    Scream:
+      path: /Audio/Effects/beep1.ogg
+      params:
+        variation: 0.125
+    Laugh:
+      path: /Audio/Effects/sparks1.ogg
+      params:
+        variation: 0.125
+    Ping:
+      path: /Audio/Effects/beep1.ogg
+      params:
+        variation: 0.125
+    Beep:
+      path: /Audio/_FTL/Voice/IPC/beep_2000.ogg
+    Whirr:
+      collection: IPCWhirrs
+    Honk:
+      collection: BikeHorn
+      params:
+        variation: 0.125
