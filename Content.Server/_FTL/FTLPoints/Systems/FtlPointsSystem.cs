@@ -30,12 +30,14 @@ public sealed partial class FtlPointsSystem : SharedFtlPointsSystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ShuttleConsoleSystem _consoleSystem = default!;
     [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
+    [Dependency] private readonly ShuttleSystem _shuttleSystem = default!;
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<StarMapComponent, ComponentStartup>(OnInit);
         SubscribeLocalEvent<StarmapConsoleComponent, AfterActivatableUIOpenEvent>(OnToggleInterface);
+        SubscribeLocalEvent<StarmapConsoleComponent, WarpToStarMessage>(OnWarpToStarMessage);
     }
 
     public void GenerateSector(Vector2 starRange)

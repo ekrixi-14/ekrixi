@@ -1,6 +1,7 @@
 using Content.Shared._FTL.FtlPoints;
 using Robust.Shared.Prototypes;
 using JetBrains.Annotations;
+using Robust.Client.UserInterface.Controls;
 
 namespace Content.Client._FTL.FtlPoints;
 
@@ -32,6 +33,12 @@ public sealed class StarmapConsoleBoundUserInterface : BoundUserInterface
         {
             _window?.Dispose();
         }
+    }
+
+    public void StarWarpButtonOnOnPressed(Star star)
+    {
+        var message = new WarpToStarMessage(star);
+        SendMessage(message);
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)

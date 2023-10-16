@@ -49,10 +49,15 @@
                 <GridContainer Columns="2"
                                HorizontalAlignment="Stretch"
                                VerticalAlignment="Top">
-                    <Label Text="{Loc 'starmap-star-details-coordinates'}"/>
-                    <Label Name="Coordinates"
+                    <Label Text="{Loc 'starmap-star-details-name'}"/>
+                    <Label Name="StarName"
                            Text="0.0"
                            HorizontalAlignment="Right"/>
+                    <Label Text="{Loc 'starmap-star-details-coordinates'}"/>
+                    <Label Name="StarCoordinates"
+                           Text="0.0"
+                           HorizontalAlignment="Right"/>
+                    <Button Name="StarWarpButton" Text="{Loc 'starmap-star-details-button-warp'}" Disabled="True"/>
                 </GridContainer>
             </BoxContainer>
         </BoxContainer>

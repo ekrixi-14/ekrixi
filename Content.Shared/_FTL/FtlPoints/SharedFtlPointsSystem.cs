@@ -16,6 +16,16 @@ public enum StarmapConsoleUiKey : byte
 }
 
 [Serializable, NetSerializable]
+public sealed class WarpToStarMessage : BoundUserInterfaceMessage
+{
+    public Star Star { get; }
+    public WarpToStarMessage(Star star)
+    {
+        Star = star;
+    }
+}
+
+[Serializable, NetSerializable]
 public sealed class StarmapConsoleBoundUserInterfaceState : BoundUserInterfaceState
 {
     public List<Star> Stars;
@@ -32,13 +42,15 @@ public sealed class StarmapConsoleBoundUserInterfaceState : BoundUserInterfaceSt
 public struct Star
 {
     public Vector2 Position;
+    public Vector2 GlobalPosition;
     public string Name;
     public MapId Map;
 
-    public Star(Vector2 position, MapId map, string name)
+    public Star(Vector2 position, MapId map, string name, Vector2 globalPosition)
     {
         Position = position;
         Name = name;
         Map = map;
+        GlobalPosition = globalPosition;
     }
 }

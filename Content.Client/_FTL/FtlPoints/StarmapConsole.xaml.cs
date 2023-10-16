@@ -12,8 +12,7 @@ namespace Content.Client._FTL.FtlPoints;
 public sealed partial class StarmapConsole : FancyWindow
 {
     private readonly StarmapConsoleBoundUserInterface _owner;
-    private IPrototypeManager _protoManager;
-
+    private Star? _hoveredStar = null;
 
     public StarmapConsole(StarmapConsoleBoundUserInterface owner, IPrototypeManager protoManager)
     {
@@ -22,14 +21,31 @@ public sealed partial class StarmapConsole : FancyWindow
 
         _owner = owner;
 
-        _protoManager = protoManager;
         Title = Loc.GetString("starmap-computer-title");
+        Stars.OnStarSelect += StarsOnOnStarSelect;
+        StarWarpButton.OnPressed += args =>
+        {
+            if (_hoveredStar.HasValue)
+            {
+                _owner.StarWarpButtonOnOnPressed(_hoveredStar.Value);
+            }
+        };
+    }
+
+    private void StarsOnOnStarSelect(Star obj)
+    {
+        StarName.Text = obj.Name;
+        StarCoordinates.Text = Loc.GetString("starmap-star-details-position", ("x", MathF.Round(obj.GlobalPosition.X, 1)), ("y", MathF.Round(obj.GlobalPosition.Y, 1)));
+        StarWarpButton.Disabled = false;
+        _hoveredStar = obj;
     }
 
     public void UpdateState(StarmapConsoleBoundUserInterfaceState state)
     {
         UpdateStars(state.Stars);
         Stars.Range = state.Range;
+        var currentStar = state.Stars.Find(star => star.Position == Vector2.Zero);
+        CurrentStarName.Text = currentStar.Name;
     }
 
     private void UpdateStars(List<Star> stars)

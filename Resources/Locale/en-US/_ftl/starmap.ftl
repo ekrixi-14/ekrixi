@@ -33,7 +33,11 @@ starmap-star-details-spin-range = Spin Range:
 starmap-star-details-crystal-integrity = Integrity:
 
 starmap-star-details-display-label = Selected Star
+starmap-star-details-name = Name:
 starmap-star-details-coordinates = Coordinates:
+
+starmap-star-details-button-warp = Warp
+starmap-star-details-position = X: {$x} Y: {$y}
 
 starmap-alert-near = NEAR
 starmap-alert-low = LOW

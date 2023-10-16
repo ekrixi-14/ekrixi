@@ -4,6 +4,7 @@ using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
+using YamlDotNet.Core.Tokens;
 
 namespace Content.Client._FTL.FtlPoints;
 
@@ -17,7 +18,7 @@ public sealed class StarmapControl : Control
     private const float Ppd = 15f;
 
     private readonly Font _font;
-    private int _stepSize = 1;
+    private bool _mouseDown = false;
 
     public event Action<Star>? OnStarSelect;
 
@@ -109,6 +110,11 @@ public sealed class StarmapControl : Control
             if (hovered)
             {
                 handle.DrawString(_font, uiPosition + new Vector2(10, 0), name);
+
+                if (Vector2.Distance(Vector2.Zero, star.Position) >= Range)
+                    continue; // out of warp range
+
+                OnStarSelect?.Invoke(star);
             }
         }
     }

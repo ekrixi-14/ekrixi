@@ -2,6 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
 using Content.Server._FTL.FTLPoints.Components;
+using Content.Server.Shuttles.Components;
 using Content.Server.UserInterface;
 using Content.Shared._FTL.FtlPoints;
 using JetBrains.Annotations;
@@ -128,8 +129,22 @@ public sealed partial class FtlPointsSystem
     public void TryAddPoint(MapId mapId, Vector2 position, string name, StarMapComponent? component = null)
     {
         if (TryGetStarMap(ref component))
-            component.StarMap.Add(new Star(position, mapId, name));
+            component.StarMap.Add(new Star(position, mapId, name, position));
     }
 
     #endregion
+
+    private void OnWarpToStarMessage(EntityUid uid, StarmapConsoleComponent component, WarpToStarMessage args)
+    {
+        var xform = Transform(uid);
+        var grid = xform.GridUid;
+
+        if (!grid.HasValue)
+            return;
+
+        if (!TryComp<ShuttleComponent>(grid, out var shuttleComponent))
+            return;
+
+        _shuttleSystem.FTLTravel(grid, shuttleComponent, _mapManager.GetMapEntityId(args.Star.Map));
+    }
 }
