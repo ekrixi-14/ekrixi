@@ -13,6 +13,8 @@
   lastNames: names_ai
   sexes:
     - Unsexed
+    - Male    # some IPCs choose individuality over being a machine? idk IC conflict
+    - Female
 
 - type: speciesBaseSprites
   id: MobIPCSprites
