@@ -68,6 +68,9 @@
         Male: MaleIPC
         Female: FemaleIPC
         Unsexed: UnisexIPC
+      wilhelm:
+        path: /Audio/_FTL/Voice/IPC/wilhelm.ogg
+      wilhelmProbability: 0.001
     - type: Inventory
       templateId: ipc
 
