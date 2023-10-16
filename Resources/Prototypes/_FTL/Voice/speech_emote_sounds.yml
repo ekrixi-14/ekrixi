@@ -28,7 +28,6 @@
 # these should be parentable but apparently not???
 
 - type: emoteSounds
-  parent: UnisexIPC
   id: MaleIPC
   sounds:
     Scream:
@@ -53,7 +52,6 @@
         variation: 0.125
 
 - type: emoteSounds
-  parent: UnisexIPC
   id: FemaleIPC
   sounds:
     Scream:

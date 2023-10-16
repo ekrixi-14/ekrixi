@@ -1,9 +1,8 @@
 - files: ["beep_500.ogg", "beep_2000.ogg"]
-  license: "CC0"
-  copyright: "BasedUser"
-  source: "Synthesized in Audacity."
+  license: "CC-0"
+  copyright: "Synthesized in Audacity by BasedUser."
 
 - files: ["whirr1.ogg", "whirr2.ogg", "whirr3.ogg"]
-  license: "CC0"
+  license: "CC-0"
   copyright: "Taken from source, spectrally modified and clipped"
   source: "https://freesound.org/people/sad3d/sounds/500168/"
