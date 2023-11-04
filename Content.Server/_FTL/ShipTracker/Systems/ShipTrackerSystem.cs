@@ -121,7 +121,6 @@ public sealed partial class ShipTrackerSystem : SharedShipTrackerSystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<ShuttleConsoleComponent, TransformComponent>();
         var allShips = EntityQueryEnumerator<ShipTrackerComponent>();
 
         while (allShips.MoveNext(out var entity, out var shipTrackerComponent))
@@ -129,15 +128,10 @@ public sealed partial class ShipTrackerSystem : SharedShipTrackerSystem
             if (shipTrackerComponent.Destroyed)
                 continue;
 
-            var active = false;
-            while (query.MoveNext(out _, out _, out var transformComponent))
-            {
-                active = transformComponent.GridUid == entity;
-                if (active)
-                    break;
-            }
-
-            if (active)
+            var active = EntityQuery<ShuttleConsoleComponent, TransformComponent>()
+                .Count(tuple => tuple.Item2.GridUid == entity);
+                
+            if (active > 0)
             {
                 // not destroyed, aka piloting is there
                 shipTrackerComponent.SecondsWithoutPiloting = 0f;

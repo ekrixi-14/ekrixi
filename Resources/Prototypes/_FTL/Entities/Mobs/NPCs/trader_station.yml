@@ -15,6 +15,9 @@
   components:
     - type: RandomHumanoidSpawner
       settings: TraderQuartermaster
+    - type: AutoImplant
+      implants:
+      - MicroBombImplant
 
 - type: entity
   parent: BaseMobHuman

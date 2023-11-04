@@ -1,0 +1,12 @@
+- type: soundCollection
+  id: IPCWhirrs
+  files:
+    - /Audio/_FTL/Voice/IPC/whirr1.ogg
+    - /Audio/_FTL/Voice/IPC/whirr2.ogg
+    - /Audio/_FTL/Voice/IPC/whirr3.ogg
+
+- type: soundCollection
+  id: IPCBeeps # randomized for unisex
+  files:
+  - /Audio/_FTL/Voice/IPC/beep_500.ogg
+  - /Audio/_FTL/Voice/IPC/beep_2000.ogg

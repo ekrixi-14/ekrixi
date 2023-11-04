@@ -69,7 +69,7 @@ public sealed class EndOnShipDestructionSystem : GameRuleSystem<EndOnShipDestruc
 
         if (!TryComp<ShipTrackerComponent>(component.MainShip, out var trackerComponent))
         {
-            _roundEndSystem.EndRound();
+            Log.Warning("Ship tracker does not exist on main grid!");
             return;
         }
 
