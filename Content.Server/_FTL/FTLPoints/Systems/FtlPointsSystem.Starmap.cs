@@ -145,6 +145,6 @@ public sealed partial class FtlPointsSystem
         if (!TryComp<ShuttleComponent>(grid, out var shuttleComponent))
             return;
 
-        _shuttleSystem.FTLTravel(grid, shuttleComponent, _mapManager.GetMapEntityId(args.Star.Map));
+        _shuttleSystem.FTLTravel(grid.Value, shuttleComponent, _mapManager.GetMapEntityId(args.Star.Map));
     }
 }
