@@ -16,3 +16,5 @@
           whitelist:
             tags:
               - Cartridge140mm
+    - type: Gun
+      fireRate: 0.01

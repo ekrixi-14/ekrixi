@@ -18,3 +18,5 @@
           whitelist:
             tags:
               - Cartridge53mm
+    - type: Gun
+      fireRate: 8

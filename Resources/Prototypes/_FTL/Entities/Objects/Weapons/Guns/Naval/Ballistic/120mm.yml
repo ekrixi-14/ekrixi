@@ -16,3 +16,5 @@
           whitelist:
             tags:
               - Cartridge120mm
+    - type: Gun
+      fireRate: 0.05

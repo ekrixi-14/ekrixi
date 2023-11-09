@@ -18,3 +18,5 @@
           whitelist:
             tags:
               - Cartridge20mm
+    - type: Gun
+      fireRate: 16

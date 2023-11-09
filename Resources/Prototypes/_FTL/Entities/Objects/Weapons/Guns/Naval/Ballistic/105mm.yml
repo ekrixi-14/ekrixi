@@ -16,3 +16,5 @@
           whitelist:
             tags:
               - Cartridge105mm
+    - type: Gun
+      fireRate: 0.1
