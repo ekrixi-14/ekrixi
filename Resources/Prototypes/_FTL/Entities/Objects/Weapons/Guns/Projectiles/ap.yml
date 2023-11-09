@@ -79,7 +79,7 @@
     - type: Projectile
       damage:
         types:
-          Structural: 3000
+          Structural: 10000
         groups:
           Brute: 9000
 
