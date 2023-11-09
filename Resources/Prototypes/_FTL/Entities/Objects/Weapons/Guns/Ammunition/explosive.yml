@@ -54,7 +54,7 @@
 - type: entity
   id: MissileSDM
   name: SDM-VC-SR40
-  parent: BaseItem
+  parent: BaseMissile
   description: A structural damage missile that requires visual contact and has a short range of 40 kilometers.
   components:
     - type: Sprite
@@ -64,7 +64,7 @@
 - type: entity
   id: MissileSAM
   name: SAM-RC-LR40
-  parent: BaseItem
+  parent: BaseMissile
   description: A ship attack missile that requires radar contact and has a long range of 4000 kilometers.
   components:
     - type: Sprite
@@ -80,7 +80,7 @@
 - type: entity
   id: MissileTAD
   name: TAD-FB-IR-R50
-  parent: BaseItem
+  parent: BaseMissile
   description: A total area destruction device that you should fire blindly with infinite range and has an expected blast radius of 50 meters.
   components:
     - type: Sprite
@@ -96,7 +96,7 @@
 - type: entity
   id: MissileTND
   name: TND-FB-IR-R150
-  parent: BaseItem
+  parent: BaseMissile
   description: A total nuclear destruction device that you should fire blindly with infinite range and has an expected blast radius of 150 meters.
   components:
     - type: Sprite
