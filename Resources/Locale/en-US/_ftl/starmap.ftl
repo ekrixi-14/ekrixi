@@ -39,6 +39,8 @@ starmap-star-details-coordinates = Coordinates:
 starmap-star-details-button-warp = Warp
 starmap-star-details-position = X: {$x} Y: {$y}
 
+starmap-center-station = Trading Outpost
+
 starmap-alert-near = NEAR
 starmap-alert-low = LOW
 starmap-alert-danger = DANGER

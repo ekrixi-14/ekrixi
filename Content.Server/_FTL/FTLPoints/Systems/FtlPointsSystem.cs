@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Numerics;
 using Content.Server._FTL.FTLPoints.Components;
 using Content.Server._FTL.FTLPoints.Effects;
@@ -40,35 +41,54 @@ public sealed partial class FtlPointsSystem : SharedFtlPointsSystem
         SubscribeLocalEvent<StarmapConsoleComponent, WarpToStarMessage>(OnWarpToStarMessage);
     }
 
-    public void GenerateSector(Vector2 starRange)
-    {
-        GenerateSector((int) starRange.X, (int) starRange.Y);
-    }
-
     /// <summary>
-    /// Generates a sector with varying distance
+    /// Generates a random sector.
     /// </summary>
-    /// <param name="minStars"></param>
-    /// <param name="maxStars"></param>
-    public void GenerateSector(int minStars, int maxStars)
+    /// <param name="maxStars">How many stars in the newest generation until we must forcibly stop it?</param>
+    /// <returns>The MapId of the central trade station.</returns>
+    public MapId GenerateSector(int maxStars)
     {
-        var preferredPointAmount = _random.Next(minStars, maxStars);
-
-        for (var i = 0; i < preferredPointAmount; i++)
+        var centerStation = GeneratePoint(_prototypeManager.Index<FtlPointPrototype>("StationPoint"));
+        var latestGeneration = new List<Vector2>
         {
-            var prototype = _prototypeManager.Index<FtlPointPrototype>(_prototypeManager.Index<WeightedRandomPrototype>("FTLPoints").Pick());
-            Log.Info($"Picked {prototype} as point type.");
-            if (!_random.Prob(prototype.Probability))
-                continue;
-            var mapId = GeneratePoint(prototype);
-            var mapUid = _mapManager.GetMapEntityId(mapId);
-            TryAddPoint(mapId, new Vector2(
-                _random.NextFloat(-10, 10),
-                _random.NextFloat(-10, 10)
-            ), MetaData(mapUid).EntityName);
+            Vector2.Zero
+        };
+        TryAddPoint(centerStation, new Vector2(0,0), Loc.GetString("starmap-center-station"));
+
+        var starsCreated = 0;
+
+        Log.Info("Generating sector.");
+
+        while (starsCreated <= maxStars)
+        {
+            var toIter = latestGeneration.ToList();
+            latestGeneration.Clear();
+            foreach (var origin in toIter)
+            {
+                var branches = _random.Next(1, 3);
+
+                for (var i = 0; i < branches; i++)
+                {
+                    var prototype = _prototypeManager.Index<FtlPointPrototype>(_prototypeManager.Index<WeightedRandomPrototype>("FTLPoints").Pick());
+                    Log.Info($"Picked {prototype} as point type.");
+                    if (!_random.Prob(prototype.Probability))
+                        continue;
+                    var mapId = GeneratePoint(prototype);
+                    var mapUid = _mapManager.GetMapEntityId(mapId);
+                    var position = new Vector2(
+                        origin.X + _random.NextFloat(-10, 10),
+                        origin.Y + _random.NextFloat(-10, 10)
+                    );
+                    TryAddPoint(mapId, position, MetaData(mapUid).EntityName);
+                    latestGeneration.Add(position);
+                    starsCreated++;
+                }
+            }
         }
 
         Log.Debug("Generated a brand new sector.");
+
+        return centerStation;
     }
 
     /// <summary>
