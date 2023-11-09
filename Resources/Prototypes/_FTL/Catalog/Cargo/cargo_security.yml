@@ -103,7 +103,7 @@
   icon:
     sprite: _FTL/Structures/Weapons/silo.rsi
     state: closed
-  product: Crate140mmAP
+  product: Crate140mmAmmoAP
   cost: 30000
   category: Security
   group: market
