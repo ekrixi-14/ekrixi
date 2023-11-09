@@ -69,7 +69,6 @@ public sealed class ShipWeaponsSystem : SharedShipWeaponsSystem
                     case ShipWeaponAction.Chamber:
                         break;
                 }
-
             }
         }
         UpdateUserInterface(uid, component);
@@ -146,7 +145,14 @@ public sealed class ShipWeaponsSystem : SharedShipWeaponsSystem
         }
 
         var range = radar?.MaxRange ?? SharedRadarConsoleSystem.DefaultMaxRange;
-        var state = new GunnerConsoleBoundInterfaceState(remainingAmmo, totalAmmo, range, weapons, _entityManager.GetNetCoordinates(consoleTransform.Coordinates), consoleTransform.LocalRotation);
+        var state = new GunnerConsoleBoundInterfaceState(
+            remainingAmmo,
+            totalAmmo,
+            range,
+            weapons,
+            _entityManager.GetNetCoordinates(consoleTransform.Coordinates),
+            consoleTransform.LocalRotation
+        );
         _userInterface.TrySetUiState(uid, ShipWeaponTargetingUiKey.Key, state);
     }
 
