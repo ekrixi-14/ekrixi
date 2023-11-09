@@ -107,14 +107,3 @@
   cost: 30000
   category: Security
   group: market
-
-
-- type: cargoProduct
-  id: 140mmAmmoAP
-  icon:
-    sprite: _FTL/Structures/Weapons/silo.rsi
-    state: closed
-  product: Crate140mmAmAP
-  cost: 30000
-  category: Security
-  group: market
