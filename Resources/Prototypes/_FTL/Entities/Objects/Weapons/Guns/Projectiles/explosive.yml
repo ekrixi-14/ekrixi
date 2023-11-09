@@ -14,7 +14,7 @@
       totalIntensity: 50.0
       intensitySlope: 8
       maxIntensity: 100
-      maxTileBreak: 0
+      maxTileBreak: 1
 
 - type: entity
   id: Bullet53mm
@@ -29,10 +29,10 @@
     - type: ExplodeOnTrigger
     - type: Explosive
       explosionType: Default
-      totalIntensity: 500.0
-      intensitySlope: 50
+      totalIntensity: 50.0
+      intensitySlope: 4
       maxIntensity: 100
-      maxTileBreak: 0
+      maxTileBreak: 1
 
 - type: entity
   id: Bullet105mm
@@ -47,7 +47,7 @@
     - type: ExplodeOnTrigger
     - type: Explosive
       explosionType: Default
-      totalIntensity: 1000.0
+      totalIntensity: 500.0
       intensitySlope: 15
       maxIntensity: 100
       maxTileBreak: 1
@@ -65,10 +65,10 @@
     - type: ExplodeOnTrigger
     - type: Explosive
       explosionType: Default
-      totalIntensity: 3000.0
-      intensitySlope: 1
+      totalIntensity: 700.0
+      intensitySlope: 15
       maxIntensity: 500
-      maxTileBreak: 0
+      maxTileBreak: 1
 
 # missiles
 - type: entity
