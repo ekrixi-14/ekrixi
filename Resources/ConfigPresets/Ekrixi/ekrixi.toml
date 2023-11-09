@@ -1,0 +1,44 @@
+[net]
+tickrate                = 30
+max_connections         = 1024
+
+[game]
+hostname                = "[EN] Ekrixi"
+desc                    = "Ekrixi is a PvE fork of SS14 revolving around PvE gameplay, ship travel, and roleplay."
+lobbyenabled            = true
+soft_max_players        = 50
+map                     = "Nesasio"
+map_pool                = "FTLMapPool"
+
+[hub]
+advertise               = false
+tags                    = "region:luna,lang:en,lang"
+#hub_urls               = "https://ekrixi.is-going-to.cyou/hub/"
+
+[infolinks]
+discord                 = "https://discord.gg/vbst9JyqY3"
+github                  = "https://github.com/ekrixi-14/ekrixi"
+
+[admin]
+see_own_notes           = true
+
+[whitelist]
+enabled                 = true
+reason                  = "You are not whitelisted. Join the Ekrixi Discord to apply for a whitelist or ping an online admin if you are already whitelisted."
+
+[tips]
+enabled                 = false
+
+[vote]
+restart_required_ratio  = 0.5
+
+[ooc]
+enable_during_round     = true
+
+[ic]
+flavor_text             = true
+punctuation             = true
+restricted_names        = false
+
+[ftlpoints]
+generate_roundstart     = true
