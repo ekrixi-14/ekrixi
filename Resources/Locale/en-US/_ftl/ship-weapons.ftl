@@ -14,8 +14,8 @@ gunner-console-button-fire-text = Fire
 gunner-console-button-chamber-text = Chamber Guns
 gunner-console-button-eject-text = Eject Mags
 
-signal-port-name-weapons-output = Weapon Output Port
+signal-port-name-weapons-output = Pad Control Port
 signal-port-name-weapons-output-description = Link the output port to the input port here.
 
-signal-port-name-weapons-input = Weapon Input Port
+signal-port-name-weapons-input = Weapon Control Port
 signal-port-name-weapons-input-description = Link the input port to the output port here.

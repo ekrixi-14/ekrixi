@@ -69,7 +69,6 @@ public sealed class ShipWeaponsSystem : SharedShipWeaponsSystem
                     case ShipWeaponAction.Chamber:
                         break;
                 }
-
             }
         }
         UpdateUserInterface(uid, component);
@@ -115,7 +114,6 @@ public sealed class ShipWeaponsSystem : SharedShipWeaponsSystem
             return;
 
         var consoleTransform = Transform(uid);
-        Log.Info(consoleTransform.Coordinates.Position.ToString());
         TryComp<RadarConsoleComponent>(uid, out var radar);
 
         var totalAmmo = 0;

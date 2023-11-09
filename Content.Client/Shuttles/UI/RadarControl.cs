@@ -195,17 +195,20 @@ public sealed class RadarControl : MapGridControl
             DrawDocks(handle, ourGridId.Value, matrix);
         }
 
-        var invertedPosition = _coordinates.Value.Position - offset;
-        invertedPosition.Y = -invertedPosition.Y;
+        var padPosition = _coordinates.Value.Position;
+        var consolePosition = _coordinates.Value.Position - padPosition;
+        padPosition.Y = -padPosition.Y;
+        consolePosition.Y = -consolePosition.Y;
         // Don't need to transform the InvWorldMatrix again as it's already offset to its position.
 
         // Draw radar position on the station
-        handle.DrawCircle(ScalePosition(invertedPosition), 5f, Color.Lime);
+        handle.DrawCircle(ScalePosition(padPosition), 5f, Color.Blue);
+        handle.DrawCircle(ScalePosition(consolePosition), 5f, Color.BlueViolet);
         if (_clickedCoordinates.HasValue)
         {
             var cc = _clickedCoordinates.Value.Position - offset;
             cc.Y = -cc.Y;
-            handle.DrawCircle(ScalePosition(cc), 5f, Color.Lime);
+            handle.DrawCircle(ScalePosition(cc), 5f, Color.Orange);
         }
 
         var shown = new HashSet<EntityUid>();
