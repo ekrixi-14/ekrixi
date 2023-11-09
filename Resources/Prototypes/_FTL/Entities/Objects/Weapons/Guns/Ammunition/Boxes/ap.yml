@@ -1,0 +1,47 @@
+- type: entity
+  id: MagazineBox20mmAP
+  name: ammo box (20mm armor-piercing)
+  parent: BaseMagazineBox
+  components:
+    - type: Tag
+      tags:
+        - Magazine20mm
+    - type: BallisticAmmoProvider
+      mayTransfer: true
+      whitelist:
+        tags:
+          - Cartridge20mm
+      proto: Cartridge20mmAP
+      capacity: 500
+
+- type: entity
+  id: MagazineBox53mmAP
+  name: ammo box (53mm armor-piercing)
+  parent: BaseMagazineBox
+  components:
+    - type: Tag
+      tags:
+        - Magazine53mm
+    - type: BallisticAmmoProvider
+      mayTransfer: true
+      whitelist:
+        tags:
+          - Cartridge53mm
+      proto: Cartridge53mmAP
+      capacity: 500
+
+- type: entity
+  id: MagazineBox80mmAP
+  name: ammo box (80mm armor-piercing)
+  parent: BaseMagazineBox
+  components:
+    - type: Tag
+      tags:
+        - Magazine80mm
+    - type: BallisticAmmoProvider
+      mayTransfer: true
+      whitelist:
+        tags:
+          - Cartridge80mm
+      proto: Cartridge80mmAP
+      capacity: 250
