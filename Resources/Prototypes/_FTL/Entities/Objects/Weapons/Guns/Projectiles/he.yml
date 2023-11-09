@@ -72,7 +72,7 @@
 
 - type: entity
   id: Bullet120mm
-  name: 105mm
+  name: 120mm
   parent: BaseBulletTrigger
   noSpawn: true
   components:
