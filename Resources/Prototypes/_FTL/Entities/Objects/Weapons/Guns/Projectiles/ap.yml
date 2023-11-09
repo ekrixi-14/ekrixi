@@ -1,0 +1,101 @@
+- type: entity
+  id: Bullet20mmAP
+  name: 20mm
+  parent: BaseBullet
+  noSpawn: true
+  components:
+    - type: Sprite
+      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      layers:
+        - state: 20mm
+    - type: Projectile
+      damage:
+        types:
+          Structural: 1000
+        groups:
+          Brute: 1000
+
+- type: entity
+  id: Bullet53mmAP
+  name: 53mm
+  parent: BaseBullet
+  noSpawn: true
+  components:
+    - type: Sprite
+      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      layers:
+        - state: 53mm
+    - type: Projectile
+      damage:
+        types:
+          Structural: 1500
+        groups:
+          Brute: 2500
+
+- type: entity
+  id: Bullet80mmAP
+  name: 80mm
+  parent: BaseBullet
+  noSpawn: true
+  components:
+    - type: Sprite
+      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      layers:
+        - state: 53mm
+    - type: Projectile
+      damage:
+        types:
+          Structural: 2000
+        groups:
+          Brute: 5000
+
+- type: entity
+  id: Bullet105mmAP
+  name: 105mm
+  parent: BaseBullet
+  noSpawn: true
+  components:
+    - type: Sprite
+      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      layers:
+        - state: 105mm
+    - type: Projectile
+      damage:
+        types:
+          Structural: 2500
+        groups:
+          Brute: 8000
+
+- type: entity
+  id: Bullet120mmAP
+  name: 120mm
+  parent: BaseBullet
+  noSpawn: true
+  components:
+    - type: Sprite
+      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      layers:
+        - state: 105mm
+    - type: Projectile
+      damage:
+        types:
+          Structural: 3000
+        groups:
+          Brute: 9000
+
+- type: entity
+  id: Bullet140mmAP
+  name: 140mm
+  parent: BaseBullet
+  noSpawn: true
+  components:
+    - type: Sprite
+      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      layers:
+        - state: 140mm
+    - type: Projectile
+      damage:
+        types:
+          Structural: 5000
+        groups:
+          Brute: 10000
