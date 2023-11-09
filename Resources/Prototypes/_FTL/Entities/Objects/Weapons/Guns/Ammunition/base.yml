@@ -1,0 +1,78 @@
+- type: entity
+  id: BaseMagazineBox
+  name: ammo box
+  parent: BaseItem
+  components:
+    - type: BallisticAmmoProvider
+      mayTransfer: true
+      proto: Cartridge20mm
+      capacity: 50
+    - type: Item
+      size: 20
+    - type: ContainerContainer
+      containers:
+        ballistic-ammo: !type:Container
+    - type: Sprite
+      sprite: Objects/Weapons/Guns/Ammunition/Boxes/light_rifle.rsi
+      layers:
+        - state: base-b
+          map: ["enum.GunVisualLayers.Base"]
+        - state: magb-1
+          map: ["enum.GunVisualLayers.Mag"]
+    - type: MagazineVisuals
+      magState: mag
+      steps: 2
+      zeroVisible: false
+    - type: Appearance
+
+- type: entity
+  id: BaseMissile
+  name: missile
+  parent: BaseItem
+  abstract: true
+  description: A missile designed to be fired by missile launchers.
+  components:
+    - type: Item
+      size: 999
+    - type: MultiHandedItem
+    - type: Sprite
+      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      state: sdm
+    - type: Tag
+      tags:
+        - Missile
+    - type: CartridgeAmmo
+      proto: BulletSDM
+      deleteOnSpawn: true
+    - type: StaticPrice
+      price: 150
+    - type: DamageOnLand
+      ignoreResistances: true
+      damage:
+        types:
+          Blunt: 10
+    - type: DamageOtherOnHit
+      damage:
+        types:
+          Blunt: 10
+    - type: Explosive
+      explosionType: Default
+      maxIntensity: 5
+      intensitySlope: 25
+      totalIntensity: 100
+    - type: Damageable
+      damageContainer: Inorganic
+      damageModifierSet: Metallic
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 200
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+        - trigger:
+            !type:DamageTrigger
+            damage: 30
+          behaviors:
+            - !type:ExplodeBehavior
