@@ -73,7 +73,7 @@
   icon:
     sprite: _FTL/Structures/Weapons/silo.rsi
     state: closed
-  product: Crate140mmAmmo
+  product: Crate140mmAmmoHE
   cost: 30000
   category: Security
   group: market
@@ -103,7 +103,7 @@
   icon:
     sprite: _FTL/Structures/Weapons/silo.rsi
     state: closed
-  product: Crate140mmAmAP
+  product: Crate140mmAP
   cost: 30000
   category: Security
   group: market
