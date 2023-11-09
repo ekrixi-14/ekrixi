@@ -39,21 +39,82 @@
   group: market
 
 - type: cargoProduct
-  id: 105mmAmmo
+  id: 80mmAmmo
   icon:
     sprite: _FTL/Structures/Weapons/silo.rsi
     state: closed
-  product: Crate105mmAmmo
+  product: Crate80mmAmmo
+  cost: 8000
+  category: Security
+  group: market
+
+- type: cargoProduct
+  id: 105mmAmmoHE
+  icon:
+    sprite: _FTL/Structures/Weapons/silo.rsi
+    state: closed
+  product: Crate105mmAmmoHE
   cost: 10000
   category: Security
   group: market
 
 - type: cargoProduct
-  id: 140mmAmmo
+  id: 120mmAmmoHE
+  icon:
+    sprite: _FTL/Structures/Weapons/silo.rsi
+    state: closed
+  product: Crate120mmAmmoHE
+  cost: 10000
+  category: Security
+  group: market
+
+- type: cargoProduct
+  id: 140mmAmmoHE
   icon:
     sprite: _FTL/Structures/Weapons/silo.rsi
     state: closed
   product: Crate140mmAmmo
+  cost: 30000
+  category: Security
+  group: market
+
+- type: cargoProduct
+  id: 105mmAmmoAP
+  icon:
+    sprite: _FTL/Structures/Weapons/silo.rsi
+    state: closed
+  product: Crate105mmAmmoAP
+  cost: 10000
+  category: Security
+  group: market
+
+- type: cargoProduct
+  id: 120mmAmmoAP
+  icon:
+    sprite: _FTL/Structures/Weapons/silo.rsi
+    state: closed
+  product: Crate120mmAmmoAP
+  cost: 10000
+  category: Security
+  group: market
+
+- type: cargoProduct
+  id: 140mmAmmoAP
+  icon:
+    sprite: _FTL/Structures/Weapons/silo.rsi
+    state: closed
+  product: Crate140mmAmAP
+  cost: 30000
+  category: Security
+  group: market
+
+
+- type: cargoProduct
+  id: 140mmAmmoAP
+  icon:
+    sprite: _FTL/Structures/Weapons/silo.rsi
+    state: closed
+  product: Crate140mmAmAP
   cost: 30000
   category: Security
   group: market
