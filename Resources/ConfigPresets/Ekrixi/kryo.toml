@@ -1,0 +1,6 @@
+[game]
+hostname                = "[EN][LM] Official Ekrixi Servers - Krýo"
+desc                    = "Krýo is a stable branch server of Ekrixi."
+
+[whitelist]
+enabled                 = false
