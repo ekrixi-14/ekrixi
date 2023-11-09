@@ -10,9 +10,12 @@ soft_max_players        = 50
 map                     = "Nesasio"
 map_pool                = "FTLMapPool"
 
+[minplayers]
+minimum_players         = 3
+
 [hub]
 advertise               = false
-tags                    = "region:luna,lang:en,lang"
+tags                    = "region:luna,lang:en"
 #hub_urls               = "https://ekrixi.is-going-to.cyou/hub/"
 
 [infolinks]

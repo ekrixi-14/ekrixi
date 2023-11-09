@@ -1766,6 +1766,16 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<bool> GenerateFTLPointsRoundstart =
             CVarDef.Create("ftlpoints.generate_roundstart", false, CVar.ARCHIVE);
 
+        /*
+         * Min players
+         */
+
+        /// <summary>
+        /// The minimum amount of players in order to unpause the lobby.
+        /// </summary>
+        public static readonly CVarDef<int> MinimumPlayers =
+            CVarDef.Create("minplayers.minimum_players", 0, CVar.ARCHIVE);
+
         /// <summary>
         /// Automatically record full rounds as replays.
         /// </summary>
