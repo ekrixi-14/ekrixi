@@ -56,3 +56,20 @@
           - Cartridge53mm
       proto: Cartridge53mm
       capacity: 500
+
+
+- type: entity
+  id: MagazineBox80mm
+  name: ammo box (80mm)
+  parent: BaseMagazineBox
+  components:
+    - type: Tag
+      tags:
+        - Magazine80mm
+    - type: BallisticAmmoProvider
+      mayTransfer: true
+      whitelist:
+        tags:
+          - Cartridge80mm
+      proto: Cartridge80mm
+      capacity: 250

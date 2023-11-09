@@ -1,0 +1,20 @@
+- type: entity
+  parent: BaseWeaponNaval
+  id: Weapon53mm
+  name: 53mm machine gun
+  description: A 53mm autocannon.
+  placement:
+    mode: SnapgridCenter
+  components:
+    - type: ItemSlots
+      slots:
+        gun_magazine:
+          startingItem: MagazineBox53mm
+          whitelist:
+            tags:
+              - Magazine53mm
+        gun_chamber:
+          startingItem: Cartridge53mm
+          whitelist:
+            tags:
+              - Cartridge53mm

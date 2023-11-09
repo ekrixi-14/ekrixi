@@ -1,0 +1,20 @@
+- type: entity
+  parent: BaseWeaponNaval
+  id: Weapon80mm
+  name: 80mm machine gun
+  description: A 80mm autocannon.
+  placement:
+    mode: SnapgridCenter
+  components:
+    - type: ItemSlots
+      slots:
+        gun_magazine:
+          startingItem: MagazineBox80mm
+          whitelist:
+            tags:
+              - Magazine80mm
+        gun_chamber:
+          startingItem: Cartridge80mm
+          whitelist:
+            tags:
+              - Cartridge80mm

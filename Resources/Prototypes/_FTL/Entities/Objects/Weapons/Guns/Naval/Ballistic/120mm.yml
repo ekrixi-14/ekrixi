@@ -1,0 +1,18 @@
+- type: entity
+  parent: BaseWeaponNaval
+  id: Weapon130mm
+  name: 120mm light mortar
+  description: A 120mm light mortar.
+  placement:
+    mode: SnapgridCenter
+  components:
+    - type: ItemSlots
+      slots:
+        gun_magazine:
+          whitelist:
+            tags: []
+        gun_chamber:
+          startingItem: Cartridge120mm
+          whitelist:
+            tags:
+              - Cartridge120mm

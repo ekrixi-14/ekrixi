@@ -1,0 +1,20 @@
+- type: entity
+  parent: BaseWeaponNaval
+  id: Weapon20mm
+  name: 20mm machine gun
+  description: A 20mm light machine gun.
+  placement:
+    mode: SnapgridCenter
+  components:
+    - type: ItemSlots
+      slots:
+        gun_magazine:
+          startingItem: MagazineBox20mm
+          whitelist:
+            tags:
+              - Magazine20mm
+        gun_chamber:
+          startingItem: Cartridge20mm
+          whitelist:
+            tags:
+              - Cartridge20mm

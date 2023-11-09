@@ -1,6 +1,6 @@
 - type: entity
   id: Cartridge20mm
-  name: cartridge (20mm)
+  name: cartridge (20mm high-explosive)
   parent: BaseCartridge
   components:
     - type: Tag
@@ -18,7 +18,7 @@
 
 - type: entity
   id: Cartridge53mm
-  name: cartridge (53mm)
+  name: cartridge (53mm high-explosive)
   parent: BaseCartridge
   components:
     - type: Tag
@@ -35,8 +35,26 @@
       proto: Bullet53mm
 
 - type: entity
+  id: Cartridge80mm
+  name: cartridge (80mm high-explosive)
+  parent: BaseCartridge
+  components:
+    - type: Tag
+      tags:
+        - Cartridge
+        - Cartridge80mm
+    - type: Sprite
+      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      layers:
+        - state: 53mm # we do a thing called "reusing sprites"
+    - type: Appearance
+    - type: CartridgeAmmo
+      deleteOnSpawn: true
+      proto: Bullet80mm
+
+- type: entity
   id: Cartridge105mm
-  name: cartridge (105mm)
+  name: cartridge (105mm high-explosive)
   parent: BaseCartridge
   components:
     - type: Tag
@@ -53,8 +71,26 @@
       proto: Bullet105mm
 
 - type: entity
+  id: Cartridge120mm
+  name: cartridge (120mm high-explosive)
+  parent: BaseCartridge
+  components:
+    - type: Tag
+      tags:
+        - Cartridge
+        - Cartridge120mm
+    - type: Sprite
+      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      layers:
+        - state: 105mm # we do a thing called "reusing sprites"
+    - type: Appearance
+    - type: CartridgeAmmo
+      deleteOnSpawn: true
+      proto: Bullet120mm
+
+- type: entity
   id: Cartridge140mm
-  name: cartridge (140mm)
+  name: cartridge (140mm high-explosive)
   parent: BaseCartridge
   components:
     - type: Tag
