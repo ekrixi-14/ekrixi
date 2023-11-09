@@ -115,6 +115,7 @@ public sealed class ShipWeaponsSystem : SharedShipWeaponsSystem
             return;
 
         var consoleTransform = Transform(uid);
+        Log.Info(consoleTransform.Coordinates.Position.ToString());
         TryComp<RadarConsoleComponent>(uid, out var radar);
 
         var totalAmmo = 0;
@@ -146,7 +147,14 @@ public sealed class ShipWeaponsSystem : SharedShipWeaponsSystem
         }
 
         var range = radar?.MaxRange ?? SharedRadarConsoleSystem.DefaultMaxRange;
-        var state = new GunnerConsoleBoundInterfaceState(remainingAmmo, totalAmmo, range, weapons, _entityManager.GetNetCoordinates(consoleTransform.Coordinates), consoleTransform.LocalRotation);
+        var state = new GunnerConsoleBoundInterfaceState(
+            remainingAmmo,
+            totalAmmo,
+            range,
+            weapons,
+            _entityManager.GetNetCoordinates(consoleTransform.Coordinates),
+            consoleTransform.LocalRotation
+        );
         _userInterface.TrySetUiState(uid, ShipWeaponTargetingUiKey.Key, state);
     }
 

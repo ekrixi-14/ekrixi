@@ -44,6 +44,8 @@ public sealed class RadarControl : MapGridControl
 
     private Dictionary<EntityUid, List<DockingInterfaceState>> _docks = new();
 
+    private EntityCoordinates? _clickedCoordinates = null;
+
     public bool ShowIFF { get; set; } = true;
     public bool ShowDocks { get; set; } = true;
 
@@ -60,6 +62,10 @@ public sealed class RadarControl : MapGridControl
     public RadarControl() : base(64f, 256f, 256f)
     {
         _transform = _entManager.System<SharedTransformSystem>();
+        OnRadarClick += coordinates =>
+        {
+            _clickedCoordinates = coordinates;
+        };
     }
 
     public void SetMatrix(EntityCoordinates? coordinates, Angle? angle)
@@ -195,6 +201,12 @@ public sealed class RadarControl : MapGridControl
 
         // Draw radar position on the station
         handle.DrawCircle(ScalePosition(invertedPosition), 5f, Color.Lime);
+        if (_clickedCoordinates.HasValue)
+        {
+            var cc = _clickedCoordinates.Value.Position - offset;
+            cc.Y = -cc.Y;
+            handle.DrawCircle(ScalePosition(cc), 5f, Color.Lime);
+        }
 
         var shown = new HashSet<EntityUid>();
 
