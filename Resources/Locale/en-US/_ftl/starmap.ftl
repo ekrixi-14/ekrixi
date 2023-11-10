@@ -13,12 +13,11 @@ ship-inbound-message = Alert! Sensor array output have detected {$amount ->
 
 ship-ftl-tag-star = STAR
 ship-ftl-tag-base = BASE
-ship-ftl-tag-danger = !!!!
-ship-ftl-tag-unknown = ????
 ship-ftl-tag-planet = PLNT
-ship-ftl-tag-moon = MOON
 ship-ftl-tag-ruin = RUIN
 ship-ftl-tag-yard = YARD
+ship-ftl-tag-gateway = GATE
+ship-ftl-tag-warp = WARP
 ship-ftl-tag-asteroid = ROID
 ship-ftl-tag-oor = OUT OF RANGE
 

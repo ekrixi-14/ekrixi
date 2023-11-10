@@ -3,10 +3,12 @@
   tag: ship-ftl-tag-base
   effects:
     - !type:SpawnStationEffect
+  components:
+    - type: AvoidStar
 
 - type: ftlPoint
   id: LoDangerPoint
-  tag: ship-ftl-tag-unknown
+  tag: ship-ftl-tag-star
   probability: 0.6
   effects:
     - !type:SpawnMapEffect
@@ -19,7 +21,7 @@
 
 - type: ftlPoint
   id: HiDangerPoint
-  tag: ship-ftl-tag-unknown
+  tag: ship-ftl-tag-star
   probability: 0.9
   effects:
     - !type:SpawnMapEffect
@@ -33,7 +35,7 @@
 
 - type: ftlPoint
   id: ConfDangerPoint
-  tag: ship-ftl-tag-danger
+  tag: ship-ftl-tag-star
   effects:
     - !type:SpawnMapEffect
       mapPaths:
@@ -72,16 +74,8 @@
         - Blood
     - !type:SpawnDungeonEffect
       range: 75
-
-- type: ftlPoint
-  id: MoonPoint
-  tag: ship-ftl-tag-moon
-  effects:
-    - !type:ToPlanetEffect
-      biomeTemplates:
-        - Caves
-    - !type:SpawnDungeonEffect
-      range: 100
+  components:
+    - type: AvoidStar
 
 - type: ftlPoint
   id: AsteroidPoint
@@ -104,11 +98,39 @@
   tag: ship-ftl-tag-ruin
   effects:
     - !type:SpawnDungeonEffect
+  components:
+    - type: AvoidStar
 
 - type: ftlPoint
   id: NoDangerPoint
   tag: ship-ftl-tag-unknown
   effects: []
+
+- type: ftlPoint
+  id: WarpPoint
+  tag: ship-ftl-tag-warp
+  effects: []
+  components:
+    - type: AvoidStar
+    - type: FactoryTick
+      mapPaths:
+        - /Maps/_FTL/ancient/easy-drone.yml
+        - /Maps/_FTL/ancient/tough-drone.yml
+        - /Maps/_FTL/independent/orb.yml
+        - /Maps/_FTL/independent/pod.yml
+        - /Maps/_FTL/independent/rod.yml
+        - /Maps/_FTL/independent/hostile-escape-pod.yml
+        - /Maps/_FTL/independent/cargo-vessel.yml
+        - /Maps/_FTL/incsek/bomber.yml
+        - /Maps/_FTL/coregov/retribution.yml
+        - /Maps/_FTL/fsc/fighter.yml
+
+#- type: ftlPoint
+#  id: ShipyardPoint
+#  tag: ship-ftl-tag-yard
+#  effects: []
+#  components:
+#    - type: FactoryTick
 
 - type: weightedRandom
   id: FTLPoints
@@ -118,5 +140,4 @@
     HiDangerPoint: 3
     NoDangerPoint: 1
     StarPoint: 1
-    MoonPoint: 0.25
     RuinPoint: 0.15

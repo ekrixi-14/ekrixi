@@ -16,6 +16,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Serialization.Manager;
 
 namespace Content.Server._FTL.FTLPoints.Systems;
 
@@ -32,6 +33,7 @@ public sealed partial class FtlPointsSystem : SharedFtlPointsSystem
     [Dependency] private readonly ShuttleConsoleSystem _consoleSystem = default!;
     [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
     [Dependency] private readonly ShuttleSystem _shuttleSystem = default!;
+    [Dependency] private readonly ISerializationManager _serializationManager = default!;
 
     public override void Initialize()
     {
@@ -39,6 +41,17 @@ public sealed partial class FtlPointsSystem : SharedFtlPointsSystem
         SubscribeLocalEvent<StarMapComponent, ComponentStartup>(OnInit);
         SubscribeLocalEvent<StarmapConsoleComponent, AfterActivatableUIOpenEvent>(OnToggleInterface);
         SubscribeLocalEvent<StarmapConsoleComponent, WarpToStarMessage>(OnWarpToStarMessage);
+    }
+
+    /// <summary>
+    /// Generates a float within minimum and maximum, with a 50% chance of being negative.
+    /// </summary>
+    /// <param name="minRadius"></param>
+    /// <param name="maxRadius"></param>
+    /// <returns></returns>
+    private float GeneratePositionWithRandomRadius(float minRadius, float maxRadius)
+    {
+        return _random.NextFloat(minRadius, maxRadius) * (_random.Prob(0.5f) ? -1 : 1);
     }
 
     /// <summary>
@@ -76,14 +89,29 @@ public sealed partial class FtlPointsSystem : SharedFtlPointsSystem
                     var mapId = GeneratePoint(prototype);
                     var mapUid = _mapManager.GetMapEntityId(mapId);
                     var position = new Vector2(
-                        origin.X + _random.NextFloat(-10, 10),
-                        origin.Y + _random.NextFloat(-10, 10)
+                        origin.X + GeneratePositionWithRandomRadius(3, 10),
+                        origin.Y + GeneratePositionWithRandomRadius(3, 10)
                     );
                     TryAddPoint(mapId, position, MetaData(mapUid).EntityName);
                     latestGeneration.Add(position);
                     starsCreated++;
                 }
             }
+        }
+
+        for (var i = 0; i < 3; i++)
+        {
+            var origin = _random.Pick(latestGeneration);
+            var prototype = _prototypeManager.Index<FtlPointPrototype>("WarpPoint");
+            var mapId = GeneratePoint(prototype);
+            var mapUid = _mapManager.GetMapEntityId(mapId);
+            var position = new Vector2(
+                origin.X + GeneratePositionWithRandomRadius(5, 7),
+                origin.Y + GeneratePositionWithRandomRadius(5, 7)
+            );
+            TryAddPoint(mapId, position, MetaData(mapUid).EntityName);
+            latestGeneration.Add(position);
+            starsCreated++;
         }
 
         Log.Debug("Generated a brand new sector.");
@@ -143,6 +171,20 @@ public sealed partial class FtlPointsSystem : SharedFtlPointsSystem
             {
                 effect.Effect(new FtlPointEffect.FtlPointEffectArgs(mapUid, mapId, _entManager, _mapManager));
             }
+        }
+
+        // Add all components required by the prototype
+        if (prototype.TickComponents == null)
+            return mapId;
+
+        foreach (var entry in prototype.TickComponents.Values)
+        {
+            if (HasComp(mapUid, entry.Component.GetType()))
+                continue;
+
+            var comp = (Component) _serializationManager.CreateCopy(entry.Component, notNullableOverride: true);
+            comp.Owner = mapUid;
+            EntityManager.AddComponent(mapUid, comp);
         }
 
         return mapId;

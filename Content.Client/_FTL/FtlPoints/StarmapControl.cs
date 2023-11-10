@@ -1,9 +1,11 @@
 using System.Numerics;
 using Content.Shared._FTL.FtlPoints;
+using Content.Shared.Input;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
+using Robust.Shared.Input;
 using YamlDotNet.Core.Tokens;
 
 namespace Content.Client._FTL.FtlPoints;
@@ -107,7 +109,7 @@ public sealed class StarmapControl : Control
             handle.DrawCircle(uiPosition, radius, color);
 
             // after circle rendering incase we wish to show text/etc
-            if (hovered)
+            if (hovered && _inputManager.IsKeyDown(Keyboard.Key.MouseLeft))
             {
                 handle.DrawString(_font, uiPosition + new Vector2(10, 0), name);
 

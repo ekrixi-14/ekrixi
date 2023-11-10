@@ -28,4 +28,9 @@ public sealed class FtlPointPrototype : IPrototype
     /// FTL point effects.
     /// </summary>
     [DataField("effects")] public FtlPointEffect[] FtlPointEffects = default!;
+
+    /// <summary>
+    /// Components for systems
+    /// </summary>
+    [DataField("components")] public ComponentRegistry? TickComponents = default!;
 }

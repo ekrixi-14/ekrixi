@@ -61,19 +61,16 @@ public sealed partial class AutomatedShipSystem
         EntityUid targetShip
         )
     {
-        Log.Debug("Les go!!1!!11");
         // realistically this should factor in distance but ¯\_(ツ)_/¯
         var weaponGroup = _random.Pick(GetWeaponGroupsOnGrid(entity));
         // get gun, aim, and shoot at place
         if (!TryComp<DeviceLinkSourceComponent>(weaponGroup, out var sourceComponent))
             return CombatResult.ERROR;
-        Log.Debug("got device!!");
 
         // get a list of prio entities and select one
         var prioEnts = GetPriorityEntities(targetShip);
         if (prioEnts.Count <= 0)
             return CombatResult.NOPRIOENT;
-        Log.Debug("there's more prioents!!!");
         var prioEnt = _random.Pick(prioEnts);
         var prioTransform = Transform(prioEnt);
 
