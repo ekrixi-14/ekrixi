@@ -38,7 +38,6 @@ public sealed class GeneratePointsSystem : GameRuleSystem<GeneratePointsComponen
 
         if (!_configurationManager.GetCVar(CCVars.GenerateFTLPointsRoundstart))
             return;
-        // TODO make work??
         var station = _pointsSystem.GenerateSector(40);
 
         if (ev.Station.HasValue)
