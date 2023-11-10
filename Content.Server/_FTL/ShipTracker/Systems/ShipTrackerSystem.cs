@@ -56,6 +56,11 @@ public sealed partial class ShipTrackerSystem : SharedShipTrackerSystem
     {
         //wawawawa
 
+        var station = _stationSystem.GetOwningStation(args.Entity);
+
+        if (!station.HasValue)
+            return;
+
         var mapId = Transform(args.MapUid).MapID;
         var amount = EntityQuery<AutomatedShipComponent, TransformComponent>().Select(tuple => tuple.Item2.MapID == mapId).Count();
         var hostile = EntityQuery<AutomatedShipComponent, TransformComponent>().Select(tuple => tuple.Item1.AiState == AutomatedShipComponent.AiStates.Fighting && tuple.Item2.MapID == mapId).Count();
@@ -68,11 +73,6 @@ public sealed partial class ShipTrackerSystem : SharedShipTrackerSystem
                     ("hostile", hostile > 0)
                 )
             );
-
-            var station = _stationSystem.GetOwningStation(args.Entity);
-
-            if (!station.HasValue)
-                return;
 
             _alertLevelSystem.SetLevel(station.Value, "blue", true, true, false);
         }
@@ -130,7 +130,7 @@ public sealed partial class ShipTrackerSystem : SharedShipTrackerSystem
 
             var active = EntityQuery<ShuttleConsoleComponent, TransformComponent>()
                 .Count(tuple => tuple.Item2.GridUid == entity);
-                
+
             if (active > 0)
             {
                 // not destroyed, aka piloting is there

@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Server._FTL.FTLPoints.Systems;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Shuttles.Components;
@@ -6,7 +7,6 @@ using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Robust.Shared.Configuration;
 using Content.Shared.CCVar;
-using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 
 namespace Content.Server._FTL.ShipTracker.Rules.GeneratePoints;
@@ -25,22 +25,37 @@ public sealed class GeneratePointsSystem : GameRuleSystem<GeneratePointsComponen
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<PlayerSpawningEvent>(OnPlayerSpawningEvent);
+
+        SubscribeLocalEvent<PlayerSpawningEvent>(OnPlayerSpawnEvent);
     }
 
-    private void OnPlayerSpawningEvent(PlayerSpawningEvent ev)
+    private void OnPlayerSpawnEvent(PlayerSpawningEvent ev)
     {
-        if (_configurationManager.GetCVar(CCVars.GenerateFTLPointsRoundstart))
+        var component = EntityQuery<GeneratePointsComponent>().First();
+
+        if (component.Generated)
+            return;
+
+        if (!_configurationManager.GetCVar(CCVars.GenerateFTLPointsRoundstart))
+            return;
+        // TODO make work??
+        var station = _pointsSystem.GenerateSector(40);
+
+        if (ev.Station.HasValue)
         {
-            var station = _pointsSystem.GenerateSector(60);
-            var query = AllEntityQuery<StationJobsComponent>();
-            while (query.MoveNext(out var stationEntity, out _))
+            if (TryComp<StationDataComponent>(ev.Station.Value, out var stationDataComponent))
             {
-                var grid = _stationSystem.GetOwningStation(stationEntity);
-                if (!TryComp<ShuttleComponent>(grid, out var shuttle))
-                    continue;
-                _shuttleSystem.FTLTravel(grid.Value, shuttle, _mapManager.GetMapEntityId(station));
+                var grid = _stationSystem.GetLargestGrid(stationDataComponent);
+                if (grid.HasValue)
+                {
+                    var shuttle = EnsureComp<ShuttleComponent>(grid.Value);
+                    _shuttleSystem.FTLTravel(grid.Value, shuttle, _mapManager.GetMapEntityId(station));
+                }
             }
         }
+
+        component.Generated = true;
+
+        Log.Info("Finished generation of sector.");
     }
 }
