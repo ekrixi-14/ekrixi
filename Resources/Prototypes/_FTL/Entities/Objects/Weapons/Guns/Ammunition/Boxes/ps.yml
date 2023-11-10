@@ -1,6 +1,6 @@
 - type: entity
-  id: MagazineBox20mm
-  name: ammo box (20mm high-explosive)
+  id: MagazineBox20mmPS
+  name: ammo box (20mm proximity fuse)
   parent: BaseMagazineBox
   components:
     - type: Tag
@@ -11,12 +11,12 @@
       whitelist:
         tags:
           - Cartridge20mm
-      proto: Cartridge20mm
+      proto: Cartridge20mmPS
       capacity: 500
 
 - type: entity
-  id: MagazineBox53mm
-  name: ammo box (53mm high-explosive)
+  id: MagazineBox53mmPS
+  name: ammo box (53mm proximity fuse)
   parent: BaseMagazineBox
   components:
     - type: Tag
@@ -27,12 +27,12 @@
       whitelist:
         tags:
           - Cartridge53mm
-      proto: Cartridge53mm
+      proto: Cartridge53mmPS
       capacity: 500
 
 - type: entity
-  id: MagazineBox80mm
-  name: ammo box (80mm high-explosive)
+  id: MagazineBox80mmPS
+  name: ammo box (80mm proximity fuse)
   parent: BaseMagazineBox
   components:
     - type: Tag
@@ -43,5 +43,5 @@
       whitelist:
         tags:
           - Cartridge80mm
-      proto: Cartridge80mm
+      proto: Cartridge80mmPS
       capacity: 250

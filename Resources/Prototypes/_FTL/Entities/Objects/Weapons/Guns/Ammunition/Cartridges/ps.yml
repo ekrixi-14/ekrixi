@@ -1,0 +1,107 @@
+- type: entity
+  id: Cartridge20mmPS
+  name: cartridge (20mm proximity fuse)
+  parent: BaseCartridge
+  components:
+    - type: Tag
+      tags:
+        - Cartridge
+        - Cartridge20mm
+    - type: Sprite
+      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      layers:
+        - state: 20mm
+    - type: Appearance
+    - type: CartridgeAmmo
+      deleteOnSpawn: true
+      proto: Bullet20mmPS
+
+- type: entity
+  id: Cartridge53mmPS
+  name: cartridge (53mm proximity fuse)
+  parent: BaseCartridge
+  components:
+    - type: Tag
+      tags:
+        - Cartridge
+        - Cartridge53mm
+    - type: Sprite
+      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      layers:
+        - state: 53mm
+    - type: Appearance
+    - type: CartridgeAmmo
+      deleteOnSpawn: true
+      proto: Bullet53mmPS
+
+- type: entity
+  id: Cartridge80mmPS
+  name: cartridge (80mm proximity fuse)
+  parent: BaseCartridge
+  components:
+    - type: Tag
+      tags:
+        - Cartridge
+        - Cartridge80mm
+    - type: Sprite
+      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      layers:
+        - state: 53mm # we do a thing called "reusing sprites"
+    - type: Appearance
+    - type: CartridgeAmmo
+      deleteOnSpawn: true
+      proto: Bullet80mmPS
+
+- type: entity
+  id: Cartridge105mmPS
+  name: cartridge (105mm proximity fuse)
+  parent: BaseCartridge
+  components:
+    - type: Tag
+      tags:
+        - Cartridge
+        - Cartridge105mm
+    - type: Sprite
+      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      layers:
+        - state: 105mm
+    - type: Appearance
+    - type: CartridgeAmmo
+      deleteOnSpawn: true
+      proto: Bullet105mmPS
+
+- type: entity
+  id: Cartridge120mmPS
+  name: cartridge (120mm proximity fuse)
+  parent: BaseCartridge
+  components:
+    - type: Tag
+      tags:
+        - Cartridge
+        - Cartridge120mm
+    - type: Sprite
+      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      layers:
+        - state: 105mm # we do a thing called "reusing sprites"
+    - type: Appearance
+    - type: CartridgeAmmo
+      deleteOnSpawn: true
+      proto: Bullet120mmPS
+
+- type: entity
+  id: Cartridge140mmPS
+  name: cartridge (140mm proximity fuse)
+  parent: BaseCartridge
+  components:
+    - type: Tag
+      tags:
+        - Cartridge
+        - Cartridge140mm
+    - type: Sprite
+      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      layers:
+        - state: 140mm
+    - type: Appearance
+    - type: CartridgeAmmo
+      deleteOnSpawn: true
+      proto: Bullet140mmPS
