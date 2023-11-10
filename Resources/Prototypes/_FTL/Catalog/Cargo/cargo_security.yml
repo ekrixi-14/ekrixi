@@ -107,3 +107,33 @@
   cost: 30000
   category: Security
   group: market
+
+- type: cargoProduct
+  id: 105mmAmmoPS
+  icon:
+    sprite: _FTL/Structures/Weapons/silo.rsi
+    state: closed
+  product: Crate105mmAmmoPS
+  cost: 10000
+  category: Security
+  group: market
+
+- type: cargoProduct
+  id: 120mmAmmoPS
+  icon:
+    sprite: _FTL/Structures/Weapons/silo.rsi
+    state: closed
+  product: Crate120mmAmmoPS
+  cost: 10000
+  category: Security
+  group: market
+
+- type: cargoProduct
+  id: 140mmAmmoPS
+  icon:
+    sprite: _FTL/Structures/Weapons/silo.rsi
+    state: closed
+  product: Crate140mmAmmoPS
+  cost: 30000
+  category: Security
+  group: market
