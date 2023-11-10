@@ -37,6 +37,15 @@ ent-120mmAmmoAP = { ent-Crate120mmAmmoAP }
 ent-140mmAmmoAP = { ent-Crate140mmAmmoAP }
     .desc = { ent-Crate140mmAmmoAP.desc }
 
+ent-105mmAmmoPS = { ent-Crate105mmAmmoPS }
+    .desc = { ent-Crate105mmAmmoPS.desc }
+
+ent-120mmAmmoPS = { ent-Crate120mmAmmoPS }
+    .desc = { ent-Crate120mmAmmoPS.desc }
+
+ent-140mmAmmoPS = { ent-Crate140mmAmmoPS }
+    .desc = { ent-Crate140mmAmmoPS.desc }
+
 # crates
 # missiles
 ent-CrateT1Missiles = structural damage missiles
@@ -50,13 +59,13 @@ ent-CrateT3Missiles = total area destruction missiles
 
 # ammo
 ent-Crate20mmAmmo = 20mm mixed ammo crate
-    .desc = This crate contains 20 boxes of 20mm, both HE and AP.
+    .desc = This crate contains 30 boxes of 20mm of several types of ammunition.
 
 ent-Crate53mmAmmo = 53mm mixed ammo crate
-    .desc = This crate contains 10 boxes of 53mm, both HE and AP.
+    .desc = This crate contains 15 boxes of 53mm of several types of ammunition.
 
 ent-Crate80mmAmmo = 80mm mixed ammo crate
-    .desc = This crate contains 6 boxes of 80mm, both HE and AP.
+    .desc = This crate contains 9 boxes of 80mm of several types of ammunition.
 
 ent-Crate105mmAmmoHE = 105mm ammo crate (HE)
     .desc = This crate contains 30 shells of high-explosive 105mm.
@@ -75,3 +84,12 @@ ent-Crate120mmAmmoAP = 120mm ammo crate (AP)
 
 ent-Crate140mmAmmoAP = 140mm ammo crate (AP)
     .desc = This crate contains 10 shells of armor-piercing 140mm.
+
+ent-Crate105mmAmmoPS = 105mm ammo crate (PF)
+    .desc = This crate contains 30 shells of proximity-fuse 105mm.
+
+ent-Crate120mmAmmoPS = 120mm ammo crate (PF)
+    .desc = This crate contains 20 shells of proximity-fuse 120mm.
+
+ent-Crate140mmAmmoPS = 140mm ammo crate (PF)
+    .desc = This crate contains 10 shells of proximity-fuse 140mm.

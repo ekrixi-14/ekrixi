@@ -8,6 +8,8 @@
           amount: 10
         - id: MagazineBox20mmAP
           amount: 10
+        - id: MagazineBox20mmPF
+          amount: 10
 
 - type: entity
   id: Crate53mmAmmo
@@ -19,6 +21,8 @@
           amount: 5
         - id: MagazineBox53mmAP
           amount: 5
+        - id: MagazineBox53mmPF
+          amount: 5
 
 - type: entity
   id: Crate80mmAmmo
@@ -29,6 +33,8 @@
         - id: MagazineBox80mm
           amount: 3
         - id: MagazineBox80mmAP
+          amount: 3
+        - id: MagazineBox80mmPF
           amount: 3
 
 - type: entity
@@ -83,4 +89,31 @@
     - type: StorageFill
       contents:
         - id: Cartridge140mmAP
+          amount: 10
+
+- type: entity
+  id: Crate105mmAmmoPF
+  parent: CrateGenericSteel
+  components:
+    - type: StorageFill
+      contents:
+        - id: Cartridge105mmPF
+          amount: 30
+
+- type: entity
+  id: Crate120mmAmmoPF
+  parent: CrateGenericSteel
+  components:
+    - type: StorageFill
+      contents:
+        - id: Cartridge120mmPF
+          amount: 20
+
+- type: entity
+  id: Crate140mmAmmoPF
+  parent: CrateGenericSteel
+  components:
+    - type: StorageFill
+      contents:
+        - id: Cartridge140mmPF
           amount: 10
