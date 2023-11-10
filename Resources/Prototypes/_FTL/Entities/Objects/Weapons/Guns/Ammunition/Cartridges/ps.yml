@@ -1,5 +1,5 @@
 - type: entity
-  id: Cartridge20mmPS
+  id: Cartridge20mmPF
   name: cartridge (20mm proximity fuse)
   parent: BaseCartridge
   components:
@@ -14,10 +14,9 @@
     - type: Appearance
     - type: CartridgeAmmo
       deleteOnSpawn: true
-      proto: Bullet20mmPS
-
+      proto: Bullet20mmPF
 - type: entity
-  id: Cartridge53mmPS
+  id: Cartridge53mmPF
   name: cartridge (53mm proximity fuse)
   parent: BaseCartridge
   components:
@@ -32,10 +31,9 @@
     - type: Appearance
     - type: CartridgeAmmo
       deleteOnSpawn: true
-      proto: Bullet53mmPS
-
+      proto: Bullet53mmPF
 - type: entity
-  id: Cartridge80mmPS
+  id: Cartridge80mmPF
   name: cartridge (80mm proximity fuse)
   parent: BaseCartridge
   components:
@@ -50,10 +48,9 @@
     - type: Appearance
     - type: CartridgeAmmo
       deleteOnSpawn: true
-      proto: Bullet80mmPS
-
+      proto: Bullet80mmPF
 - type: entity
-  id: Cartridge105mmPS
+  id: Cartridge105mmPF
   name: cartridge (105mm proximity fuse)
   parent: BaseCartridge
   components:
@@ -68,10 +65,9 @@
     - type: Appearance
     - type: CartridgeAmmo
       deleteOnSpawn: true
-      proto: Bullet105mmPS
-
+      proto: Bullet105mmPF
 - type: entity
-  id: Cartridge120mmPS
+  id: Cartridge120mmPF
   name: cartridge (120mm proximity fuse)
   parent: BaseCartridge
   components:
@@ -86,10 +82,9 @@
     - type: Appearance
     - type: CartridgeAmmo
       deleteOnSpawn: true
-      proto: Bullet120mmPS
-
+      proto: Bullet120mmPF
 - type: entity
-  id: Cartridge140mmPS
+  id: Cartridge140mmPF
   name: cartridge (140mm proximity fuse)
   parent: BaseCartridge
   components:
@@ -104,4 +99,4 @@
     - type: Appearance
     - type: CartridgeAmmo
       deleteOnSpawn: true
-      proto: Bullet140mmPS
+      proto: Bullet140mmPF

@@ -1,5 +1,5 @@
 - type: entity
-  id: Bullet20mmPS
+  id: Bullet20mmPF
   name: 20mm
   parent: BaseBulletTrigger
   noSpawn: true
@@ -18,7 +18,7 @@
     - type: TriggerOnEnterGrid
 
 - type: entity
-  id: Bullet53mmPS
+  id: Bullet53mmPF
   name: 53mm
   parent: BaseBulletTrigger
   noSpawn: true
@@ -37,7 +37,7 @@
     - type: TriggerOnEnterGrid
 
 - type: entity
-  id: Bullet80mmPS
+  id: Bullet80mmPF
   name: 80mm
   parent: BaseBulletTrigger
   noSpawn: true
@@ -56,7 +56,7 @@
     - type: TriggerOnEnterGrid
 
 - type: entity
-  id: Bullet105mmPS
+  id: Bullet105mmPF
   name: 105mm
   parent: BaseBulletTrigger
   noSpawn: true
@@ -75,7 +75,7 @@
     - type: TriggerOnEnterGrid
 
 - type: entity
-  id: Bullet120mmPS
+  id: Bullet120mmPF
   name: 120mm
   parent: BaseBulletTrigger
   noSpawn: true
@@ -94,7 +94,7 @@
     - type: TriggerOnEnterGrid
 
 - type: entity
-  id: Bullet140mmPS
+  id: Bullet140mmPF
   name: 140mm
   parent: BaseBulletTrigger
   noSpawn: true

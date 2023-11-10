@@ -1,5 +1,5 @@
 - type: entity
-  id: MagazineBox20mmPS
+  id: MagazineBox20mmPF
   name: ammo box (20mm proximity fuse)
   parent: BaseMagazineBox
   components:
@@ -11,11 +11,11 @@
       whitelist:
         tags:
           - Cartridge20mm
-      proto: Cartridge20mmPS
+      proto: Cartridge20mmPF
       capacity: 500
 
 - type: entity
-  id: MagazineBox53mmPS
+  id: MagazineBox53mmPF
   name: ammo box (53mm proximity fuse)
   parent: BaseMagazineBox
   components:
@@ -27,11 +27,11 @@
       whitelist:
         tags:
           - Cartridge53mm
-      proto: Cartridge53mmPS
+      proto: Cartridge53mmPF
       capacity: 500
 
 - type: entity
-  id: MagazineBox80mmPS
+  id: MagazineBox80mmPF
   name: ammo box (80mm proximity fuse)
   parent: BaseMagazineBox
   components:
@@ -43,5 +43,5 @@
       whitelist:
         tags:
           - Cartridge80mm
-      proto: Cartridge80mmPS
+      proto: Cartridge80mmPF
       capacity: 250
