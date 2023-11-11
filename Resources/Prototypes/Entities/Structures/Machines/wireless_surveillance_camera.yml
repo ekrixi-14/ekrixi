@@ -7,8 +7,8 @@
   components:
     - type: InteractionOutline
     - type: Eye
-    - type: WirelessNetworkConnection
-      range: 200
+    # - type: WirelessNetworkConnection # ekrixi - Remove StationLimitedNetwork & WirelessNetworkConnection
+      # range: 200
     - type: Damageable
       damageContainer: Inorganic
       damageModifierSet: Metallic

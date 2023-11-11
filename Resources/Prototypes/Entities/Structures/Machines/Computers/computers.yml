@@ -374,8 +374,8 @@
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: CrewMonitor
-  - type: WirelessNetworkConnection
-    range: 1200
+  # - type: WirelessNetworkConnection # ekrixi - Remove StationLimitedNetwork & WirelessNetworkConnection
+    # range: 1200
 
 - type: entity
   parent: BaseComputer
@@ -737,8 +737,8 @@
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: BasicDevice
-  - type: WirelessNetworkConnection
-    range: 200
+  # - type: WirelessNetworkConnection # ekrixi - Remove StationLimitedNetwork & WirelessNetworkConnection
+    # range: 200
   - type: DeviceLinkSource
     range: 200
     ports:
@@ -929,8 +929,8 @@
     deviceNetId: Wireless
     receiveFrequencyId: SurveillanceCamera
     transmitFrequencyId: SurveillanceCamera
-  - type: WirelessNetworkConnection
-    range: 200
+  # - type: WirelessNetworkConnection # ekrixi - Remove StationLimitedNetwork & WirelessNetworkConnection
+    # range: 200
   - type: DeviceNetworkRequiresPower
   - type: Speech
     speechVerb: Robotic
