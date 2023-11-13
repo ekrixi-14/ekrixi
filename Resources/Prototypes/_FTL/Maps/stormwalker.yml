@@ -1,7 +1,7 @@
 - type: gameMap
   id: Stormwalker
   mapName: 'Stormwalker'
-  mapPath: /Maps/_FTL/fsc/stormwalker.yml
+  mapPath: /Maps/_FTL/acks/stormwalker.yml
   minPlayers: 11
   maxPlayers: 33
   stations:
