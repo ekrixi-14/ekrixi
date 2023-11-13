@@ -5,31 +5,31 @@
   id: Cartridge20mm
 
 - type: Tag
-  id: Magazine20mm
-
-- type: Tag
   id: Cartridge53mm
 
 - type: Tag
-  id: Magazine53mm
+  id: Cartridge80mm
 
 - type: Tag
   id: Cartridge105mm
 
 - type: Tag
-  id: Magazine105mm
+  id: Cartridge120mm
 
 - type: Tag
   id: Cartridge140mm
 
 - type: Tag
-  id: Magazine140mm
+  id: Magazine20mm
 
 - type: Tag
-  id: Cartridge180mm
+  id: Magazine53mm
 
 - type: Tag
-  id: Magazine180mm
+  id: Magazine80mm
+
+- type: Tag
+  id: Nothing
 
 - type: Tag
   id: Missile

@@ -42,7 +42,12 @@ public sealed partial class GunnerConsoleWindow : FancyWindow,
     public void UpdateState(GunnerConsoleBoundInterfaceState scc)
     {
         // update the radar
-        var radarState = new RadarConsoleBoundInterfaceState(scc.MaxRange, scc.Coordinates, scc.Angle, scc.Weapons);
+        var radarState = new RadarConsoleBoundInterfaceState(
+            scc.MaxRange,
+            scc.Coordinates,
+            scc.Angle,
+            scc.Weapons
+        );
         RadarScreen.UpdateState(radarState);
 
         // update ammo text

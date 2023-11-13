@@ -1,0 +1,47 @@
+- type: entity
+  id: MagazineBox20mmPF
+  name: ammo box (20mm proximity fuse)
+  parent: BaseMagazineBox
+  components:
+    - type: Tag
+      tags:
+        - Magazine20mm
+    - type: BallisticAmmoProvider
+      mayTransfer: true
+      whitelist:
+        tags:
+          - Cartridge20mm
+      proto: Cartridge20mmPF
+      capacity: 500
+
+- type: entity
+  id: MagazineBox53mmPF
+  name: ammo box (53mm proximity fuse)
+  parent: BaseMagazineBox
+  components:
+    - type: Tag
+      tags:
+        - Magazine53mm
+    - type: BallisticAmmoProvider
+      mayTransfer: true
+      whitelist:
+        tags:
+          - Cartridge53mm
+      proto: Cartridge53mmPF
+      capacity: 500
+
+- type: entity
+  id: MagazineBox80mmPF
+  name: ammo box (80mm proximity fuse)
+  parent: BaseMagazineBox
+  components:
+    - type: Tag
+      tags:
+        - Magazine80mm
+    - type: BallisticAmmoProvider
+      mayTransfer: true
+      whitelist:
+        tags:
+          - Cartridge80mm
+      proto: Cartridge80mmPF
+      capacity: 250

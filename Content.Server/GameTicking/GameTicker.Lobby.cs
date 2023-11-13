@@ -6,6 +6,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Players;
 using System.Text;
+using Content.Shared.CCVar;
 
 namespace Content.Server.GameTicking
 {
@@ -27,7 +28,7 @@ namespace Content.Server.GameTicking
         private TimeSpan _pauseTime;
 
         [ViewVariables]
-        public new bool Paused { get; set; }
+        public new bool Paused { get; set; } = true;
 
         [ViewVariables]
         private bool _roundStartCountdownHasNotStartedYetDueToNoPlayers;
@@ -164,8 +165,35 @@ namespace Content.Server.GameTicking
             var status = ready ? PlayerGameStatus.ReadyToPlay : PlayerGameStatus.NotReadyToPlay;
             _playerGameStatuses[player.UserId] = ready ? PlayerGameStatus.ReadyToPlay : PlayerGameStatus.NotReadyToPlay;
             RaiseNetworkEvent(GetStatusMsg(player), player.ConnectedClient);
+            CheckMinPlayers();
             // update server info to reflect new ready count
             UpdateInfoText();
+        }
+
+        private void CheckMinPlayers()
+        {
+            if (RunLevel != GameRunLevel.PreRoundLobby)
+                return;
+
+            var minPlayers = _configurationManager.GetCVar(CCVars.MinimumPlayers);
+            if (minPlayers == 0)
+            {
+                // Disabled, return.
+                return;
+            }
+
+            var readyCount = Readied();
+            var needPlayers = minPlayers - readyCount;
+            PauseStart(needPlayers > 0);
+
+            _chatManager.DispatchServerAnnouncement(Paused
+                ? Loc.GetString("game-insufficient-players-to-start")
+                : Loc.GetString("game-sufficient-players-to-start"));
+        }
+
+        private int Readied()
+        {
+            return _playerGameStatuses.Values.Count(x => x == PlayerGameStatus.ReadyToPlay);
         }
     }
 }

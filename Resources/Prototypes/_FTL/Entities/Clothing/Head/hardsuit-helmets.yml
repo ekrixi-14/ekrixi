@@ -1,0 +1,75 @@
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitFSCCombat
+  noSpawn: true
+  name: FSC Standard Combat Hardsuit Helmet
+  description: An armored helmet built for stabilization and space combat.
+  components:
+  - type: Sprite
+    sprite: _FTL/Clothing/Head/Hardsuits/fsccombat.rsi
+  - type: Clothing
+    sprite: _FTL/Clothing/Head/Hardsuits/fsccombat.rsi
+  - type: PointLight
+    color: green
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitFSCElite
+  noSpawn: true
+  name: FSC Elite Combat Helmet
+  description: An elite version of the FSC Standard Combat Helmet sporting superior fireproof armor and more mobility.
+  components:
+  - type: Sprite
+    sprite: _FTL/Clothing/Head/Hardsuits/fscelite.rsi
+  - type: Clothing
+    sprite: _FTL/Clothing/Head/Hardsuits/fscelite.rsi
+  - type: PointLight
+    color: white
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    coefficient: 0.005
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitFSCCommander
+  noSpawn: true
+  name: FSC Commander Combat Helmet
+  description: The built in helmet of the FSC Commander Hardsuit, has a small green insignia to differentiate between it and the elite helmet.
+  components:
+  - type: Sprite
+    sprite: _FTL/Clothing/Head/Hardsuits/fsccommander.rsi
+  - type: Clothing
+    sprite: _FTL/Clothing/Head/Hardsuits/fsccommander.rsi
+  - type: PointLight
+    color: white
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.80
+        Slash: 0.80
+        Piercing: 0.80
+        Heat: 0.80
+        Radiation: 0.80
+        Caustic: 0.95

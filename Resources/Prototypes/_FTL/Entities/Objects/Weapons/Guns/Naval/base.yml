@@ -61,7 +61,7 @@
     - type: ChamberMagazineAmmoProvider
       boltClosed: null
     - type: Gun
-      fireRate: 6
+      fireRate: 6 # divide RPM by 60 to get firerate
       selectedMode: FullAuto
       availableModes:
         - FullAuto

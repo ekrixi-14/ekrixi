@@ -1,0 +1,97 @@
+# FSC Combat Suits
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitFSCCombat
+  name: FSC Standard Combat Hardsuit
+  description: An armored hardsuit built for stabilization and space combat.
+  components:
+  - type: Sprite
+    sprite: _FTL/Clothing/OuterClothing/Hardsuits/fsccombat.rsi
+  - type: Clothing
+    sprite: _FTL/Clothing/OuterClothing/Hardsuits/fsccombat.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.5
+        Radiation: 0.5
+        Caustic: 0.5
+  - type: ClothingSpeedModifier
+    walkModifier: 0.80
+    sprintModifier: 0.80
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitFSCCombat
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitFSCElite
+  name: FSC Elite Combat Hardsuit
+  description: An elite version of the FSC Standard Combat Hardsuit sporting superior fireproof armor and more mobility.
+  components:
+  - type: Sprite
+    sprite: _FTL/Clothing/OuterClothing/Hardsuits/fscelite.rsi
+  - type: Clothing
+    sprite: _FTL/Clothing/OuterClothing/Hardsuits/fscelite.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    coefficient: 0.001
+  - type: ExplosionResistance
+    damageCoefficient: 0.3
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.4
+        Heat: 0.05
+        Radiation: 0.25
+        Caustic: 0.5
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitFSCElite
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitFSCCommander
+  name: FSC Commander Combat Hardsuit
+  description: A rare special hardsuit given out to commanders and generals in FSC fleets, sports extremely light and powerful armor, with a thin layer of vacuum around the lining of the suit allowing zero heat transfer to occur, the perfect fire/ice proof armor.
+  components:
+  - type: Sprite
+    sprite: _FTL/Clothing/OuterClothing/Hardsuits/fsccommander.rsi
+  - type: Clothing
+    sprite: _FTL/Clothing/OuterClothing/Hardsuits/fsccommander.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    coefficient: 0.001
+  - type: ExplosionResistance
+    damageCoefficient: 0.2
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.3
+        Heat: 0.01
+        Cold: 0.01
+        Shock: 0
+        Radiation: 0.25
+        Caustic: 0.5
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 1.0
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitFSCCommander
+

@@ -1,6 +1,6 @@
 - type: entity
-  id: Cartridge20mm
-  name: cartridge (20mm)
+  id: Cartridge20mmPF
+  name: cartridge (20mm proximity fuse)
   parent: BaseCartridge
   components:
     - type: Tag
@@ -14,11 +14,10 @@
     - type: Appearance
     - type: CartridgeAmmo
       deleteOnSpawn: true
-      proto: Bullet20mm
-
+      proto: Bullet20mmPF
 - type: entity
-  id: Cartridge53mm
-  name: cartridge (53mm)
+  id: Cartridge53mmPF
+  name: cartridge (53mm proximity fuse)
   parent: BaseCartridge
   components:
     - type: Tag
@@ -32,11 +31,27 @@
     - type: Appearance
     - type: CartridgeAmmo
       deleteOnSpawn: true
-      proto: Bullet53mm
-
+      proto: Bullet53mmPF
 - type: entity
-  id: Cartridge105mm
-  name: cartridge (105mm)
+  id: Cartridge80mmPF
+  name: cartridge (80mm proximity fuse)
+  parent: BaseCartridge
+  components:
+    - type: Tag
+      tags:
+        - Cartridge
+        - Cartridge80mm
+    - type: Sprite
+      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      layers:
+        - state: 53mm # we do a thing called "reusing sprites"
+    - type: Appearance
+    - type: CartridgeAmmo
+      deleteOnSpawn: true
+      proto: Bullet80mmPF
+- type: entity
+  id: Cartridge105mmPF
+  name: cartridge (105mm proximity fuse)
   parent: BaseCartridge
   components:
     - type: Tag
@@ -50,11 +65,27 @@
     - type: Appearance
     - type: CartridgeAmmo
       deleteOnSpawn: true
-      proto: Bullet105mm
-
+      proto: Bullet105mmPF
 - type: entity
-  id: Cartridge140mm
-  name: cartridge (140mm)
+  id: Cartridge120mmPF
+  name: cartridge (120mm proximity fuse)
+  parent: BaseCartridge
+  components:
+    - type: Tag
+      tags:
+        - Cartridge
+        - Cartridge120mm
+    - type: Sprite
+      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      layers:
+        - state: 105mm # we do a thing called "reusing sprites"
+    - type: Appearance
+    - type: CartridgeAmmo
+      deleteOnSpawn: true
+      proto: Bullet120mmPF
+- type: entity
+  id: Cartridge140mmPF
+  name: cartridge (140mm proximity fuse)
   parent: BaseCartridge
   components:
     - type: Tag
@@ -68,4 +99,4 @@
     - type: Appearance
     - type: CartridgeAmmo
       deleteOnSpawn: true
-      proto: Bullet140mm
+      proto: Bullet140mmPF
