@@ -23,4 +23,3 @@
             MedicalDoctor: [ 2, 2 ] # Medical
             SeniorPhysician: [ 2, 2 ]
             CargoTechnician: [ 10, 10 ] # Cargo
-            Passenger: [ 0, 0 ] # Everyone else
