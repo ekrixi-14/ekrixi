@@ -44,7 +44,7 @@ entities:
     - type: LoadedMap
   - uid: 2
     components:
-    - name: grid
+    - name: ACKs Stormwalker-Class Cruiser
       type: MetaData
     - pos: -0.5,-0.49998474
       parent: 1
@@ -138,17 +138,17 @@ entities:
             color: '#FFFFFFFF'
             id: Box
           decals:
-            100: 14,-14
-            101: 15,-14
-            102: 16,-14
+            99: 14,-14
+            100: 15,-14
+            101: 16,-14
         - node:
             color: '#52B4E996'
             id: BrickTileWhiteBox
           decals:
-            78: 10,-14
-            79: 10,-13
-            80: 10,-12
-            112: 6,-13
+            77: 10,-14
+            78: 10,-13
+            79: 10,-12
+            111: 6,-13
         - node:
             color: '#334E6DC8'
             id: BrickTileWhiteCornerNe
@@ -158,7 +158,7 @@ entities:
             color: '#D381C996'
             id: BrickTileWhiteCornerNe
           decals:
-            121: 5,-24
+            120: 5,-24
         - node:
             color: '#DE3A3A96'
             id: BrickTileWhiteCornerNe
@@ -174,12 +174,12 @@ entities:
             id: BrickTileWhiteCornerNw
           decals:
             0: 1,-5
-            118: -5,-24
+            117: -5,-24
         - node:
             color: '#52B4E996'
             id: BrickTileWhiteCornerNw
           decals:
-            81: 8,-16
+            80: 8,-16
         - node:
             color: '#9FED5896'
             id: BrickTileWhiteCornerNw
@@ -194,7 +194,7 @@ entities:
             color: '#282828CC'
             id: BrickTileWhiteCornerSe
           decals:
-            84: 14,-12
+            83: 14,-12
         - node:
             color: '#334E6DC8'
             id: BrickTileWhiteCornerSe
@@ -204,7 +204,7 @@ entities:
             color: '#52B4E996'
             id: BrickTileWhiteCornerSe
           decals:
-            132: 6,-18
+            131: 6,-18
         - node:
             color: '#DE3A3A96'
             id: BrickTileWhiteCornerSe
@@ -220,7 +220,7 @@ entities:
             color: '#282828CC'
             id: BrickTileWhiteCornerSw
           decals:
-            93: 16,-12
+            92: 16,-12
         - node:
             color: '#334E6DC8'
             id: BrickTileWhiteCornerSw
@@ -230,7 +230,7 @@ entities:
             color: '#52B4E996'
             id: BrickTileWhiteCornerSw
           decals:
-            134: 8,-18
+            133: 8,-18
         - node:
             color: '#9FED5896'
             id: BrickTileWhiteCornerSw
@@ -246,12 +246,12 @@ entities:
             color: '#282828CC'
             id: BrickTileWhiteEndE
           decals:
-            87: 12,-14
+            86: 12,-14
         - node:
             color: '#334E6DC8'
             id: BrickTileWhiteEndE
           decals:
-            120: -8,-24
+            119: -8,-24
         - node:
             color: '#9FED5896'
             id: BrickTileWhiteEndN
@@ -274,12 +274,12 @@ entities:
             color: '#D381C996'
             id: BrickTileWhiteEndW
           decals:
-            122: 8,-24
+            121: 8,-24
         - node:
             color: '#282828CC'
             id: BrickTileWhiteInnerSw
           decals:
-            97: 16,-9
+            96: 16,-9
         - node:
             color: '#52B4E996'
             id: BrickTileWhiteLineE
@@ -289,8 +289,8 @@ entities:
             74: 6,-11
             75: 6,-10
             76: 6,-9
-            113: 6,-14
-            135: 6,-12
+            112: 6,-14
+            134: 6,-12
         - node:
             color: '#9FED5896'
             id: BrickTileWhiteLineE
@@ -320,13 +320,13 @@ entities:
             color: '#D381C996'
             id: BrickTileWhiteLineE
           decals:
-            123: 5,-25
+            122: 5,-25
         - node:
             color: '#DE3A3A96'
             id: BrickTileWhiteLineE
           decals:
-            136: 3,-1
-            137: 3,0
+            135: 3,-1
+            136: 3,0
         - node:
             color: '#EFB34196'
             id: BrickTileWhiteLineE
@@ -336,11 +336,11 @@ entities:
             color: '#282828CC'
             id: BrickTileWhiteLineN
           decals:
-            88: 12,-16
-            89: 13,-16
-            90: 14,-16
-            91: 15,-16
-            92: 16,-16
+            87: 12,-16
+            88: 13,-16
+            89: 14,-16
+            90: 15,-16
+            91: 16,-16
         - node:
             color: '#334E6DC8'
             id: BrickTileWhiteLineN
@@ -351,8 +351,8 @@ entities:
             color: '#52B4E996'
             id: BrickTileWhiteLineN
           decals:
-            82: 9,-16
-            83: 10,-16
+            81: 9,-16
+            82: 10,-16
         - node:
             color: '#EFB34196'
             id: BrickTileWhiteLineN
@@ -361,40 +361,40 @@ entities:
             65: -7,-20
             66: -6,-20
             67: -5,-20
-            128: 5,-20
-            129: 6,-20
-            130: 7,-20
-            131: 8,-20
+            127: 5,-20
+            128: 6,-20
+            129: 7,-20
+            130: 8,-20
         - node:
             color: '#282828CC'
             id: BrickTileWhiteLineS
           decals:
-            85: 13,-12
-            86: 12,-12
-            96: 15,-9
-            98: 12,-9
-            99: 13,-9
+            84: 13,-12
+            85: 12,-12
+            95: 15,-9
+            97: 12,-9
+            98: 13,-9
         - node:
             color: '#334E6DC8'
             id: BrickTileWhiteLineS
           decals:
-            114: -8,-22
-            115: -7,-22
-            116: -6,-22
-            117: -5,-22
+            113: -8,-22
+            114: -7,-22
+            115: -6,-22
+            116: -5,-22
         - node:
             color: '#52B4E996'
             id: BrickTileWhiteLineS
           decals:
-            133: 5,-18
+            132: 5,-18
         - node:
             color: '#D381C996'
             id: BrickTileWhiteLineS
           decals:
-            124: 5,-22
-            125: 6,-22
-            126: 7,-22
-            127: 8,-22
+            123: 5,-22
+            124: 6,-22
+            125: 7,-22
+            126: 8,-22
         - node:
             color: '#DE3A3A96'
             id: BrickTileWhiteLineS
@@ -413,13 +413,13 @@ entities:
             color: '#282828CC'
             id: BrickTileWhiteLineW
           decals:
-            94: 16,-11
-            95: 16,-10
+            93: 16,-11
+            94: 16,-10
         - node:
             color: '#334E6DC8'
             id: BrickTileWhiteLineW
           decals:
-            119: -5,-25
+            118: -5,-25
         - node:
             color: '#9FED5896'
             id: BrickTileWhiteLineW
@@ -446,21 +446,21 @@ entities:
             color: '#DE3A3A96'
             id: BrickTileWhiteLineW
           decals:
-            138: -3,-1
-            139: -3,0
+            137: -3,-1
+            138: -3,0
         - node:
             color: '#52B4E996'
             id: DiagonalOverlay
           decals:
-            103: 8,-9
-            104: 8,-10
-            105: 8,-11
-            106: 9,-11
-            107: 10,-11
-            108: 10,-10
-            109: 10,-9
-            110: 9,-9
-            111: 9,-10
+            102: 8,-9
+            103: 8,-10
+            104: 8,-11
+            105: 9,-11
+            106: 10,-11
+            107: 10,-10
+            108: 10,-9
+            109: 9,-9
+            110: 9,-10
       type: DecalGrid
     - version: 2
       data:
@@ -9014,6 +9014,16 @@ entities:
     - pos: -7.5,-15.5
       parent: 2
       type: Transform
+  - uid: 2932
+    components:
+    - pos: -6.5,-15.5
+      parent: 2
+      type: Transform
+  - uid: 2933
+    components:
+    - pos: -8.5,-12.5
+      parent: 2
+      type: Transform
 - proto: LockerHeadOfSecurityFilledHardsuit
   entities:
   - uid: 218
@@ -11099,20 +11109,6 @@ entities:
     - pos: 16.5,-20.5
       parent: 2
       type: Transform
-- proto: SpawnPointBartender
-  entities:
-  - uid: 1166
-    components:
-    - pos: 7.5,-32.5
-      parent: 2
-      type: Transform
-- proto: SpawnPointBotanist
-  entities:
-  - uid: 2822
-    components:
-    - pos: 5.5,-38.5
-      parent: 2
-      type: Transform
 - proto: SpawnPointCaptain
   entities:
   - uid: 293
@@ -11122,6 +11118,21 @@ entities:
       type: Transform
 - proto: SpawnPointCargoTechnician
   entities:
+  - uid: 1166
+    components:
+    - pos: 6.5,-22.5
+      parent: 2
+      type: Transform
+  - uid: 1995
+    components:
+    - pos: 4.5,-38.5
+      parent: 2
+      type: Transform
+  - uid: 2822
+    components:
+    - pos: 6.5,-32.5
+      parent: 2
+      type: Transform
   - uid: 2823
     components:
     - pos: -0.5,-26.5
@@ -11135,6 +11146,11 @@ entities:
   - uid: 2825
     components:
     - pos: 0.5,-27.5
+      parent: 2
+      type: Transform
+  - uid: 2826
+    components:
+    - pos: 5.5,-38.5
       parent: 2
       type: Transform
 - proto: SpawnPointChiefEngineer
@@ -11158,13 +11174,6 @@ entities:
     - pos: -1.5,-2.5
       parent: 2
       type: Transform
-- proto: SpawnPointJanitor
-  entities:
-  - uid: 1995
-    components:
-    - pos: 6.5,-22.5
-      parent: 2
-      type: Transform
 - proto: SpawnPointMedicalDoctor
   entities:
   - uid: 33
@@ -11175,13 +11184,6 @@ entities:
   - uid: 1643
     components:
     - pos: 7.5,-10.5
-      parent: 2
-      type: Transform
-- proto: SpawnPointMusician
-  entities:
-  - uid: 2826
-    components:
-    - pos: 4.5,-38.5
       parent: 2
       type: Transform
 - proto: SpawnPointPilot
@@ -11233,13 +11235,6 @@ entities:
     - pos: -3.5,-0.5
       parent: 2
       type: Transform
-- proto: SpawnPointSeniorEngineer
-  entities:
-  - uid: 2829
-    components:
-    - pos: -6.5,-12.5
-      parent: 2
-      type: Transform
 - proto: SpawnPointSeniorPhysician
   entities:
   - uid: 317
@@ -11267,6 +11262,21 @@ entities:
   - uid: 2828
     components:
     - pos: -7.5,-14.5
+      parent: 2
+      type: Transform
+  - uid: 2829
+    components:
+    - pos: -6.5,-12.5
+      parent: 2
+      type: Transform
+  - uid: 2934
+    components:
+    - pos: -7.5,-13.5
+      parent: 2
+      type: Transform
+  - uid: 2935
+    components:
+    - pos: -7.5,-12.5
       parent: 2
       type: Transform
 - proto: SpeedLoaderMagnumAP
