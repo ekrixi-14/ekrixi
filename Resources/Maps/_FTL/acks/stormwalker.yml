@@ -798,6 +798,8 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: ShipTracker
+    - id: Stormwalker
+      type: BecomesStation
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 1193
@@ -8840,6 +8842,13 @@ entities:
   - uid: 961
     components:
     - pos: -15.5,-19.5
+      parent: 2
+      type: Transform
+- proto: HandLabeler
+  entities:
+  - uid: 2936
+    components:
+    - pos: 9.960102,-10.178495
       parent: 2
       type: Transform
 - proto: HighSecArmoryLocked
