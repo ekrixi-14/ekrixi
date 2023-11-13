@@ -116,10 +116,7 @@ public sealed partial class AutomatedShipSystem : EntitySystem
                     //     _transformSystem.SetWorldRotation(entity, angle);
                     // }
 
-                    PerformCombat(entity,
-                        aiComponent,
-                        aiTrackerComponent,
-                        mainShip);
+                    PerformCombat(entity, mainShip);
                     break;
                 }
                 default:

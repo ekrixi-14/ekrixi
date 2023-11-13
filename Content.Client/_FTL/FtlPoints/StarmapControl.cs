@@ -109,15 +109,19 @@ public sealed class StarmapControl : Control
             handle.DrawCircle(uiPosition, radius, color);
 
             // after circle rendering incase we wish to show text/etc
-            if (hovered && _inputManager.IsKeyDown(Keyboard.Key.MouseLeft))
+            if (hovered)
             {
                 handle.DrawString(_font, uiPosition + new Vector2(10, 0), name);
-
-                if (Vector2.Distance(Vector2.Zero, star.Position) >= Range)
-                    continue; // out of warp range
-
-                OnStarSelect?.Invoke(star);
             }
+
+            // on click
+            if (!hovered || !_inputManager.IsKeyDown(Keyboard.Key.MouseLeft))
+                continue;
+
+            if (Vector2.Distance(Vector2.Zero, star.Position) >= Range)
+                continue; // out of warp range
+
+            OnStarSelect?.Invoke(star);
         }
     }
 }

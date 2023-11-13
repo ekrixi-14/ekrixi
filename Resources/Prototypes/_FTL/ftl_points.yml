@@ -103,7 +103,7 @@
 
 - type: ftlPoint
   id: NoDangerPoint
-  tag: ship-ftl-tag-unknown
+  tag: ship-ftl-tag-star
   effects: []
 
 - type: ftlPoint

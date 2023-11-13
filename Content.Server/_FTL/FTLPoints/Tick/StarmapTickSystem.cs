@@ -2,7 +2,8 @@ namespace Content.Server._FTL.FTLPoints.Tick;
 
 public abstract class StarmapTickSystem<T> : EntitySystem where T : Component
 {
-    private float _timeSinceLastTick = 0f; // SIN
+    private float _tickInterval = 300f;
+    private float _timeSinceLastTick = 300f; // SIN
 
     public override void Initialize()
     {
@@ -37,7 +38,7 @@ public abstract class StarmapTickSystem<T> : EntitySystem where T : Component
         base.Update(frameTime);
 
         _timeSinceLastTick += frameTime;
-        if (!(_timeSinceLastTick >= 10))
+        if (!(_timeSinceLastTick >= _tickInterval))
             return;
         _timeSinceLastTick = 0;
         var stars = QueryStars();
