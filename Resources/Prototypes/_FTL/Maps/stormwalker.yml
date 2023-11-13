@@ -1,0 +1,26 @@
+- type: gameMap
+  id: Stormwalker
+  mapName: 'Stormwalker'
+  mapPath: /Maps/_FTL/fsc/stormwalker.yml
+  minPlayers: 11
+  maxPlayers: 33
+  stations:
+    Stormwalker:
+      stationProto: StandardIndependentShip
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'ACKs Stormwalker-Class Cruiser' # 17 guns, That's a cruiser if I've ever seen one.
+        - type: StationJobs
+          overflowJobs:
+          availableJobs:
+            Captain: [ 1, 1 ] # Command
+            Pilot: [ 1, 1 ]
+            ChiefMedicalOfficer: [ 1, 1 ]
+            HeadOfSecurity: [ 1, 1 ]
+            ChiefEngineer: [ 1, 1 ]
+            SecurityOfficer: [ 8, 8 ] # Security
+            StationEngineer: [ 4, 4 ] # Engi
+            MedicalDoctor: [ 2, 2 ] # Medical
+            SeniorPhysician: [ 2, 2 ]
+            CargoTechnician: [ 12, 12 ] # Cargo
+            Passenger: [ 0, 0 ] # Everyone else
