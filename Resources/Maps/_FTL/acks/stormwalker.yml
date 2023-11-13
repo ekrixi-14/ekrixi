@@ -9014,6 +9014,16 @@ entities:
     - pos: -7.5,-15.5
       parent: 2
       type: Transform
+  - uid: 2932
+    components:
+    - pos: -6.5,-15.5
+      parent: 2
+      type: Transform
+  - uid: 2933
+    components:
+    - pos: -8.5,-12.5
+      parent: 2
+      type: Transform
 - proto: LockerHeadOfSecurityFilledHardsuit
   entities:
   - uid: 218
@@ -11257,6 +11267,16 @@ entities:
   - uid: 2829
     components:
     - pos: -6.5,-12.5
+      parent: 2
+      type: Transform
+  - uid: 2934
+    components:
+    - pos: -7.5,-13.5
+      parent: 2
+      type: Transform
+  - uid: 2935
+    components:
+    - pos: -7.5,-12.5
       parent: 2
       type: Transform
 - proto: SpeedLoaderMagnumAP
