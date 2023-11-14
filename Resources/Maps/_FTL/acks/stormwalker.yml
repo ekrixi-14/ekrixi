@@ -588,7 +588,8 @@ entities:
           -2,-8:
             0: 65535
           -2,-7:
-            0: 65535
+            0: 65527
+            1: 8
           -2,-6:
             0: 65535
           -2,-5:
@@ -793,11 +794,28 @@ entities:
           - 0
           - 0
           - 0
+        - volume: 2500
+          temperature: 293.14996
+          moles:
+          - 20.078888
+          - 75.53487
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
         chunkSize: 4
       type: GridAtmosphere
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: ShipTracker
+    - id: Stormwalker
+      type: BecomesStation
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 1193
@@ -5901,6 +5919,51 @@ entities:
     - pos: 2.5,-41.5
       parent: 2
       type: Transform
+  - uid: 2937
+    components:
+    - pos: -0.5,-7.5
+      parent: 2
+      type: Transform
+  - uid: 2938
+    components:
+    - pos: -0.5,-6.5
+      parent: 2
+      type: Transform
+  - uid: 2945
+    components:
+    - pos: -0.5,-8.5
+      parent: 2
+      type: Transform
+  - uid: 2946
+    components:
+    - pos: -1.5,-6.5
+      parent: 2
+      type: Transform
+  - uid: 2947
+    components:
+    - pos: -2.5,-6.5
+      parent: 2
+      type: Transform
+  - uid: 2948
+    components:
+    - pos: -3.5,-6.5
+      parent: 2
+      type: Transform
+  - uid: 2949
+    components:
+    - pos: -3.5,-5.5
+      parent: 2
+      type: Transform
+  - uid: 2950
+    components:
+    - pos: -3.5,-4.5
+      parent: 2
+      type: Transform
+  - uid: 2951
+    components:
+    - pos: -3.5,-3.5
+      parent: 2
+      type: Transform
 - proto: CableTerminal
   entities:
   - uid: 1033
@@ -6622,24 +6685,44 @@ entities:
       type: Transform
 - proto: ClothingShoesBootsMag
   entities:
-  - uid: 2012
+  - uid: 1784
     components:
-    - pos: -7.501045,-23.160328
+    - pos: -7.5698566,-23.154032
+      parent: 2
+      type: Transform
+  - uid: 1974
+    components:
+    - pos: -7.5698566,-23.247782
       parent: 2
       type: Transform
   - uid: 2036
     components:
-    - pos: -7.501045,-23.254078
+    - pos: -7.413606,-23.154032
       parent: 2
       type: Transform
-  - uid: 2037
+  - uid: 2939
     components:
-    - pos: -7.501045,-23.347828
+    - pos: -7.413606,-23.435282
       parent: 2
       type: Transform
-  - uid: 2038
+  - uid: 2940
     components:
-    - pos: -7.501045,-23.441578
+    - pos: -7.5698566,-23.435282
+      parent: 2
+      type: Transform
+  - uid: 2941
+    components:
+    - pos: -7.413606,-23.341532
+      parent: 2
+      type: Transform
+  - uid: 2943
+    components:
+    - pos: -7.5698566,-23.341532
+      parent: 2
+      type: Transform
+  - uid: 2944
+    components:
+    - pos: -7.413606,-23.247782
       parent: 2
       type: Transform
 - proto: ComputerBroken
@@ -6681,13 +6764,6 @@ entities:
     components:
     - rot: 3.141592653589793 rad
       pos: -2.5,2.5
-      parent: 2
-      type: Transform
-- proto: ComputerTechnologyDiskTerminal
-  entities:
-  - uid: 1784
-    components:
-    - pos: 13.5,-8.5
       parent: 2
       type: Transform
 - proto: Crate20mmAmmo
@@ -6762,6 +6838,13 @@ entities:
   - uid: 1629
     components:
     - pos: 8.5,-11.5
+      parent: 2
+      type: Transform
+- proto: CrateEngineeringCableBulk
+  entities:
+  - uid: 2942
+    components:
+    - pos: -1.5,-28.5
       parent: 2
       type: Transform
 - proto: CrateFreezer
@@ -8759,6 +8842,24 @@ entities:
     - pos: -4.5,-27.5
       parent: 2
       type: Transform
+    - air:
+        volume: 200
+        immutable: False
+        temperature: 293.1496
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+      type: EntityStorage
 - proto: GunSafePistolMk58
   entities:
   - uid: 209
@@ -8840,6 +8941,13 @@ entities:
   - uid: 961
     components:
     - pos: -15.5,-19.5
+      parent: 2
+      type: Transform
+- proto: HandLabeler
+  entities:
+  - uid: 2936
+    components:
+    - pos: 9.960102,-10.178495
       parent: 2
       type: Transform
 - proto: HighSecArmoryLocked
@@ -9107,6 +9215,11 @@ entities:
   - uid: 481
     components:
     - pos: 12.5,-11.5
+      parent: 2
+      type: Transform
+  - uid: 2037
+    components:
+    - pos: 13.5,-8.5
       parent: 2
       type: Transform
 - proto: MachineSleeperCryopod
@@ -12634,6 +12747,14 @@ entities:
   - uid: 2014
     components:
     - pos: 3.5,-15.5
+      parent: 2
+      type: Transform
+- proto: VendingMachineWallMedical
+  entities:
+  - uid: 2012
+    components:
+    - rot: 1.5707963267948966 rad
+      pos: 5.5,-12.5
       parent: 2
       type: Transform
 - proto: VendingMachineWinter
@@ -16893,7 +17014,7 @@ entities:
     - pos: -13.5,-15.5
       parent: 2
       type: Transform
-  - uid: 1974
+  - uid: 2038
     components:
     - name: BREAK GLASS IN CASE OF MISSING AIRLOCKS
       type: MetaData
