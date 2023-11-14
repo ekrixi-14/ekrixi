@@ -3382,4 +3382,71 @@ entities:
         447:
         - WeaponOutputPort: WeaponInputPort
       type: DeviceLinkSource
+- proto: WeaponTurretHostile
+  entities:
+  - uid: 580
+    components:
+    - pos: -0.5,1.5
+      parent: 1
+      type: Transform
+  - uid: 581
+    components:
+    - pos: 1.5,1.5
+      parent: 1
+      type: Transform
+  - uid: 582
+    components:
+    - pos: 1.5,-0.5
+      parent: 1
+      type: Transform
+  - uid: 583
+    components:
+    - pos: -0.5,-0.5
+      parent: 1
+      type: Transform
+  - uid: 584
+    components:
+    - pos: -4.5,1.5
+      parent: 1
+      type: Transform
+  - uid: 585
+    components:
+    - pos: -4.5,-0.5
+      parent: 1
+      type: Transform
+  - uid: 586
+    components:
+    - pos: 5.5,1.5
+      parent: 1
+      type: Transform
+  - uid: 587
+    components:
+    - pos: 5.5,-0.5
+      parent: 1
+      type: Transform
+  - uid: 588
+    components:
+    - pos: 0.5,6.5
+      parent: 1
+      type: Transform
+  - uid: 589
+    components:
+    - pos: -1.5,-3.5
+      parent: 1
+      type: Transform
+  - uid: 590
+    components:
+    - pos: 2.5,-3.5
+      parent: 1
+      type: Transform
+  - uid: 591
+    components:
+    - pos: 10.5,1.5
+      parent: 1
+      type: Transform
+  - uid: 592
+    components:
+    - pos: -9.5,1.5
+      parent: 1
+      type: Transform
 ...
