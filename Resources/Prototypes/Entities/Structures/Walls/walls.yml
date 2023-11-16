@@ -642,9 +642,9 @@
 
 - type: entity
   id: WallShuttleDiagonal
-  name: shuttle wall
+  name: shield generator
   suffix: diagonal
-  description: Keeps the air in and the greytide out.
+  description: A complex construction of machinery that can only be produced in a factory and breaks apart if pushed wrong. Reflects AP rounds, but is ineffective against explosives.
   placement:
     mode: SnapgridCenter
     snap:
@@ -716,7 +716,8 @@
 - type: entity
   parent: BaseWall
   id: WallShuttle
-  name: shuttle wall
+  name: shield generator
+  description: A complex construction of machinery that can only be produced in a factory and breaks apart if pushed wrong. Reflects AP rounds, but is ineffective against explosives.
   components:
   - type: Tag
     tags:
