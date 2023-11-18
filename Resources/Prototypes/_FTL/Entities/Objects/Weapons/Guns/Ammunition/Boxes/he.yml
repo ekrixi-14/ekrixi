@@ -1,0 +1,47 @@
+- type: entity
+  id: MagazineBox20mm
+  name: ammo box (20mm high-explosive)
+  parent: BaseMagazineBox
+  components:
+    - type: Tag
+      tags:
+        - Magazine20mm
+    - type: BallisticAmmoProvider
+      mayTransfer: true
+      whitelist:
+        tags:
+          - Cartridge20mm
+      proto: Cartridge20mm
+      capacity: 500
+
+- type: entity
+  id: MagazineBox53mm
+  name: ammo box (53mm high-explosive)
+  parent: BaseMagazineBox
+  components:
+    - type: Tag
+      tags:
+        - Magazine53mm
+    - type: BallisticAmmoProvider
+      mayTransfer: true
+      whitelist:
+        tags:
+          - Cartridge53mm
+      proto: Cartridge53mm
+      capacity: 500
+
+- type: entity
+  id: MagazineBox80mm
+  name: ammo box (80mm high-explosive)
+  parent: BaseMagazineBox
+  components:
+    - type: Tag
+      tags:
+        - Magazine80mm
+    - type: BallisticAmmoProvider
+      mayTransfer: true
+      whitelist:
+        tags:
+          - Cartridge80mm
+      proto: Cartridge80mm
+      capacity: 250

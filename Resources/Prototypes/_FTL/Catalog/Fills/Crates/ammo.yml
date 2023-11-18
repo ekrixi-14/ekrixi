@@ -6,6 +6,10 @@
       contents:
         - id: MagazineBox20mm
           amount: 10
+        - id: MagazineBox20mmAP
+          amount: 10
+        - id: MagazineBox20mmPF
+          amount: 10
 
 - type: entity
   id: Crate53mmAmmo
@@ -15,21 +19,101 @@
       contents:
         - id: MagazineBox53mm
           amount: 5
+        - id: MagazineBox53mmAP
+          amount: 5
+        - id: MagazineBox53mmPF
+          amount: 5
 
 - type: entity
-  id: Crate105mmAmmo
+  id: Crate80mmAmmo
   parent: CrateGenericSteel
   components:
     - type: StorageFill
       contents:
-        - id: MagazineBox105mm
+        - id: MagazineBox80mm
+          amount: 3
+        - id: MagazineBox80mmAP
+          amount: 3
+        - id: MagazineBox80mmPF
           amount: 3
 
 - type: entity
-  id: Crate140mmAmmo
+  id: Crate105mmAmmoHE
   parent: CrateGenericSteel
   components:
     - type: StorageFill
       contents:
-        - id: MagazineBox140mm
-          amount: 1
+        - id: Cartridge105mm
+          amount: 30
+
+- type: entity
+  id: Crate120mmAmmoHE
+  parent: CrateGenericSteel
+  components:
+    - type: StorageFill
+      contents:
+        - id: Cartridge120mm
+          amount: 20
+
+- type: entity
+  id: Crate140mmAmmoHE
+  parent: CrateGenericSteel
+  components:
+    - type: StorageFill
+      contents:
+        - id: Cartridge140mm
+          amount: 10
+
+- type: entity
+  id: Crate105mmAmmoAP
+  parent: CrateGenericSteel
+  components:
+    - type: StorageFill
+      contents:
+        - id: Cartridge105mmAP
+          amount: 30
+
+- type: entity
+  id: Crate120mmAmmoAP
+  parent: CrateGenericSteel
+  components:
+    - type: StorageFill
+      contents:
+        - id: Cartridge120mmAP
+          amount: 20
+
+- type: entity
+  id: Crate140mmAmmoAP
+  parent: CrateGenericSteel
+  components:
+    - type: StorageFill
+      contents:
+        - id: Cartridge140mmAP
+          amount: 10
+
+- type: entity
+  id: Crate105mmAmmoPF
+  parent: CrateGenericSteel
+  components:
+    - type: StorageFill
+      contents:
+        - id: Cartridge105mmPF
+          amount: 30
+
+- type: entity
+  id: Crate120mmAmmoPF
+  parent: CrateGenericSteel
+  components:
+    - type: StorageFill
+      contents:
+        - id: Cartridge120mmPF
+          amount: 20
+
+- type: entity
+  id: Crate140mmAmmoPF
+  parent: CrateGenericSteel
+  components:
+    - type: StorageFill
+      contents:
+        - id: Cartridge140mmPF
+          amount: 10

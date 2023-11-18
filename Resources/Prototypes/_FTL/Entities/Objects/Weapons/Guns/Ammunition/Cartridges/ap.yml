@@ -1,0 +1,47 @@
+- type: entity
+  id: Cartridge20mmAP
+  name: cartridge (20mm armor-piercing)
+  parent: Cartridge20mm
+  components:
+    - type: CartridgeAmmo
+      proto: Bullet20mmAP
+
+- type: entity
+  id: Cartridge53mmAP
+  name: cartridge (53mm armor-piercing)
+  parent: Cartridge53mm
+  components:
+    - type: CartridgeAmmo
+      proto: Bullet53mmAP
+
+- type: entity
+  id: Cartridge80mmAP
+  name: cartridge (80mm armor-piercing)
+  parent: Cartridge80mm
+  components:
+    - type: CartridgeAmmo
+      proto: Bullet80mmAP
+
+- type: entity
+  id: Cartridge105mmAP
+  name: cartridge (105mm armor-piercing)
+  parent: Cartridge105mm
+  components:
+    - type: CartridgeAmmo
+      proto: Bullet105mmAP
+
+- type: entity
+  id: Cartridge120mmAP
+  name: cartridge (120mm armor-piercing)
+  parent: Cartridge120mm
+  components:
+    - type: CartridgeAmmo
+      proto: Bullet120mmAP
+
+- type: entity
+  id: Cartridge140mmAP
+  name: cartridge (140mm armor-piercing)
+  parent: Cartridge140mm
+  components:
+    - type: CartridgeAmmo
+      proto: Bullet140mmAP
