@@ -247,7 +247,7 @@ entities:
           decals:
             5: 8,52
             518: 8,-1
-            745: 7,51
+            743: 7,51
         - node:
             color: '#53535393'
             id: BrickTileSteelCornerSw
@@ -23315,11 +23315,19 @@ entities:
     - pos: 16.5,53.5
       parent: 2
       type: Transform
-- proto: SpawnPointSeniorOfficer
-  entities:
   - uid: 3981
     components:
     - pos: 13.5,39.5
+      parent: 2
+      type: Transform
+  - uid: 4001
+    components:
+    - pos: 13.5,38.5
+      parent: 2
+      type: Transform
+  - uid: 4062
+    components:
+    - pos: 13.5,37.5
       parent: 2
       type: Transform
 - proto: SpawnPointSeniorPhysician
