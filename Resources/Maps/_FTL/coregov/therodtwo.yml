@@ -2077,9 +2077,6 @@ entities:
     - pos: 8.5,30.5
       parent: 2
       type: Transform
-    - following:
-      - invalid
-      type: Followed
   - uid: 3083
     components:
     - pos: 10.5,32.5
@@ -4045,9 +4042,6 @@ entities:
     - pos: 8.5,34.5
       parent: 2
       type: Transform
-    - following:
-      - invalid
-      type: Followed
   - uid: 1984
     components:
     - pos: 9.5,34.5
@@ -7702,9 +7696,6 @@ entities:
     - pos: 8.5,41.5
       parent: 2
       type: Transform
-    - following:
-      - invalid
-      type: Followed
   - uid: 1692
     components:
     - pos: 8.5,42.5
@@ -14374,9 +14365,6 @@ entities:
       type: Transform
     - color: '#990000FF'
       type: AtmosPipeColor
-    - following:
-      - invalid
-      type: Followed
   - uid: 2958
     components:
     - rot: 3.141592653589793 rad
@@ -14409,9 +14397,6 @@ entities:
       type: Transform
     - color: '#990000FF'
       type: AtmosPipeColor
-    - following:
-      - invalid
-      type: Followed
   - uid: 2962
     components:
     - rot: 3.141592653589793 rad
@@ -14566,9 +14551,6 @@ entities:
       type: Transform
     - color: '#990000FF'
       type: AtmosPipeColor
-    - following:
-      - invalid
-      type: Followed
   - uid: 2988
     components:
     - pos: 8.5,39.5
@@ -14981,9 +14963,6 @@ entities:
       type: Transform
     - color: '#990000FF'
       type: AtmosPipeColor
-    - following:
-      - invalid
-      type: Followed
   - uid: 2996
     components:
     - rot: -1.5707963267948966 rad
