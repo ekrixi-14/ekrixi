@@ -22,5 +22,5 @@
             SecurityOfficer: [ 5, 5 ] # Security
             StationEngineer: [ 4, 4 ] # Engi
             MedicalDoctor: [ 3, 3 ] # Medical
-            SeniorPhysician: [ 1, 1 ]
+            SeniorPhysician: [ 1, 1 ] # Medical 2: Eletric Boogaloo
             Passenger: [ -1, -1 ] # Everyone else
