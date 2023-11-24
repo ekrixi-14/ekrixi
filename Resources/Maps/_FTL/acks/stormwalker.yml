@@ -798,6 +798,8 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: ShipTracker
+    - id: Stormwalker
+      type: BecomesStation
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 1193
@@ -6728,13 +6730,6 @@ entities:
       pos: -2.5,2.5
       parent: 2
       type: Transform
-- proto: ComputerTechnologyDiskTerminal
-  entities:
-  - uid: 1784
-    components:
-    - pos: 13.5,-8.5
-      parent: 2
-      type: Transform
 - proto: Crate20mmAmmo
   entities:
   - uid: 1562
@@ -9144,6 +9139,11 @@ entities:
     - pos: 12.5,-11.5
       parent: 2
       type: Transform
+  - uid: 495
+    components:
+    - pos: 13.5,-8.5
+      parent: 2
+      type: Transform
 - proto: MachineSleeperCryopod
   entities:
   - uid: 1251
@@ -9551,33 +9551,6 @@ entities:
   - uid: 1990
     components:
     - pos: 6.4843106,-21.397394
-      parent: 2
-      type: Transform
-- proto: MouseTimedSpawner
-  entities:
-  - uid: 1770
-    components:
-    - pos: 19.5,-23.5
-      parent: 2
-      type: Transform
-  - uid: 2337
-    components:
-    - pos: 20.5,-8.5
-      parent: 2
-      type: Transform
-  - uid: 2341
-    components:
-    - pos: 4.5,6.5
-      parent: 2
-      type: Transform
-  - uid: 2348
-    components:
-    - pos: -21.5,-12.5
-      parent: 2
-      type: Transform
-  - uid: 2349
-    components:
-    - pos: -5.5,-41.5
       parent: 2
       type: Transform
 - proto: MousetrapArmed
@@ -10746,7 +10719,7 @@ entities:
       type: Transform
 - proto: ResearchAndDevelopmentServer
   entities:
-  - uid: 495
+  - uid: 496
     components:
     - pos: 12.5,-8.5
       parent: 2
@@ -11438,17 +11411,6 @@ entities:
       type: Transform
 - proto: SurveillanceCameraGeneral
   entities:
-  - uid: 496
-    components:
-    - rot: -1.5707963267948966 rad
-      pos: 8.5,7.5
-      parent: 2
-      type: Transform
-    - setupAvailableNetworks:
-      - SurveillanceCameraGeneral
-      nameSet: True
-      id: External Starboard Weapons A
-      type: SurveillanceCamera
   - uid: 2435
     components:
     - pos: 6.5,-19.5
@@ -11692,6 +11654,17 @@ entities:
       type: Transform
 - proto: SurveillanceCameraSecurity
   entities:
+  - uid: 1770
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: 8.5,7.5
+      parent: 2
+      type: Transform
+    - setupAvailableNetworks:
+      - SurveillanceCameraSecurity
+      nameSet: True
+      id: External Starboard Weapons A
+      type: SurveillanceCamera
   - uid: 2559
     components:
     - pos: 0.5,10.5
