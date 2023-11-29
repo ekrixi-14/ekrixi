@@ -11,7 +11,8 @@
         - type: StationNameSetup
           mapNameTemplate: 'ACKs Stormwalker-Class Cruiser' # 17 guns, That's a cruiser if I've ever seen one.
         - type: StationJobs
-          overflowJobs: []
+          overflowJobs:
+            - CargoTechnician
           availableJobs:
             Captain: [ 1, 1 ] # Command
             Pilot: [ 1, 1 ]

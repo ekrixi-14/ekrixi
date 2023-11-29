@@ -1,0 +1,9 @@
+- type: cargoProduct
+  id: ServiceDawInstrument
+  icon:
+    sprite: Objects/Fun/Instruments/structureinstruments.rsi
+    state: daw-base
+  product: DawInstrument
+  cost: 5000
+  category: Service
+  group: market
