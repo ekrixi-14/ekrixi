@@ -841,6 +841,11 @@ entities:
             683: 2,2
             684: 2,3
         - node:
+            color: '#A46106FF'
+            id: BrickTileWhiteLineE
+          decals:
+            746: 8,18
+        - node:
             color: '#334E6DC8'
             id: BrickTileWhiteLineN
           decals:
@@ -991,10 +996,10 @@ entities:
             704: 5,11
             705: 5,13
             706: 5,14
-            707: 5,16
             708: 5,15
             709: 5,12
             710: 5,19
+            747: 5,16
         - node:
             cleanable: True
             color: '#FF0000FF'
@@ -2605,6 +2610,14 @@ entities:
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
+- proto: BoxFolderClipboard
+  entities:
+  - uid: 4184
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: 10.5,2.5
+      parent: 2
+      type: Transform
 - proto: BoxFolderRed
   entities:
   - uid: 3740
@@ -6917,11 +6930,6 @@ entities:
   - uid: 1581
     components:
     - pos: 1.5,-11.5
-      parent: 2
-      type: Transform
-  - uid: 2499
-    components:
-    - pos: 5.5,-13.5
       parent: 2
       type: Transform
   - uid: 2502
@@ -11487,12 +11495,12 @@ entities:
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
-- proto: DrinkChangelingStingCan
+- proto: DrinkColaCan
   entities:
-  - uid: 4078
+  - uid: 4067
     components:
-    - rot: -1.5707963267948966 rad
-      pos: 21.5,22.5
+    - rot: 1.5707963267948966 rad
+      pos: 17.5,-28.5
       parent: 2
       type: Transform
 - proto: DrinkHotCoffee
@@ -12004,6 +12012,16 @@ entities:
     - pos: 10.5,-24.5
       parent: 2
       type: Transform
+- proto: FloorDrain
+  entities:
+  - uid: 2499
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 17.5,0.5
+      parent: 2
+      type: Transform
+    - fixtures: {}
+      type: Fixtures
 - proto: FoodBoxDonut
   entities:
   - uid: 3574
@@ -17950,9 +17968,9 @@ entities:
       type: Transform
 - proto: PosterLegitCleanliness
   entities:
-  - uid: 4067
+  - uid: 4282
     components:
-    - pos: 1.5,42.5
+    - pos: 7.5,41.5
       parent: 2
       type: Transform
 - proto: PosterLegitGetYourLEGS
@@ -21463,6 +21481,30 @@ entities:
     - pos: 13.619223,29.478556
       parent: 2
       type: Transform
+- proto: RubberStampApproved
+  entities:
+  - uid: 4179
+    components:
+    - pos: 7.8903465,2.5828757
+      parent: 2
+      type: Transform
+  - uid: 4182
+    components:
+    - pos: 16.740295,38.23222
+      parent: 2
+      type: Transform
+- proto: RubberStampDenied
+  entities:
+  - uid: 4181
+    components:
+    - pos: 8.030972,2.3797507
+      parent: 2
+      type: Transform
+  - uid: 4183
+    components:
+    - pos: 16.59967,38.122845
+      parent: 2
+      type: Transform
 - proto: ShipRenameButton
   entities:
   - uid: 2460
@@ -24713,6 +24755,13 @@ entities:
   - uid: 3835
     components:
     - pos: 15.5,-5.5
+      parent: 2
+      type: Transform
+- proto: VendingMachineWallMedical
+  entities:
+  - uid: 4078
+    components:
+    - pos: 1.5,42.5
       parent: 2
       type: Transform
 - proto: VendingMachineWinter
