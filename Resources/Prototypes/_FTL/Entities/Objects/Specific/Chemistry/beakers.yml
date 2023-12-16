@@ -1,5 +1,6 @@
 - type: entity
   parent: Beaker
+  name: beaker (aluminum)
   id: BeakerAluminium
   components:
     - type: SolutionContainerManager
@@ -11,6 +12,7 @@
 
 - type: entity
   parent: Beaker
+  name: beaker (carbon)
   id: BeakerCarbon
   components:
     - type: SolutionContainerManager
@@ -22,6 +24,7 @@
 
 - type: entity
   parent: Beaker
+  name: beaker (chlorine)
   id: BeakerChlorine
   components:
     - type: SolutionContainerManager
@@ -33,6 +36,7 @@
 
 - type: entity
   parent: Beaker
+  name: beaker (copper)
   id: BeakerCopper
   components:
     - type: SolutionContainerManager
@@ -44,6 +48,7 @@
 
 - type: entity
   parent: Beaker
+  name: beaker (ethanol)
   id: BeakerEthanol
   components:
     - type: SolutionContainerManager
@@ -55,6 +60,7 @@
 
 - type: entity
   parent: Beaker
+  name: beaker (fluorine)
   id: BeakerFluorine
   components:
     - type: SolutionContainerManager
@@ -66,6 +72,7 @@
 
 - type: entity
   parent: Beaker
+  name: beaker (hydrogen)
   id: BeakerHydrogen
   components:
     - type: SolutionContainerManager
@@ -77,6 +84,7 @@
 
 - type: entity
   parent: Beaker
+  name: beaker (iodine)
   id: BeakerIodine
   components:
     - type: SolutionContainerManager
@@ -88,6 +96,7 @@
 
 - type: entity
   parent: Beaker
+  name: beaker (mercury)
   id: BeakerMercury
   components:
     - type: SolutionContainerManager
@@ -99,6 +108,7 @@
 
 - type: entity
   parent: Beaker
+  name: beaker (nitrogen)
   id: BeakerNitrogen
   components:
     - type: SolutionContainerManager
@@ -110,6 +120,7 @@
 
 - type: entity
   parent: Beaker
+  name: beaker (oxygen)
   id: BeakerOxygen
   components:
     - type: SolutionContainerManager
@@ -121,6 +132,7 @@
 
 - type: entity
   parent: Beaker
+  name: beaker (phosphorus)
   id: BeakerPhosphorus
   components:
     - type: SolutionContainerManager
@@ -132,6 +144,7 @@
 
 - type: entity
   parent: Beaker
+  name: beaker (potassium)
   id: BeakerPotassium
   components:
     - type: SolutionContainerManager
@@ -143,6 +156,7 @@
 
 - type: entity
   parent: Beaker
+  name: beaker (silicon)
   id: BeakerSilicon
   components:
     - type: SolutionContainerManager
@@ -154,6 +168,7 @@
 
 - type: entity
   parent: Beaker
+  name: beaker (sodium)
   id: BeakerSodium
   components:
     - type: SolutionContainerManager
@@ -165,6 +180,7 @@
 
 - type: entity
   parent: Beaker
+  name: beaker (sulfur)
   id: BeakerSulfur
   components:
     - type: SolutionContainerManager
