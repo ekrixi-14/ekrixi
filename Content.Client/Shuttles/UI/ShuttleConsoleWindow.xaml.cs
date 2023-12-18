@@ -106,31 +106,33 @@ public sealed partial class ShuttleConsoleWindow : FancyWindow,
         HyperspaceDestinations.DisposeAllChildren();
         _destinations.Clear();
 
-        if (destinations.Count == 0)
-        {
-            HyperspaceDestinations.AddChild(new Label()
-            {
-                Text = Loc.GetString("shuttle-console-hyperspace-none"),
-                HorizontalAlignment = HAlignment.Center,
-            });
-        }
-        else
-        {
-            destinations.Sort((x, y) => string.Compare(x.Destination, y.Destination, StringComparison.Ordinal));
-
-            foreach (var destination in destinations)
-            {
-                var button = new Button()
-                {
-                    Disabled = !destination.Enabled,
-                    Text = destination.Destination,
-                };
-
-                _destinations[button] = destination.Entity;
-                button.OnPressed += OnHyperspacePressed;
-                HyperspaceDestinations.AddChild(button);
-            }
-        }
+        // BEGIN EKRIXI MODIFICATION
+        // if (destinations.Count == 0)
+        // {
+        //     HyperspaceDestinations.AddChild(new Label()
+        //     {
+        //         Text = Loc.GetString("shuttle-console-hyperspace-none"),
+        //         HorizontalAlignment = HAlignment.Center,
+        //     });
+        // }
+        // else
+        // {
+        //     destinations.Sort((x, y) => string.Compare(x.Destination, y.Destination, StringComparison.Ordinal));
+        //
+        //     foreach (var destination in destinations)
+        //     {
+        //         var button = new Button()
+        //         {
+        //             Disabled = !destination.Enabled,
+        //             Text = destination.Destination,
+        //         };
+        //
+        //         _destinations[button] = destination.Entity;
+        //         button.OnPressed += OnHyperspacePressed;
+        //         HyperspaceDestinations.AddChild(button);
+        //     }
+        // }
+        // END EKRIXI MODIFICATION
 
         string stateText;
 
