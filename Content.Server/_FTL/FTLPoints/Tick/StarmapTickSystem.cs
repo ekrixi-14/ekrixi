@@ -2,7 +2,7 @@ namespace Content.Server._FTL.FTLPoints.Tick;
 
 public abstract class StarmapTickSystem<T> : EntitySystem where T : Component
 {
-    private readonly float _tickInterval = 300f;
+    private readonly float _tickInterval = 0f;
     private float _timeSinceLastTick = 300f; // SIN
 
     public override void Initialize()
@@ -46,6 +46,6 @@ public abstract class StarmapTickSystem<T> : EntitySystem where T : Component
         {
             Ticked(uid, component, frameTime);
         }
-        Log.Info("Tick!");
+        Log.Debug("Tick!");
     }
 }
