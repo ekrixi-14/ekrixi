@@ -1,19 +1,11 @@
 using System.Linq;
-using Content.Server._FTL.AutomatedShip.Components;
-using Content.Server._FTL.FTLPoints.Components;
-using Content.Server._FTL.FTLPoints.Systems;
 using Content.Server._FTL.ShipTracker.Components;
-using Content.Server.AlertLevel;
-using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
 using Content.Shared._FTL.ShipTracker;
-using Content.Shared.Pinpointer;
-using Robust.Server.GameObjects;
+using Robust.Shared.Audio;
 using Robust.Shared.Map;
-using Robust.Shared.Map.Components;
-using Robust.Shared.Random;
 
 namespace Content.Server._FTL.ShipTracker.Systems;
 
@@ -22,89 +14,40 @@ namespace Content.Server._FTL.ShipTracker.Systems;
 /// </summary>
 public sealed partial class ShipTrackerSystem : SharedShipTrackerSystem
 {
-    [Dependency] private readonly AlertLevelSystem _alertLevelSystem = default!;
-    [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
-    [Dependency] private readonly TransformSystem _transformSystem = default!;
-    [Dependency] private readonly FTLPointsSystem _pointsSystem = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly ChatSystem _chatSystem = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IEntityManager _entityManager = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ShipTrackerComponent, FTLCompletedEvent>(OnFTLCompletedEvent);
         SubscribeLocalEvent<ShipTrackerComponent, FTLStartedEvent>(OnFTLStartedEvent);
-        SubscribeLocalEvent<ShipTrackerComponent, FTLRequestEvent>(OnFTLRequestEvent);
     }
 
-    private void OnFTLRequestEvent(EntityUid uid, ShipTrackerComponent component, ref FTLRequestEvent args)
+
+    private void BroadcastToStationsOnMap(
+        MapId map,
+        string message,
+        string sender = "Automated Ship",
+        bool playDefaultSound = true,
+        SoundSpecifier? announcementSound = null,
+        Color? colorOverride = null)
     {
-        _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("ship-ftl-jump-jumped-message"), colorOverride: Color.Gold);
+        // broadcast ONLY to the same map
+        var activeShips = EntityQuery<ShipTrackerComponent, TransformComponent>()
+            .Where(x => x.Item2.MapID == map);
+
+        foreach (var ship in activeShips.ToList())
+        {
+            // rider im not making obsolete code for the LOVE OF GOD
+            _chatSystem.DispatchStationAnnouncement(ship.Item1.Owner, message, sender, playDefaultSound, announcementSound, colorOverride);
+        }
     }
 
     private void OnFTLStartedEvent(EntityUid uid, ShipTrackerComponent component, ref FTLStartedEvent args)
     {
-        if (args.FromMapUid != null)
-            Del(args.FromMapUid.Value);
-
-        _chatSystem.DispatchStationAnnouncement(uid, Loc.GetString("ship-ftl-jump-jumped-message"), colorOverride: Color.Gold);
-    }
-
-    private void OnFTLCompletedEvent(EntityUid uid, ShipTrackerComponent component, ref FTLCompletedEvent args)
-    {
-        RemComp<DisposalFTLPointComponent>(args.MapUid);
-
-        var mapId = Transform(args.MapUid).MapID;
-        _mapManager.DoMapInitialize(mapId);
-
-        var amount = EntityQuery<AutomatedShipComponent>().Select(x => Transform(x.Owner).MapID == mapId).Count();
-        if (amount > 0)
-        {
-            _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("ship-inbound-message", ("amount", amount)));
-            _alertLevelSystem.SetLevel(args.Entity, "blue", true, true, true);
-        }
-        else
-        {
-            _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("ship-ftl-jump-arrival-message"),
-                colorOverride: Color.Gold);
-        }
-        _pointsSystem.RegeneratePoints();
-    }
-
-    public bool TryFindRandomTile(EntityUid targetGrid, out Vector2i tile, out EntityCoordinates targetCoords)
-    {
-        tile = default;
-
-        targetCoords = EntityCoordinates.Invalid;
-
-        if (!TryComp<MapGridComponent>(targetGrid, out var gridComp))
-            return false;
-
-        var found = false;
-        var (gridPos, _, gridMatrix) = _transformSystem.GetWorldPositionRotationMatrix(targetGrid);
-        var gridBounds = gridMatrix.TransformBox(gridComp.LocalAABB);
-
-        for (var i = 0; i < 10; i++)
-        {
-            var randomX = _random.Next((int) gridBounds.Left, (int) gridBounds.Right);
-            var randomY = _random.Next((int) gridBounds.Bottom, (int) gridBounds.Top);
-
-            tile = new Vector2i(randomX - (int) gridPos.X, randomY - (int) gridPos.Y);
-            if (_atmosphereSystem.IsTileSpace(targetGrid, Transform(targetGrid).MapUid, tile,
-                    mapGridComp: gridComp)
-                || _atmosphereSystem.IsTileAirBlocked(targetGrid, tile, mapGridComp: gridComp))
-            {
-                continue;
-            }
-
-            found = true;
-            targetCoords = gridComp.GridTileToLocal(tile);
-            break;
-        }
-
-        return found;
+        // alert those who are going onto map
+        // BroadcastToStationsOnMap(args.TargetCoordinates.GetMapId(_entityManager), Loc.GetString("ship-ftl-jump-jumped-message"), colorOverride: Color.Gold);
     }
 
     public override void Update(float frameTime)
@@ -118,10 +61,11 @@ public sealed partial class ShipTrackerSystem : SharedShipTrackerSystem
             if (shipTrackerComponent.Destroyed)
                 continue;
 
-            var active = EntityQuery<ShuttleConsoleComponent, TransformComponent>()
+            var xform = Transform(entity);
+            var activeShuttleComps = EntityQuery<ShuttleConsoleComponent, TransformComponent>()
                 .Count(tuple => tuple.Item2.GridUid == entity);
-                
-            if (active > 0)
+
+            if (activeShuttleComps > 0)
             {
                 // not destroyed, aka piloting is there
                 shipTrackerComponent.SecondsWithoutPiloting = 0f;
@@ -133,8 +77,8 @@ public sealed partial class ShipTrackerSystem : SharedShipTrackerSystem
                 continue;
             shipTrackerComponent.Destroyed = true;
 
-            _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("ship-destroyed-message",
-                ("ship", MetaData(entity).EntityName)));
+            // BroadcastToStationsOnMap(xform.MapID, Loc.GetString("ship-destroyed-message",
+            //     ("ship", MetaData(entity).EntityName)));
         }
     }
 }
