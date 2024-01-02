@@ -15,17 +15,17 @@ namespace Content.Server._FTL.ShipTracker.Systems;
 public sealed partial class ShipTrackerSystem : SharedShipTrackerSystem
 {
     [Dependency] private readonly ChatSystem _chatSystem = default!;
+    [Dependency] private readonly IEntityManager _entityManager = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<ShipTrackerComponent, FTLStartedEvent>(OnFTLStartedEvent);
-        SubscribeLocalEvent<ShipTrackerComponent, FTLRequestEvent>(OnFTLRequestEvent);
     }
 
 
-    private void BroadcastToStationsOnSameMap(
+    private void BroadcastToStationsOnMap(
         MapId map,
         string message,
         string sender = "Automated Ship",
@@ -35,7 +35,7 @@ public sealed partial class ShipTrackerSystem : SharedShipTrackerSystem
     {
         // broadcast ONLY to the same map
         var activeShips = EntityQuery<ShipTrackerComponent, TransformComponent>()
-            .Where(tuple => tuple.Item2.MapID == map);
+            .Where(x => x.Item2.MapID == map);
 
         foreach (var ship in activeShips.ToList())
         {
@@ -44,14 +44,10 @@ public sealed partial class ShipTrackerSystem : SharedShipTrackerSystem
         }
     }
 
-    private void OnFTLRequestEvent(EntityUid uid, ShipTrackerComponent component, ref FTLRequestEvent args)
-    {
-        BroadcastToStationsOnSameMap(Transform(uid).MapID, Loc.GetString("ship-ftl-jump-jumped-message"), colorOverride: Color.Gold);
-    }
-
     private void OnFTLStartedEvent(EntityUid uid, ShipTrackerComponent component, ref FTLStartedEvent args)
     {
-        BroadcastToStationsOnSameMap(Transform(uid).MapID, Loc.GetString("ship-ftl-jump-jumped-message"), colorOverride: Color.Gold);
+        // alert those who are going onto map
+        // BroadcastToStationsOnMap(args.TargetCoordinates.GetMapId(_entityManager), Loc.GetString("ship-ftl-jump-jumped-message"), colorOverride: Color.Gold);
     }
 
     public override void Update(float frameTime)
@@ -81,8 +77,8 @@ public sealed partial class ShipTrackerSystem : SharedShipTrackerSystem
                 continue;
             shipTrackerComponent.Destroyed = true;
 
-            BroadcastToStationsOnSameMap(xform.MapID, Loc.GetString("ship-destroyed-message",
-                ("ship", MetaData(entity).EntityName)));
+            // BroadcastToStationsOnMap(xform.MapID, Loc.GetString("ship-destroyed-message",
+            //     ("ship", MetaData(entity).EntityName)));
         }
     }
 }
