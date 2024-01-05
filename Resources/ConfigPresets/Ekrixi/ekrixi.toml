@@ -3,7 +3,6 @@ tickrate                = 30
 max_connections         = 1024
 
 [game]
-hostname                = "[EN] Ekrixi"
 desc                    = "Ekrixi is a PvE fork of SS14 revolving around PvE gameplay, ship travel, and roleplay."
 lobbyenabled            = true
 soft_max_players        = 50
