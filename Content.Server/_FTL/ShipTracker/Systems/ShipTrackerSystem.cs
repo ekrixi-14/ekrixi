@@ -21,7 +21,7 @@ public sealed partial class ShipTrackerSystem : SharedShipTrackerSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ShipTrackerComponent, FTLStartedEvent>(OnFTLStartedEvent);
+        //SubscribeLocalEvent<ShipTrackerComponent, FTLStartedEvent>(OnFTLStartedEvent);
     }
 
 
