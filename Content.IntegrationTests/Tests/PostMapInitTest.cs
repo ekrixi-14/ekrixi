@@ -68,7 +68,8 @@ namespace Content.IntegrationTests.Tests
             "TradeStation",
             "Nesasio",
             "Stormwalker",
-			"THERODTWO"
+			"THERODTWO",
+			"Cestoda"
         };
 
         /// <summary>
