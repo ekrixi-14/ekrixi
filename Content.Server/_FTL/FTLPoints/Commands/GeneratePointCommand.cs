@@ -14,24 +14,17 @@ public sealed class GeneratePointCommand : ToolshedCommand
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
     [CommandImplementation]
-    public void GenerateRandom([CommandInvocationContext] IInvocationContext ctx)
-    {
-        _entityManager.System<FTLPointsSystem>().GenerateDisposablePoint();
-        ctx.WriteLine("Generated random FTL point.");
-    }
-
-    [CommandImplementation]
     public void GenerateWithId(
         [CommandInvocationContext] IInvocationContext ctx,
         [PipedArgument] string id
     )
     {
-        if (!_prototypeManager.TryIndex<FTLPointPrototype>(id, out var prototype))
+        if (!_prototypeManager.TryIndex<FtlPointPrototype>(id, out var prototype))
         {
             ctx.WriteLine("Invalid ID.");
             return;
         }
-        _entityManager.System<FTLPointsSystem>().GenerateDisposablePoint(prototype);
+        _entityManager.System<FtlPointsSystem>().GeneratePoint(prototype);
         ctx.WriteLine("Generated FTL point.");
     }
 }

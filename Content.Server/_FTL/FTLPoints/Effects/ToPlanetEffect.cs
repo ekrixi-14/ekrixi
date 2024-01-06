@@ -17,7 +17,7 @@ using Serilog;
 namespace Content.Server._FTL.FTLPoints.Effects;
 
 [DataDefinition]
-public sealed partial class ToPlanetEffect : FTLPointEffect
+public sealed partial class ToPlanetEffect : FtlPointEffect
 {
     [DataField("lightingColors")]
     public List<string> LightingColors { set; get; } = new List<string>()
@@ -31,7 +31,7 @@ public sealed partial class ToPlanetEffect : FTLPointEffect
     [DataField("biomeTemplates", customTypeSerializer: typeof(PrototypeIdListSerializer<BiomeTemplatePrototype>))]
     public List<string> BiomeTemplates { set; get; } = default!;
 
-    public override void Effect(FTLPointEffectArgs args)
+    public override void Effect(FtlPointEffectArgs args)
     {
         var protoManager = IoCManager.Resolve<IPrototypeManager>();
         var random = IoCManager.Resolve<IRobustRandom>();

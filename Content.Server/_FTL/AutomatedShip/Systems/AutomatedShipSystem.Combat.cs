@@ -56,26 +56,24 @@ public sealed partial class AutomatedShipSystem
 
     private CombatResult PerformCombat(
         EntityUid entity,
-        AutomatedShipComponent aiComponent,
-        ShipTrackerComponent shipTrackerComponent,
         EntityUid targetShip
         )
     {
-        Log.Info("Les go!!1!!11");
         // realistically this should factor in distance but ¯\_(ツ)_/¯
         var weaponGroup = _random.Pick(GetWeaponGroupsOnGrid(entity));
         // get gun, aim, and shoot at place
         if (!TryComp<DeviceLinkSourceComponent>(weaponGroup, out var sourceComponent))
-            return CombatResult.ERROR;
-        Log.Info("got device!!");
+            return CombatResult.Error;
 
         // get a list of prio entities and select one
         var prioEnts = GetPriorityEntities(targetShip);
         if (prioEnts.Count <= 0)
-            return CombatResult.NOPRIOENT;
-        Log.Info("there's more prioents!!!");
+            return CombatResult.NoPriorityEntity;
         var prioEnt = _random.Pick(prioEnts);
         var prioTransform = Transform(prioEnt);
+
+        if (sourceComponent.Outputs.Count <= 0)
+            return CombatResult.NoGuns;
 
         // yeah we loop through everything
         foreach (var (_, outputs) in sourceComponent.Outputs)
@@ -105,8 +103,6 @@ public sealed partial class AutomatedShipSystem
                     var hitEntityXform = Transform(result.HitEntity);
                     if (hitEntityXform.GridUid != gunTransform.GridUid)
                         continue;
-                    Log.Info("a: " + hitEntityXform.GridUid.ToString());
-                    Log.Info("b: " + result.HitEntity.ToString());
                     aimHitFriendly = true;
                 }
 
@@ -121,7 +117,7 @@ public sealed partial class AutomatedShipSystem
             }
         }
 
-        return CombatResult.OK;
+        return CombatResult.Ok;
     }
 
     // private void OnShipDamaged(EntityUid uid, AutomatedShipComponent component, ref ShipDamagedEvent args)
@@ -134,10 +130,11 @@ public sealed partial class AutomatedShipSystem
     //     component.HostileShips.Add(args.Source);
     // }
 
-    enum CombatResult
+    private enum CombatResult
     {
-        OK,
-        NOPRIOENT,
-        ERROR
+        Ok,
+        NoPriorityEntity,
+        NoGuns,
+        Error
     }
 }
