@@ -5,7 +5,7 @@
   minPlayers: 3
   maxPlayers: 12
   stations:
-    THERODTWO:
+    Cestoda:
       stationProto: StandardIndependentShip
       components:
         - type: StationNameSetup
