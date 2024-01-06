@@ -8,12 +8,12 @@ namespace Content.Server._FTL.FTLPoints.Effects;
 /// </summary>
 ///
 [ImplicitDataDefinitionForInheritors, MeansImplicitUse]
-public abstract partial class FTLPointEffect
+public abstract partial class FtlPointEffect
 {
     [DataField("probability")] public float Probability = 1f;
-    public abstract void Effect(FTLPointEffectArgs args);
+    public abstract void Effect(FtlPointEffectArgs args);
 
-    public readonly record struct FTLPointEffectArgs(
+    public readonly record struct FtlPointEffectArgs(
         EntityUid MapUid,
         MapId MapId,
         IEntityManager EntityManager,

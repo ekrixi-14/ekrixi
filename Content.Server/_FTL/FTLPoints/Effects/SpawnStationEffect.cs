@@ -10,7 +10,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 namespace Content.Server._FTL.FTLPoints.Effects;
 
 [DataDefinition]
-public sealed partial class SpawnStationEffect : FTLPointEffect
+public sealed partial class SpawnStationEffect : FtlPointEffect
 {
     [DataField("stationIds", required: true)]
     public List<string> StationIds { set; get; } = new List<string>()
@@ -18,7 +18,7 @@ public sealed partial class SpawnStationEffect : FTLPointEffect
         "TradeStation"
     };
 
-    public override void Effect(FTLPointEffectArgs args)
+    public override void Effect(FtlPointEffectArgs args)
     {
         var protoManager = IoCManager.Resolve<IPrototypeManager>();
         var random = IoCManager.Resolve<IRobustRandom>();

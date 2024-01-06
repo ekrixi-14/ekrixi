@@ -1,6 +1,6 @@
 [game]
-hostname                = "[EN][LM] Official Ekrixi Servers - Krýo"
-desc                    = "Krýo is a stable branch server of Ekrixi."
+hostname                = "[EN][LM] Scorched Stars - Krýo | EKRIXICODE"
+desc                    = "Krýo is the stable branch server of Ekrixi."
 
 [whitelist]
 enabled                 = false

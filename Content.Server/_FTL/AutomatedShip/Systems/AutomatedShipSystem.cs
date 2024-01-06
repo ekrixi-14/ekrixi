@@ -2,6 +2,7 @@ using System.Linq;
 using Content.Server._FTL.AutomatedShip.Components;
 using Content.Server._FTL.ShipTracker.Components;
 using Content.Server.NPC.Systems;
+using Content.Server.Shuttles.Components;
 using Content.Server.Weapons.Ranged.Systems;
 using Robust.Server.GameObjects;
 using Robust.Shared.Random;
@@ -25,10 +26,10 @@ public sealed partial class AutomatedShipSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<AutomatedShipComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<AutomatedShipComponent, ComponentStartup>(OnStartup);
     }
 
-    private void OnInit(EntityUid uid, AutomatedShipComponent component, ComponentInit args)
+    private void OnStartup(EntityUid uid, AutomatedShipComponent component, ComponentStartup args)
     {
         EnsureComp<ActiveAutomatedShipComponent>(uid);
         UpdateName(uid, component);
@@ -51,11 +52,6 @@ public sealed partial class AutomatedShipSystem : EntitySystem
         _metaDataSystem.SetEntityName(uid, tag + meta.EntityName);
     }
 
-    public void AutomatedShipJump()
-    {
-        // TODO: Make all ships jump to a random point in range
-    }
-
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -65,9 +61,9 @@ public sealed partial class AutomatedShipSystem : EntitySystem
         {
             if (aiTrackerComponent.Destroyed)
                 continue;
-        
+
             // makes sure it's on the same map, not the same grid, and is hostile
-            Log.Info("Retargeting");
+            Log.Debug("Retargeting");
 
             var hostileShips = EntityQuery<ShipTrackerComponent>().Where(shipTrackerComponent =>
             {
@@ -85,13 +81,13 @@ public sealed partial class AutomatedShipSystem : EntitySystem
 
             if (hostileShips.Count <= 0)
                 continue;
-            Log.Info("Reset retarget");
+            Log.Debug("Reset retarget");
 
             var mainShip = _random.Pick(hostileShips).Owner;
             UpdateName(entity, aiComponent);
 
             // I seperated these into partial systems because I hate large line counts!!!
-            Log.Info("Determining best course");
+            Log.Debug("Determining best course");
             switch (aiComponent.AiState)
             {
                 case AutomatedShipComponent.AiStates.Cruising:
@@ -111,11 +107,16 @@ public sealed partial class AutomatedShipSystem : EntitySystem
                         Log.Debug("Lack of a hostile ship.");
                         break;
                     }
-                    Log.Info("Fihjying");
-                    PerformCombat(entity,
-                        aiComponent,
-                        aiTrackerComponent,
-                        mainShip);
+
+                    // var gyroscope = EntityQuery<ThrusterComponent, TransformComponent>().Where(component => component.Item1.Type == ThrusterType.Angular && component.Item2.GridUid == entity );
+                    //
+                    // if (gyroscope.Any())
+                    // {
+                    //     var angle = (_entityManager.GetCoordinates(xform.LocalPosition).ToMapPos(_entityManager, _transformSystem) - entityXform.MapPosition.Position).ToWorldAngle();
+                    //     _transformSystem.SetWorldRotation(entity, angle);
+                    // }
+
+                    PerformCombat(entity, mainShip);
                     break;
                 }
                 default:

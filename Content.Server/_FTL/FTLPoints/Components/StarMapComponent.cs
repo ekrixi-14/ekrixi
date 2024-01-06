@@ -1,13 +1,16 @@
 using System.Numerics;
 using Content.Server._FTL.FTLPoints.Systems;
+using Content.Shared._FTL.FtlPoints;
+using Robust.Shared.Map;
 
 namespace Content.Server._FTL.FTLPoints.Components;
 
 /// <summary>
 /// This is used for tracking FTL points and their positioning.
 /// </summary>
-[RegisterComponent, Access(typeof(FTLPointsSystem), Other = AccessPermissions.Read)]
+[RegisterComponent, Access(typeof(FtlPointsSystem), Other = AccessPermissions.Read)]
 public sealed partial class StarMapComponent : Component
 {
-    public Dictionary<Vector2, EntityUid> StarMap = new ();
+    [ViewVariables] public readonly List<Star> StarMap = new ();
 }
+
