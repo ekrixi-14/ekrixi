@@ -1248,78 +1248,59 @@ entities:
       data:
         tiles:
           0,0:
-            0: 57343
-            1: 8192
+            0: 65535
           -1,0:
             0: 65535
           -1,-1:
-            0: 49151
-            1: 16384
+            0: 65535
           0,-1:
-            0: 65407
-            1: 128
+            0: 65535
           0,1:
-            0: 63487
-            1: 2048
+            0: 65535
           0,2:
-            0: 20479
-            2: 45056
+            0: 65535
           0,3:
-            0: 3663
-            2: 288
+            0: 3951
           1,0:
             0: 65535
           1,1:
             0: 65535
           1,2:
-            0: 483
-            2: 6684
+            0: 7167
           1,3:
-            0: 1
-            2: 6
+            0: 7
           2,0:
             0: 65535
           2,1:
-            0: 30703
-            1: 16
-            2: 34816
+            0: 65535
           2,2:
-            0: 242
-            2: 3845
+            0: 4087
           3,0:
             0: 4881
           3,1:
-            0: 49
-            2: 256
+            0: 305
           -4,0:
             0: 8
           -3,0:
             0: 65263
           -3,1:
-            0: 36558
-            2: 16384
+            0: 52942
           -3,2:
-            0: 136
-            2: 2116
+            0: 2252
           -2,0:
             0: 65535
           -2,1:
-            0: 64855
-            1: 680
+            0: 65535
           -2,2:
-            0: 14847
-            2: 50688
+            0: 65535
           -2,3:
-            0: 2060
-            2: 1027
+            0: 3087
           -1,1:
             0: 65535
           -1,2:
-            0: 8191
-            2: 57344
+            0: 65535
           -1,3:
-            0: 3935
-            2: 32768
+            0: 36703
           -4,-4:
             0: 60040
           -4,-3:
@@ -1335,34 +1316,31 @@ entities:
           -3,-2:
             0: 65535
           -3,-1:
-            0: 65471
-            1: 64
+            0: 65535
           -2,-4:
             0: 65535
           -2,-3:
             0: 65407
             1: 128
           -2,-2:
-            0: 65531
-            1: 4
+            0: 65535
           -2,-1:
             0: 65535
           -1,-4:
-            0: 65535
+            0: 56831
+            2: 8704
           -1,-3:
             0: 65535
           -1,-2:
             0: 65535
           0,-4:
-            0: 64511
-            1: 1024
+            0: 65535
           0,-3:
             0: 65535
           0,-2:
             0: 65535
           1,-4:
-            0: 64511
-            1: 1024
+            0: 65535
           1,-3:
             0: 65535
           1,-2:
@@ -1374,8 +1352,7 @@ entities:
           2,-3:
             0: 65535
           2,-2:
-            0: 65503
-            1: 32
+            0: 65535
           2,-1:
             0: 65535
           3,-3:
@@ -1389,8 +1366,7 @@ entities:
           0,-6:
             0: 63344
           0,-5:
-            0: 64989
-            1: 546
+            0: 65535
           1,-6:
             0: 28672
           1,-5:
@@ -1412,11 +1388,11 @@ entities:
           -1,-5:
             0: 65535
           -3,3:
-            2: 8
+            0: 8
           -1,4:
-            2: 140
+            0: 140
           0,4:
-            2: 1
+            0: 1
         uniqueMixes:
         - volume: 2500
           temperature: 293.15
@@ -1434,10 +1410,10 @@ entities:
           - 0
           - 0
         - volume: 2500
-          temperature: 293.14996
+          temperature: 293.15
           moles:
-          - 20.078888
-          - 75.53487
+          - 21.6852
+          - 81.57766
           - 0
           - 0
           - 0
@@ -1449,10 +1425,10 @@ entities:
           - 0
           - 0
         - volume: 2500
-          temperature: 293.15
+          temperature: 293.14996
           moles:
-          - 0
-          - 0
+          - 20.078888
+          - 75.53487
           - 0
           - 0
           - 0
@@ -2021,6 +1997,17 @@ entities:
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
+- proto: BoxBeanbag
+  entities:
+  - uid: 1056
+    components:
+    - flags: InContainer
+      type: MetaData
+    - parent: 479
+      type: Transform
+    - canCollide: False
+      type: Physics
+    - type: InsideEntityStorage
 - proto: BoxBottle
   entities:
   - uid: 1092
@@ -2028,6 +2015,26 @@ entities:
     - flags: InContainer
       type: MetaData
     - parent: 1090
+      type: Transform
+    - canCollide: False
+      type: Physics
+    - type: InsideEntityStorage
+- proto: BoxLethalshot
+  entities:
+  - uid: 1059
+    components:
+    - flags: InContainer
+      type: MetaData
+    - parent: 479
+      type: Transform
+    - canCollide: False
+      type: Physics
+    - type: InsideEntityStorage
+  - uid: 1061
+    components:
+    - flags: InContainer
+      type: MetaData
+    - parent: 479
       type: Transform
     - canCollide: False
       type: Physics
@@ -5234,6 +5241,17 @@ entities:
     - pos: -5.5,-3.5
       parent: 2
       type: Transform
+- proto: ClothingBeltBandolier
+  entities:
+  - uid: 481
+    components:
+    - flags: InContainer
+      type: MetaData
+    - parent: 479
+      type: Transform
+    - canCollide: False
+      type: Physics
+    - type: InsideEntityStorage
 - proto: ClothingHandsGlovesColorYellowBudget
   entities:
   - uid: 1618
@@ -6258,7 +6276,7 @@ entities:
       pos: -10.5,-6.5
       parent: 2
       type: Transform
-    - secondsUntilStateChange: -11686.417
+    - secondsUntilStateChange: -12207.07
       state: Closing
       type: Door
   - uid: 1522
@@ -6582,6 +6600,9 @@ entities:
       pos: -9.5,-12.5
       parent: 2
       type: Transform
+    - inletTwoConcentration: 0.78
+      inletOneConcentration: 0.22
+      type: GasMixer
     - color: '#0055CCFF'
       type: AtmosPipeColor
 - proto: GasPassiveVent
@@ -8352,47 +8373,89 @@ entities:
     - pos: 9.5,10.5
       parent: 2
       type: Transform
-- proto: GunSafeRifleLecter
+- proto: GunSafe
   entities:
-  - uid: 1056
+  - uid: 479
     components:
-    - pos: -5.5,7.5
+    - desc: A standard-issue shotgun storage unit.
+      name: shotgun safe
+      type: MetaData
+    - pos: -7.5,4.5
       parent: 2
       type: Transform
-    - access:
-      - - Security
-      type: AccessReader
+    - air:
+        volume: 200
+        immutable: False
+        temperature: 293.14957
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+      type: EntityStorage
     - containers:
         entity_storage: !type:Container
           showEnts: False
           occludes: True
           ents:
+          - 481
+          - 1056
           - 1057
           - 1058
           - 1059
+          - 1060
+          - 1061
+          - 1062
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
           ent: null
       type: ContainerContainer
-- proto: GunSafeShotgunEnforcer
-  entities:
-  - uid: 1060
+  - uid: 1690
     components:
-    - pos: -7.5,4.5
+    - desc: A standard-issue AKMS storage unit.
+      name: AKMS safe
+      type: MetaData
+    - pos: -5.5,7.5
       parent: 2
       type: Transform
-    - access:
-      - - Security
-      type: AccessReader
+    - air:
+        volume: 200
+        immutable: False
+        temperature: 293.14957
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+      type: EntityStorage
     - containers:
         entity_storage: !type:Container
           showEnts: False
           occludes: True
           ents:
-          - 1061
-          - 1062
-          - 1063
+          - 1716
+          - 1717
+          - 1718
+          - 1719
+          - 1720
+          - 1721
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -8608,8 +8671,8 @@ entities:
         immutable: False
         temperature: 293.1497
         moles:
-        - 1.7459903
-        - 6.568249
+        - 1.8856695
+        - 7.0937095
         - 0
         - 0
         - 0
@@ -8626,12 +8689,12 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 205
-          - 108
-          - 68
-          - 239
-          - 1373
           - 240
+          - 1373
+          - 239
+          - 68
+          - 108
+          - 205
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -8689,11 +8752,47 @@ entities:
     - pos: -2.5,-12.5
       parent: 2
       type: Transform
+    - air:
+        volume: 200
+        immutable: False
+        temperature: 293.1496
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+      type: EntityStorage
   - uid: 1085
     components:
     - pos: -2.5,-13.5
       parent: 2
       type: Transform
+    - air:
+        volume: 200
+        immutable: False
+        temperature: 293.1496
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+      type: EntityStorage
 - proto: LockerFreezerBase
   entities:
   - uid: 1128
@@ -9269,6 +9368,44 @@ entities:
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
+- proto: MagazineLightRifle
+  entities:
+  - uid: 1716
+    components:
+    - flags: InContainer
+      type: MetaData
+    - parent: 1690
+      type: Transform
+    - canCollide: False
+      type: Physics
+    - type: InsideEntityStorage
+  - uid: 1717
+    components:
+    - flags: InContainer
+      type: MetaData
+    - parent: 1690
+      type: Transform
+    - canCollide: False
+      type: Physics
+    - type: InsideEntityStorage
+  - uid: 1718
+    components:
+    - flags: InContainer
+      type: MetaData
+    - parent: 1690
+      type: Transform
+    - canCollide: False
+      type: Physics
+    - type: InsideEntityStorage
+  - uid: 1719
+    components:
+    - flags: InContainer
+      type: MetaData
+    - parent: 1690
+      type: Transform
+    - canCollide: False
+      type: Physics
+    - type: InsideEntityStorage
 - proto: MagazinePistolSubMachineGunTopMounted
   entities:
   - uid: 1354
@@ -9282,46 +9419,6 @@ entities:
     - pos: 5.3967533,5.6838923
       parent: 2
       type: Transform
-- proto: MagazineRifle
-  entities:
-  - uid: 1057
-    components:
-    - flags: InContainer
-      type: MetaData
-    - parent: 1056
-      type: Transform
-    - canCollide: False
-      type: Physics
-    - type: InsideEntityStorage
-  - uid: 1059
-    components:
-    - flags: InContainer
-      type: MetaData
-    - parent: 1056
-      type: Transform
-    - canCollide: False
-      type: Physics
-    - type: InsideEntityStorage
-- proto: MagazineShotgun
-  entities:
-  - uid: 1061
-    components:
-    - flags: InContainer
-      type: MetaData
-    - parent: 1060
-      type: Transform
-    - canCollide: False
-      type: Physics
-    - type: InsideEntityStorage
-  - uid: 1062
-    components:
-    - flags: InContainer
-      type: MetaData
-    - parent: 1060
-      type: Transform
-    - canCollide: False
-      type: Physics
-    - type: InsideEntityStorage
 - proto: Matchbox
   entities:
   - uid: 1163
@@ -9567,14 +9664,14 @@ entities:
     - pos: -10.5,-13.5
       parent: 2
       type: Transform
-  - uid: 479
-    components:
-    - pos: -9.5,-11.5
-      parent: 2
-      type: Transform
   - uid: 480
     components:
     - pos: -8.5,-11.5
+      parent: 2
+      type: Transform
+  - uid: 1556
+    components:
+    - pos: -10.5,-14.5
       parent: 2
       type: Transform
 - proto: NitrogenTankFilled
@@ -9711,9 +9808,9 @@ entities:
     - pos: -10.5,-11.5
       parent: 2
       type: Transform
-  - uid: 481
+  - uid: 1677
     components:
-    - pos: -10.5,-14.5
+    - pos: -9.5,-11.5
       parent: 2
       type: Transform
 - proto: OxygenTankFilled
@@ -13173,24 +13270,62 @@ entities:
     - links:
       - 1006
       type: DeviceLinkSink
-- proto: WeaponRifleLecter
+- proto: WeaponRifleAk
   entities:
-  - uid: 1058
+  - uid: 1720
     components:
     - flags: InContainer
       type: MetaData
-    - parent: 1056
+    - parent: 1690
       type: Transform
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
-- proto: WeaponShotgunEnforcer
-  entities:
-  - uid: 1063
+  - uid: 1721
     components:
     - flags: InContainer
       type: MetaData
-    - parent: 1060
+    - parent: 1690
+      type: Transform
+    - canCollide: False
+      type: Physics
+    - type: InsideEntityStorage
+- proto: WeaponShotgunDoubleBarreled
+  entities:
+  - uid: 1057
+    components:
+    - flags: InContainer
+      type: MetaData
+    - parent: 479
+      type: Transform
+    - canCollide: False
+      type: Physics
+    - type: InsideEntityStorage
+  - uid: 1058
+    components:
+    - flags: InContainer
+      type: MetaData
+    - parent: 479
+      type: Transform
+    - canCollide: False
+      type: Physics
+    - type: InsideEntityStorage
+  - uid: 1060
+    components:
+    - flags: InContainer
+      type: MetaData
+    - parent: 479
+      type: Transform
+    - canCollide: False
+      type: Physics
+    - type: InsideEntityStorage
+- proto: WeaponShotgunKammerer
+  entities:
+  - uid: 1062
+    components:
+    - flags: InContainer
+      type: MetaData
+    - parent: 479
       type: Transform
     - canCollide: False
       type: Physics
@@ -13349,6 +13484,11 @@ entities:
       type: Transform
 - proto: Wrench
   entities:
+  - uid: 1063
+    components:
+    - pos: -7.564885,-14.4983015
+      parent: 2
+      type: Transform
   - uid: 1617
     components:
     - flags: InContainer
