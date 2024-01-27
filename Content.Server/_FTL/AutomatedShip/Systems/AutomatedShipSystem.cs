@@ -65,22 +65,24 @@ public sealed partial class AutomatedShipSystem : EntitySystem
             // makes sure it's on the same map, not the same grid, and is hostile
             Log.Debug("Retargeting");
 
-            var hostileShips = EntityQuery<ShipTrackerComponent>().Where(shipTrackerComponent =>
+            var hostileShipsEnum = EntityQuery<ShipTrackerComponent>().Where(shipTrackerComponent =>
             {
                 var owner = shipTrackerComponent.Owner;
                 var otherTransform = Transform(owner);
 
-                Log.Debug($"Same map: {otherTransform.MapID == xform.MapID}, Different grid: {otherTransform.GridUid != xform.GridUid}, Hostile: {_npcFactionSystem.IsFactionHostile(aiTrackerComponent.Faction,
-                    shipTrackerComponent.Faction)}");
+                Log.Debug(
+                    $"Same map: {otherTransform.MapID == xform.MapID}, Different grid: {otherTransform.GridUid != xform.GridUid}, Hostile: {_npcFactionSystem.IsFactionHostile(aiTrackerComponent.Faction,
+                        shipTrackerComponent.Faction)}");
 
                 return otherTransform.MapID == xform.MapID && otherTransform.GridUid != xform.GridUid &&
                        (_npcFactionSystem.IsFactionHostile(aiTrackerComponent.Faction,
-                           shipTrackerComponent.Faction) ||
-                       aiComponent.HostileShips.Contains(owner));
-            }).ToList();
+                            shipTrackerComponent.Faction) ||
+                        aiComponent.HostileShips.Contains(owner));
+            });
 
-            if (hostileShips.Count <= 0)
+            if (!hostileShipsEnum.Any())
                 continue;
+            var hostileShips = hostileShipsEnum.ToList();
             Log.Debug("Reset retarget");
 
             var mainShip = _random.Pick(hostileShips).Owner;
