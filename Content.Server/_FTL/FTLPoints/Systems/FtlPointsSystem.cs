@@ -114,6 +114,22 @@ public sealed partial class FtlPointsSystem : SharedFtlPointsSystem
             starsCreated++;
         }
 
+        // generate this last so that the warp points don't get locked behind planets
+        for (var i = 0; i < 5; i++)
+        {
+            var origin = _random.Pick(latestGeneration);
+            var prototype = _prototypeManager.Index<FtlPointPrototype>("PlanetPoint");
+            var mapId = GeneratePoint(prototype);
+            var mapUid = _mapManager.GetMapEntityId(mapId);
+            var position = new Vector2(
+                origin.X + GeneratePositionWithRandomRadius(5, 7),
+                origin.Y + GeneratePositionWithRandomRadius(5, 7)
+            );
+            TryAddPoint(mapId, position, MetaData(mapUid).EntityName);
+            latestGeneration.Add(position);
+            starsCreated++;
+        }
+
         Log.Debug("Generated a brand new sector.");
 
         return centerStation;
