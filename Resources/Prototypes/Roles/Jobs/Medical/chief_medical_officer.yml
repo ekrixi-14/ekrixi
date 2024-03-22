@@ -45,6 +45,6 @@
     ears: ClothingHeadsetCMO
     belt: ClothingBeltMedicalFilled
     pocket1: WeaponRevolverDeckard
-  innerclothingskirt: ClothingUniformJumpskirtCMO
+  innerClothingSkirt: ClothingUniformJumpskirtCMO
   satchel: ClothingBackpackSatchelCMOFilled
   duffelbag: ClothingBackpackDuffelCMOFilled

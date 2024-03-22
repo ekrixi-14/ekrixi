@@ -36,7 +36,6 @@ public sealed partial class GuideColorLabelBand : BoxContainer, IDocumentTag
     public SpriteComponent? Sprite
     {
         get => View.Sprite;
-        set => View.Sprite = value;
     }
 
     public Vector2 Scale

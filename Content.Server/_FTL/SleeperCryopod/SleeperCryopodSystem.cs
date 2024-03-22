@@ -1,5 +1,4 @@
 using System.Linq;
-using Content.Server.Climbing;
 using Content.Server.Mind;
 using Content.Server.Players;
 using Content.Server.Spawners.EntitySystems;
@@ -7,6 +6,7 @@ using Content.Server.Station.Systems;
 using Content.Shared._FTL.SleeperCryopod;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Bed.Sleep;
+using Content.Shared.Climbing.Systems;
 using Content.Shared.Destructible;
 using Content.Shared.DragDrop;
 using Content.Shared.Examine;
@@ -187,7 +187,7 @@ public sealed class SleeperCryopodSystem : EntitySystem
             if (!component.BodyContainer.ContainedEntity.HasValue)
                 continue;
 
-            if (TryComp<ActorComponent?>(component.BodyContainer.ContainedEntity.Value, out var actorComponent))
+            if (TryComp<ActorComponent>(component.BodyContainer.ContainedEntity.Value, out var actorComponent))
             {
                 component.TimeSinceBraindeath = 0f;
                 var mind = actorComponent.PlayerSession.GetMind();

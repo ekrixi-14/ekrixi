@@ -24,6 +24,6 @@
     ears: ClothingHeadsetCargo
     pocket1: AppraisalTool
     pocket2: SurvivalKnife
-  innerclothingskirt: ClothingUniformJumpskirtCargo
+  innerClothingSkirt: ClothingUniformJumpskirtCargo
   satchel: ClothingBackpackSatchelCargoFilled
   duffelbag: ClothingBackpackDuffelCargoFilled

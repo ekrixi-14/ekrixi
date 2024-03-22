@@ -48,6 +48,6 @@
     id: CaptainPDA
     ears: ClothingHeadsetAltCommand
     pocket1: WeaponRevolverDeckard
-  innerclothingskirt: ClothingUniformJumpskirtCaptain
+  innerClothingSkirt: ClothingUniformJumpskirtCaptain
   satchel: ClothingBackpackSatchelCaptainFilled
   duffelbag: ClothingBackpackDuffelCaptainFilled

@@ -51,6 +51,6 @@
     ears: ClothingHeadsetCE
     belt: ClothingBeltUtilityEngineering
     pocket1: WeaponRevolverDeckard
-  innerclothingskirt: ClothingUniformJumpskirtChiefEngineer
+  innerClothingSkirt: ClothingUniformJumpskirtChiefEngineer
   satchel: ClothingBackpackSatchelChiefEngineerFilled
   duffelbag: ClothingBackpackDuffelChiefEngineerFilled
