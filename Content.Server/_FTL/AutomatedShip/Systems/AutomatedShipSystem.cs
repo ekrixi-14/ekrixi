@@ -118,7 +118,11 @@ public sealed partial class AutomatedShipSystem : EntitySystem
                     //     _transformSystem.SetWorldRotation(entity, angle);
                     // }
 
-                    PerformCombat(entity, mainShip);
+                    var result = PerformCombat(entity, mainShip);
+                    if (result != CombatResult.Ok)
+                    {
+                        Log.Debug("!");
+                    }
                     break;
                 }
                 default:
