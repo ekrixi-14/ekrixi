@@ -6,7 +6,7 @@
   - type: AccessReader
     access: [["TraderCommand"]]
   - type: Wires
-    LayoutId: AirlockCommand
+    layoutId: AirlockCommand
 
 - type: entity
   parent: AirlockCommandGlass
@@ -16,7 +16,7 @@
   - type: AccessReader
     access: [["TraderCommand"]]
   - type: Wires
-    LayoutId: AirlockCommand
+    layoutId: AirlockCommand
 
 - type: entity
   parent: AirlockCargo

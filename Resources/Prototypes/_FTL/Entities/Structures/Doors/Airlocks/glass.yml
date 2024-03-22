@@ -1,0 +1,55 @@
+﻿- type: entity
+  parent: EkrixiBayAirlockGlassBase
+  id: EkrixiBayAirlockCommandGlass
+  suffix: Command, Glass
+  components:
+  - type: Appearance
+  - type: BayAirlockVisuals
+    doorColor: '#46698cff'
+  - type: AccessReader
+    access: [["Command"]]
+  - type: Wires
+    layoutId: AirlockCommand
+
+- type: entity
+  parent: EkrixiBayAirlockGlassBase
+  id: EkrixiBayAirlockSecurityGlass
+  suffix: Security, Glass
+  components:
+  - type: Appearance
+  - type: BayAirlockVisuals
+    doorColor: '#9d2300ff'
+  - type: AccessReader
+    access: [["Security"]]
+  - type: Wires
+    layoutId: AirlockSecurity
+
+- type: entity
+  parent: EkrixiBayAirlockGlassBase
+  id: EkrixiBayAirlockMedicalGlass
+  suffix: Medical, Glass
+  components:
+  - type: Appearance
+  - type: BayAirlockVisuals
+    doorColor: '#ffffffff'
+    stripeColor: '#00e1ffff'
+
+- type: entity
+  parent: EkrixiBayAirlockGlassBase
+  id: EkrixiBayAirlockAtmosGlass
+  suffix: Atmos, Glass
+  components:
+  - type: Appearance
+  - type: BayAirlockVisuals
+    doorColor: '#ffbf00ff'
+    stripeColor: '#00ffffff'
+
+- type: entity
+  parent: EkrixiBayAirlockGlassBase
+  id: EkrixiBayAirlockResearchGlass
+  suffix: Research
+  components:
+  - type: Appearance
+  - type: BayAirlockVisuals
+    doorColor: '#ffffffff'
+    stripeColor: '#9933ffff'

@@ -55,8 +55,8 @@
   - type: AccessReader
     access: [["IncSekCommand"]]
   - type: Wires
-    LayoutId: AirlockCommand
-    
+    layoutId: AirlockCommand
+
 - type: entity
   parent: AirlockSecurityGlass
   id: AirlockIncsekCommandGlassLocked
@@ -65,4 +65,4 @@
   - type: AccessReader
     access: [["IncSekCommand"]]
   - type: Wires
-    LayoutId: AirlockCommand
+    layoutId: AirlockCommand

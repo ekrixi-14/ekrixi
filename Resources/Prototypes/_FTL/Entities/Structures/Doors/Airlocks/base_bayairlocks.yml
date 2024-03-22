@@ -1,0 +1,272 @@
+﻿- type: entity
+  id: EkrixiBayAirlockBase
+  name: airlock
+  abstract: true
+  parent: BaseStructure
+  components:
+    - type: BayAirlockVisuals
+      delay: 0.6
+    - type: MeleeSound
+      soundGroups:
+        Brute:
+          path:
+            "/Audio/Weapons/smash.ogg"
+    - type: InteractionOutline
+    - type: AnimationPlayer
+    - type: Physics
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.49,-0.49,0.49,0.49" # don't want this colliding with walls or they won't close
+          density: 100
+          mask:
+            - FullTileMask
+          layer:
+            - AirlockLayer
+    - type: LayerChangeOnWeld
+      unWeldedLayer: AirlockLayer
+      weldedLayer: WallLayer
+    - type: ContainerFill
+      containers:
+        board: [ DoorElectronics ]
+    - type: Door
+      crushDamage:
+        types:
+          Blunt: 15
+      openSound:
+        path: /Audio/Machines/airlock_open.ogg
+      closeSound:
+        path: /Audio/Machines/airlock_close.ogg
+      denySound:
+        path: /Audio/Machines/airlock_deny.ogg
+    - type: ContainerContainer
+      containers:
+        board: !type:Container
+    - type: Weldable
+      time: 3
+    - type: Airlock
+    - type: DoorBolt
+    - type: Appearance
+    - type: WiresVisuals
+    - type: ApcPowerReceiver
+      powerLoad: 20
+    - type: ExtensionCableReceiver
+    - type: Electrified
+      enabled: false
+      usesApcPower: true
+    - type: WiresPanel
+    - type: WiresPanelSecurity
+    - type: Wires
+      boardName: wires-board-name-airlock
+      layoutId: Airlock
+    - type: DoorSignalControl
+    - type: DeviceNetwork
+      deviceNetId: Wireless
+      receiveFrequencyId: BasicDevice
+    - type: WirelessNetworkConnection
+      range: 200
+    - type: DeviceLinkSink
+      ports:
+        - Open
+        - Close
+        - Toggle
+        - AutoClose
+        - DoorBolt
+    - type: DeviceLinkSource
+      ports:
+        - DoorStatus
+    - type: SoundOnOverload
+    - type: SpawnOnOverload
+    - type: UserInterface
+      interfaces:
+        - key: enum.WiresUiKey.Key
+          type: WiresBoundUserInterface
+    - type: Airtight
+      fixVacuum: true
+      noAirWhenFullyAirBlocked: false
+    - type: RadiationBlocker
+      resistance: 3
+    - type: Occluder
+    - type: Damageable
+      damageContainer: Inorganic
+      damageModifierSet: Metallic
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 500
+          behaviors:
+            - !type:DoActsBehavior
+              acts: ["Destruction"]
+    - type: Construction
+      graph: Airlock
+      node: airlock
+      containers:
+        - board
+    - type: PlacementReplacement
+      key: walls
+    - type: IconSmooth
+      key: walls
+      mode: NoSprite
+    - type: AccessReader
+    - type: StaticPrice
+      price: 150
+    - type: Tag
+      tags:
+        - Airlock
+        # This tag is used to nagivate the Airlock construction graph. It's needed because the construction graph is shared between Airlock, AirlockGlass, and HighSecDoor
+    - type: PryUnpowered
+  placement:
+    mode: SnapgridCenter
+
+- type: entity
+  id: EkrixiBayAirlockSolidBase
+  name: airlock
+  abstract: true
+  parent: EkrixiBayAirlockBase
+  components:
+  - type: Occluder
+  - type: Sprite
+    layers:
+    - state: closed
+      sprite: _FTL/Structures/Doors/Airlocks/Basic/door.rsi
+      map: [ "enum.BayDoorAnimatedLayers.Base" ]
+    - state: closed
+      sprite: _FTL/Structures/Doors/Airlocks/Basic/color.rsi
+      map: [ "enum.BayDoorAnimatedLayers.Color" ]
+    - state: closed
+      sprite: _FTL/Structures/Doors/Airlocks/Basic/fill_steel.rsi
+      map: [ "enum.BayDoorAnimatedLayers.ColorFill" ]
+    - state: closed
+      map: [ "enum.BayDoorAnimatedLayers.Stripe" ]
+      sprite: _FTL/Structures/Doors/Airlocks/Basic/stripe.rsi
+    - state: closed
+      map: [ "enum.BayDoorAnimatedLayers.StripeFill" ]
+      sprite: _FTL/Structures/Doors/Airlocks/Basic/fill_stripe.rsi
+    - state: closed
+      visible: false
+      shader: unshaded
+      map: [ "enum.BayDoorAncillaryLayers.BoltLights" ]
+      sprite: _FTL/Structures/Doors/Airlocks/Basic/lights_bolts.rsi
+    - state: opening
+      visible: false
+      shader: unshaded
+      map: [ "enum.BayDoorAncillaryLayers.GreenLights" ]
+      sprite: _FTL/Structures/Doors/Airlocks/Basic/lights_green.rsi
+    - state: deny
+      visible: false
+      shader: unshaded
+      map: [ "enum.BayDoorAncillaryLayers.DenyLights" ]
+      sprite: _FTL/Structures/Doors/Airlocks/Basic/lights_deny.rsi
+    - state: closed
+      visible: false
+      shader: unshaded
+      map: [ "enum.BayDoorAncillaryLayers.Emag" ]
+      sprite: _FTL/Structures/Doors/Airlocks/Basic/sparks_broken.rsi
+    - state: closed
+      map: [ "enum.BayDoorAncillaryLayers.Welded" ]
+      sprite: _FTL/Structures/Doors/Airlocks/Basic/welded.rsi
+      visible: false
+
+- type: entity
+  id: EkrixiBayAirlockGlassBase
+  parent: EkrixiBayAirlockBase
+  name: airlock
+  suffix: BayGlass
+  abstract: true
+  components:
+  - type: Sprite
+    layers:
+    - state: closed
+      sprite: _FTL/Structures/Doors/Airlocks/Basic/door.rsi
+      map: ["enum.BayDoorAnimatedLayers.Base"]
+    - state: closed
+      sprite: _FTL/Structures/Doors/Airlocks/Basic/color.rsi
+      map: ["enum.BayDoorAnimatedLayers.Color"]
+    - state: closed
+      sprite: _FTL/Structures/Doors/Airlocks/Basic/fill_glass.rsi
+      map: ["enum.BayDoorAnimatedLayers.ColorFill"]
+    - state: closed
+      map: ["enum.BayDoorAnimatedLayers.Stripe"]
+      sprite: _FTL/Structures/Doors/Airlocks/Basic/stripe.rsi
+    - state: closed
+      map: [ "enum.BayDoorAnimatedLayers.StripeFill" ]
+      sprite: _FTL/Structures/Doors/Airlocks/Basic/fill_stripe.rsi
+    - state: closed
+      visible: false
+      shader: unshaded
+      map: [ "enum.BayDoorAncillaryLayers.BoltLights" ]
+      sprite: _FTL/Structures/Doors/Airlocks/Basic/lights_bolts.rsi
+    - state: opening
+      visible: false
+      shader: unshaded
+      map: [ "enum.BayDoorAncillaryLayers.GreenLights" ]
+      sprite: _FTL/Structures/Doors/Airlocks/Basic/lights_green.rsi
+    - state: deny
+      visible: false
+      shader: unshaded
+      map: [ "enum.BayDoorAncillaryLayers.DenyLights" ]
+      sprite: _FTL/Structures/Doors/Airlocks/Basic/lights_deny.rsi
+    - state: closed
+      visible: false
+      shader: unshaded
+      map: [ "enum.BayDoorAncillaryLayers.Emag" ]
+      sprite: _FTL/Structures/Doors/Airlocks/Basic/sparks_broken.rsi
+    - state: closed
+      map: [ "enum.BayDoorAncillaryLayers.Welded" ]
+      sprite: _FTL/Structures/Doors/Airlocks/Basic/welded.rsi
+      visible: false
+
+- type: entity
+  id: EkrixiBayAirlockExternalBase
+  parent: EkrixiBayAirlockBase
+  name: external airlock
+  suffix: BayExternal
+  abstract: true
+  components:
+  - type: Occluder
+  - type: Sprite
+    layers:
+    - state: closed
+      sprite: _FTL/Structures/Doors/Airlocks/External/door.rsi
+      map: ["enum.BayDoorAnimatedLayers.Base"]
+    - state: closed
+      sprite: _FTL/Structures/Doors/Airlocks/External/color.rsi
+      map: ["enum.BayDoorAnimatedLayers.Color"]
+    - state: closed
+      sprite: _FTL/Structures/Doors/Airlocks/External/fill_steel.rsi
+      map: ["enum.BayDoorAnimatedLayers.ColorFill"]
+    - state: closed
+      map: ["enum.BayDoorAnimatedLayers.Stripe"]
+      sprite: _FTL/Structures/Doors/Airlocks/Basic/stripe.rsi
+      visible: false
+    - state: closed
+      map: [ "enum.BayDoorAnimatedLayers.StripeFill" ]
+      sprite: _FTL/Structures/Doors/Airlocks/Basic/fill_stripe.rsi
+      visible: false
+    - state: closed
+      visible: false
+      shader: unshaded
+      map: [ "enum.BayDoorAncillaryLayers.BoltLights" ]
+      sprite: _FTL/Structures/Doors/Airlocks/External/lights_bolts.rsi
+    - state: opening
+      visible: false
+      shader: unshaded
+      map: [ "enum.BayDoorAncillaryLayers.GreenLights" ]
+      sprite: _FTL/Structures/Doors/Airlocks/External/lights_green.rsi
+    - state: deny
+      visible: false
+      shader: unshaded
+      map: [ "enum.BayDoorAncillaryLayers.DenyLights" ]
+      sprite: _FTL/Structures/Doors/Airlocks/External/lights_deny.rsi
+    - state: closed
+      visible: false
+      shader: unshaded
+      map: [ "enum.BayDoorAncillaryLayers.Emag" ]
+      sprite: _FTL/Structures/Doors/Airlocks/Basic/sparks_broken.rsi
+    - state: closed
+      map: [ "enum.BayDoorAncillaryLayers.Welded" ]
+      sprite: _FTL/Structures/Doors/Airlocks/Basic/welded.rsi
+      visible: false

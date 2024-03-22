@@ -1,0 +1,8 @@
+﻿- type: entity
+  parent: EkrixiBayAirlockExternalBase
+  id: EkrixiBayAirlockExternal
+  suffix: External, Red
+  components:
+  - type: Appearance
+  - type: BayAirlockVisuals
+    doorColor: '#9d2300ff'

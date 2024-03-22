@@ -1,3 +1,4 @@
+using Content.Client._FTL.Doors;
 using Content.Client.Wires.Visualizers;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
@@ -84,6 +85,9 @@ public sealed class AirlockSystem : SharedAirlockSystem
     {
         if (args.Sprite == null)
             return;
+
+        if (TryComp<BayAirlockVisualsComponent>(uid, out _))
+            return; // let the bay airlock vis handle it
 
         var boltedVisible = false;
         var emergencyLightsVisible = false;

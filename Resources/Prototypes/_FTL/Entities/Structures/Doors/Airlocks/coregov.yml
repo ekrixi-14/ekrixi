@@ -29,7 +29,7 @@
   components:
   - type: AccessReader
     access: [["Coregov"]]
-    
+
 #A custom airlock sprite for coregov would be nice, I'll just use the command airlock for now though.
 - type: entity
   parent: AirlockCommand
@@ -55,7 +55,7 @@
   - type: AccessReader
     access: [["CoregovCommand"]]
   - type: Wires
-    LayoutId: AirlockCommand
+    layoutId: AirlockCommand
 
 - type: entity
   parent: AirlockCommandGlass
@@ -65,4 +65,4 @@
   - type: AccessReader
     access: [["CoregovCommand"]]
   - type: Wires
-    LayoutId: AirlockCommand
+    layoutId: AirlockCommand

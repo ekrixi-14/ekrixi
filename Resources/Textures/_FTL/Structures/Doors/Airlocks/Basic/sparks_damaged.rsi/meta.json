@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "copyright": "baystation 8397ae1cefb1a4ae9b141a3fce5f996df652a6db",
+  "license": "CC-BY-SA-3.0",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "closed",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          17
+        ]
+      ]
+    },
+    {
+      "name": "open",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    }
+  ]
+}
