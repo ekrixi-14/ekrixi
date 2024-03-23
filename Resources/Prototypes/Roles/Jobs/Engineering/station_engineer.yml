@@ -31,6 +31,6 @@
     pocket2: SurvivalKnife
     belt: ClothingBeltUtilityEngineering
     ears: ClothingHeadsetEngineering
-  innerClothingSkirt: ClothingUniformJumpskirtEngineering
+  innerClothingSkirt: ClothingShirtEngineeringHazard # ClothingUniformJumpskirtEngineering
   satchel: ClothingBackpackSatchelEngineeringFilled
   duffelbag: ClothingBackpackDuffelEngineeringFilled
