@@ -1,3 +1,4 @@
+using Content.Client._FTL.Doors;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
 using Robust.Client.Animations;
@@ -73,6 +74,9 @@ public sealed class DoorSystem : SharedDoorSystem
 
     private void OnAppearanceChange(EntityUid uid, DoorComponent comp, ref AppearanceChangeEvent args)
     {
+        if (TryComp<BayAirlockVisualsComponent>(uid, out _))
+            return; // let bay vis handle that
+
         if (args.Sprite == null || !_gameTiming.IsFirstTimePredicted)
             return;
 
