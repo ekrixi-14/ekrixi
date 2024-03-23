@@ -1,6 +1,6 @@
 - type: entity
   parent: BaseWeaponNaval
-  id: Weapon130mm
+  id: Weapon120mm
   name: 120mm light mortar
   description: A 120mm light mortar.
   placement:
