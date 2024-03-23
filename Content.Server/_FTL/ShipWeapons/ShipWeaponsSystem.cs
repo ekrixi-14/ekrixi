@@ -62,7 +62,7 @@ public sealed class ShipWeaponsSystem : SharedShipWeaponsSystem
                     continue;
                 if (!TryComp<ChamberMagazineAmmoProviderComponent>(entity, out var chamberMagazineAmmoProviderComponent))
                     continue;
-                if (entity != null)
+                if (entity == null)
                     continue; // i hate device linking
                 var entXform = Transform(entity);
 
@@ -113,7 +113,7 @@ public sealed class ShipWeaponsSystem : SharedShipWeaponsSystem
             {
                 if (!TryComp<ShipWeaponComponent>(entity, out var shipWeaponComponent))
                     continue;
-                if (entity != null)
+                if (entity == null)
                     continue;
 
                 var entXform = Transform(entity);
