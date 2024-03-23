@@ -1,0 +1,54 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingShirtCaptain
+  name: captain's shirt
+  description: It's a blue shirt with that yells out "Captain".
+  components:
+    - type: Sprite
+      sprite: _FTL/Clothing/InnerClothing/captain.rsi
+    - type: Clothing
+      sprite: _FTL/Clothing/InnerClothing/captain.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingShirtCargo
+  name: cargo tech shirt
+  description: A sturdy shirt that oddly resonates well with cargonians.
+  components:
+    - type: Sprite
+      sprite: _FTL/Clothing/InnerClothing/cargotech.rsi
+    - type: Clothing
+      sprite: _FTL/Clothing/InnerClothing/cargotech.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingShirtScrubsBlue
+  name: blue scrubs (upper)
+  description: A combination of comfort and utility intended to make removing every last organ someone has and selling them to a space robot much more official looking.
+  components:
+    - type: Sprite
+      sprite: _FTL/Clothing/InnerClothing/blue-scrubs.rsi
+    - type: Clothing
+      sprite: _FTL/Clothing/InnerClothing/blue-scrubs.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingShirtSec
+  name: security shirt
+  description: A shirt made of strong material, providing robust protection.
+  components:
+    - type: Sprite
+      sprite: _FTL/Clothing/InnerClothing/security.rsi
+    - type: Clothing
+      sprite: _FTL/Clothing/InnerClothing/security.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingShirtEngineeringHazard
+  name: hazard shirt
+  description: Woven in a grungy, warm orange. Lets others around you know that you really mean business when it comes to work.
+  components:
+    - type: Sprite
+      sprite: _FTL/Clothing/InnerClothing/engineering_hazard.rsi
+    - type: Clothing
+      sprite: _FTL/Clothing/InnerClothing/engineering_hazard.rsi

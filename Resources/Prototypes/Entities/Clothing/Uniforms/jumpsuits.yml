@@ -68,6 +68,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitCaptain
   name: captain's jumpsuit
+  noSpawn: true
   description: It's a blue jumpsuit with some gold markings denoting the rank of "Captain".
   components:
   - type: Sprite
@@ -79,6 +80,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitCargo
   name: cargo tech jumpsuit
+  noSpawn: true
   description: A sturdy jumpsuit, issued to members of the Cargo department.
   components:
   - type: Sprite
@@ -276,6 +278,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitEngineeringHazard
   name: hazard jumpsuit
+  noSpawn: true
   description: Woven in a grungy, warm orange. Lets others around you know that you really mean business when it comes to work.
   components:
   - type: Sprite
@@ -516,6 +519,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSec
   name: security jumpsuit
+  noSpawn: true
   description: A jumpsuit made of strong material, providing robust protection.
   components:
   - type: Sprite

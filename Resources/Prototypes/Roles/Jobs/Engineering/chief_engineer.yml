@@ -22,7 +22,7 @@
   startingGear: ChiefEngineerGear
   icon: "JobIconChiefEngineer"
   requireAdminNotify: true
-  setPreference: true
+#  setPreference: true
   supervisors: job-supervisors-captain
   canBeAntag: false
   access:

@@ -37,7 +37,7 @@ namespace Content.Shared.Roles
             {
                 if (slot == "jumpsuit" && profile.Clothing == ClothingPreference.Jumpskirt && !string.IsNullOrEmpty(InnerClothingSkirt))
                     return InnerClothingSkirt;
-                if (slot == "LOWERCLOTHING" && profile.Clothing == ClothingPreference.Jumpskirt && !string.IsNullOrEmpty(LowerClothingSkirt))
+                if (slot == "lowerClothing" && profile.Clothing == ClothingPreference.Jumpskirt && !string.IsNullOrEmpty(LowerClothingSkirt))
                     return LowerClothingSkirt;
                 if (slot == "back" && profile.Backpack == BackpackPreference.Satchel && !string.IsNullOrEmpty(Satchel))
                     return Satchel;

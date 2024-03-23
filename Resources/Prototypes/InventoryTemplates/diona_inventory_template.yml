@@ -13,8 +13,8 @@
       slotTexture: uniform
       slotFlags: LOWERCLOTHING
       stripTime: 6
-      uiWindowPos: 0,2
-      strippingWindowPos: 0,2
+      uiWindowPos: 0,3
+      strippingWindowPos: 0,3
       displayName: Pants
     - name: outerClothing
       slotTexture: suit
