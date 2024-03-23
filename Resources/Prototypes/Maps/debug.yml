@@ -18,14 +18,14 @@
 - type: gameMap
   id: Dev
   mapName: Dev
-  mapPath: /Maps/Test/dev_map.yml
+  mapPath: /Maps/_FTL/devship.yml
   minPlayers: 0
   stations:
     Dev:
-      stationProto: StandardNanotrasenStation
+      stationProto: StandardIndependentShip
       components:
         - type: StationNameSetup
-          mapNameTemplate: "Dev"
+          mapNameTemplate: "DevShip"
         - type: StationJobs
           overflowJobs:
           - Captain
