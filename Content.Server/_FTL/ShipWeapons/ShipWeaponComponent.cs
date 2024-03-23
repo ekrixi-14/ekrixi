@@ -10,4 +10,5 @@ public sealed partial class ShipWeaponComponent : Component
 {
     public Angle DesiredAngle = Angle.Zero;
     public EntityCoordinates Target = EntityCoordinates.Invalid;
+    [DataField] public bool AutoFire;
 }

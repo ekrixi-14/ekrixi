@@ -41,18 +41,21 @@
                            HorizontalAlignment="Right"/>
                 </GridContainer>
             </BoxContainer>
-            
+
             <controls:StripeBack>
                 <Label Name="GunControlLabel" Text="{Loc 'gunner-console-gun-control-label'}" HorizontalAlignment="Center"/>
             </controls:StripeBack>
             <BoxContainer Name="GunControlDisplay">
                 <GridContainer Columns="2"
+                               Rows="3"
                                HorizontalAlignment="Stretch"
                                VerticalAlignment="Top">
                     <Label Text="{Loc 'gunner-console-ammo'}"/>
                     <Label Name="AmmoCounter"/>
                     <Button Name="FireButton" Text="{Loc 'gunner-console-button-fire-text' }" />
-                    <Button Name="EjectButton" Text="{Loc 'gunner-console-button-eject-text' }" />
+                    <Button Name="EjectButton" Visible="False" Text="{Loc 'gunner-console-button-eject-text' }" />
+                    <Button Name="ChamberButton" Visible="False" Text="{Loc 'gunner-console-button-chamber-text' }" />
+                    <Button Name="AutofireButton" Text="{Loc 'gunner-console-button-autofire-text' }" />
                 </GridContainer>
             </BoxContainer>
         </BoxContainer>

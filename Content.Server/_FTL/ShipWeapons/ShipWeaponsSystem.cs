@@ -1,3 +1,4 @@
+using System.Numerics;
 using Content.Server.UserInterface;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared._FTL.ShipWeapons;
@@ -8,6 +9,7 @@ using Content.Shared.Shuttles.Components;
 using Content.Shared.Shuttles.Systems;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
+using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
@@ -19,6 +21,7 @@ public sealed class ShipWeaponsSystem : SharedShipWeaponsSystem
     // [Dependency] private readonly DeviceLinkSystem _deviceLinkSystem = default!;
     [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
     [Dependency] private readonly GunSystem _gunSystem = default!;
+    [Dependency] private readonly SharedGunSystem _sharedGunSystem = default!;
     [Dependency] private readonly ContainerSystem _containerSystem = default!;
     [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
@@ -43,6 +46,11 @@ public sealed class ShipWeaponsSystem : SharedShipWeaponsSystem
     {
         if (!TryComp<DeviceLinkSourceComponent>(uid, out var sourceComponent))
             return;
+
+        var xform = Transform(uid);
+        if (!xform.GridUid.HasValue)
+            return;
+
         // Get every linked gun and fire it
         foreach (var (_, outputs) in sourceComponent.Outputs)
         {
@@ -51,6 +59,15 @@ public sealed class ShipWeaponsSystem : SharedShipWeaponsSystem
                 if (!TryComp<GunComponent>(entity, out var gunComponent))
                     continue;
                 if (!TryComp<ShipWeaponComponent>(entity, out var shipWeaponComponent))
+                    continue;
+                if (!TryComp<ChamberMagazineAmmoProviderComponent>(entity, out var chamberMagazineAmmoProviderComponent))
+                    continue;
+                var entXform = Transform(entity);
+
+                if (!entXform.GridUid.HasValue)
+                    continue;
+
+                if (entXform.GridUid.Value != xform.GridUid.Value)
                     continue;
 
                 switch (args.Action)
@@ -67,6 +84,10 @@ public sealed class ShipWeaponsSystem : SharedShipWeaponsSystem
                         _itemSlotsSystem.TryEject(entity, itemSlot, null, out _);
                         break;
                     case ShipWeaponAction.Chamber:
+                        _gunSystem.CycleCartridge(uid, chamberMagazineAmmoProviderComponent, null);
+                        break;
+                    case ShipWeaponAction.ToggleAutofire:
+                        shipWeaponComponent.AutoFire = !shipWeaponComponent.AutoFire;
                         break;
                 }
             }
@@ -79,6 +100,10 @@ public sealed class ShipWeaponsSystem : SharedShipWeaponsSystem
         if (!TryComp<DeviceLinkSourceComponent>(uid, out var sourceComponent))
             return;
 
+        var xform = Transform(uid);
+        if (!xform.GridUid.HasValue)
+            return;
+
         // Get every linked gun and rotate it relative to it's position and the new target position
         foreach (var (_, outputs) in sourceComponent.Outputs)
         {
@@ -86,6 +111,15 @@ public sealed class ShipWeaponsSystem : SharedShipWeaponsSystem
             {
                 if (!TryComp<ShipWeaponComponent>(entity, out var shipWeaponComponent))
                     continue;
+
+                var entXform = Transform(entity);
+
+                if (!entXform.GridUid.HasValue)
+                    continue;
+
+                if (entXform.GridUid.Value != xform.GridUid.Value)
+                    continue;
+
                 var entityXform = Transform(entity);
 
                 // i didnt even need to use trig for this fml
@@ -105,6 +139,14 @@ public sealed class ShipWeaponsSystem : SharedShipWeaponsSystem
         {
             var xform = Transform(entity);
             xform.LocalRotation = Angle.Lerp(xform.LocalRotation, weaponComponent.DesiredAngle, 0.1f);
+
+            if (!TryComp<GunComponent>(entity, out var gunComponent))
+                continue;
+
+            if (_gunSystem.CanShoot(gunComponent) && weaponComponent.AutoFire)
+            {
+                _gunSystem.AttemptShoot(entity, entity, gunComponent, weaponComponent.Target);
+            }
         }
     }
 

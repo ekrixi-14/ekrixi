@@ -16,6 +16,8 @@ public sealed partial class GunnerConsoleWindow : FancyWindow,
     public event Action<EntityCoordinates>? OnRadarClick;
     public event Action? OnFireClick;
     public event Action? OnEjectClick;
+    public event Action? OnAutofireClick;
+    public event Action? OnChamberClick;
 
     public GunnerConsoleWindow()
     {
@@ -25,8 +27,11 @@ public sealed partial class GunnerConsoleWindow : FancyWindow,
         WorldRangeChange(RadarScreen.WorldRange);
         RadarScreen.WorldRangeChanged += WorldRangeChange;
         RadarScreen.OnRadarClick += coordinates => { OnRadarClick?.Invoke(coordinates); };
+
         FireButton.OnButtonDown += _ => { OnFireClick?.Invoke(); };
         EjectButton.OnButtonDown += _ => { OnEjectClick?.Invoke(); };
+        ChamberButton.OnButtonDown += _ => { OnChamberClick?.Invoke(); };
+        AutofireButton.OnButtonDown += _ => { OnAutofireClick?.Invoke(); };
     }
 
     private void WorldRangeChange(float value)

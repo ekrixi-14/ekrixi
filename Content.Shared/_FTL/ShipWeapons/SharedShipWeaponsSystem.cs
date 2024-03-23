@@ -19,7 +19,8 @@ public enum ShipWeaponAction : byte
 {
     Fire,
     Chamber,
-    Eject
+    Eject,
+    ToggleAutofire
 }
 
 [Serializable, NetSerializable]

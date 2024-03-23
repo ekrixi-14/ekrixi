@@ -11,8 +11,9 @@ gunner-console-no-ammo = NO AMMO
 gunner-console-list-ammo = Ammo: {$amount}
 
 gunner-console-button-fire-text = Fire
-gunner-console-button-chamber-text = Chamber Guns
-gunner-console-button-eject-text = Eject Mags
+gunner-console-button-eject-text = Eject
+gunner-console-button-chamber-text = Chamber
+gunner-console-button-autofire-text = Autofire
 
 signal-port-name-weapons-output = Pad Control Port
 signal-port-name-weapons-output-description = Link the output port to the input port here.
