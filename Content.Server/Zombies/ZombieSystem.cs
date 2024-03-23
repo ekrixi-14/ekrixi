@@ -177,6 +177,7 @@ namespace Content.Server.Zombies
                     SlotFlags.MASK |
                     SlotFlags.NECK |
                     SlotFlags.INNERCLOTHING |
+                    SlotFlags.LOWERCLOTHING |
                     SlotFlags.OUTERCLOTHING);
 
             var items = 0f;

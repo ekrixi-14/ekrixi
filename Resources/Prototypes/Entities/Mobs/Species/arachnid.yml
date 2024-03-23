@@ -78,6 +78,7 @@
         state: unisex_full
         visible: false
       - map: ["jumpsuit"]
+      - map: ["lowerClothing"]
       - map: ["enum.HumanoidVisualLayers.LFoot"]
       - map: ["enum.HumanoidVisualLayers.RFoot"]
       - map: ["enum.HumanoidVisualLayers.LHand"]

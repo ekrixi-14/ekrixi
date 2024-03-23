@@ -1,0 +1,7 @@
+- type: entity
+  abstract: true
+  parent: UnsensoredClothingUniformBase
+  id: ClothingPantsBase
+  components:
+    - type: Clothing
+      slots: [ lowerClothing ]

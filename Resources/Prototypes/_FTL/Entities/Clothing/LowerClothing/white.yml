@@ -1,0 +1,9 @@
+- type: entity
+  parent: ClothingPantsBase
+  id: ClothingPantsWhite
+  name: white pants
+  components:
+    - type: Sprite
+      sprite: _FTL/Clothing/LowerClothing/Color/white.rsi
+    - type: Clothing
+      sprite: _FTL/Clothing/LowerClothing/Color/white.rsi
