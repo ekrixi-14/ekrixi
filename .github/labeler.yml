@@ -1,12 +1,15 @@
-﻿"Changes: Sprites":
+﻿"sprites":
 - '**/*.rsi/*.png'
 
-"Changes: Map":
+"map":
 - 'Resources/Maps/*.yml'
 - 'Resources/Prototypes/Maps/*.yml'
 
-"Changes: UI":
+"ui":
 - '**/*.xaml*'
 
-"No C#":
+"no C#":
 - all: ["!**/*.cs"]
+
+"ctv pr":
+- base-branch: ["cross-the-veil"]
