@@ -22,6 +22,6 @@
     id: PilotPDA
     ears: ClothingHeadsetAltCommand
     pocket1: WeaponRevolverDeckard
-  innerclothingskirt: ClothingUniformJumpsuitPilot
+  innerClothingSkirt: ClothingUniformJumpsuitPilot
   satchel: ClothingBackpackSatchelFilled
   duffelbag: ClothingBackpackDuffelFilled
