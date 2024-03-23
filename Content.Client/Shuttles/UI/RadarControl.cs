@@ -4,6 +4,7 @@ using Content.Shared.Shuttles.BUIStates;
 using Content.Shared.Shuttles.Components;
 using JetBrains.Annotations;
 using Robust.Client.Graphics;
+using Robust.Client.Input;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Collections;
@@ -23,6 +24,7 @@ public sealed class RadarControl : MapGridControl
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly IInputManager _inputManager = default!;
     private SharedTransformSystem _transform;
 
     private const float GridLinesDistance = 32f;
@@ -41,7 +43,8 @@ public sealed class RadarControl : MapGridControl
 
     private Dictionary<EntityUid, List<DockingInterfaceState>> _docks = new();
 
-    private EntityCoordinates? _clickedCoordinates = null;
+    private EntityCoordinates? _clickedCoordinates;
+    private EntityCoordinates? _hoveredCoordinates;
 
     public bool ShowIFF { get; set; } = true;
     public bool ShowDocks { get; set; } = true;
@@ -87,7 +90,25 @@ public sealed class RadarControl : MapGridControl
         var relativeWorldPos = new Vector2(a.X, -a.Y);
         relativeWorldPos = _rotation.Value.RotateVec(relativeWorldPos);
         var coords = _coordinates.Value.Offset(relativeWorldPos);
+
         OnRadarClick?.Invoke(coords);
+    }
+
+    protected override void MouseMove(GUIMouseMoveEventArgs args)
+    {
+        base.MouseMove(args);
+
+        if (_coordinates == null || _rotation == null || OnRadarClick == null)
+        {
+            return;
+        }
+
+        var a = InverseScalePosition(args.RelativePosition);
+        var relativeWorldPos = new Vector2(a.X, -a.Y);
+        relativeWorldPos = _rotation.Value.RotateVec(relativeWorldPos);
+        var coords = _coordinates.Value.Offset(relativeWorldPos);
+
+        _hoveredCoordinates = coords;
     }
 
     /// <summary>
@@ -108,6 +129,11 @@ public sealed class RadarControl : MapGridControl
         relativeWorldPos = _rotation.Value.RotateVec(relativeWorldPos);
         var coords = _coordinates.Value.Offset(relativeWorldPos);
         return coords;
+    }
+
+    private Vector2 GetMousePosition()
+    {
+        return _inputManager.MouseScreenPosition.Position;
     }
 
     public void UpdateState(RadarConsoleBoundInterfaceState ls)
@@ -179,7 +205,7 @@ public sealed class RadarControl : MapGridControl
         }
 
         var (pos, rot) = _transform.GetWorldPositionRotation(xform);
-        var offset = _coordinates.Value.Position;
+        var offset = _coordinates.Value.Position - _coordinates.Value.Position;
         var offsetMatrix = Matrix3.CreateInverseTransform(pos, rot + _rotation.Value);
 
         // Draw our grid in detail
@@ -194,20 +220,20 @@ public sealed class RadarControl : MapGridControl
             DrawDocks(handle, ourGridId.Value, matrix);
         }
 
-        var padPosition = _coordinates.Value.Position;
-        var consolePosition = _coordinates.Value.Position - padPosition;
-        padPosition.Y = -padPosition.Y;
-        consolePosition.Y = -consolePosition.Y;
         // Don't need to transform the InvWorldMatrix again as it's already offset to its position.
 
-        // Draw radar position on the station
-        handle.DrawCircle(ScalePosition(padPosition), 5f, Color.Blue);
-        handle.DrawCircle(ScalePosition(consolePosition), 5f, Color.BlueViolet);
         if (_clickedCoordinates.HasValue)
         {
             var cc = _clickedCoordinates.Value.Position - offset;
             cc.Y = -cc.Y;
-            handle.DrawCircle(ScalePosition(cc), 5f, Color.Orange);
+            handle.DrawCircle(ScalePosition(cc), 5f, Color.Red);
+        }
+
+        if (_hoveredCoordinates.HasValue)
+        {
+            var hc = _hoveredCoordinates.Value.Position - offset;
+            hc.Y = -hc.Y;
+            handle.DrawCircle(ScalePosition(hc - offset), 3f, Color.Yellow);
         }
 
         var shown = new HashSet<EntityUid>();
