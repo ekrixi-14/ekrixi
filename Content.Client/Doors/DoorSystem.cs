@@ -74,11 +74,11 @@ public sealed class DoorSystem : SharedDoorSystem
 
     private void OnAppearanceChange(EntityUid uid, DoorComponent comp, ref AppearanceChangeEvent args)
     {
-        if (TryComp<BayAirlockVisualsComponent>(uid, out _))
-            return; // let bay vis handle that lol
-
         if (args.Sprite == null || !_gameTiming.IsFirstTimePredicted)
             return;
+
+        if (TryComp<BayAirlockVisualsComponent>(uid, out _))
+            return; // let bay vis handle that lol
 
         if(!AppearanceSystem.TryGetData<DoorState>(uid, DoorVisuals.State, out var state, args.Component))
             state = DoorState.Closed;
