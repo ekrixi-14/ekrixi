@@ -17,7 +17,7 @@
   weight: 10
   startingGear: CMOGear
   icon: "JobIconChiefMedicalOfficer"
-  setPreference: true
+#  setPreference: true
   requireAdminNotify: true
   supervisors: job-supervisors-captain
   canBeAntag: false

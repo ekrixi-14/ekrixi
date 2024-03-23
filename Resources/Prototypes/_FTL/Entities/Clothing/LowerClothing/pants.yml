@@ -1,0 +1,64 @@
+- type: entity
+  parent: ClothingPantsBase
+  id: ClothingPantsCaptain
+  name: captain's pants
+  description: Brown pants, with gold outlines that yells out "Captain". Costs more to replace than the entire crew.
+  components:
+    - type: Sprite
+      sprite: _FTL/Clothing/LowerClothing/captain.rsi
+    - type: Clothing
+      sprite: _FTL/Clothing/LowerClothing/captain.rsi
+
+- type: entity
+  parent: ClothingPantsBase
+  id: ClothingPantsCargo
+  name: cargo shorts
+  description: A sturdy pair of shorts that oddly resonates well with cargonians.
+  components:
+    - type: Sprite
+      sprite: _FTL/Clothing/LowerClothing/cargotech.rsi
+    - type: Clothing
+      sprite: _FTL/Clothing/LowerClothing/cargotech.rsi
+
+- type: entity
+  parent: ClothingPantsBase
+  id: ClothingPantsScrubsBlue
+  name: blue scrubs (lower)
+  description: A combination of comfort and utility intended to make removing every last organ someone has and selling them to a space robot much more official looking.
+  components:
+    - type: Sprite
+      sprite: _FTL/Clothing/LowerClothing/blue-scrubs.rsi
+    - type: Clothing
+      sprite: _FTL/Clothing/LowerClothing/blue-scrubs.rsi
+
+- type: entity
+  parent: ClothingPantsBase
+  id: ClothingPantsSec
+  name: security pants
+  description: A pair of pants made of strong material, providing robust protection.
+  components:
+    - type: Sprite
+      sprite: _FTL/Clothing/LowerClothing/security.rsi
+    - type: Clothing
+      sprite: _FTL/Clothing/LowerClothing/security.rsi
+
+- type: entity
+  parent: ClothingPantsBase
+  id: ClothingPantsEngineeringHazard
+  name: hazard pants
+  description: Woven in a grungy, warm orange. Lets others around you know that you really mean business when it comes to work.
+  components:
+    - type: Sprite
+      sprite: _FTL/Clothing/LowerClothing/engineering_hazard.rsi
+    - type: Clothing
+      sprite: _FTL/Clothing/LowerClothing/engineering_hazard.rsi
+
+- type: entity
+  parent: ClothingPantsBase
+  id: ClothingPantsWhite
+  name: white pants
+  components:
+    - type: Sprite
+      sprite: _FTL/Clothing/LowerClothing/Color/white.rsi
+    - type: Clothing
+      sprite: _FTL/Clothing/LowerClothing/Color/white.rsi

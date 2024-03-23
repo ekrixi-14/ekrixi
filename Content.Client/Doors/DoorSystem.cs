@@ -1,3 +1,4 @@
+using Content.Client._FTL.Doors;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
 using Robust.Client.Animations;
@@ -75,6 +76,9 @@ public sealed class DoorSystem : SharedDoorSystem
     {
         if (args.Sprite == null || !_gameTiming.IsFirstTimePredicted)
             return;
+
+        if (TryComp<BayAirlockVisualsComponent>(uid, out _))
+            return; // let bay vis handle that lol
 
         if(!AppearanceSystem.TryGetData<DoorState>(uid, DoorVisuals.State, out var state, args.Component))
             state = DoorState.Closed;
