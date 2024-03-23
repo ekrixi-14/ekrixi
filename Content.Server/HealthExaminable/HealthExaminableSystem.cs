@@ -1,4 +1,5 @@
-﻿using Content.Shared.Damage;
+﻿using Content.Shared._FTL.Wounds;
+using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
 using Content.Shared.IdentityManagement;
@@ -22,14 +23,15 @@ public sealed class HealthExaminableSystem : EntitySystem
     {
         if (!TryComp<DamageableComponent>(uid, out var damage))
             return;
+        TryComp<WoundsHolderComponent>(uid, out var wounds);
 
-        var detailsRange = _examineSystem.IsInDetailsRange(args.User, uid);
+            var detailsRange = _examineSystem.IsInDetailsRange(args.User, uid);
 
         var verb = new ExamineVerb()
         {
             Act = () =>
             {
-                var markup = CreateMarkup(uid, component, damage);
+                var markup = CreateMarkup(uid, component, damage, wounds);
                 _examineSystem.SendExamineTooltip(args.User, uid, markup, false, false);
             },
             Text = Loc.GetString("health-examinable-verb-text"),
@@ -42,7 +44,7 @@ public sealed class HealthExaminableSystem : EntitySystem
         args.Verbs.Add(verb);
     }
 
-    private FormattedMessage CreateMarkup(EntityUid uid, HealthExaminableComponent component, DamageableComponent damage)
+    private FormattedMessage CreateMarkup(EntityUid uid, HealthExaminableComponent component, DamageableComponent damage, WoundsHolderComponent? wounds)
     {
         var msg = new FormattedMessage();
 

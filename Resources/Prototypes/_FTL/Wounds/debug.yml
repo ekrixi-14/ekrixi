@@ -1,0 +1,9 @@
+- type: entity
+  id: WoundDebug
+  name: debug wound
+  description: It's a wound that glows green with symbols that look mesmerizing, like 1s and 0s.
+  components:
+    - type: Wound
+      damage:
+        types:
+          Blunt: 40

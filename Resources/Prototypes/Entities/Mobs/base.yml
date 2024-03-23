@@ -52,6 +52,7 @@
   components:
   - type: Damageable
     damageContainer: Biological
+  - type: WoundsHolder
   - type: ConstantDamage
     probability: .5
     checkFrequency: 60

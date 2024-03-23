@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared._FTL.Wounds;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
 using Content.Shared.Inventory;
@@ -19,6 +20,7 @@ namespace Content.Shared.Damage
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
         [Dependency] private readonly INetManager _netMan = default!;
         [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
+        [Dependency] private readonly WoundsSystem _woundsSystem = default!;
 
         private EntityQuery<AppearanceComponent> _appearanceQuery;
         private EntityQuery<DamageableComponent> _damageableQuery;
@@ -42,7 +44,7 @@ namespace Content.Shared.Damage
         {
             if (component.DamageContainerID != null &&
                 _prototypeManager.TryIndex<DamageContainerPrototype>(component.DamageContainerID,
-                out var damageContainerPrototype))
+                    out var damageContainerPrototype))
             {
                 // Initialize damage dictionary, using the types and groups from the damage
                 // container prototype
@@ -69,8 +71,17 @@ namespace Content.Shared.Damage
                 }
             }
 
-            component.Damage.GetDamagePerGroup(_prototypeManager, component.DamagePerGroup);
-            component.TotalDamage = component.Damage.GetTotal();
+            DamageSpecifier dmg = new (component.Damage);
+            if (TryComp<WoundsHolderComponent>(uid, out var wounds))
+            {
+                if (_woundsSystem.TryGetDamageFromWounds(uid, wounds, out var spec))
+                {
+                    dmg = spec + dmg;
+                }
+            }
+
+            dmg.GetDamagePerGroup(_prototypeManager, component.DamagePerGroup);
+            component.TotalDamage = dmg.GetTotal();
         }
 
         /// <summary>
@@ -96,8 +107,17 @@ namespace Content.Shared.Damage
         public void DamageChanged(EntityUid uid, DamageableComponent component, DamageSpecifier? damageDelta = null,
             bool interruptsDoAfters = true, EntityUid? origin = null)
         {
-            component.Damage.GetDamagePerGroup(_prototypeManager, component.DamagePerGroup);
-            component.TotalDamage = component.Damage.GetTotal();
+            DamageSpecifier dmg = new (component.Damage);
+            if (TryComp<WoundsHolderComponent>(uid, out var wounds))
+            {
+                if (_woundsSystem.TryGetDamageFromWounds(uid, wounds, out var spec))
+                {
+                    dmg = spec + dmg;
+                }
+            }
+
+            dmg.GetDamagePerGroup(_prototypeManager, component.DamagePerGroup);
+            component.TotalDamage = dmg.GetTotal();
             Dirty(uid, component);
 
             if (_appearanceQuery.TryGetComponent(uid, out var appearance) && damageDelta != null)
