@@ -1,0 +1,4 @@
+- type: damageType
+  id: VeilIndividualExposure
+  armorCoefficientPrice: 1
+  armorFlatPrice: 1

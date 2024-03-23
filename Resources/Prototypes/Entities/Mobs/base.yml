@@ -52,6 +52,12 @@
   components:
   - type: Damageable
     damageContainer: Biological
+  - type: ConstantDamage
+    probability: .5
+    checkFrequency: 60
+    damage:
+      types:
+        VeilIndividualExposure: 3
   - type: Destructible
     thresholds:
     - trigger:

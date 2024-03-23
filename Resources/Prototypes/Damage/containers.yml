@@ -6,12 +6,15 @@
     - Toxin
     - Airloss
     - Genetic
+  supportedTypes:
+    - VeilIndividualExposure
 
 - type: damageContainer
   id: Inorganic
   supportedGroups:
     - Brute
   supportedTypes:
+    - VeilIndividualExposure # ipcs
     - Heat
     - Shock
     - Structural # this probably should be in separate container
@@ -22,6 +25,7 @@
     - Brute
   supportedTypes:
     - Heat
+    - VeilIndividualExposure
 
 - type: damageContainer
   id: Box
@@ -30,4 +34,5 @@
     - Burn
     - Toxin
   supportedTypes:
+    - VeilIndividualExposure
     - Shock

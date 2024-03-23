@@ -9,6 +9,12 @@
     snap:
     - Wall
   components:
+  - type: ConstantDamage
+    probability: .85
+    checkFrequency: 5
+    damage:
+      types:
+        Structural: 15
   - type: RangedDamageSound
     soundGroups:
       Brute:
