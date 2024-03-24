@@ -68,6 +68,7 @@ namespace Content.Client.Stylesheets
         public const string StyleClassSliderWhite = "White";
 
         public const string StyleClassLabelHeadingBigger = "LabelHeadingBigger";
+        public const string StyleClassLabelHeadingXL = "LabelHeadingXL";
         public const string StyleClassLabelKeyText = "LabelKeyText";
         public const string StyleClassLabelSecondaryColor = "LabelSecondaryColor";
         public const string StyleClassLabelBig = "LabelBig";
@@ -160,6 +161,8 @@ namespace Content.Client.Stylesheets
             var notoSansBold16 = resCache.NotoStack(variation: "Bold", size: 16);
             var notoSansBold18 = resCache.NotoStack(variation: "Bold", size: 18);
             var notoSansBold20 = resCache.NotoStack(variation: "Bold", size: 20);
+            var notoSansBold30 = resCache.NotoStack(variation: "Bold", size: 30);
+            var notoSansBold40 = resCache.NotoStack(variation: "Bold", size: 40);
             var notoSansMono = resCache.GetFont("/EngineFonts/NotoSans/NotoSansMono-Regular.ttf", size: 12);
             var windowHeaderTex = resCache.GetTexture("/Textures/Interface/Nano/window_header.png");
             var windowHeader = new StyleBoxTexture
@@ -1019,6 +1022,14 @@ namespace Content.Client.Stylesheets
                     new[]
                     {
                         new StyleProperty(Label.StylePropertyFont, notoSansBold20),
+                        new StyleProperty(Label.StylePropertyFontColor, NanoGold),
+                    }),
+
+                // XL Label
+                new StyleRule(new SelectorElement(typeof(Label), new[] {StyleClassLabelHeadingXL}, null, null),
+                    new[]
+                    {
+                        new StyleProperty(Label.StylePropertyFont, notoSansBold30),
                         new StyleProperty(Label.StylePropertyFontColor, NanoGold),
                     }),
 
