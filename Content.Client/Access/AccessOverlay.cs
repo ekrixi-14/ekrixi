@@ -22,7 +22,7 @@ public sealed class AccessOverlay : Overlay
         _lookup = lookup;
         _xform = xform;
 
-        _font = cache.GetFont("/Fonts/IBMPlexMono/IBMPlexMono-Regular.ttf", 12);
+        _font = cache.GetFont("/Fonts/B612_Mono/B612_Mono-Regular.ttf", 12);
     }
 
     protected override void Draw(in OverlayDrawArgs args)

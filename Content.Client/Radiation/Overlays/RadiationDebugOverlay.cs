@@ -24,7 +24,7 @@ public sealed class RadiationDebugOverlay : Overlay
         _radiation = _entityManager.System<RadiationSystem>();
 
         var cache = IoCManager.Resolve<IResourceCache>();
-        _font = new VectorFont(cache.GetResource<FontResource>("/Fonts/IBMPlexMono/IBMPlexMono-Regular.ttf"), 8);
+        _font = new VectorFont(cache.GetResource<FontResource>("/Fonts/B612_Mono/B612_Mono-Regular.ttf"), 8);
     }
 
     protected override void Draw(in OverlayDrawArgs args)
