@@ -6,4 +6,5 @@ namespace Content.Shared._FTL.Wounds;
 public sealed partial class WoundComponent : Component
 {
     [DataField, ViewVariables] public DamageSpecifier Damage;
+    [DataField] public LocId WoundExamineMessage;
 }

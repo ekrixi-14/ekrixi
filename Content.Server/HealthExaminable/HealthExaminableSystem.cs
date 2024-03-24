@@ -59,7 +59,7 @@ public sealed class HealthExaminableSystem : EntitySystem
 
             FixedPoint2 closest = FixedPoint2.Zero;
 
-            string chosenLocStr = string.Empty;
+            var chosenLocStr = string.Empty;
             foreach (var threshold in component.Thresholds)
             {
                 var str = $"health-examinable-{component.LocPrefix}-{type}-{threshold}";
@@ -88,6 +88,22 @@ public sealed class HealthExaminableSystem : EntitySystem
                 first = false;
             }
             msg.AddMarkup(chosenLocStr);
+        }
+
+        if (wounds != null)
+        {
+            foreach (var wound in wounds.Wounds.ContainedEntities)
+            {
+                if (!TryComp<WoundComponent>(wound, out var wComp))
+                    continue;
+
+                if (!first)
+                    msg.PushNewline();
+                else
+                    first = false;
+
+                msg.AddMarkup(Loc.GetString(wComp.WoundExamineMessage, ("target", Identity.Entity(uid, EntityManager))));
+            }
         }
 
         if (msg.IsEmpty)

@@ -4,6 +4,7 @@
   description: It's a wound that glows green with symbols that look mesmerizing, like 1s and 0s.
   components:
     - type: Wound
+      woundExamineMessage: health-examinable-debug-wound
       damage:
         types:
-          Blunt: 40
+          Blunt: 30

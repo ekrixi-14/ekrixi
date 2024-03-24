@@ -71,17 +71,8 @@ namespace Content.Shared.Damage
                 }
             }
 
-            DamageSpecifier dmg = new (component.Damage);
-            if (TryComp<WoundsHolderComponent>(uid, out var wounds))
-            {
-                if (_woundsSystem.TryGetDamageFromWounds(uid, wounds, out var spec))
-                {
-                    dmg = spec + dmg;
-                }
-            }
-
-            dmg.GetDamagePerGroup(_prototypeManager, component.DamagePerGroup);
-            component.TotalDamage = dmg.GetTotal();
+            component.Damage.GetDamagePerGroup(_prototypeManager, component.DamagePerGroup);
+            component.TotalDamage = component.Damage.GetTotal();
         }
 
         /// <summary>
