@@ -8,6 +8,8 @@ using Content.Server.Shuttles.Systems;
 using Content.Server.UserInterface;
 using Content.Shared._FTL.FtlPoints;
 using Content.Shared.Dataset;
+using Content.Shared.Examine;
+using Content.Shared.Interaction;
 using Content.Shared.Parallax;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
@@ -41,6 +43,8 @@ public sealed partial class FtlPointsSystem : SharedFtlPointsSystem
         SubscribeLocalEvent<StarMapComponent, ComponentStartup>(OnInit);
         SubscribeLocalEvent<StarmapConsoleComponent, AfterActivatableUIOpenEvent>(OnToggleInterface);
         SubscribeLocalEvent<StarmapConsoleComponent, WarpToStarMessage>(OnWarpToStarMessage);
+        SubscribeLocalEvent<WarpDriveComponent, InteractHandEvent>(OnDriveInteractHand);
+        SubscribeLocalEvent<WarpDriveComponent, ExaminedEvent>(OnDriveExamineEvent);
     }
 
     /// <summary>
@@ -49,7 +53,7 @@ public sealed partial class FtlPointsSystem : SharedFtlPointsSystem
     /// <param name="minRadius"></param>
     /// <param name="maxRadius"></param>
     /// <returns></returns>
-    private float GeneratePositionWithRandomRadius(float minRadius, float maxRadius)
+    public float GenerateVectorWithRandomRadius(float minRadius, float maxRadius)
     {
         return _random.NextFloat(minRadius, maxRadius) * (_random.Prob(0.5f) ? -1 : 1);
     }
@@ -76,6 +80,7 @@ public sealed partial class FtlPointsSystem : SharedFtlPointsSystem
         {
             var toIter = latestGeneration.ToList();
             latestGeneration.Clear();
+            var first = true;
             foreach (var origin in toIter)
             {
                 var branches = _random.Next(1, 3);
@@ -83,18 +88,30 @@ public sealed partial class FtlPointsSystem : SharedFtlPointsSystem
                 for (var i = 0; i < branches; i++)
                 {
                     var prototype = _prototypeManager.Index<FtlPointPrototype>(_prototypeManager.Index<WeightedRandomPrototype>("FTLPoints").Pick());
-                    Log.Info($"Picked {prototype} as point type.");
+                    Log.Info($"Picked {prototype.ID} as point type.");
                     if (!_random.Prob(prototype.Probability))
                         continue;
                     var mapId = GeneratePoint(prototype);
                     var mapUid = _mapManager.GetMapEntityId(mapId);
                     var position = new Vector2(
-                        origin.X + GeneratePositionWithRandomRadius(3, 10),
-                        origin.Y + GeneratePositionWithRandomRadius(3, 10)
+                        origin.X + GenerateVectorWithRandomRadius(3, 5),
+                        origin.Y + GenerateVectorWithRandomRadius(3, 5)
                     );
+                    if (first)
+                    {
+                        position = new Vector2(
+                            origin.X + _random.NextFloat(6, 8.5f),
+                            origin.Y + _random.NextFloat(6, 8.5f)
+                        );
+                    }
                     TryAddPoint(mapId, position, MetaData(mapUid).EntityName);
                     latestGeneration.Add(position);
                     starsCreated++;
+                }
+
+                if (first)
+                {
+                    first = false;
                 }
             }
         }
@@ -106,8 +123,8 @@ public sealed partial class FtlPointsSystem : SharedFtlPointsSystem
             var mapId = GeneratePoint(prototype);
             var mapUid = _mapManager.GetMapEntityId(mapId);
             var position = new Vector2(
-                origin.X + GeneratePositionWithRandomRadius(5, 7),
-                origin.Y + GeneratePositionWithRandomRadius(5, 7)
+                origin.X + GenerateVectorWithRandomRadius(5, 7),
+                origin.Y + GenerateVectorWithRandomRadius(5, 7)
             );
             TryAddPoint(mapId, position, MetaData(mapUid).EntityName);
             latestGeneration.Add(position);
@@ -188,5 +205,11 @@ public sealed partial class FtlPointsSystem : SharedFtlPointsSystem
         }
 
         return mapId;
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+        DriveUpdate(frameTime);
     }
 }

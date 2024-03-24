@@ -144,7 +144,8 @@ public sealed partial class FtlPointsSystem
 
         if (!TryComp<ShuttleComponent>(grid, out var shuttleComponent))
             return;
+        var warpingShipComponent = EnsureComp<WarpingShipComponent>(grid.Value);
 
-        _shuttleSystem.FTLTravel(grid.Value, shuttleComponent, _mapManager.GetMapEntityId(args.Star.Map));
+        warpingShipComponent.TargetMap = args.Star.Map;
     }
 }

@@ -32,6 +32,8 @@ public sealed class WarpEveryTickSystem : StarmapTickSystem<AutomatedShipCompone
 
         if (HasComp<AvoidStarComponent>(mapUid))
             return;
+        if (!_ftlPointsSystem.TryFindDriveOnGrid(uid, out _))
+            return;
 
         var shuttleComp = EnsureComp<ShuttleComponent>(uid);
         _shuttleSystem.FTLTravel(uid, shuttleComp, mapUid);
