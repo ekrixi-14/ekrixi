@@ -1,12 +1,10 @@
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
-using Content.Shared.Popups;
-using Content.Shared.Tools;
-using Content.Shared.Verbs;
 using JetBrains.Annotations;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Robust.Shared.Utility;
 
 namespace Content.Shared._FTL.Wounds;
 
@@ -51,6 +49,10 @@ public sealed class SharedWoundsSystem : EntitySystem
     {
         if (!Resolve(uid, ref component))
             return false;
+
+        var entityId = woundPrototype.Id;
+        if (component.Wounds.ContainedEntities.FirstOrNull(e => MetaData(e).EntityPrototype?.ID == entityId) != null)
+            return false; // more than one...??!??g
 
         var wound = Spawn(woundPrototype);
         component.Wounds.Insert(wound);
