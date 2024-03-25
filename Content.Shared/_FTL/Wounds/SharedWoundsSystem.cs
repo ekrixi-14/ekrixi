@@ -1,12 +1,29 @@
 using Content.Shared.Damage;
+using Content.Shared.DoAfter;
 using Content.Shared.Popups;
 using Content.Shared.Tools;
 using Content.Shared.Verbs;
 using JetBrains.Annotations;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared._FTL.Wounds;
+
+[Serializable, NetSerializable]
+public sealed partial class WoundTreatmentDoAfterEvent : DoAfterEvent
+{
+    public NetEntity Entity;
+    public NetEntity WoundHolder;
+
+    public WoundTreatmentDoAfterEvent(NetEntity entity, NetEntity woundHolder)
+    {
+        Entity = entity;
+        WoundHolder = woundHolder;
+    }
+
+    public override DoAfterEvent Clone() => this;
+}
 
 /// <summary>
 /// Handles the adding and managing of wounds.

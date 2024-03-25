@@ -1,30 +1,17 @@
 using Content.Server.DoAfter;
 using Content.Server.Popups;
 using Content.Shared._FTL.Wounds;
+using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Popups;
 using Content.Shared.Tools;
 using Content.Shared.Verbs;
+using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Server._FTL.Wounds;
-
-[Serializable, NetSerializable]
-public sealed partial class WoundTreatmentDoAfterEvent : DoAfterEvent
-{
-    public EntityUid Entity;
-    public WoundComponent Wound;
-
-    public WoundTreatmentDoAfterEvent(EntityUid entity, WoundComponent component)
-    {
-        Entity = entity;
-        Wound = component;
-    }
-
-    public override DoAfterEvent Clone() => this;
-}
 
 /// <summary>
 /// This handles the treating of wounds.
@@ -35,7 +22,9 @@ public sealed partial class WoundTreatmentDoAfterEvent : DoAfterEvent
 public sealed class WoundTreatmentSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
+    [Dependency] private readonly AudioSystem _audioSystem = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly IEntityManager _entMan = default!;
 
@@ -50,27 +39,43 @@ public sealed class WoundTreatmentSystem : EntitySystem
 
     private void OnDoAfter(EntityUid uid, WoundsHolderComponent component, WoundTreatmentDoAfterEvent args)
     {
+        if (args.Cancelled)
+            return;
+
+        var currentWoundEntity = _entMan.GetEntity(args.Entity);
+        var user = args.Args.User;
+        var woundHolder = _entMan.GetEntity(args.WoundHolder);
+
+        if (args.Handled)
+            return;
+
+        if (!TryComp<DamageableComponent>(woundHolder, out var damageable))
+            return;
+
+        var currentWound = EnsureComp<WoundComponent>(currentWoundEntity);
+
         // If the current treatment path is more than the treatment paths available
         // We know the last treatment path is performed, so remove the wound
-        args.Wound.CurrentTreatmentPath += 1;
-        Dirty(args.Entity, args.Wound);
+        currentWound.CurrentTreatmentPath += 1;
+        Dirty(currentWoundEntity, currentWound);
 
-        var currentPath = args.Wound.TreatmentPaths[args.Wound.CurrentTreatmentPath];
-
-        Log.Debug($"On {args.Wound.CurrentTreatmentPath} of {args.Wound.TreatmentPaths.Count}");
-
-        if (args.Wound.CurrentTreatmentPath < args.Wound.TreatmentPaths.Count)
+        if (currentWound.CurrentTreatmentPath < currentWound.TreatmentPaths.Count)
         {
-            var startedMsgUser = Loc.GetString(currentPath.EndedMessage);
-            var startedMsgOther = Loc.GetString(currentPath.EndedMessage + "-other", ("target", args.User));
+            var currentPath = currentWound.TreatmentPaths[currentWound.CurrentTreatmentPath];
+            Log.Debug($"On {currentWound.CurrentTreatmentPath} of {currentWound.TreatmentPaths.Count}");
 
-            _popupSystem.PopupEntity(startedMsgUser, args.User, args.User);
-            _popupSystem.PopupEntity(startedMsgOther, args.User, Filter.PvsExcept(args.User), true);
+            var endedMsgUser = Loc.GetString(currentPath.EndedMessage);
+            var endedMsgOther = Loc.GetString(currentPath.EndedMessage + "-other", ("target", woundHolder));
+
+            _popupSystem.PopupEntity(endedMsgUser, woundHolder, user);
+            _popupSystem.PopupEntity(endedMsgOther, woundHolder, Filter.PvsExcept(user), true);
         }
         else
         {
-            QueueDel(args.Entity);
-            _popupSystem.PopupEntity(Loc.GetString("popup-wound-cured", ("target", uid), ("woundName", MetaData(args.Entity).EntityName)), uid);
+            _damageableSystem.DamageChanged(uid, damageable);
+            _popupSystem.PopupEntity(Loc.GetString("popup-wound-cured", ("target", uid), ("woundName", MetaData(currentWoundEntity).EntityName)), uid);
+
+            QueueDel(currentWoundEntity);
         }
     }
 
@@ -133,7 +138,7 @@ public sealed class WoundTreatmentSystem : EntitySystem
 
         args.Verbs.Add(new AlternativeVerb
         {
-            Text = $"Treat current wound ({Loc.GetString(quality.Name)} tool needed)",
+            Text = $"Treat current wound ({Loc.GetString(quality.Name)} needed, {currentWound.CurrentTreatmentPath}/{currentWound.TreatmentPaths.Count})",
             Act = () =>
             {
                 var currentlyHeld = args.Hands?.ActiveHand?.HeldEntity;
@@ -143,14 +148,25 @@ public sealed class WoundTreatmentSystem : EntitySystem
                     return;
                 }
 
-                var ev = new WoundTreatmentDoAfterEvent(currentWoundEntity, currentWound);
+                _audioSystem.PlayPvs(currentWound.TreatmentPaths[currentWound.CurrentTreatmentPath].TreatmentSound, uid);
 
-                _doAfterSystem.TryStartDoAfter(new DoAfterArgs(_entMan, args.User, currentPath.TreatmentLength, ev, uid)
+                var startedMsgUser = Loc.GetString(currentPath.BeganMessage);
+                var startedMsgOther = Loc.GetString(currentPath.BeganMessage + "-other", ("target", args.User));
+
+                _popupSystem.PopupEntity(startedMsgUser, uid, args.User);
+                _popupSystem.PopupEntity(startedMsgOther, uid, Filter.PvsExcept(args.User), true);
+
+                var ev = new WoundTreatmentDoAfterEvent(
+                    _entMan.GetNetEntity(currentWoundEntity),
+                    _entMan.GetNetEntity(uid)
+                );
+
+                _doAfterSystem.TryStartDoAfter(new DoAfterArgs(_entMan, args.User, TimeSpan.FromSeconds(currentPath.TreatmentLength), ev, uid)
                 {
                     BreakOnHandChange = true,
                     BreakOnDamage = true,
                     BreakOnWeightlessMove = true,
-                    BreakOnTargetMove = true,
+                    //BreakOnTargetMove = true, // idk why upstream doesnt allow this
                     BreakOnUserMove = true,
                     NeedHand = true
                 });
