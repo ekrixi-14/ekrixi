@@ -1,10 +1,12 @@
 using Content.Server.DoAfter;
 using Content.Server.Popups;
+using Content.Server.Tools;
 using Content.Shared._FTL.Wounds;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Popups;
 using Content.Shared.Tools;
+using Content.Shared.Tools.Components;
 using Content.Shared.Verbs;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
@@ -26,6 +28,7 @@ public sealed class WoundTreatmentSystem : EntitySystem
     [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly AudioSystem _audioSystem = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
+    [Dependency] private readonly ToolSystem _toolSystem = default!;
     [Dependency] private readonly IEntityManager _entMan = default!;
 
     /// <inheritdoc/>
@@ -72,10 +75,9 @@ public sealed class WoundTreatmentSystem : EntitySystem
         }
         else
         {
-            _damageableSystem.DamageChanged(uid, damageable);
             _popupSystem.PopupEntity(Loc.GetString("popup-wound-cured", ("target", uid), ("woundName", MetaData(currentWoundEntity).EntityName)), uid);
-
             QueueDel(currentWoundEntity);
+            _damageableSystem.DamageChanged(uid, damageable);
         }
     }
 
@@ -148,6 +150,14 @@ public sealed class WoundTreatmentSystem : EntitySystem
                     return;
                 }
 
+                if (!_toolSystem.HasQuality(currentlyHeld.Value, quality.ID))
+                {
+                    _popupSystem.PopupClient(Loc.GetString("popup-wound-need-item", ("item", Loc.GetString(quality.Name))), uid, args.User);
+                    return;
+                }
+
+                var tool = EnsureComp<ToolComponent>(currentlyHeld.Value);
+
                 _audioSystem.PlayPvs(currentWound.TreatmentPaths[currentWound.CurrentTreatmentPath].TreatmentSound, uid);
 
                 var startedMsgUser = Loc.GetString(currentPath.BeganMessage);
@@ -161,7 +171,7 @@ public sealed class WoundTreatmentSystem : EntitySystem
                     _entMan.GetNetEntity(uid)
                 );
 
-                _doAfterSystem.TryStartDoAfter(new DoAfterArgs(_entMan, args.User, TimeSpan.FromSeconds(currentPath.TreatmentLength), ev, uid)
+                _doAfterSystem.TryStartDoAfter(new DoAfterArgs(_entMan, args.User, TimeSpan.FromSeconds(currentPath.TreatmentLength * tool.SpeedModifier), ev, uid)
                 {
                     BreakOnHandChange = true,
                     BreakOnDamage = true,
