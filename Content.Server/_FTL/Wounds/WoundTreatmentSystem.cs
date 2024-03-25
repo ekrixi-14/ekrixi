@@ -140,21 +140,19 @@ public sealed class WoundTreatmentSystem : EntitySystem
 
         args.Verbs.Add(new AlternativeVerb
         {
-            Text = $"Treat current wound ({Loc.GetString(quality.Name)} needed, {currentWound.CurrentTreatmentPath}/{currentWound.TreatmentPaths.Count})",
+            Text = currentPath.GetVerbText(currentWound),
             Act = () =>
             {
                 var currentlyHeld = args.Hands?.ActiveHand?.HeldEntity;
                 if (!currentlyHeld.HasValue)
+                    return;
+
+                if (!currentPath.TreatmentCheck(_entMan, _entMan.GetNetEntity(currentlyHeld.Value)))
                 {
                     _popupSystem.PopupClient(Loc.GetString("popup-wound-need-item", ("item", Loc.GetString(quality.Name))), uid, args.User);
                     return;
                 }
 
-                if (!_toolSystem.HasQuality(currentlyHeld.Value, quality.ID))
-                {
-                    _popupSystem.PopupClient(Loc.GetString("popup-wound-need-item", ("item", Loc.GetString(quality.Name))), uid, args.User);
-                    return;
-                }
 
                 var tool = EnsureComp<ToolComponent>(currentlyHeld.Value);
 

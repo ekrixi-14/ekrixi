@@ -6,7 +6,8 @@
     - type: Wound
       woundExamineMessage: health-examinable-debug-wound
       paths:
-        - quality: Cutting
+        - !type:ToolTreatmentPath
+          quality: Cutting
           length: 6
       damage:
         types:
