@@ -1,14 +1,20 @@
 using Content.Shared.Damage;
+using Content.Shared.Popups;
+using Content.Shared.Tools;
+using Content.Shared.Verbs;
 using JetBrains.Annotations;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._FTL.Wounds;
 
-public sealed class WoundsSystem : EntitySystem
+/// <summary>
+/// Handles the adding and managing of wounds.
+/// </summary>
+public sealed class SharedWoundsSystem : EntitySystem
 {
-    [Dependency] private SharedContainerSystem _containerSystem = default!;
-    [Dependency] private DamageableSystem _damageableSystem = default!;
+    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
+    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     public const string ContainerName = "wounds";
 
     /// <inheritdoc/>
@@ -52,7 +58,8 @@ public sealed class WoundsSystem : EntitySystem
         foreach (var entity in component.Wounds.ContainedEntities)
         {
             var wound = EnsureComp<WoundComponent>(entity);
-            damage = wound.Damage + damage;
+            if (wound.Damage != null)
+                damage = wound.Damage + damage;
         }
 
         return damage;

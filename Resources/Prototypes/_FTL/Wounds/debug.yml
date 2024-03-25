@@ -5,6 +5,9 @@
   components:
     - type: Wound
       woundExamineMessage: health-examinable-debug-wound
+      paths:
+        - quality: Cutting
+          length: 6
       damage:
         types:
           Blunt: 30

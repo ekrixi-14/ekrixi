@@ -20,7 +20,7 @@ namespace Content.Shared.Damage
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
         [Dependency] private readonly INetManager _netMan = default!;
         [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
-        [Dependency] private readonly WoundsSystem _woundsSystem = default!;
+        [Dependency] private readonly SharedWoundsSystem _sharedWoundsSystem = default!;
 
         private EntityQuery<AppearanceComponent> _appearanceQuery;
         private EntityQuery<DamageableComponent> _damageableQuery;
@@ -101,7 +101,7 @@ namespace Content.Shared.Damage
             DamageSpecifier dmg = new (component.Damage);
             if (TryComp<WoundsHolderComponent>(uid, out var wounds))
             {
-                if (_woundsSystem.TryGetDamageFromWounds(uid, wounds, out var spec))
+                if (_sharedWoundsSystem.TryGetDamageFromWounds(uid, wounds, out var spec))
                 {
                     dmg = spec + dmg;
                 }
