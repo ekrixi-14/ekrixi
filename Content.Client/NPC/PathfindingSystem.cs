@@ -161,7 +161,7 @@ namespace Content.Client.NPC
             _mapManager = mapManager;
             _system = system;
             _mapSystem = mapSystem;
-            _font = new VectorFont(cache.GetResource<FontResource>("/Fonts/B612_Mono/B612_Mono-Regular.ttf"), 10);
+            _font = new VectorFont(cache.GetResource<FontResource>("/Fonts/IBMPlexMono/IBMPlexMono-Regular.ttf"), 10);
         }
 
         protected override void Draw(in OverlayDrawArgs args)

@@ -29,7 +29,7 @@ public sealed class StarmapControl : Control
         IoCManager.InjectDependencies(this);
 
         var cache = IoCManager.Resolve<IResourceCache>();
-        _font = new VectorFont(cache.GetResource<FontResource>("/Fonts/B612_Mono/B612_Mono-Regular.ttf"), 8);
+        _font = new VectorFont(cache.GetResource<FontResource>("/Fonts/IBMPlexMono/IBMPlexMono-Regular.ttf"), 8);
     }
 
     public void SetStars(List<Star> stars)
