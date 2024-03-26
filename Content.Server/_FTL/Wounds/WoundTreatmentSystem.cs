@@ -11,6 +11,7 @@ using Content.Shared.Verbs;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 
 namespace Content.Server._FTL.Wounds;
@@ -25,11 +26,12 @@ public sealed class WoundTreatmentSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+    [Dependency] private readonly SharedWoundsSystem _woundsSystem = default!;
     [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly AudioSystem _audioSystem = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
-    [Dependency] private readonly ToolSystem _toolSystem = default!;
     [Dependency] private readonly IEntityManager _entMan = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -59,25 +61,60 @@ public sealed class WoundTreatmentSystem : EntitySystem
 
         // If the current treatment path is more than the treatment paths available
         // We know the last treatment path is performed, so remove the wound
-        currentWound.CurrentTreatmentPath += 1;
-        Dirty(currentWoundEntity, currentWound);
-
         if (currentWound.CurrentTreatmentPath < currentWound.TreatmentPaths.Count)
         {
             var currentPath = currentWound.TreatmentPaths[currentWound.CurrentTreatmentPath];
-            Log.Debug($"On {currentWound.CurrentTreatmentPath} of {currentWound.TreatmentPaths.Count}");
+            if ((currentWound.CurrentTreatmentPath - 1) > 0)
+            {
+                var prevPath = currentWound.TreatmentPaths[currentWound.CurrentTreatmentPath - 1];
+                prevPath.OnTreatmentEnd(_entMan);
+            }
 
             var endedMsgUser = Loc.GetString(currentPath.EndedMessage);
             var endedMsgOther = Loc.GetString(currentPath.EndedMessage + "-other", ("target", woundHolder));
 
-            _popupSystem.PopupEntity(endedMsgUser, woundHolder, user);
-            _popupSystem.PopupEntity(endedMsgOther, woundHolder, Filter.PvsExcept(user), true);
+            // Actually increment it here since we're finished
+            currentWound.CurrentTreatmentPath += 1;
+            Dirty(currentWoundEntity, currentWound);
+
+            if (currentWound.CurrentTreatmentPath < currentWound.TreatmentPaths.Count)
+            {
+                _popupSystem.PopupEntity(endedMsgUser, woundHolder, user);
+                _popupSystem.PopupEntity(endedMsgOther, woundHolder, Filter.PvsExcept(user), true);
+                return;
+            }
         }
-        else
+
+        _popupSystem.PopupEntity(Loc.GetString("popup-wound-cured", ("target", uid), ("woundName", MetaData(currentWoundEntity).EntityName)), uid);
+        QueueDel(currentWoundEntity);
+        _damageableSystem.DamageChanged(uid, damageable);
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var query = EntityQueryEnumerator<WoundThresholdComponent, WoundsHolderComponent, DamageableComponent>();
+        while (query.MoveNext(out var entity, out var thresholdComponent, out var woundsHolderComponent, out var damageableComponent))
         {
-            _popupSystem.PopupEntity(Loc.GetString("popup-wound-cured", ("target", uid), ("woundName", MetaData(currentWoundEntity).EntityName)), uid);
-            QueueDel(currentWoundEntity);
-            _damageableSystem.DamageChanged(uid, damageable);
+            if (thresholdComponent.TimeSinceLastUpdate < 5)
+                continue; // run this every 5 seconds
+
+            thresholdComponent.TimeSinceLastUpdate = 0;
+
+            foreach (var threshold in thresholdComponent.Thresholds)
+            {
+                if (!damageableComponent.Damage.DamageDict.TryGetValue(threshold.DamageType, out var damageAmount))
+                    continue;
+
+                if (damageAmount < threshold.Threshold)
+                    continue;
+
+                if (!_random.Prob(threshold.Probability))
+                    continue;
+
+                _woundsSystem.TryAddWound(threshold.Wound, entity, woundsHolderComponent);
+            }
         }
     }
 
@@ -149,7 +186,7 @@ public sealed class WoundTreatmentSystem : EntitySystem
 
                 if (!currentPath.TreatmentCheck(_entMan, _entMan.GetNetEntity(currentlyHeld.Value)))
                 {
-                    _popupSystem.PopupClient(Loc.GetString("popup-wound-need-item", ("item", Loc.GetString(quality.Name))), uid, args.User);
+                    _popupSystem.PopupEntity(Loc.GetString("popup-wound-need-item", ("item", Loc.GetString(quality.Name))), uid);
                     return;
                 }
 

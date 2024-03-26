@@ -53,6 +53,12 @@
   - type: Damageable
     damageContainer: Biological
   - type: WoundsHolder
+  - type: WoundThreshold
+    thresholds:
+      - wound: WoundDebug
+        damageType: Blunt
+        probability: 0.6
+        threshold: 45
   - type: ConstantDamage
     probability: .5
     checkFrequency: 60

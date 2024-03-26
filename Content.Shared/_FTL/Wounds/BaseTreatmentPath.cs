@@ -37,7 +37,7 @@ public abstract partial class BaseTreatmentPath
         return true;
     }
 
-    public virtual void OnTreatmentEnd(EntityManager entityManager)
+    public virtual void OnTreatmentEnd(IEntityManager entityManager)
     {
         // noop
     }

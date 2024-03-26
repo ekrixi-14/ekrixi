@@ -10,6 +10,7 @@ using Content.Shared.Rejuvenate;
 using Robust.Shared.GameStates;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Damage
@@ -21,6 +22,7 @@ namespace Content.Shared.Damage
         [Dependency] private readonly INetManager _netMan = default!;
         [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
         [Dependency] private readonly SharedWoundsSystem _sharedWoundsSystem = default!;
+        [Dependency] private readonly IRobustRandom _random = default!;
 
         private EntityQuery<AppearanceComponent> _appearanceQuery;
         private EntityQuery<DamageableComponent> _damageableQuery;
@@ -195,6 +197,19 @@ namespace Content.Shared.Damage
 
             if (delta.DamageDict.Count > 0)
                 DamageChanged(uid.Value, damageable, delta, interruptsDoAfters, origin);
+
+            if (damage.Wounds == null || !TryComp<WoundsHolderComponent>(uid, out var woundsHolderComponent))
+                return delta;
+
+            // ...Maybe *don't* add wounds based on pure random chance?
+            foreach (var wound in damage.Wounds.Keys)
+            {
+                var prob = damage.Wounds[wound];
+                if (_random.Prob(prob))
+                {
+                    _sharedWoundsSystem.TryAddWound(wound, uid.Value);
+                }
+            }
 
             return delta;
         }
