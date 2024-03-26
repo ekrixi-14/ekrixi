@@ -24,7 +24,7 @@
     sprite: Objects/Specific/Medical/Surgery/cautery.rsi
   - type: ItemCooldown
   - type: Tool
-    speed: 4
+    speed: .04
     qualities:
       - Welding
   - type: MeleeWeapon
@@ -49,7 +49,7 @@
     sprite: Objects/Specific/Medical/Surgery/drill.rsi
   - type: ItemCooldown
   - type: Tool
-    speed: 4
+    speed: .04
     qualities:
       - Cutting
   - type: MeleeWeapon
@@ -73,7 +73,7 @@
     types:
       - Knife
   - type: Tool
-    speed: 4
+    speed: .04
     qualities:
       - Slicing
   - type: Sprite
@@ -118,7 +118,7 @@
       types:
         Slash: 12
   - type: Tool
-    speed: 6
+    speed: .06
 
 - type: entity
   name: laser scalpel
@@ -131,7 +131,7 @@
   - type: Item
     heldPrefix: laser
   - type: Tool
-    speed: 8
+    speed: .08
 
 # Scissors
 
@@ -148,7 +148,7 @@
     sprite: Objects/Specific/Medical/Surgery/scissors.rsi
   - type: ItemCooldown
   - type: Tool
-    speed: 4
+    speed: .04
     qualities:
       - Cutting
 
@@ -190,7 +190,7 @@
   - type: Tool
     qualities:
       - Sawing
-    speed: 1.0
+    speed: .1
 # No melee for regular saw because have you ever seen someone use a band saw as a weapon? It's dumb.
 
 - type: entity
@@ -212,7 +212,7 @@
   - type: Tool
     qualities:
       - Sawing
-    speed: 0.5
+    speed: .50
 
 - type: entity
   name: circular saw
@@ -233,7 +233,7 @@
   - type: Tool
     qualities:
       - Sawing
-    speed: 4.5
+    speed: .54
 
 - type: entity
   name: advanced circular saw
@@ -255,4 +255,4 @@
   - type: Tool
     qualities:
       - Sawing
-    speed: 7.0
+    speed: .07
