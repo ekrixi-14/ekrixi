@@ -97,6 +97,8 @@ public sealed class WoundTreatmentSystem : EntitySystem
         var query = EntityQueryEnumerator<WoundThresholdComponent, WoundsHolderComponent, DamageableComponent>();
         while (query.MoveNext(out var entity, out var thresholdComponent, out var woundsHolderComponent, out var damageableComponent))
         {
+            thresholdComponent.TimeSinceLastUpdate += frameTime;
+
             if (thresholdComponent.TimeSinceLastUpdate < 5)
                 continue; // run this every 5 seconds
 

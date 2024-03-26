@@ -15,6 +15,12 @@ public sealed partial class WoundComponent : Component
     /// How much damage does this wound do permanently?
     /// </summary>
     [DataField, ViewVariables] public DamageSpecifier? Damage;
+
+    /// <summary>
+    /// How severe is this wound?
+    /// </summary>
+    [DataField, ViewVariables] public float Severity = 1f;
+
     /// <summary>
     /// What does it say when this wound is examined?
     /// </summary>

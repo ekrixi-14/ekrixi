@@ -32,6 +32,8 @@ public sealed class SharedWoundsSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     public const string ContainerName = "wounds";
 
+    // TODO: Integrate ALL of this with events
+
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -45,6 +47,13 @@ public sealed class SharedWoundsSystem : EntitySystem
         component.Wounds = _containerSystem.EnsureContainer<Container>(uid, ContainerName);
     }
 
+    /// <summary>
+    /// Attempts to add a wound to an entity.
+    /// </summary>
+    /// <param name="woundPrototype"></param>
+    /// <param name="uid"></param>
+    /// <param name="component"></param>
+    /// <returns></returns>
     public bool TryAddWound(EntProtoId woundPrototype, EntityUid uid, WoundsHolderComponent? component = null)
     {
         if (!Resolve(uid, ref component))
@@ -69,6 +78,11 @@ public sealed class SharedWoundsSystem : EntitySystem
         return true;
     }
 
+    /// <summary>
+    /// Gets the total damage of all wounds from a WHC.
+    /// </summary>
+    /// <param name="component"></param>
+    /// <returns></returns>
     [PublicAPI]
     public DamageSpecifier GetDamageFromWounds(WoundsHolderComponent component)
     {
@@ -84,6 +98,14 @@ public sealed class SharedWoundsSystem : EntitySystem
         return damage;
     }
 
+    /// <summary>
+    /// Attempts to get damage from wounds given an entity.
+    /// </summary>
+    /// <param name="uid"></param>
+    /// <param name="component"></param>
+    /// <param name="spec"></param>
+    /// <returns></returns>
+    [PublicAPI]
     public bool TryGetDamageFromWounds(EntityUid uid, WoundsHolderComponent? component, out DamageSpecifier spec)
     {
         if (!Resolve(uid, ref component, false))

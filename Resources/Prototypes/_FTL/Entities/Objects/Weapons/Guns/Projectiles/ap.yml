@@ -13,7 +13,9 @@
         types:
           Structural: 1000
         groups:
-          Brute: 1000
+          Brute: 75
+        wounds:
+          WoundGunshot: 1
 
 - type: entity
   id: Bullet53mmAP
@@ -30,7 +32,7 @@
         types:
           Structural: 1500
         groups:
-          Brute: 2500
+          Brute: 250
 
 - type: entity
   id: Bullet80mmAP
@@ -47,7 +49,7 @@
         types:
           Structural: 2000
         groups:
-          Brute: 5000
+          Brute: 500
 
 - type: entity
   id: Bullet105mmAP
@@ -64,7 +66,7 @@
         types:
           Structural: 2500
         groups:
-          Brute: 8000
+          Brute: 800
 
 - type: entity
   id: Bullet120mmAP
@@ -81,7 +83,7 @@
         types:
           Structural: 10000
         groups:
-          Brute: 9000
+          Brute: 900
 
 - type: entity
   id: Bullet140mmAP
@@ -98,4 +100,4 @@
         types:
           Structural: 5000
         groups:
-          Brute: 10000
+          Brute: 1000

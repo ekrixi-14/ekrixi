@@ -1,0 +1,135 @@
+- type: entity
+  id: WoundLaceration
+  name: laceration
+  components:
+    - type: Wound
+      woundExamineMessage: health-examinable-laceration-wound
+      paths:
+        - !type:ToolTreatmentPath
+          quality: Cutting
+          beginMessage: popup-wound-clamping-began
+          length: 12
+        - !type:ToolTreatmentPath
+          quality: Cutting
+          beginMessage: popup-wound-sow-began
+          length: 20
+      damage:
+        types:
+          Slash: 35
+
+- type: entity
+  id: WoundAbrasion
+  name: abrasion
+  components:
+    - type: Wound
+      woundExamineMessage: health-examinable-abrasion-wound
+      paths:
+        - !type:ToolTreatmentPath
+          quality: Cutting
+          beginMessage: popup-wound-clamping-began
+          length: 12
+        - !type:ToolTreatmentPath
+          quality: Cutting
+          beginMessage: popup-wound-sow-attempt-began
+          length: 20
+      damage:
+        types:
+          Blunt: 25
+
+- type: entity
+  id: WoundPuncture
+  name: puncture
+  components:
+    - type: Wound
+      woundExamineMessage: health-examinable-puncture-wound
+      paths:
+        - !type:ToolTreatmentPath
+          quality: Slicing
+          beginMessage: popup-wound-incision-began
+          length: 8
+        - !type:ToolTreatmentPath
+          quality: Cutting
+          beginMessage: popup-wound-retractor-began
+          length: 4
+        - !type:ToolTreatmentPath
+          quality: Cutting
+          beginMessage: popup-wound-clamping-began
+          length: 4
+        - !type:ToolTreatmentPath
+          quality: Cutting
+          beginMessage: popup-wound-sow-began
+          length: 7
+        - !type:ToolTreatmentPath
+          quality: Welding
+          beginMessage: popup-wound-seal-began
+          length: 5
+      damage:
+        types:
+          Pierce: 35
+
+- type: entity
+  id: WoundGunshot
+  name: gunshot
+  components:
+    - type: Wound
+      woundExamineMessage: health-examinable-gunshot-wound
+      paths:
+        # Process: Incision -> Retract skin -> Saw -> Clamp bleeders -> Remove bullet -> Seal
+        - !type:ToolTreatmentPath
+          quality: Slicing
+          beginMessage: popup-wound-incision-began
+          length: 8
+        - !type:ToolTreatmentPath
+          quality: Cutting
+          beginMessage: popup-wound-retractor-began
+          length: 4
+        - !type:ToolTreatmentPath
+          quality: Cutting
+          beginMessage: popup-wound-clamping-began
+          length: 4
+        - !type:ToolTreatmentPath
+          quality: Cutting
+          beginMessage: popup-wound-bullet-removal-began
+          length: 16
+        - !type:ToolTreatmentPath
+          quality: Welding
+          beginMessage: popup-wound-seal-began
+          length: 8
+      damage:
+        types:
+          Pierce: 45
+
+- type: entity
+  id: WoundFracture
+  name: fracture
+  components:
+    - type: Wound
+      woundExamineMessage: health-examinable-fracture-wound
+      paths:
+        - !type:ToolTreatmentPath
+          quality: Slicing
+          beginMessage: popup-wound-incision-began
+          length: 8
+        - !type:ToolTreatmentPath
+          quality: Cutting
+          beginMessage: popup-wound-retractor-began
+          length: 4
+        - !type:ToolTreatmentPath
+          quality: Cutting
+          beginMessage: popup-wound-clamping-began
+          length: 4
+        - !type:ToolTreatmentPath
+          quality: Sawing
+          beginMessage: popup-wound-bone-cutting-began
+          length: 7
+        - !type:ToolTreatmentPath
+          quality: Cutting
+          beginMessage: popup-wound-bone-set-began
+          length: 16
+        - !type:ToolTreatmentPath
+          quality: Welding
+          beginMessage: popup-wound-seal-began
+          length: 8
+      damage:
+        types:
+          Pierce: 45

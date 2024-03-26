@@ -55,16 +55,28 @@
   - type: WoundsHolder
   - type: WoundThreshold
     thresholds:
-      - wound: WoundDebug
+      - wound: WoundLaceration
+        damageType: Slash
+        probability: 1
+        threshold: 35
+      - wound: WoundAbrasion
         damageType: Blunt
-        probability: 0.6
-        threshold: 45
+        probability: 1
+        threshold: 25
+      - wound: WoundFracture
+        damageType: Blunt
+        probability: 1
+        threshold: 65
+      - wound: WoundPuncture
+        damageType: Pierce
+        probability: 1
+        threshold: 50
   - type: ConstantDamage
     probability: .5
-    checkFrequency: 60
+    checkFrequency: 120
     damage:
       types:
-        VeilIndividualExposure: 3
+        VeilIndividualExposure: 1
   - type: Destructible
     thresholds:
     - trigger:
