@@ -73,7 +73,7 @@
         threshold: 50
   - type: ConstantDamage
     probability: .5
-    checkFrequency: 120
+    checkFrequency: 60
     damage:
       types:
         VeilIndividualExposure: 1
