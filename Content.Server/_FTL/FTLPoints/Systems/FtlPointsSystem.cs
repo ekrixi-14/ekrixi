@@ -62,10 +62,17 @@ public sealed partial class FtlPointsSystem : SharedFtlPointsSystem
     /// Generates a random sector.
     /// </summary>
     /// <param name="maxStars">How many stars in the newest generation until we must forcibly stop it?</param>
+    /// <param name="startingPoint"></param>
+    /// <param name="clear">Should we clear all previous stars</param>
+    /// <param name="deleteStars">Should we delete all those previous stars?</param>
     /// <returns>The MapId of the central trade station.</returns>
-    public MapId GenerateSector(int maxStars)
+    public MapId GenerateSector(int maxStars, MapId? startingPoint, bool clear = false, bool deleteStars = false)
     {
-        var centerStation = GeneratePoint(_prototypeManager.Index<FtlPointPrototype>("StationPoint"));
+        var centerStation = startingPoint ?? GeneratePoint(_prototypeManager.Index<FtlPointPrototype>("StationPoint"));
+
+        if (clear)
+            RemoveAllStars(deleteStars);
+
         var latestGeneration = new List<Vector2>
         {
             Vector2.Zero
@@ -89,23 +96,26 @@ public sealed partial class FtlPointsSystem : SharedFtlPointsSystem
                 {
                     var prototype = _prototypeManager.Index<FtlPointPrototype>(_prototypeManager.Index<WeightedRandomPrototype>("FTLPoints").Pick());
                     Log.Info($"Picked {prototype.ID} as point type.");
-                    if (!_random.Prob(prototype.Probability))
-                        continue;
-                    var mapId = GeneratePoint(prototype);
-                    var mapUid = _mapManager.GetMapEntityId(mapId);
-                    var position = new Vector2(
-                        origin.X + GenerateVectorWithRandomRadius(3, 5),
-                        origin.Y + GenerateVectorWithRandomRadius(3, 5)
-                    );
-                    if (first)
+                    if (_random.Prob(prototype.Probability) || first) // if its the first star then just set it
                     {
-                        position = new Vector2(
-                            origin.X + _random.NextFloat(6, 8.5f),
-                            origin.Y + _random.NextFloat(6, 8.5f)
+                        var mapId = GeneratePoint(prototype);
+                        var mapUid = _mapManager.GetMapEntityId(mapId);
+                        var position = new Vector2(
+                            origin.X + GenerateVectorWithRandomRadius(3, 5),
+                            origin.Y + GenerateVectorWithRandomRadius(3, 5)
                         );
+                        if (first)
+                        {
+                            position = new Vector2(
+                                origin.X + _random.NextFloat(6, 8.5f),
+                                origin.Y + _random.NextFloat(6, 8.5f)
+                            );
+                        }
+
+                        TryAddPoint(mapId, position, MetaData(mapUid).EntityName);
+                        _mapManager.SetMapPaused(mapId, false);
+                        latestGeneration.Add(position);
                     }
-                    TryAddPoint(mapId, position, MetaData(mapUid).EntityName);
-                    latestGeneration.Add(position);
                     starsCreated++;
                 }
 
@@ -144,6 +154,7 @@ public sealed partial class FtlPointsSystem : SharedFtlPointsSystem
         // create map
 
         var mapId = _mapManager.CreateMap();
+        _mapManager.SetMapPaused(mapId, true);
         var mapUid = _mapManager.GetMapEntityId(mapId);
 
         // make it ftlable

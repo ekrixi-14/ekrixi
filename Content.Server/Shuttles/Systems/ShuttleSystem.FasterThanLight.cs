@@ -202,6 +202,7 @@ public sealed partial class ShuttleSystem
         hyperspace.Dock = dock;
         hyperspace.PriorityTag = priorityTag;
         _console.RefreshShuttleConsoles();
+        _mapManager.SetMapPaused(Transform(target).MapID, false);
         // _chatSystem.DispatchGlobalAnnouncement(Loc.GetString("ship-ftl-jump-soon-message", ("destination", MetaData(target).EntityName)), colorOverride: Color.Gold);
     }
 

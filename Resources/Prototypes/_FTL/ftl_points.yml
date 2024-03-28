@@ -16,8 +16,8 @@
         - /Maps/_FTL/ancient/easy-drone.yml
         - /Maps/_FTL/ancient/tough-drone.yml
         #- /Maps/_FTL/independent/orb.yml # orb causes a crash???
-        - /Maps/_FTL/independent/pod.yml
-        - /Maps/_FTL/independent/hostile-escape-pod.yml
+#        - /Maps/_FTL/independent/pod.yml
+#        - /Maps/_FTL/independent/hostile-escape-pod.yml
 
 - type: ftlPoint
   id: HiDangerPoint
@@ -112,6 +112,7 @@
   effects: []
   components:
     - type: AvoidStar
+    - type: GenerateNewSectorTick
 #    - type: FactoryTick
 #      mapPaths:
 #        - /Maps/_FTL/ancient/easy-drone.yml
