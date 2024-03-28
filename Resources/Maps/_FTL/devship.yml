@@ -209,10 +209,9 @@ entities:
       type: Transform
 - proto: BedsheetMedical
   entities:
-  - uid: 291
+  - uid: 394
     components:
-    - rot: -1.5707963267948966 rad
-      pos: 5.5,-12.5
+    - pos: 4.5,-12.5
       parent: 2
       type: Transform
 - proto: CableApcExtension
@@ -823,11 +822,35 @@ entities:
     - pos: 0.5,-3.5
       parent: 2
       type: Transform
+- proto: ClothingBackpackDuffelSurgeryFilled
+  entities:
+  - uid: 393
+    components:
+    - pos: 4.545562,-10.398247
+      parent: 2
+      type: Transform
 - proto: ClothingBeltPlantFilled
   entities:
   - uid: 321
     components:
     - pos: 8.491798,-8.43293
+      parent: 2
+      type: Transform
+- proto: ClothingBeltUtilityEngineering
+  entities:
+  - uid: 290
+    components:
+    - pos: 8.336721,-11.610983
+      parent: 2
+      type: Transform
+  - uid: 396
+    components:
+    - pos: 8.336721,-11.610983
+      parent: 2
+      type: Transform
+  - uid: 397
+    components:
+    - pos: 8.352346,-11.610983
       parent: 2
       type: Transform
 - proto: ClothingOuterHardsuitSecurity
@@ -985,7 +1008,7 @@ entities:
       pos: 4.5,-6.5
       parent: 2
       type: Transform
-    - secondsUntilStateChange: -1193.2032
+    - secondsUntilStateChange: -1383.421
       state: Opening
       type: Door
   - uid: 73
@@ -1677,9 +1700,9 @@ entities:
       type: Transform
 - proto: MedicalBed
   entities:
-  - uid: 290
+  - uid: 395
     components:
-    - pos: 5.5,-12.5
+    - pos: 4.5,-12.5
       parent: 2
       type: Transform
 - proto: MedkitAdvancedFilled
@@ -1721,9 +1744,12 @@ entities:
   entities:
   - uid: 111
     components:
-    - pos: 8.5,-13.5
+    - anchored: True
+      pos: 8.5,-13.5
       parent: 2
       type: Transform
+    - bodyType: Static
+      type: Physics
 - proto: Poweredlight
   entities:
   - uid: 272
@@ -2022,6 +2048,11 @@ entities:
   - uid: 173
     components:
     - pos: 6.5,-1.5
+      parent: 2
+      type: Transform
+  - uid: 291
+    components:
+    - pos: 5.5,-12.5
       parent: 2
       type: Transform
 - proto: Thruster
@@ -2472,6 +2503,13 @@ entities:
   - uid: 322
     components:
     - pos: 6.5,-8.5
+      parent: 2
+      type: Transform
+- proto: WarpDrive
+  entities:
+  - uid: 392
+    components:
+    - pos: 8.5,-11.5
       parent: 2
       type: Transform
 - proto: Weapon20mm
