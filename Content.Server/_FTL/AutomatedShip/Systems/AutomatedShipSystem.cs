@@ -5,6 +5,7 @@ using Content.Server.NPC.Systems;
 using Content.Server.Shuttles.Components;
 using Content.Server.Weapons.Ranged.Systems;
 using Robust.Server.GameObjects;
+using Robust.Shared.Map;
 using Robust.Shared.Random;
 
 namespace Content.Server._FTL.AutomatedShip.Systems;
@@ -15,9 +16,10 @@ namespace Content.Server._FTL.AutomatedShip.Systems;
 public sealed partial class AutomatedShipSystem : EntitySystem
 {
     [Dependency] private readonly NpcFactionSystem _npcFactionSystem = default!;
+    [Dependency] private readonly TransformSystem _transformSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaDataSystem = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly TransformSystem _transformSystem = default!;
+    [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly PhysicsSystem _physics = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly GunSystem _gunSystem = default!;
@@ -59,12 +61,12 @@ public sealed partial class AutomatedShipSystem : EntitySystem
         var query = EntityQueryEnumerator<AutomatedShipComponent, TransformComponent, ShipTrackerComponent>();
         while (query.MoveNext(out var entity, out var aiComponent, out var xform, out var aiTrackerComponent))
         {
-            if (aiTrackerComponent.Destroyed)
-                continue;
+            if (_mapManager.IsMapPaused(xform.MapID))
+                continue; // the current map is paused so don't bother
 
             // makes sure it's on the same map, not the same grid, and is hostile
             var hostileQuery = EntityQueryEnumerator<ShipTrackerComponent>();
-            List<EntityUid> hostileShips = default!;
+            var hostileShips = new List<EntityUid>();
 
             while (hostileQuery.MoveNext(out var shipEntity, out var shipTrackerComponent))
             {
@@ -81,7 +83,7 @@ public sealed partial class AutomatedShipSystem : EntitySystem
                 var hostile = _npcFactionSystem.IsFactionHostile(aiTrackerComponent.Faction,
                                   shipTrackerComponent.Faction) ||
                               aiComponent.HostileShips.Contains(shipEntity);
-                if (hostile)
+                if (!hostile)
                     continue;
 
                 hostileShips.Add(entity);
@@ -89,6 +91,7 @@ public sealed partial class AutomatedShipSystem : EntitySystem
 
             if (hostileShips.Count <= 0)
                 continue;
+
             Log.Debug("Reset retarget");
 
             var mainShip = _random.Pick(hostileShips);
