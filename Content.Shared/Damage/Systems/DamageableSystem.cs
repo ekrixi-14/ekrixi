@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared._FTL.Wounds;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
 using Content.Shared.Inventory;
@@ -9,6 +10,7 @@ using Content.Shared.Rejuvenate;
 using Robust.Shared.GameStates;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Damage
@@ -19,6 +21,8 @@ namespace Content.Shared.Damage
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
         [Dependency] private readonly INetManager _netMan = default!;
         [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
+        [Dependency] private readonly SharedWoundsSystem _sharedWoundsSystem = default!;
+        [Dependency] private readonly IRobustRandom _random = default!;
 
         private EntityQuery<AppearanceComponent> _appearanceQuery;
         private EntityQuery<DamageableComponent> _damageableQuery;
@@ -42,7 +46,7 @@ namespace Content.Shared.Damage
         {
             if (component.DamageContainerID != null &&
                 _prototypeManager.TryIndex<DamageContainerPrototype>(component.DamageContainerID,
-                out var damageContainerPrototype))
+                    out var damageContainerPrototype))
             {
                 // Initialize damage dictionary, using the types and groups from the damage
                 // container prototype
@@ -96,8 +100,17 @@ namespace Content.Shared.Damage
         public void DamageChanged(EntityUid uid, DamageableComponent component, DamageSpecifier? damageDelta = null,
             bool interruptsDoAfters = true, EntityUid? origin = null)
         {
-            component.Damage.GetDamagePerGroup(_prototypeManager, component.DamagePerGroup);
-            component.TotalDamage = component.Damage.GetTotal();
+            DamageSpecifier dmg = new (component.Damage);
+            if (TryComp<WoundsHolderComponent>(uid, out var wounds))
+            {
+                if (_sharedWoundsSystem.TryGetDamageFromWounds(uid, wounds, out var spec))
+                {
+                    dmg = spec + dmg;
+                }
+            }
+
+            dmg.GetDamagePerGroup(_prototypeManager, component.DamagePerGroup);
+            component.TotalDamage = dmg.GetTotal();
             Dirty(uid, component);
 
             if (_appearanceQuery.TryGetComponent(uid, out var appearance) && damageDelta != null)
@@ -184,6 +197,19 @@ namespace Content.Shared.Damage
 
             if (delta.DamageDict.Count > 0)
                 DamageChanged(uid.Value, damageable, delta, interruptsDoAfters, origin);
+
+            if (damage.Wounds == null || !TryComp<WoundsHolderComponent>(uid, out var woundsHolderComponent))
+                return delta;
+
+            // ...Maybe *don't* add wounds based on pure random chance?
+            foreach (var wound in damage.Wounds.Keys)
+            {
+                var prob = damage.Wounds[wound];
+                if (_random.Prob(prob))
+                {
+                    _sharedWoundsSystem.TryAddWound(wound, uid.Value);
+                }
+            }
 
             return delta;
         }

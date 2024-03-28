@@ -37,6 +37,14 @@ namespace Content.Shared.Damage
         [IncludeDataField(customTypeSerializer: typeof(DamageSpecifierDictionarySerializer), readOnly: true)]
         public Dictionary<string, FixedPoint2> DamageDict { get; set; } = new();
 
+        /// <summary>
+        /// What wounds should be (and their probability of being) applied?
+        /// </summary>
+        [JsonIgnore]
+        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField("wounds", customTypeSerializer: typeof(PrototypeIdDictionarySerializer<float, EntityPrototype>))]
+        public Dictionary<string, float>? Wounds;
+
         [JsonIgnore]
         [Obsolete("Use GetTotal()")]
         public FixedPoint2 Total => GetTotal();
@@ -157,6 +165,16 @@ namespace Content.Shared.Damage
 
                 if (newValue > 0)
                     newDamage.DamageDict[key] = FixedPoint2.New(newValue);
+            }
+
+            if (damageSpec.Wounds == null)
+                return newDamage;
+
+            newDamage.Wounds = new Dictionary<string, float>();
+
+            foreach (var (key, value) in damageSpec.Wounds)
+            {
+                newDamage.Wounds[key] = value * modifierSet.WoundCoefficient;
             }
 
             return newDamage;

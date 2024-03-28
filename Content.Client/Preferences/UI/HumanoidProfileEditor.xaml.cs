@@ -196,19 +196,19 @@ namespace Content.Client.Preferences.UI
 
             #region Height
 
-            CHeight.OnTextChanged += args =>
-            {
-                if (!float.TryParse(args.Text, out var newHeight))
-                    return;
-
-                CHeightLabel.Text = MathF.Round(newHeight, 1).ToString("G");
-                SetHeight(newHeight);
-            };
-
-            CHeightReset.OnPressed += _ =>
-            {
-                CHeight.Text = _defaultHeight.ToString(CultureInfo.InvariantCulture);
-            };
+            // CHeight.OnTextChanged += args =>
+            // {
+            //     if (!float.TryParse(args.Text, out var newHeight))
+            //         return;
+            //
+            //     CHeightLabel.Text = MathF.Round(newHeight, 1).ToString("G");
+            //     SetHeight(newHeight);
+            // };
+            //
+            // CHeightReset.OnPressed += _ =>
+            // {
+            //     CHeight.Text = _defaultHeight.ToString(CultureInfo.InvariantCulture);
+            // };
 
             #endregion Height
 

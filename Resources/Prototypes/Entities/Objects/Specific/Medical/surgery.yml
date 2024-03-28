@@ -15,7 +15,7 @@
   name: cautery
   id: Cautery
   parent: BaseToolSurgery
-  description: A surgical tool used to cauterize open wounds.
+  description: A surgical tool used to cauterize open wounds. Welding under surgery.
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/Surgery/cautery.rsi
@@ -23,6 +23,10 @@
   - type: Item
     sprite: Objects/Specific/Medical/Surgery/cautery.rsi
   - type: ItemCooldown
+  - type: Tool
+    speed: .04
+    qualities:
+      - Welding
   - type: MeleeWeapon
     damage:
        types:
@@ -36,7 +40,7 @@
   name: drill
   id: Drill
   parent: BaseToolSurgery
-  description: A surgical drill for making holes into hard material.
+  description: A surgical drill for making holes into hard material. Cutting under surgery.
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/Surgery/drill.rsi
@@ -44,6 +48,10 @@
   - type: Item
     sprite: Objects/Specific/Medical/Surgery/drill.rsi
   - type: ItemCooldown
+  - type: Tool
+    speed: .04
+    qualities:
+      - Cutting
   - type: MeleeWeapon
     damage:
       types:
@@ -57,13 +65,17 @@
   name: scalpel
   id: Scalpel
   parent: BaseToolSurgery
-  description: A surgical tool used to make incisions into flesh.
+  description: A surgical tool used to make incisions into flesh. Slicing under surgery.
   components:
   - type: Sharp
     butcherDelayModifier: 1.5 # Butchering with a scalpel, regardless of the type, will take 50% longer
   - type: Utensil
     types:
       - Knife
+  - type: Tool
+    speed: .04
+    qualities:
+      - Slicing
   - type: Sprite
     sprite: Objects/Specific/Medical/Surgery/scalpel.rsi
     state: scalpel
@@ -82,18 +94,20 @@
   name: shiv
   id: ScalpelShiv
   parent: Scalpel
-  description: A pointy piece of glass, abraded to an edge and wrapped in tape for a handle. # Could become a decent tool or weapon with right tool mods.
+  description: A pointy piece of glass, abraded to an edge and wrapped in tape for a handle. Slicing under surgery. # Could become a decent tool or weapon with right tool mods.
   components:
   - type: Sprite
     state: shiv
   - type: Item
     heldPrefix: shiv
+  - type: Tool
+    speed: 0.5
 
 - type: entity
   name: advanced scalpel
   id: ScalpelAdvanced
   parent: Scalpel
-  description: Made of more expensive materials, sharper and generally more reliable.
+  description: Made of more expensive materials, sharper and generally more reliable. Slicing under surgery.
   components:
   - type: Sprite
     state: advanced
@@ -103,17 +117,21 @@
     damage:
       types:
         Slash: 12
+  - type: Tool
+    speed: .06
 
 - type: entity
   name: laser scalpel
   id: ScalpelLaser
   parent: Scalpel
-  description: A scalpel which uses a directed laser to slice instead of a blade, for more precise surgery while also cauterizing as it cuts.
+  description: A scalpel which uses a directed laser to slice instead of a blade, for more precise surgery while also cauterizing as it cuts. Slicing under surgery.
   components:
   - type: Sprite
     state: laser
   - type: Item
     heldPrefix: laser
+  - type: Tool
+    speed: .08
 
 # Scissors
 
@@ -121,7 +139,7 @@
   name: retractor
   id: Retractor
   parent: BaseToolSurgery
-  description: A surgical tool used to hold open incisions.
+  description: A surgical tool used to hold open incisions. Cutting under surgery.
   components:
   - type: Sprite
     sprite: Objects/Specific/Medical/Surgery/scissors.rsi
@@ -129,6 +147,10 @@
   - type: Item
     sprite: Objects/Specific/Medical/Surgery/scissors.rsi
   - type: ItemCooldown
+  - type: Tool
+    speed: .04
+    qualities:
+      - Cutting
 
 - type: entity
   name: hemostat
@@ -153,7 +175,7 @@
   name: metal saw
   id: Saw
   parent: BaseToolSurgery
-  description: For cutting wood and other objects to pieces. Or sawing bones, in case of emergency.
+  description: For cutting wood and other objects to pieces. Or sawing bones, in case of emergency. Sawing under surgery.
   components:
   - type: Sharp
   - type: Utensil
@@ -168,14 +190,14 @@
   - type: Tool
     qualities:
       - Sawing
-    speed: 1.0
+    speed: .1
 # No melee for regular saw because have you ever seen someone use a band saw as a weapon? It's dumb.
 
 - type: entity
   name: choppa
   id: SawImprov
   parent: Saw
-  description: A wicked serrated blade made of whatever nasty sharp things you could find. # It would make a pretty decent weapon, given there are more space for some tool mods too.
+  description: A wicked serrated blade made of whatever nasty sharp things you could find. Sawing under surgery. # It would make a pretty decent weapon, given there are more space for some tool mods too.
   components:
   - type: Sprite
     state: improv
@@ -190,13 +212,13 @@
   - type: Tool
     qualities:
       - Sawing
-    speed: 0.5
+    speed: .50
 
 - type: entity
   name: circular saw
   id: SawElectric
   parent: Saw
-  description: For heavy duty cutting.
+  description: For heavy duty cutting. Sawing under surgery.
   components:
   - type: Sprite
     state: electric
@@ -211,13 +233,13 @@
   - type: Tool
     qualities:
       - Sawing
-    speed: 1.5
+    speed: .54
 
 - type: entity
   name: advanced circular saw
   id: SawAdvanced
   parent: Saw
-  description: You think you can cut anything with it.
+  description: You think you can cut anything with it. Sawing under surgery.
   components:
   - type: Sprite
     state: advanced
@@ -233,4 +255,4 @@
   - type: Tool
     qualities:
       - Sawing
-    speed: 2.0
+    speed: .07

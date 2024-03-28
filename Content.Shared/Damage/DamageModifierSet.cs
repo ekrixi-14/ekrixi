@@ -24,5 +24,8 @@ namespace Content.Shared.Damage
 
         [DataField("flatReductions", customTypeSerializer: typeof(PrototypeIdDictionarySerializer<float, DamageTypePrototype>))]
         public Dictionary<string, float> FlatReduction = new();
+
+        [DataField("woundReduction")] // TODO: Flat reductions
+        public float WoundCoefficient = 0;
     }
 }
