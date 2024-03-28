@@ -73,7 +73,7 @@ namespace Content.Client.Lobby
 
             LayoutContainer.SetAnchorPreset(_lobby, LayoutContainer.LayoutPreset.Wide);
             _lobby.ServerName.Text = _baseClient.GameInfo?.ServerName; //The eye of refactor gazes upon you...
-            _clyde.SetWindowTitle($"ACROSS THE VEIL: {_baseClient.GameInfo?.ServerName}");
+            _clyde.SetWindowTitle($"{_baseClient.GameInfo?.ServerName} (veilcode)");
             UpdateLobbyUi();
 
             _lobby!.SetupCharacterButton.OnPressed += OnSetupPressed;
