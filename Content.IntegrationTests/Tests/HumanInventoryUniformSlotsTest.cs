@@ -24,7 +24,7 @@ namespace Content.IntegrationTests.Tests
   id: UniformDummy
   components:
   - type: Clothing
-    slots: [innerclothing]
+    slots: [lowerclothing]
   - type: Item
     size: 5
 
@@ -83,7 +83,7 @@ namespace Content.IntegrationTests.Tests
 
                 Assert.Multiple(() =>
                 {
-                    Assert.That(invSystem.CanEquip(human, uniform, "jumpsuit", out _));
+                    Assert.That(invSystem.CanEquip(human, uniform, "lowerClothing", out _));
 
                     // Can't equip any of these since no uniform!
                     Assert.That(invSystem.CanEquip(human, idCard, "id", out _), Is.False);
@@ -93,7 +93,7 @@ namespace Content.IntegrationTests.Tests
 
                 Assert.Multiple(() =>
                 {
-                    Assert.That(invSystem.TryEquip(human, uniform, "jumpsuit"));
+                    Assert.That(invSystem.TryEquip(human, uniform, "lowerClothing"));
                     Assert.That(invSystem.TryEquip(human, idCard, "id"));
                 });
 
@@ -109,7 +109,7 @@ namespace Content.IntegrationTests.Tests
                 });
 
                 // Now drop the jumpsuit.
-                Assert.That(invSystem.TryUnequip(human, "jumpsuit"));
+                Assert.That(invSystem.TryUnequip(human, "lowerClothing"));
             });
 
             await server.WaitRunTicks(2);
@@ -124,7 +124,7 @@ namespace Content.IntegrationTests.Tests
                     Assert.That(IsDescendant(pocketItem, human, entityMan), Is.False);
 
                     // Ensure everything null here.
-                    Assert.That(!invSystem.TryGetSlotEntity(human, "jumpsuit", out _));
+                    Assert.That(!invSystem.TryGetSlotEntity(human, "lowerClothing", out _));
                     Assert.That(!invSystem.TryGetSlotEntity(human, "id", out _));
                     Assert.That(!invSystem.TryGetSlotEntity(human, "pocket1", out _));
                 });
