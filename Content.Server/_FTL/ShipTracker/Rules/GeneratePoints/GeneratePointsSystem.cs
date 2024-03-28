@@ -21,7 +21,6 @@ public sealed class GeneratePointsSystem : GameRuleSystem<GeneratePointsComponen
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;
     [Dependency] private readonly FtlPointsSystem _pointsSystem = default!;
     [Dependency] private readonly StationSystem _stationSystem = default!;
-    [Dependency] private readonly ShuttleSystem _shuttleSystem = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly TransformSystem _transformSystem = default!;
 
@@ -53,6 +52,7 @@ public sealed class GeneratePointsSystem : GameRuleSystem<GeneratePointsComponen
                     {
                         var shuttle = EnsureComp<ShuttleComponent>(grid.Value);
                         // _shuttleSystem.FTLTravel(grid.Value, shuttle, _mapManager.GetMapEntityId(station));
+                        _mapManager.SetMapPaused(station, false);
                         _transformSystem.SetCoordinates(grid.Value,
                         new EntityCoordinates(_mapManager.GetMapEntityId(station),
                         new Vector2(_pointsSystem.GenerateVectorWithRandomRadius(100, 600), _pointsSystem.GenerateVectorWithRandomRadius(100, 600))));

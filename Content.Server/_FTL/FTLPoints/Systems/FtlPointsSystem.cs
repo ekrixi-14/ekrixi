@@ -70,6 +70,17 @@ public sealed partial class FtlPointsSystem : SharedFtlPointsSystem
     {
         var centerStation = startingPoint ?? GeneratePoint(_prototypeManager.Index<FtlPointPrototype>("StationPoint"));
 
+        StarMapComponent? component = null;
+        if (!TryGetStarMap(ref component))
+            return MapId.Nullspace;
+
+        var availableStars = component.StarMap.Where(x => x.Map == centerStation).ToList();
+
+        foreach (var star in availableStars)
+        {
+            component.StarMap.Remove(star);
+        }
+
         if (clear)
             RemoveAllStars(deleteStars);
 
@@ -101,19 +112,20 @@ public sealed partial class FtlPointsSystem : SharedFtlPointsSystem
                         var mapId = GeneratePoint(prototype);
                         var mapUid = _mapManager.GetMapEntityId(mapId);
                         var position = new Vector2(
-                            origin.X + GenerateVectorWithRandomRadius(3, 5),
-                            origin.Y + GenerateVectorWithRandomRadius(3, 5)
+                                origin.X + _random.NextFloat(6, 8.5f),
+                                origin.Y + _random.NextFloat(6, 8.5f)
                         );
                         if (first)
                         {
                             position = new Vector2(
-                                origin.X + _random.NextFloat(6, 8.5f),
-                                origin.Y + _random.NextFloat(6, 8.5f)
+                                origin.X + GenerateVectorWithRandomRadius(3, 5),
+                                origin.Y + GenerateVectorWithRandomRadius(3, 5)
                             );
                         }
-
                         TryAddPoint(mapId, position, MetaData(mapUid).EntityName);
-                        _mapManager.SetMapPaused(mapId, false);
+
+                        if (first)
+                            _mapManager.SetMapPaused(mapId, false);
                         latestGeneration.Add(position);
                     }
                     starsCreated++;
