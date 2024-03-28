@@ -16,11 +16,8 @@
           availableJobs:
             Captain: [ 1, 1 ] # Command
             Pilot: [ 1, 1 ]
-            ChiefMedicalOfficer: [ 1, 1 ]
-            HeadOfSecurity: [ 1, 1 ]
-            ChiefEngineer: [ 1, 1 ]
-            SecurityOfficer: [ 2, 2 ] # Security
-            StationEngineer: [ 2, 2 ] # Engi
-            MedicalDoctor: [ 1, 1 ] # Medical
+            SecurityOfficer: [ 3, 3 ] # Security
+            StationEngineer: [ 3, 3 ] # Engi
+            MedicalDoctor: [ 2, 2 ] # Medical
             SeniorPhysician: [ 1, 1 ] # Medical 2: Eletric Boogaloo
             Passenger: [ -1, -1 ] # Everyone else
