@@ -15,7 +15,7 @@ public sealed class HTNOverlay : Overlay
     public HTNOverlay(IEntityManager entManager, IResourceCache resourceCache)
     {
         _entManager = entManager;
-        _font = new VectorFont(resourceCache.GetResource<FontResource>("/Fonts/IBMPlexMono/IBMPlexMono-Regular.ttf"), 10);
+        _font = new VectorFont(resourceCache.GetResource<FontResource>("/Fonts/B612_Mono/B612_Mono-Regular.ttf"), 10);
     }
 
     protected override void Draw(in OverlayDrawArgs args)
