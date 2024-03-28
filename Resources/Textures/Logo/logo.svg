@@ -9,15 +9,14 @@
    id="svg135"
    inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
    sodipodi:docname="logo.svg"
-   inkscape:export-filename="logo-ekrixi.png"
+   inkscape:export-filename="logo.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96"
+   xml:space="preserve"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:svg="http://www.w3.org/2000/svg">
-  <sodipodi:namedview
+   xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview
      id="namedview137"
      pagecolor="#b28282"
      bordercolor="#eeeeee"
@@ -28,68 +27,40 @@
      inkscape:deskcolor="#505050"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="2.8284271"
-     inkscape:cx="135.7645"
-     inkscape:cy="119.14749"
+     inkscape:zoom="2.7139535"
+     inkscape:cx="215"
+     inkscape:cy="125.27849"
      inkscape:window-width="1920"
-     inkscape:window-height="1017"
+     inkscape:window-height="1009"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
-  <defs
-     id="defs132">
-    <rect
+     inkscape:current-layer="layer1" /><defs
+     id="defs132"><rect
        x="218.14244"
        y="43.133514"
        width="76.013979"
        height="66.114484"
-       id="rect3369" />
-    <rect
+       id="rect3369" /><rect
        x="224.15285"
        y="31.466252"
        width="120.91526"
        height="135.0574"
-       id="rect3363" />
-    <rect
+       id="rect3363" /><rect
        x="255.26555"
        y="68.235804"
        width="28.991378"
        height="51.618795"
-       id="rect391" />
-    <linearGradient
-       inkscape:collect="always"
-       id="linearGradient4446">
-      <stop
-         style="stop-color:#6f4190;stop-opacity:1"
-         offset="0"
-         id="stop4442" />
-      <stop
-         style="stop-color:#8750af;stop-opacity:1;"
-         offset="1"
-         id="stop4444" />
-    </linearGradient>
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient4446"
-       id="linearGradient4448"
-       x1="62.451481"
-       y1="59.814175"
-       x2="62.483292"
-       y2="59.846081"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(0.50412783,0,0,0.54014031,-10.210054,-6.8673214)" />
-  </defs>
-  <g
+       id="rect391" /><inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="-74.972541 : 68.744561 : 1"
+       inkscape:vp_y="0 : 1853.3429 : 0"
+       inkscape:vp_z="108.70531 : 68.744561 : 1"
+       inkscape:persp3d-origin="16.866394 : 26.900197 : 1"
+       id="perspective729" /></defs><g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     id="layer1">
-    <path
-       style="fill:url(#linearGradient4448);fill-opacity:1;stroke:#202020;stroke-width:1.10453;stroke-dasharray:none;stroke-opacity:1"
-       d="m 16.66183,49.05374 7.487264,-11.936847 3.562409,13.520228 1.162746,1.054144 1.073303,-0.862481 1.34163,-1.91663 -0.08944,-14.662189 -4.161954,-0.507911 6.680556,-9.969952 1.327409,6.165452 7.423675,-12.937231 -12.611317,-0.383325 4.293218,-7.1873494 v -1.054146 l -1.431073,-0.383324 -0.983861,0.670819 -5.187636,2.7791084 0.06201,-4.6633504 -1.940292,-0.128217 -0.536648,-1.245807 -2.236054,-0.287493 -0.894418,1.341638 -0.626096,1.43747 c 0,0 -6.887035,1.245807 -8.228666,1.533302 -1.34163,0.287493 -7.5131292,8.3373254 -7.5131292,8.3373254 L 10.806965,30.081301 6.6031912,45.078909 Z"
-       id="path760"
-       sodipodi:nodetypes="cccccccccccccccccccccccscccc" />
-    <text
+     id="layer1"><text
        xml:space="preserve"
        style="font-size:3.175px;fill:#6f4190;stroke:#202020;stroke-width:2.11667"
        x="62.300526"
@@ -99,13 +70,11 @@
          id="tspan385"
          style="stroke-width:2.11667"
          x="62.300526"
-         y="11.693042" /></text>
-    <text
+         y="11.693042" /></text><text
        xml:space="preserve"
        transform="scale(0.26458333)"
        id="text389"
-       style="white-space:pre;shape-inside:url(#rect391);display:inline;opacity:0;fill:#6f4190;stroke:#202020;stroke-width:0;stroke-dasharray:none" />
-    <text
+       style="white-space:pre;shape-inside:url(#rect391);display:inline;opacity:0;fill:#6f4190;stroke:#202020;stroke-width:0;stroke-dasharray:none" /><text
        xml:space="preserve"
        style="font-size:3.175px;opacity:0;fill:#ffffff;fill-opacity:1;stroke:#202020;stroke-width:0;stroke-dasharray:none"
        x="55.93951"
@@ -115,21 +84,65 @@
          id="tspan2473"
          style="stroke-width:0"
          x="55.93951"
-         y="17.67988" /></text>
-    <text
+         y="17.67988" /></text><text
        xml:space="preserve"
        transform="scale(0.26458333)"
        id="text3361"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Comic Sans MS';-inkscape-font-specification:'Comic Sans MS';white-space:pre;shape-inside:url(#rect3363);display:inline;opacity:0;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none" />
-    <text
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Comic Sans MS';-inkscape-font-specification:'Comic Sans MS';white-space:pre;shape-inside:url(#rect3363);display:inline;opacity:0;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none" /><text
        xml:space="preserve"
-       transform="matrix(2.2215136,0,0,2.2215136,-441.56848,-82.881241)"
+       transform="matrix(2.2215136,0,0,2.2215136,-441.00722,-86.061748)"
        id="text3367"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Comic Sans MS';-inkscape-font-specification:'Comic Sans MS';white-space:pre;shape-inside:url(#rect3369);display:inline;opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-opacity:1"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35203px;font-family:'Comic Sans MS';-inkscape-font-specification:'Comic Sans MS';white-space:pre;shape-inside:url(#rect3369);display:inline;opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0;stroke-dasharray:none;stroke-opacity:1"><tspan
          x="218.14258"
-         y="55.191406"
-         id="tspan7091"><tspan
-           style="font-family:'Yu Gothic';-inkscape-font-specification:'Yu Gothic'"
-           id="tspan7089">Ekrixi</tspan></tspan></text>
-  </g>
-</svg>
+         y="48.960737"
+         id="tspan12915"><tspan
+           style="font-family:'Lucida Console';-inkscape-font-specification:'Lucida Console'"
+           id="tspan12913"> ACROSS
+</tspan></tspan><tspan
+         x="218.14258"
+         y="57.209616"
+         id="tspan12919"><tspan
+           style="font-family:'Lucida Console';-inkscape-font-specification:'Lucida Console'"
+           id="tspan12917">THE VEIL</tspan></tspan></text><g
+       sodipodi:type="inkscape:box3d"
+       id="g875"
+       style="fill:#cccccc;stroke-width:3.36756"
+       inkscape:perspectiveID="#perspective729"
+       inkscape:corner0="0.17370044 : 0.0043293184 : 0 : 1"
+       inkscape:corner7="-0.055981138 : -0.0095208797 : 0.25 : 1"><path
+         sodipodi:type="inkscape:box3dside"
+         id="path887"
+         style="fill:#e9e9ff;fill-rule:evenodd;stroke:none;stroke-linejoin:round"
+         inkscape:box3dsidetype="11"
+         d="M 21.788263,11.367145 40.40118,15.936747 V 37.434871 L 21.788263,29.397038 Z"
+         points="40.40118,15.936747 40.40118,37.434871 21.788263,29.397038 21.788263,11.367145 " /><path
+         sodipodi:type="inkscape:box3dside"
+         id="path877"
+         style="fill:#353564;fill-rule:evenodd;stroke:none;stroke-linejoin:round"
+         inkscape:box3dsidetype="6"
+         d="M 3.2747971,16.427094 V 38.297381 L 21.788263,29.397038 V 11.367145 Z"
+         points="3.2747971,38.297381 21.788263,29.397038 21.788263,11.367145 3.2747971,16.427094 " /><path
+         sodipodi:type="inkscape:box3dside"
+         id="path885"
+         style="fill:#afafde;fill-rule:evenodd;stroke:none;stroke-linejoin:round"
+         inkscape:box3dsidetype="13"
+         d="M 3.2747971,38.297381 22.312523,50.629306 40.40118,37.434871 21.788263,29.397038 Z"
+         points="22.312523,50.629306 40.40118,37.434871 21.788263,29.397038 3.2747971,38.297381 " /><path
+         sodipodi:type="inkscape:box3dside"
+         id="path879"
+         style="fill:#6f4190;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-linejoin:round"
+         inkscape:box3dsidetype="5"
+         d="M 3.2747971,16.427094 22.312523,23.437936 40.40118,15.936747 21.788263,11.367145 Z"
+         points="22.312523,23.437936 40.40118,15.936747 21.788263,11.367145 3.2747971,16.427094 " /><path
+         sodipodi:type="inkscape:box3dside"
+         id="path883"
+         style="fill:#7f4190;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-linejoin:round"
+         inkscape:box3dsidetype="14"
+         d="m 22.312523,23.437936 v 27.19137 L 40.40118,37.434871 V 15.936747 Z"
+         points="22.312523,50.629306 40.40118,37.434871 40.40118,15.936747 22.312523,23.437936 " /><path
+         sodipodi:type="inkscape:box3dside"
+         id="path881"
+         style="fill:#5a4190;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-linejoin:round"
+         inkscape:box3dsidetype="3"
+         d="m 3.2747971,16.427094 19.0377259,7.010842 v 27.19137 L 3.2747971,38.297381 Z"
+         points="22.312523,23.437936 22.312523,50.629306 3.2747971,38.297381 3.2747971,16.427094 " /></g></g></svg>
