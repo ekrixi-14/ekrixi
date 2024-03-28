@@ -40,7 +40,9 @@ namespace Content.Shared.Damage
         /// <summary>
         /// What wounds should be (and their probability of being) applied?
         /// </summary>
-        [DataField("wounds", customTypeSerializer: typeof(PrototypeIdDictionarySerializer<float, EntityPrototype>)), ViewVariables]
+        [JsonIgnore]
+        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField("wounds", customTypeSerializer: typeof(PrototypeIdDictionarySerializer<float, EntityPrototype>))]
         public Dictionary<string, float>? Wounds;
 
         [JsonIgnore]
