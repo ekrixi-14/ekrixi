@@ -1,0 +1,27 @@
+- type: entity
+  id: WarpDrive
+  name: warp drive aio port
+  description: An AIO port for fuel insertion and warp control.
+  placement:
+    mode: SnapgridCenter
+  components:
+    - type: Physics
+      bodyType: Static
+    - type: Clickable
+    - type: InteractionOutline
+    - type: WarpDrive
+    - type: Sprite
+      sprite: _FTL/Structures/Machines/warp-drive.rsi
+      layers:
+        - state: warp-drive
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.5,-0.5,0.5,0.5"
+          mask:
+            - FullTileMask
+          layer:
+            - WallLayer
+          density: 100
