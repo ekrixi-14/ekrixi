@@ -68,7 +68,7 @@ namespace Content.Client.Lobby
             _characterSetup.SaveButton.OnPressed += _ =>
             {
                 _characterSetup.Save();
-                _lobby.CharacterPreview.UpdateUI();
+                // _lobby.CharacterPreview.UpdateUI();
             };
 
             LayoutContainer.SetAnchorPreset(_lobby, LayoutContainer.LayoutPreset.Wide);
@@ -76,9 +76,10 @@ namespace Content.Client.Lobby
             _clyde.SetWindowTitle($"ACROSS THE VEIL: {_baseClient.GameInfo?.ServerName}");
             UpdateLobbyUi();
 
-            _lobby.CharacterPreview.CharacterSetupButton.OnPressed += OnSetupPressed;
+            _lobby!.SetupCharacterButton.OnPressed += OnSetupPressed;
             _lobby.ReadyButton.OnPressed += OnReadyPressed;
             _lobby.ReadyButton.OnToggled += OnReadyToggled;
+            _lobby.ToggleMenu.OnPressed += OnMenuPressed;
 
             _gameTicker.InfoBlobUpdated += UpdateLobbyUi;
             _gameTicker.LobbyStatusUpdated += LobbyStatusUpdated;
@@ -86,7 +87,7 @@ namespace Content.Client.Lobby
 
             _preferencesManager.OnServerDataLoaded += PreferencesDataLoaded;
 
-            _lobby.CharacterPreview.UpdateUI();
+            // _lobby.CharacterPreview.UpdateUI();
         }
 
         protected override void Shutdown()
@@ -99,9 +100,11 @@ namespace Content.Client.Lobby
 
             _voteManager.ClearPopupContainer();
 
-            _lobby!.CharacterPreview.CharacterSetupButton.OnPressed -= OnSetupPressed;
+            // _lobby!.CharacterPreview.CharacterSetupButton.OnPressed -= OnSetupPressed;
+            _lobby!.SetupCharacterButton.OnPressed -= OnSetupPressed;
             _lobby!.ReadyButton.OnPressed -= OnReadyPressed;
             _lobby!.ReadyButton.OnToggled -= OnReadyToggled;
+            _lobby.ToggleMenu.OnPressed -= OnMenuPressed;
 
             _lobby = null;
 
@@ -113,7 +116,7 @@ namespace Content.Client.Lobby
 
         private void PreferencesDataLoaded()
         {
-            _lobby?.CharacterPreview.UpdateUI();
+            // _lobby?.CharacterPreview.UpdateUI();
         }
 
         private void OnSetupPressed(BaseButton.ButtonEventArgs args)
@@ -130,6 +133,11 @@ namespace Content.Client.Lobby
             }
 
             new LateJoinGui().OpenCentered();
+        }
+
+        private void OnMenuPressed(BaseButton.ButtonEventArgs args)
+        {
+            _lobby!.CenterPanel.Visible = !_lobby.CenterPanel.Visible;
         }
 
         private void OnReadyToggled(BaseButton.ButtonToggledEventArgs args)

@@ -24,7 +24,7 @@ namespace Content.Client.Administration
             _eyeManager = eyeManager;
             _entityLookup = entityLookup;
             ZIndex = 200;
-            _font = new VectorFont(resourceCache.GetResource<FontResource>("/Fonts/IBMPlexMono/IBMPlexMono-Regular.ttf"), 10);
+            _font = new VectorFont(resourceCache.GetResource<FontResource>("/Fonts/B612_Mono/B612_Mono-Regular.ttf"), 10);
         }
 
         public override OverlaySpace Space => OverlaySpace.ScreenSpace;
