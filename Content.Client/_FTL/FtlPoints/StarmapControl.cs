@@ -20,7 +20,6 @@ public sealed class StarmapControl : Control
     private const float Ppd = 15f;
 
     private readonly Font _font;
-    private bool _mouseDown = false;
 
     public event Action<Star>? OnStarSelect;
 

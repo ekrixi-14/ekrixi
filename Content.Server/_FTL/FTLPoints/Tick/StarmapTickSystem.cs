@@ -1,8 +1,10 @@
+using System.Linq;
+
 namespace Content.Server._FTL.FTLPoints.Tick;
 
 public abstract class StarmapTickSystem<T> : EntitySystem where T : Component
 {
-    private readonly float _tickInterval = 300f;
+    private readonly float _tickInterval = 60f;
     private float _timeSinceLastTick = 0f; // SIN
 
     public override void Initialize()
@@ -28,9 +30,14 @@ public abstract class StarmapTickSystem<T> : EntitySystem where T : Component
 
     }
 
-    protected EntityQueryEnumerator<T> QueryStars()
+    protected EntityQueryEnumerator<T> QueryStarsEnumerator()
     {
         return EntityQueryEnumerator<T>();
+    }
+
+    protected IEnumerable<T> QueryStars()
+    {
+        return EntityQuery<T>();
     }
 
     public override void Update(float frameTime)
@@ -41,11 +48,17 @@ public abstract class StarmapTickSystem<T> : EntitySystem where T : Component
         if (!(_timeSinceLastTick >= _tickInterval))
             return;
         _timeSinceLastTick = 0;
-        var stars = QueryStars();
-        while (stars.MoveNext(out var uid, out var component))
+
+        var stars = QueryStars().ToList();
+        // since stars can be modified it's not exactly ideal
+        while (stars.Count > 0)
         {
-            Ticked(uid, component, frameTime);
+#pragma warning disable CS0618
+            Ticked(stars[0].Owner, stars[0], frameTime);
+#pragma warning restore CS0618
+            stars.RemoveAt(0);
         }
+
         Log.Debug("Tick!");
     }
 }
