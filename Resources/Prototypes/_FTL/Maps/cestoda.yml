@@ -18,6 +18,5 @@
             Pilot: [ 1, 1 ]
             SecurityOfficer: [ 3, 3 ] # Security
             StationEngineer: [ 3, 3 ] # Engi
-            MedicalDoctor: [ 2, 2 ] # Medical
-            SeniorPhysician: [ 1, 1 ] # Medical 2: Eletric Boogaloo
+            MedicalDoctor: [ 3, 3 ] # Medical
             Passenger: [ -1, -1 ] # Everyone else
