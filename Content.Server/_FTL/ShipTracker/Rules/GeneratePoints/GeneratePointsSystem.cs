@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Numerics;
 using Content.Server._FTL.FTLPoints.Systems;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Shuttles.Components;
@@ -7,6 +8,7 @@ using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Robust.Shared.Configuration;
 using Content.Shared.CCVar;
+using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 
 namespace Content.Server._FTL.ShipTracker.Rules.GeneratePoints;
@@ -21,6 +23,7 @@ public sealed class GeneratePointsSystem : GameRuleSystem<GeneratePointsComponen
     [Dependency] private readonly StationSystem _stationSystem = default!;
     [Dependency] private readonly ShuttleSystem _shuttleSystem = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly TransformSystem _transformSystem = default!;
 
     public override void Initialize()
     {
@@ -39,7 +42,7 @@ public sealed class GeneratePointsSystem : GameRuleSystem<GeneratePointsComponen
 
             if (!_configurationManager.GetCVar(CCVars.GenerateFTLPointsRoundstart))
                 return;
-            var station = _pointsSystem.GenerateSector(20);
+            var station = _pointsSystem.GenerateSector(25, null, false, false);
 
             if (ev.Station.HasValue)
             {
@@ -49,7 +52,10 @@ public sealed class GeneratePointsSystem : GameRuleSystem<GeneratePointsComponen
                     if (grid.HasValue)
                     {
                         var shuttle = EnsureComp<ShuttleComponent>(grid.Value);
-                        _shuttleSystem.FTLTravel(grid.Value, shuttle, _mapManager.GetMapEntityId(station));
+                        // _shuttleSystem.FTLTravel(grid.Value, shuttle, _mapManager.GetMapEntityId(station));
+                        _transformSystem.SetCoordinates(grid.Value,
+                        new EntityCoordinates(_mapManager.GetMapEntityId(station),
+                        new Vector2(_pointsSystem.GenerateVectorWithRandomRadius(100, 600), _pointsSystem.GenerateVectorWithRandomRadius(100, 600))));
                     }
                 }
             }

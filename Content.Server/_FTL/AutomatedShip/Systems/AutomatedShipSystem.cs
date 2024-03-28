@@ -63,27 +63,35 @@ public sealed partial class AutomatedShipSystem : EntitySystem
                 continue;
 
             // makes sure it's on the same map, not the same grid, and is hostile
-            Log.Debug("Retargeting");
+            var hostileQuery = EntityQueryEnumerator<ShipTrackerComponent>();
+            List<EntityUid> hostileShips = default!;
 
-            var hostileShips = EntityQuery<ShipTrackerComponent>().Where(shipTrackerComponent =>
+            while (hostileQuery.MoveNext(out var shipEntity, out var shipTrackerComponent))
             {
-                var owner = shipTrackerComponent.Owner;
-                var otherTransform = Transform(owner);
+                var otherTransform = Transform(shipEntity);
 
-                Log.Debug($"Same map: {otherTransform.MapID == xform.MapID}, Different grid: {otherTransform.GridUid != xform.GridUid}, Hostile: {_npcFactionSystem.IsFactionHostile(aiTrackerComponent.Faction,
-                    shipTrackerComponent.Faction)}");
+                var sameMap = otherTransform.MapID == xform.MapID;
+                if (!sameMap)
+                    continue;
 
-                return otherTransform.MapID == xform.MapID && otherTransform.GridUid != xform.GridUid &&
-                       (_npcFactionSystem.IsFactionHostile(aiTrackerComponent.Faction,
-                           shipTrackerComponent.Faction) ||
-                       aiComponent.HostileShips.Contains(owner));
-            }).ToList();
+                var differentGrid = otherTransform.GridUid != xform.GridUid;
+                if (!differentGrid)
+                    continue;
+
+                var hostile = _npcFactionSystem.IsFactionHostile(aiTrackerComponent.Faction,
+                                  shipTrackerComponent.Faction) ||
+                              aiComponent.HostileShips.Contains(shipEntity);
+                if (hostile)
+                    continue;
+
+                hostileShips.Add(entity);
+            }
 
             if (hostileShips.Count <= 0)
                 continue;
             Log.Debug("Reset retarget");
 
-            var mainShip = _random.Pick(hostileShips).Owner;
+            var mainShip = _random.Pick(hostileShips);
             UpdateName(entity, aiComponent);
 
             // I seperated these into partial systems because I hate large line counts!!!

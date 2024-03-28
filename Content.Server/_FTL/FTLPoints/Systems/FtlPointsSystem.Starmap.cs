@@ -51,13 +51,9 @@ public sealed partial class FtlPointsSystem
             return;
 
         var xform = Transform(uid);
-        Log.Info("Tried to get transform");
-
         var star = GetStarWithMapId(xform.MapID);
-        Log.Info("Tried to find star");
         if (!star.HasValue)
             return;
-        Log.Info("Got star, sending state");
 
         var range = 10f;
         var stars = GetStarsInRange(star.Value.Position, 50f);
@@ -95,6 +91,24 @@ public sealed partial class FtlPointsSystem
         }
 
         return list;
+    }
+
+
+    [PublicAPI]
+    public void RemoveAllStars(bool deleteStars, StarMapComponent? component = null)
+    {
+        if (!TryGetStarMap(ref component))
+            return;
+
+        if (deleteStars)
+        {
+            foreach (var star in component.StarMap)
+            {
+                QueueDel(_mapManager.GetMapEntityId(star.Map));
+            }
+        }
+
+        component.StarMap.Clear();
     }
 
     [PublicAPI]
@@ -144,7 +158,8 @@ public sealed partial class FtlPointsSystem
 
         if (!TryComp<ShuttleComponent>(grid, out var shuttleComponent))
             return;
+        var warpingShipComponent = EnsureComp<WarpingShipComponent>(grid.Value);
 
-        _shuttleSystem.FTLTravel(grid.Value, shuttleComponent, _mapManager.GetMapEntityId(args.Star.Map));
+        warpingShipComponent.TargetMap = args.Star.Map;
     }
 }

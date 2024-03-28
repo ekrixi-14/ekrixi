@@ -35,8 +35,8 @@ public sealed partial class StarmapConsole : FancyWindow
     private void StarsOnOnStarSelect(Star obj)
     {
         StarName.Text = obj.Name;
-        StarCoordinates.Text = Loc.GetString("starmap-star-details-position", ("x", MathF.Round(obj.GlobalPosition.X, 1)), ("y", MathF.Round(obj.GlobalPosition.Y, 1)));
-        StarWarpButton.Disabled = false;
+        StarCoordinates.Text = Loc.GetString("starmap-star-details-position", ("x", $"{obj.GlobalPosition.X:0.00)}"), ("y", $"{obj.GlobalPosition.Y:0.00}"));
+        StarWarpButton.Disabled = CurrentStarName.Text == StarName.Text;
         _hoveredStar = obj;
     }
 

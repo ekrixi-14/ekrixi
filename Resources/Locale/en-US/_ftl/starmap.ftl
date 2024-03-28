@@ -36,7 +36,7 @@ starmap-star-details-name = Name:
 starmap-star-details-coordinates = Coordinates:
 
 starmap-star-details-button-warp = Warp
-starmap-star-details-position = X: {$x} Y: {$y}
+starmap-star-details-position = {$x}-{$y}
 
 starmap-center-station = Trading Outpost
 
@@ -44,3 +44,15 @@ starmap-alert-near = NEAR
 starmap-alert-low = LOW
 starmap-alert-danger = DANGER
 starmap-alert-critical = ! CRITICAL !
+
+drive-examined = The drive is {$charging ->
+        *[false] not charging
+        [true] charging
+    } at {$charge}%. {$destination ->
+        *[false] No
+        [true] A
+    } destination has been selected.
+
+drive-examined-ready = The drive is ready for jump!
+
+drive-examined-multiple-drives = [color=red]There are more than one drives on this ship, you must have only one![/color]
