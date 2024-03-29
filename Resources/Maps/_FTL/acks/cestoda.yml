@@ -1272,7 +1272,8 @@ entities:
           2,0:
             0: 65535
           2,1:
-            0: 65535
+            0: 65519
+            1: 16
           2,2:
             0: 4087
           3,0:
@@ -1479,14 +1480,6 @@ entities:
       type: Transform
 - proto: ActionToggleInternals
   entities:
-  - uid: 160
-    components:
-    - flags: InContainer
-      type: MetaData
-    - parent: 108
-      type: Transform
-    - container: 108
-      type: InstantAction
   - uid: 1416
     components:
     - flags: InContainer
@@ -1561,196 +1554,17 @@ entities:
       type: Transform
     - container: 1401
       type: InstantAction
-- proto: AirlockExternalGlassLocked
-  entities:
-  - uid: 951
-    components:
-    - name: port airlock
-      type: MetaData
-    - pos: -9.5,-6.5
-      parent: 2
-      type: Transform
-  - uid: 953
-    components:
-    - name: starboard airlock
-      type: MetaData
-    - pos: 10.5,-9.5
-      parent: 2
-      type: Transform
-- proto: AirlockExternalLocked
-  entities:
-  - uid: 950
-    components:
-    - name: port airlock
-      type: MetaData
-    - pos: -11.5,-6.5
-      parent: 2
-      type: Transform
-  - uid: 952
-    components:
-    - name: starboard airlock
-      type: MetaData
-    - pos: 12.5,-9.5
-      parent: 2
-      type: Transform
-- proto: AirlockMaint
-  entities:
-  - uid: 50
-    components:
-    - name: medical
-      type: MetaData
-    - rot: 1.5707963267948966 rad
-      pos: 6.5,-5.5
-      parent: 2
-      type: Transform
-  - uid: 874
-    components:
-    - name: kitchen hatch
-      type: MetaData
-    - pos: 6.5,-10.5
-      parent: 2
-      type: Transform
-- proto: AirlockMaintCaptainLocked
-  entities:
-  - uid: 875
-    components:
-    - name: captain's quarters
-      type: MetaData
-    - pos: 2.5,4.5
-      parent: 2
-      type: Transform
-  - uid: 1346
-    components:
-    - name: captain's quarters
-      type: MetaData
-    - rot: 1.5707963267948966 rad
-      pos: 0.5,7.5
-      parent: 2
-      type: Transform
-- proto: AirlockMaintCommandLocked
-  entities:
-  - uid: 876
-    components:
-    - name: bridge
-      type: MetaData
-    - pos: -0.5,3.5
-      parent: 2
-      type: Transform
-- proto: AirlockMaintEngiLocked
-  entities:
-  - uid: 879
-    components:
-    - name: atmospherics
-      type: MetaData
-    - pos: -7.5,-12.5
-      parent: 2
-      type: Transform
-  - uid: 880
-    components:
-    - pos: -6.5,-10.5
-      parent: 2
-      type: Transform
-  - uid: 881
-    components:
-    - name: engineering
-      type: MetaData
-    - pos: -1.5,-10.5
-      parent: 2
-      type: Transform
-  - uid: 882
-    components:
-    - pos: -7.5,-7.5
-      parent: 2
-      type: Transform
-  - uid: 883
-    components:
-    - pos: 9.5,-10.5
-      parent: 2
-      type: Transform
-  - uid: 884
-    components:
-    - pos: 2.5,-15.5
-      parent: 2
-      type: Transform
-  - uid: 885
-    components:
-    - pos: -1.5,-17.5
-      parent: 2
-      type: Transform
-- proto: AirlockMaintGlass
-  entities:
-  - uid: 719
-    components:
-    - rot: 3.141592653589793 rad
-      pos: 0.5,-8.5
-      parent: 2
-      type: Transform
-  - uid: 870
-    components:
-    - rot: 3.141592653589793 rad
-      pos: -3.5,-5.5
-      parent: 2
-      type: Transform
-  - uid: 871
-    components:
-    - rot: 3.141592653589793 rad
-      pos: 0.5,-2.5
-      parent: 2
-      type: Transform
-  - uid: 872
-    components:
-    - rot: 3.141592653589793 rad
-      pos: 4.5,-5.5
-      parent: 2
-      type: Transform
-  - uid: 1393
-    components:
-    - pos: 1.5,-10.5
-      parent: 2
-      type: Transform
-- proto: AirlockMaintMedLocked
-  entities:
-  - uid: 878
-    components:
-    - name: chemistry
-      type: MetaData
-    - pos: 10.5,-1.5
-      parent: 2
-      type: Transform
-- proto: AirlockMaintSecLocked
-  entities:
-  - uid: 34
-    components:
-    - name: port weapon control room
-      type: MetaData
-    - pos: -5.5,-2.5
-      parent: 2
-      type: Transform
-  - uid: 889
-    components:
-    - name: starboard weapon control room
-      type: MetaData
-    - pos: 5.5,0.5
-      parent: 2
-      type: Transform
-  - uid: 890
-    components:
-    - name: head of security's closet
-      type: MetaData
-    - pos: 6.5,4.5
-      parent: 2
-      type: Transform
-    - access:
-      - - HeadOfSecurity
-      type: AccessReader
 - proto: AirlockShuttle
   entities:
-  - uid: 954
+  - uid: 885
     components:
     - pos: 1.5,-22.5
       parent: 2
       type: Transform
-  - uid: 955
+    - secondsUntilStateChange: -22.910255
+      state: Opening
+      type: Door
+  - uid: 889
     components:
     - pos: -0.5,-22.5
       parent: 2
@@ -1972,6 +1786,30 @@ entities:
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
+- proto: Barricade
+  entities:
+  - uid: 1097
+    components:
+    - rot: 3.141592653589793 rad
+      pos: -5.5,2.5
+      parent: 2
+      type: Transform
+- proto: BarricadeBlock
+  entities:
+  - uid: 1346
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: 6.5,4.5
+      parent: 2
+      type: Transform
+- proto: BarricadeDirectional
+  entities:
+  - uid: 1098
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: -4.5,2.5
+      parent: 2
+      type: Transform
 - proto: BarSignMaidCafe
   entities:
   - uid: 1118
@@ -5065,6 +4903,8 @@ entities:
       type: ContainerContainer
   - uid: 1595
     components:
+    - name: EVA closet
+      type: MetaData
     - anchored: True
       pos: 1.5,-19.5
       parent: 2
@@ -5380,39 +5220,6 @@ entities:
     - flags: InContainer
       type: MetaData
     - parent: 1095
-      type: Transform
-    - canCollide: False
-      type: Physics
-    - type: InsideEntityStorage
-- proto: ClothingNeckMantleCE
-  entities:
-  - uid: 1373
-    components:
-    - flags: InContainer
-      type: MetaData
-    - parent: 1372
-      type: Transform
-    - canCollide: False
-      type: Physics
-    - type: InsideEntityStorage
-- proto: ClothingNeckMantleCMO
-  entities:
-  - uid: 1088
-    components:
-    - flags: InContainer
-      type: MetaData
-    - parent: 1087
-      type: Transform
-    - canCollide: False
-      type: Physics
-    - type: InsideEntityStorage
-- proto: ClothingNeckMantleHOS
-  entities:
-  - uid: 1098
-    components:
-    - flags: InContainer
-      type: MetaData
-    - parent: 1097
       type: Transform
     - canCollide: False
       type: Physics
@@ -5885,6 +5692,23 @@ entities:
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
+- proto: DrinkEnergyDrinkCan
+  entities:
+  - uid: 883
+    components:
+    - pos: 5.5206995,5.6494074
+      parent: 2
+      type: Transform
+  - uid: 884
+    components:
+    - pos: 5.7186165,5.5868645
+      parent: 2
+      type: Transform
+  - uid: 953
+    components:
+    - pos: 5.291533,5.6181364
+      parent: 2
+      type: Transform
 - proto: DrinkGlass
   entities:
   - uid: 1176
@@ -6183,6 +6007,267 @@ entities:
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
+- proto: EkrixiBayAirlockExternal
+  entities:
+  - uid: 34
+    components:
+    - name: starboard airlock
+      type: MetaData
+    - rot: 1.5707963267948966 rad
+      pos: 12.5,-9.5
+      parent: 2
+      type: Transform
+    - access:
+      - - External
+      type: AccessReader
+  - uid: 950
+    components:
+    - name: starboard airlock
+      type: MetaData
+    - rot: 1.5707963267948966 rad
+      pos: 10.5,-9.5
+      parent: 2
+      type: Transform
+    - access:
+      - - External
+      type: AccessReader
+  - uid: 954
+    components:
+    - name: port airlock
+      type: MetaData
+    - rot: 1.5707963267948966 rad
+      pos: -9.5,-6.5
+      parent: 2
+      type: Transform
+    - access:
+      - - External
+      type: AccessReader
+  - uid: 1088
+    components:
+    - name: port airlock
+      type: MetaData
+    - rot: 1.5707963267948966 rad
+      pos: -11.5,-6.5
+      parent: 2
+      type: Transform
+    - access:
+      - - External
+      type: AccessReader
+- proto: EkrixiBayAirlockMaintenance
+  entities:
+  - uid: 68
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 0.5,-8.5
+      parent: 2
+      type: Transform
+  - uid: 160
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 0.5,-2.5
+      parent: 2
+      type: Transform
+  - uid: 205
+    components:
+    - name: medbay
+      type: MetaData
+    - rot: -1.5707963267948966 rad
+      pos: 6.5,-5.5
+      parent: 2
+      type: Transform
+    - access:
+      - - Medical
+      type: AccessReader
+  - uid: 239
+    components:
+    - name: security closet
+      type: MetaData
+    - rot: 3.141592653589793 rad
+      pos: 6.5,4.5
+      parent: 2
+      type: Transform
+    - access:
+      - - Security
+      type: AccessReader
+  - uid: 240
+    components:
+    - name: bridge
+      type: MetaData
+    - rot: -1.5707963267948966 rad
+      pos: -0.5,3.5
+      parent: 2
+      type: Transform
+    - access:
+      - - Command
+      type: AccessReader
+  - uid: 241
+    components:
+    - name: captain's quarters
+      type: MetaData
+    - pos: 2.5,4.5
+      parent: 2
+      type: Transform
+    - access:
+      - - Captain
+      type: AccessReader
+  - uid: 247
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: -3.5,-5.5
+      parent: 2
+      type: Transform
+  - uid: 365
+    components:
+    - name: atmospherics
+      type: MetaData
+    - rot: -1.5707963267948966 rad
+      pos: -7.5,-12.5
+      parent: 2
+      type: Transform
+    - access:
+      - - Engineering
+      type: AccessReader
+  - uid: 719
+    components:
+    - name: engineering
+      type: MetaData
+    - rot: 3.141592653589793 rad
+      pos: -1.5,-10.5
+      parent: 2
+      type: Transform
+    - access:
+      - - Engineering
+      type: AccessReader
+  - uid: 869
+    components:
+    - name: maintenance hatch
+      type: MetaData
+    - rot: 3.141592653589793 rad
+      pos: -6.5,-10.5
+      parent: 2
+      type: Transform
+    - access:
+      - - Engineering
+      type: AccessReader
+  - uid: 870
+    components:
+    - name: engineering
+      type: MetaData
+    - rot: -1.5707963267948966 rad
+      pos: -1.5,-17.5
+      parent: 2
+      type: Transform
+    - access:
+      - - Engineering
+      type: AccessReader
+  - uid: 871
+    components:
+    - name: chemistry
+      type: MetaData
+    - rot: 3.141592653589793 rad
+      pos: 10.5,-1.5
+      parent: 2
+      type: Transform
+    - access:
+      - - Medical
+      type: AccessReader
+  - uid: 875
+    components:
+    - name: maintenance hatch
+      type: MetaData
+    - rot: 3.141592653589793 rad
+      pos: -7.5,-7.5
+      parent: 2
+      type: Transform
+    - access:
+      - - Engineering
+      type: AccessReader
+  - uid: 876
+    components:
+    - rot: -1.5707963267948966 rad
+      pos: 4.5,-5.5
+      parent: 2
+      type: Transform
+  - uid: 878
+    components:
+    - name: starboard gun control room
+      type: MetaData
+    - rot: -1.5707963267948966 rad
+      pos: 5.5,0.5
+      parent: 2
+      type: Transform
+    - access:
+      - - Security
+      type: AccessReader
+  - uid: 879
+    components:
+    - name: port gun control room
+      type: MetaData
+    - rot: -1.5707963267948966 rad
+      pos: -5.5,-2.5
+      parent: 2
+      type: Transform
+    - access:
+      - - Security
+      type: AccessReader
+  - uid: 880
+    components:
+    - name: armory
+      type: MetaData
+    - rot: 3.141592653589793 rad
+      pos: -5.5,3.5
+      parent: 2
+      type: Transform
+    - access:
+      - - Command
+      - - Security
+      type: AccessReader
+  - uid: 882
+    components:
+    - name: maintenance hatch
+      type: MetaData
+    - rot: -1.5707963267948966 rad
+      pos: 2.5,-15.5
+      parent: 2
+      type: Transform
+    - access:
+      - - Command
+      - - Engineering
+      type: AccessReader
+  - uid: 890
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 1.5,-10.5
+      parent: 2
+      type: Transform
+  - uid: 951
+    components:
+    - name: captain's quarters
+      type: MetaData
+    - rot: -1.5707963267948966 rad
+      pos: 0.5,7.5
+      parent: 2
+      type: Transform
+    - access:
+      - - Captain
+      type: AccessReader
+  - uid: 955
+    components:
+    - rot: 3.141592653589793 rad
+      pos: 6.5,-10.5
+      parent: 2
+      type: Transform
+  - uid: 1022
+    components:
+    - name: maintenance hatch
+      type: MetaData
+    - rot: 3.141592653589793 rad
+      pos: 9.5,-10.5
+      parent: 2
+      type: Transform
+    - access:
+      - - Engineering
+      type: AccessReader
 - proto: ExtinguisherCabinet
   entities:
   - uid: 1678
@@ -6324,7 +6409,7 @@ entities:
       pos: -10.5,-6.5
       parent: 2
       type: Transform
-    - secondsUntilStateChange: -13738.97
+    - secondsUntilStateChange: -14545.633
       state: Closing
       type: Door
   - uid: 1522
@@ -6535,6 +6620,13 @@ entities:
   - uid: 1154
     components:
     - pos: 6.5,-12.5
+      parent: 2
+      type: Transform
+- proto: FoodBoxDonut
+  entities:
+  - uid: 952
+    components:
+    - pos: 5.4373665,5.4930496
       parent: 2
       type: Transform
 - proto: FoodCondimentPacketHotsauce
@@ -8635,15 +8727,6 @@ entities:
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
-- proto: HighSecDoor
-  entities:
-  - uid: 1022
-    components:
-    - name: armory
-      type: MetaData
-    - pos: -5.5,3.5
-      parent: 2
-      type: Transform
 - proto: HydroponicsToolClippers
   entities:
   - uid: 1407
@@ -8772,85 +8855,6 @@ entities:
           occludes: True
           ent: null
       type: ContainerContainer
-- proto: LockerChiefEngineerFilledHardsuit
-  entities:
-  - uid: 1372
-    components:
-    - pos: -4.5,-10.5
-      parent: 2
-      type: Transform
-    - air:
-        volume: 200
-        immutable: False
-        temperature: 293.1497
-        moles:
-        - 1.8856695
-        - 7.0937095
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-      type: EntityStorage
-    - containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 240
-          - 1373
-          - 239
-          - 68
-          - 108
-          - 205
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-      type: ContainerContainer
-- proto: LockerChiefMedicalOfficerFilledHardsuit
-  entities:
-  - uid: 1087
-    components:
-    - pos: 9.5,-6.5
-      parent: 2
-      type: Transform
-    - air:
-        volume: 200
-        immutable: False
-        temperature: 293.1497
-        moles:
-        - 1.7459903
-        - 6.568249
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-      type: EntityStorage
-    - containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 241
-          - 1088
-          - 247
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-      type: ContainerContainer
 - proto: LockerElectricalSuppliesFilled
   entities:
   - uid: 1169
@@ -8860,6 +8864,11 @@ entities:
       type: Transform
 - proto: LockerEngineerFilledHardsuit
   entities:
+  - uid: 108
+    components:
+    - pos: -4.5,-10.5
+      parent: 2
+      type: Transform
   - uid: 1084
     components:
     - pos: -2.5,-12.5
@@ -8969,9 +8978,26 @@ entities:
           occludes: True
           ent: null
       type: ContainerContainer
-- proto: LockerHeadOfSecurityFilledHardsuit
+- proto: LockerMedicalFilled
   entities:
-  - uid: 1097
+  - uid: 874
+    components:
+    - pos: 9.5,-6.5
+      parent: 2
+      type: Transform
+  - uid: 1074
+    components:
+    - pos: 7.5,-6.5
+      parent: 2
+      type: Transform
+  - uid: 1086
+    components:
+    - pos: 8.5,-6.5
+      parent: 2
+      type: Transform
+- proto: LockerSecurityFilled
+  entities:
+  - uid: 881
     components:
     - pos: 8.5,5.5
       parent: 2
@@ -8979,7 +9005,7 @@ entities:
     - air:
         volume: 200
         immutable: False
-        temperature: 293.1497
+        temperature: 293.1496
         moles:
         - 1.7459903
         - 6.568249
@@ -8999,28 +9025,14 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 365
-          - 869
-          - 1098
+          - 1355
+          - 1354
+          - 1353
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
           ent: null
       type: ContainerContainer
-- proto: LockerMedicalFilled
-  entities:
-  - uid: 1074
-    components:
-    - pos: 7.5,-6.5
-      parent: 2
-      type: Transform
-  - uid: 1086
-    components:
-    - pos: 8.5,-6.5
-      parent: 2
-      type: Transform
-- proto: LockerSecurityFilled
-  entities:
   - uid: 907
     components:
     - pos: -4.5,-0.5
@@ -9523,15 +9535,22 @@ entities:
   entities:
   - uid: 1354
     components:
-    - rot: 1.5707963267948966 rad
-      pos: 5.637005,5.6333504
-      parent: 2
+    - flags: InContainer
+      type: MetaData
+    - parent: 881
       type: Transform
+    - canCollide: False
+      type: Physics
+    - type: InsideEntityStorage
   - uid: 1355
     components:
-    - pos: 5.3967533,5.6838923
-      parent: 2
+    - flags: InContainer
+      type: MetaData
+    - parent: 881
       type: Transform
+    - canCollide: False
+      type: Physics
+    - type: InsideEntityStorage
 - proto: Matchbox
   entities:
   - uid: 1163
@@ -9798,41 +9817,6 @@ entities:
     - canCollide: False
       type: Physics
     - type: InsideEntityStorage
-  - uid: 108
-    components:
-    - flags: InContainer
-      type: MetaData
-    - parent: 1372
-      type: Transform
-    - toggleActionEntity: 160
-      type: GasTank
-    - canCollide: False
-      type: Physics
-    - type: ActionsContainer
-    - containers:
-        actions: !type:Container
-          ents:
-          - 160
-      type: ContainerContainer
-    - type: InsideEntityStorage
-  - uid: 247
-    components:
-    - flags: InContainer
-      type: MetaData
-    - parent: 1087
-      type: Transform
-    - canCollide: False
-      type: Physics
-    - type: InsideEntityStorage
-  - uid: 365
-    components:
-    - flags: InContainer
-      type: MetaData
-    - parent: 1097
-      type: Transform
-    - canCollide: False
-      type: Physics
-    - type: InsideEntityStorage
   - uid: 877
     components:
     - flags: InContainer
@@ -9933,33 +9917,6 @@ entities:
     - flags: InContainer
       type: MetaData
     - parent: 1095
-      type: Transform
-    - canCollide: False
-      type: Physics
-    - type: InsideEntityStorage
-  - uid: 240
-    components:
-    - flags: InContainer
-      type: MetaData
-    - parent: 1372
-      type: Transform
-    - canCollide: False
-      type: Physics
-    - type: InsideEntityStorage
-  - uid: 241
-    components:
-    - flags: InContainer
-      type: MetaData
-    - parent: 1087
-      type: Transform
-    - canCollide: False
-      type: Physics
-    - type: InsideEntityStorage
-  - uid: 869
-    components:
-    - flags: InContainer
-      type: MetaData
-    - parent: 1097
       type: Transform
     - canCollide: False
       type: Physics
@@ -10894,37 +10851,6 @@ entities:
     - pos: -6.5,-15.5
       parent: 2
       type: Transform
-- proto: RCD
-  entities:
-  - uid: 239
-    components:
-    - flags: InContainer
-      type: MetaData
-    - parent: 1372
-      type: Transform
-    - canCollide: False
-      type: Physics
-    - type: InsideEntityStorage
-- proto: RCDAmmo
-  entities:
-  - uid: 68
-    components:
-    - flags: InContainer
-      type: MetaData
-    - parent: 1372
-      type: Transform
-    - canCollide: False
-      type: Physics
-    - type: InsideEntityStorage
-  - uid: 205
-    components:
-    - flags: InContainer
-      type: MetaData
-    - parent: 1372
-      type: Transform
-    - canCollide: False
-      type: Physics
-    - type: InsideEntityStorage
 - proto: ReinforcedPlasmaWindow
   entities:
   - uid: 943
@@ -11495,29 +11421,13 @@ entities:
     - pos: 2.5,6.5
       parent: 2
       type: Transform
-- proto: SpawnPointChiefEngineer
+- proto: SpawnPointMedicalDoctor
   entities:
-  - uid: 1569
-    components:
-    - pos: -4.5,-11.5
-      parent: 2
-      type: Transform
-- proto: SpawnPointChiefMedicalOfficer
-  entities:
-  - uid: 1568
+  - uid: 872
     components:
     - pos: 9.5,-5.5
       parent: 2
       type: Transform
-- proto: SpawnPointHeadOfSecurity
-  entities:
-  - uid: 1547
-    components:
-    - pos: 6.5,5.5
-      parent: 2
-      type: Transform
-- proto: SpawnPointMedicalDoctor
-  entities:
   - uid: 1567
     components:
     - pos: 7.5,-5.5
@@ -11532,6 +11442,11 @@ entities:
       type: Transform
 - proto: SpawnPointSecurityOfficer
   entities:
+  - uid: 1087
+    components:
+    - pos: 6.5,5.5
+      parent: 2
+      type: Transform
   - uid: 1574
     components:
     - pos: -5.5,-0.5
@@ -11551,6 +11466,11 @@ entities:
       type: Transform
 - proto: SpawnPointStationEngineer
   entities:
+  - uid: 50
+    components:
+    - pos: -4.5,-11.5
+      parent: 2
+      type: Transform
   - uid: 1572
     components:
     - pos: -3.5,-12.5
@@ -13638,9 +13558,13 @@ entities:
   entities:
   - uid: 1353
     components:
-    - pos: 5.5217533,5.5588923
-      parent: 2
+    - flags: InContainer
+      type: MetaData
+    - parent: 881
       type: Transform
+    - canCollide: False
+      type: Physics
+    - type: InsideEntityStorage
 - proto: WeaponTargetingPad
   entities:
   - uid: 1006
