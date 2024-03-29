@@ -10,8 +10,8 @@
     - Wall
   components:
   - type: ConstantDamage
-    probability: .45
-    checkFrequency: 30
+    probability: .65
+    checkFrequency: 15
     damage:
       types:
         Structural: 15
