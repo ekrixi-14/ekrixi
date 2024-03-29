@@ -310,7 +310,6 @@
         - id: CombatKnife
         - id: WeaponPistolViper
         - id: PinpointerNuclear
-        - id: HandheldHealthAnalyzer
         - id: CombatMedipen
         - id: MicroBombImplanter
         - id: SyndiHypo

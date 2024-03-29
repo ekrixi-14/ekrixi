@@ -142,10 +142,6 @@
     accentVColor: "#447987"
   - type: Icon
     state: pda-internmed
-  - type: HealthAnalyzer
-    scanDelay: 1
-    scanningEndSound:
-      path: "/Audio/Items/Medical/healthscanner.ogg"
   - type: GuideHelp
     guides:
     - Medical Doctor
