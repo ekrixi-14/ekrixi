@@ -1471,6 +1471,7 @@ entities:
     - id: Cestoda
       type: BecomesStation
     - type: WarpingShip
+    - type: ShipTracker
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 691
