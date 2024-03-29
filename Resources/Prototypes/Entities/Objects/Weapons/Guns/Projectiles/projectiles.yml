@@ -61,6 +61,8 @@
     damage:
       types:
         Piercing: 14
+      wounds:
+        WoundGunshot: 1
     soundHit:
       path: /Audio/Weapons/Guns/Hits/bullet_hit.ogg
   - type: TimedDespawn

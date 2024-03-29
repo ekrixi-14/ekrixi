@@ -1,0 +1,63 @@
+- type: entity
+  id: WoundGunshot
+  name: gunshot
+  components:
+  - type: Wound
+    woundExamineMessage: health-examinable-gunshot-wound
+    paths:
+    # Process: Incision -> Retract skin -> Saw -> Clamp bleeders -> Remove bullet -> Seal
+    - !type:ToolTreatmentPath
+      quality: Slicing
+      beginMessage: popup-wound-incision-began
+      length: 8
+    - !type:ToolTreatmentPath
+      quality: Cutting
+      beginMessage: popup-wound-retractor-began
+      length: 4
+    - !type:ToolTreatmentPath
+      quality: Cutting
+      beginMessage: popup-wound-clamping-began
+      length: 4
+    - !type:ToolTreatmentPath
+      quality: Cutting
+      beginMessage: popup-wound-bullet-removal-began
+      length: 16
+    - !type:ToolTreatmentPath
+      quality: Welding
+      beginMessage: popup-wound-seal-began
+      length: 8
+    damage:
+      types:
+        Pierce: 35
+
+- type: entity
+  id: WoundSevereGunshot
+  name: severe gunshot # 20mm +
+  components:
+  - type: Wound
+    woundExamineMessage: health-examinable-gunshot-wound
+    paths:
+    # Process: Incision -> Retract skin -> Saw -> Clamp bleeders -> Remove bullet -> Seal
+    - !type:ToolTreatmentPath
+      quality: Slicing
+      beginMessage: popup-wound-incision-began
+      length: 16
+    - !type:ToolTreatmentPath
+      quality: Cutting
+      beginMessage: popup-wound-retractor-began
+      length: 8
+    - !type:ToolTreatmentPath
+      quality: Cutting
+      beginMessage: popup-wound-clamping-began
+      length: 8
+    - !type:ToolTreatmentPath
+      quality: Cutting
+      beginMessage: popup-wound-bullet-removal-began
+      length: 32
+    - !type:ToolTreatmentPath
+      quality: Welding
+      beginMessage: popup-wound-seal-began
+      length: 16
+    damage:
+      types:
+        Pierce: 65
