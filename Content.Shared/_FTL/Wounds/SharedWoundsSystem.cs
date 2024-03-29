@@ -88,6 +88,15 @@ public sealed class SharedWoundsSystem : EntitySystem
     {
         var damage = new DamageSpecifier();
 
+        if (component == null)
+            return damage;
+
+        if (component.Wounds == null)
+            return damage;
+
+        if (component.Wounds.ContainedEntities == null)
+            return damage;
+
         foreach (var entity in component.Wounds.ContainedEntities)
         {
             var wound = EnsureComp<WoundComponent>(entity);
