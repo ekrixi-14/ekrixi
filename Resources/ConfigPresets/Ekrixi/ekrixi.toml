@@ -41,6 +41,7 @@ enable_during_round     = true
 flavor_text             = true
 punctuation             = true
 restricted_names        = false
+name_case               = false
 
 [ftlpoints]
 generate_roundstart     = true
