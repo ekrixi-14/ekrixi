@@ -18,6 +18,9 @@ public sealed class GenerateNewSectorTickSystem : StarmapTickSystem<GenerateNewS
     {
         base.Ticked(uid, component, frameTime);
 
+        if (component.Generated)
+            return;
+
         var stations = _stationSystem.GetStations();
         if (stations.Count <= 0)
             return;
@@ -32,8 +35,11 @@ public sealed class GenerateNewSectorTickSystem : StarmapTickSystem<GenerateNewS
             if (!mainStation.HasValue)
                 return;
 
-            if (_mapManager.GetMapEntityId(Transform(mainStation.Value).MapID) == uid)
-                _ftlPoints.GenerateSector(25, Transform(uid).MapID, true, true);
+            if (_mapManager.GetMapEntityId(Transform(mainStation.Value).MapID) != uid)
+                return;
+
+            _ftlPoints.GenerateSector(25, Transform(uid).MapID, true, true);
+            component.Generated = true;
         });
 
         Log.Debug("Tried to generate new sectors");

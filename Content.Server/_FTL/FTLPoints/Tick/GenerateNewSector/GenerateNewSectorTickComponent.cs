@@ -8,5 +8,5 @@ namespace Content.Server._FTL.FTLPoints.Tick.GenerateNewSector;
 [RegisterComponent]
 public sealed partial class GenerateNewSectorTickComponent : Component
 {
-
+    public bool Generated = false;
 }
