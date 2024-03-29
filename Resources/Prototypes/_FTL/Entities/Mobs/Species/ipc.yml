@@ -26,7 +26,7 @@
           Heat: 0.25
     - type: Temperature
       heatDamageThreshold: 452.875 # melting point of iron 1/4th, cause fuck physics you know
-      coldDamageThreshold: 283.15 # 10c aka "cold" causes condensation/freezing and as such shorting 
+      coldDamageThreshold: 283.15 # 10c aka "cold" causes condensation/freezing and as such shorting
       currentTemperature: 313.15
       specificHeat: 46
       coldDamage:
@@ -72,7 +72,6 @@
         path: /Audio/_FTL/Voice/IPC/wilhelm.ogg
       wilhelmProbability: 0.001
     - type: Inventory
-      templateId: ipc
 
 - type: entity
   name: Urist McIPC
@@ -82,6 +81,5 @@
   save: false
   components:
     - type: Inventory
-      templateId: ipc
     - type: HumanoidAppearance
       species: IPC
