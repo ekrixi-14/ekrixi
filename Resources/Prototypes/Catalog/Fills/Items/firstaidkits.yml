@@ -6,7 +6,6 @@
   components:
   - type: StorageFill
     contents:
-      - id: HandheldHealthAnalyzer
       - id: Brutepack
         amount: 2
       - id: Ointment
@@ -116,7 +115,6 @@
   components:
   - type: StorageFill
     contents:
-      - id: HandheldHealthAnalyzer
       - id: MedicatedSuture
       - id: RegenerativeMesh
       - id: SyringeEphedrine

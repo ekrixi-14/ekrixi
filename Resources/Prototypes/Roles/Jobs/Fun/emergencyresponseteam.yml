@@ -204,7 +204,6 @@
     id: ERTLeaderPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltMedicalFilled
-    pocket1: HandheldHealthAnalyzer
     pocket2: Flare
 
 - type: startingGear
@@ -221,7 +220,6 @@
     id: ERTLeaderPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltMedicalFilled
-    pocket1: HandheldHealthAnalyzer
     pocket2: Flare
 
 # Janitor
