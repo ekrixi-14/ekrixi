@@ -66,11 +66,11 @@
       - wound: WoundFracture
         damageType: Blunt
         probability: 1
-        threshold: 65
+        threshold: 45
       - wound: WoundPuncture
         damageType: Pierce
         probability: 1
-        threshold: 50
+        threshold: 35
   - type: ConstantDamage
     probability: .5
     checkFrequency: 60
