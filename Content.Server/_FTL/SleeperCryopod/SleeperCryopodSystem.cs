@@ -11,12 +11,14 @@ using Content.Shared.Destructible;
 using Content.Shared.DragDrop;
 using Content.Shared.Examine;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Players;
 using Content.Shared.Roles.Jobs;
 using Content.Shared.StatusEffect;
 using Content.Shared.Verbs;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
+using Robust.Shared.Player;
 using Robust.Shared.Random;
 
 namespace Content.Server._FTL.SleeperCryopod;
