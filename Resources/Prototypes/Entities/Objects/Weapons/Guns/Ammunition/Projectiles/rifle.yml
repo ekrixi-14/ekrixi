@@ -8,6 +8,8 @@
     damage:
       types:
         Piercing: 17
+      wounds:
+        WoundGunshot: 1
 
 - type: entity
   id: BulletRiflePractice
@@ -42,4 +44,4 @@
       types:
         Blunt: 2
         Heat: 15
-        
+

@@ -68,7 +68,7 @@
         probability: 1
         threshold: 45
       - wound: WoundPuncture
-        damageType: Pierce
+        damageType: Piercing
         probability: 1
         threshold: 35
   - type: ConstantDamage

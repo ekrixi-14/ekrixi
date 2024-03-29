@@ -11,6 +11,8 @@
     damage:
       types:
         Piercing: 8  # Should have the same or less damage than a regular pellet
+      wounds:
+        WoundGunshot: 1
 
 - type: entity
   id: PelletShotgunBeanbag
@@ -25,6 +27,8 @@
     damage:
       types:
         Blunt: 10
+      wounds:
+        WoundGunshot: 1
   - type: StaminaDamageOnCollide
     damage: 55 # 2 hits to stun
 
@@ -41,6 +45,8 @@
     damage:
       types:
         Piercing: 12
+      wounds:
+        WoundGunshot: 1
 
 - type: entity
   id: PelletShotgunIncendiary
@@ -75,7 +81,7 @@
   id: PelletShotgunImprovised
   name: improvised pellet
   noSpawn: true
-  parent: BaseBullet 
+  parent: BaseBullet
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
@@ -85,6 +91,8 @@
       types:
         Piercing: 3
         Slash: 3 #remember, it's metal shrapnel!
+      wounds:
+        WoundGunshot: 1
 
 - type: entity
   id: PelletShotgunTranquilizer

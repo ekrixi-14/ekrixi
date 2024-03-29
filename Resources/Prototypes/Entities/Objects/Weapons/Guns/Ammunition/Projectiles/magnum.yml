@@ -8,6 +8,8 @@
     damage:
       types:
         Piercing: 35
+      wounds:
+        WoundGunshot: 1
 
 - type: entity
   id: BulletMagnumPractice
@@ -44,7 +46,7 @@
       types:
         Blunt: 3
         Heat: 32
-        
+
 - type: entity
   id: BulletMagnumAP
   name: bullet (.45 magnum armor-piercing)
@@ -55,4 +57,6 @@
     damage:
       types:
         Piercing: 26 # 20% decrease
+      wounds:
+        WoundGunshot: 1
     ignoreResistances: true

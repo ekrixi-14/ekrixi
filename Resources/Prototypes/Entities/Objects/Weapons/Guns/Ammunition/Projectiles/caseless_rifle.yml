@@ -8,6 +8,8 @@
     damage:
       types:
         Piercing: 19
+      wounds:
+        WoundGunshot: 1
 
 - type: entity
   id: BulletCaselessRiflePractice
