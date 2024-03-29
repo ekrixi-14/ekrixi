@@ -15,13 +15,8 @@
           availableJobs:
             Captain: [ 1, 1 ] # Command
             Pilot: [ 1, 1 ]
-            ChiefMedicalOfficer: [ 1, 1 ]
-            HeadOfSecurity: [ 1, 1 ]
-            ChiefEngineer: [ 1, 1 ]
             SecurityOfficer: [ 3, 3 ] # Security
-            CargoTechnician: [ 2, 2 ]
             StationEngineer: [ 2, 2 ] # Engi
             MedicalDoctor: [ 3, 3 ] # Medical
-            SeniorPhysician: [ 1, 1 ]
             Passenger: [ -1, -1 ] # Everyone else
             # SalvageSpecialist: [ 2, 2 ] # One day
