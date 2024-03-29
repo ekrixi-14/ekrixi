@@ -3,6 +3,7 @@ using System.Numerics;
 using Content.Server._FTL.FTLPoints.Components;
 using Content.Server._FTL.FTLPoints.Effects;
 using Content.Server._FTL.FTLPoints.Prototypes;
+using Content.Server.Popups;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
 using Content.Server.UserInterface;
@@ -36,6 +37,7 @@ public sealed partial class FtlPointsSystem : SharedFtlPointsSystem
     [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
     [Dependency] private readonly ShuttleSystem _shuttleSystem = default!;
     [Dependency] private readonly ISerializationManager _serializationManager = default!;
+    [Dependency] private readonly PopupSystem _popupSystem = default!;
 
     public override void Initialize()
     {

@@ -161,5 +161,6 @@ public sealed partial class FtlPointsSystem
         var warpingShipComponent = EnsureComp<WarpingShipComponent>(grid.Value);
 
         warpingShipComponent.TargetMap = args.Star.Map;
+        _popupSystem.PopupEntity(Loc.GetString("popup-console-selected"), uid);
     }
 }

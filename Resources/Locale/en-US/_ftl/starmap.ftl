@@ -11,6 +11,10 @@ ship-inbound-message = Alert! Sensor array output have detected {$amount ->
       *[false] No hostile activity detected.
     } Automatically elevating to Blue alert.
 
+popup-console-selected = Destination selected.
+popup-drive-charging = Started charging drive.
+popup-drive-not-charging = Stopped charging drive.
+
 ship-ftl-tag-star = STAR
 ship-ftl-tag-base = BASE
 ship-ftl-tag-planet = PLNT

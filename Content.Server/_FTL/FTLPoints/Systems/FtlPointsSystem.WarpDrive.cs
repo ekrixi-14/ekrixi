@@ -39,6 +39,7 @@ public sealed partial class FtlPointsSystem
             return;
 
         component.Charging = !component.Charging;
+        _popupSystem.PopupEntity(Loc.GetString(component.Charging ? "popup-drive-charging" : "popup-drive-not-charging"), uid);
     }
 
     private void DriveUpdate(float frameTime)
