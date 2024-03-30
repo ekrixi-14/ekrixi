@@ -3,15 +3,9 @@
   name: guide-entry-security
   text: "/ServerInfo/Guidebook/Security/Security.xml"
   children:
-    - DNA
     - Defusal
     - GunsAndYou
     - Law
-
-- type: guideEntry
-  id: DNA
-  name: guide-entry-dna
-  text: "/ServerInfo/Guidebook/Security/DNA.xml"
 
 - type: guideEntry
   id: Defusal
