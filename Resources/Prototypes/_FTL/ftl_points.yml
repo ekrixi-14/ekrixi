@@ -118,7 +118,7 @@
 - type: weightedRandom
   id: FTLPoints
   weights:
-    LoDangerPoint: 7
-    HiDangerPoint: 3
-    StarPoint: 1
-    RuinPoint: 0.15
+    LoDangerPoint: 3
+    HiDangerPoint: 5
+    StarPoint: 3
+    RuinPoint: 1
