@@ -9,7 +9,6 @@
       state: airalarm_electronics
     - type: Tag
       tags:
-        - DroneUsable
         - WeaponPadElectronics
     - type: StaticPrice
       price: 1500 # these should be super rare
