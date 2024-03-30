@@ -127,8 +127,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Robust.Serialization.Genera
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Content.PatreonParser", "Content.PatreonParser\Content.PatreonParser.csproj", "{D97D8258-D915-4D1D-B1E3-1A8D00CF9EB5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Content.ServerSecret", "Content.ServerSecret\Content.ServerSecret.csproj", "{1A54B8D0-7ED1-4FC7-8629-0CEC8E5AB4DF}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Robust.Analyzers.Tests", "RobustToolbox\Robust.Analyzers.Tests\Robust.Analyzers.Tests.csproj", "{83F510FE-9B50-4D96-AFAB-CC13998D6AFE}"
 EndProject
 Global
