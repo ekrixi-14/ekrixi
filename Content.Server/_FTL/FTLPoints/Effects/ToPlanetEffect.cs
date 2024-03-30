@@ -41,17 +41,17 @@ public sealed partial class ToPlanetEffect : FtlPointEffect
         var biomeSystem = args.EntityManager.System<BiomeSystem>();
         MetaDataComponent? metadata = null;
 
-        biomeSystem.SetSeed(biome, random.Next());
-        biomeSystem.SetTemplate(biome, biomeTemplate);
-        args.EntityManager.Dirty(biome);
+        biomeSystem.SetSeed(args.MapUid, biome, random.Next());
+        biomeSystem.SetTemplate(args.MapUid, biome, biomeTemplate);
+        args.EntityManager.Dirty(args.MapUid, biome);
 
         var gravity = args.EntityManager.EnsureComponent<GravityComponent>(args.MapUid);
         gravity.Enabled = true;
-        args.EntityManager.Dirty(gravity, metadata);
+        args.EntityManager.Dirty(args.MapUid, gravity, metadata);
 
         var light = args.EntityManager.EnsureComponent<MapLightComponent>(args.MapUid);
         light.AmbientLightColor = Color.FromHex("#" + random.Pick(LightingColors));
-        args.EntityManager.Dirty(light, metadata);
+        args.EntityManager.Dirty(args.MapUid, light, metadata);
 
         // Atmos
         var atmos = args.EntityManager.EnsureComponent<MapAtmosphereComponent>(args.MapUid);

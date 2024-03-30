@@ -5,6 +5,7 @@ using Content.Server._FTL.FTLPoints.Components;
 using Content.Server.Shuttles.Components;
 using Content.Server.UserInterface;
 using Content.Shared._FTL.FtlPoints;
+using Content.Shared.UserInterface;
 using JetBrains.Annotations;
 using Robust.Server.GameStates;
 using Robust.Shared.Map;
