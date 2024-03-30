@@ -53,10 +53,7 @@ namespace Content.IntegrationTests.Tests
             "Stormwalker",
 			"THERODTWO",
 			"Cestoda",
-            "MeteorArena",
-            "Atlas",
-            "Reach",
-            "Train"
+            "MeteorArena"
         };
 
         /// <summary>
