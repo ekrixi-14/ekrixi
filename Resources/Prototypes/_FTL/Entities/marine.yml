@@ -9,9 +9,7 @@
     - type: Clothing
       sprite: Clothing/Belt/militarywebbingmed.rsi
     - type: Item
-      size: 70
-    - type: Storage
-      capacity: 70
+      size: Large
     - type: StorageFill
       contents:
         - id: EnergySword

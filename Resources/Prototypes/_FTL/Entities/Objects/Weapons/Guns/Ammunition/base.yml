@@ -33,7 +33,7 @@
   description: A missile designed to be fired by missile launchers.
   components:
     - type: Item
-      size: 999
+      size: Ginormous
     - type: MultiHandedItem
     - type: Sprite
       sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
