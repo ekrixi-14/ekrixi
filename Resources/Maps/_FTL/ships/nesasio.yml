@@ -34,7 +34,7 @@ entities:
     - type: LoadedMap
   - uid: 2
     components:
-    - name: FSC Nesasio-Class Stealth Bomber
+    - name: Nesasio-Class Stealth Bomber
       type: MetaData
     - pos: -0.484375,-0.453125
       parent: 1
@@ -8425,7 +8425,7 @@ entities:
       parent: 2
       type: Transform
     - content: >-
-        FSC Designer proposition: The Nesasio
+        Designer Proposition: The Nesasio
 
         A smaller, more efficient alternative to the current standard combat bomber the Uroglaux.
 

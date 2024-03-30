@@ -18093,32 +18093,20 @@ entities:
       parent: 2
       type: Transform
     - content: >+
-        [head=1]CoreGov[/head]
+        [head=1]%%%%%%%%%%%%[/head]
 
-
-        [head=2]Priority Fax[/head]       00:02:59 31.12.2502
+        [head=2]Priority Fax[/head]       00:02:59 31.12.%%%%
 
         -------------------------------------------
-
-
         [color=red][bold]CAPTAIN'S EYES ONLY[/bold]
 
-        Reading beyond this point will make you liable for demotion.[/color]
+        Reading beyond this point will make you liable for %%%%%%%%%%.[/color]
+        Greetings, Captain %%%%%%%% Ferrier.
 
-
-        Greetings, Captain Jeronim Ferrier.
-
-
-        As of 30.12.2502, Core Governement has issued an order to cease all intake of prisoners. Your ship is no longer needed.
-
-
-        Your new immediate orders are to warp for the nearest CoreGov-affiliate station, where you and your crew shall be transfered to a new vessel.
-
-
-        You are to execute and disposee of all currently held prisoners before your arrival.
-
-
-        Glory to the Core Government.
+        As of 30.12.%%%%, %%%%%%%%% has issued an order to cease all intake of prisoners. Your ship is no longer needed.
+        Your new immediate orders are to warp for the nearest %%%%%%%%-affiliate station, where you and your crew shall be transferred to a new vessel.
+        You are to execute and dispose of all currently held prisoners before your arrival.
+        Glory to %%%%%%%%%%%%%%%%%.
 
       type: Paper
   - uid: 4610

@@ -1,7 +1,7 @@
 - type: gameMap
   id: THERODTWO
   mapName: 'THERODTWO'
-  mapPath: /Maps/_FTL/coregov/therodtwo.yml
+  mapPath: /Maps/_FTL/ships/therodtwo.yml
   minPlayers: 8
   maxPlayers: 26
   stations:

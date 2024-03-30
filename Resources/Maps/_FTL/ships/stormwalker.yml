@@ -44,7 +44,7 @@ entities:
     - type: LoadedMap
   - uid: 2
     components:
-    - name: ACKs Stormwalker-Class Cruiser
+    - name: Stormwalker-Class Cruiser
       type: MetaData
     - pos: -0.5,-0.49998474
       parent: 1
@@ -9677,7 +9677,7 @@ entities:
       parent: 2
       type: Transform
     - content: >-
-        Intercepted ACKs Communications.
+        Intercepted Communications.
 
         Unencrypted, location traced.
 
@@ -9771,12 +9771,12 @@ entities:
       parent: 2
       type: Transform
     - content: >-
-        ACKs Designer proposition: The Stormwalker
+        Designer Proposition: The Stormwalker
 
 
         A large, dense ship with heavy frontal plating for weathering any and all damage head on. Intended for use in asteroid fields, though it could certainly prove useful in general combat provided the enemy doesn't flank the cruiser and attack the relatively unarmored back.
 
-        The ship comes with a full sized gravity generator, along with plenty of systems to keep the crew operating, including standard long term use contents (Medical bay, engineering room, bar, armory, cryopods.), but also various additional sections (Janitorial room, EVA storage, Tool storage, dedicated atmospherics room, dedicated ammunition storage). This ship will be very large and costly to produce, but if several were made it could prove to be an integral component in the ACKs fleet.
+        The ship comes with a full sized gravity generator, along with plenty of systems to keep the crew operating, including standard long term use contents (Medical bay, engineering room, bar, armory, cryopods.), but also various additional sections (Janitorial room, EVA storage, Tool storage, dedicated atmospherics room, dedicated ammunition storage). This ship will be very large and costly to produce, but if several were made it could prove to be an integral component in the %%%%Ruby%%%%%%%% fleet.
       type: Paper
 - proto: Pen
   entities:
