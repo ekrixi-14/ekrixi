@@ -2495,7 +2495,7 @@ entities:
       maxCharge: 8E+12
     - type: PowerNetworkBattery
       maxChargeRate: 5E+09
-- proto: SpawnPointChiefEngineer
+- proto: SpawnPointCaptain
   entities:
   - uid: 145
     components:
