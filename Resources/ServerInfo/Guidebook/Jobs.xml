@@ -1,51 +1,41 @@
 ﻿<Document>
-  # Jobs
+# Jobs
 
-  Ekrixi has a few main jobs compared to upstream, here are the departments in the order of highest and lowest in chain of command. Read the following if you do not understand the concept of CoC.
+SS14 has a large number of jobs, divided into seven major departments:
 
-  ## Chain of Command
-  A disorganized crew is worse than no crew, order must be placed - hence Chain of Command. This chain of command is essentially who orders who. The high ranking individuals can order the ones below them, and same goes for them.
+## Service
+This department includes the janitor, passengers, clown, mime, musician, chef, bartender, the head of personnel, and other jobs who exist to serve the station.
 
-  All departments report to Command and the officers in them. Otherwise, all departments are equally the same. However, in the event that a captain did not awaken from cryosleep - the departments have been sorted from "most likely to be captain" to "least likely to be captain".
+It primarily functions as folks who entertain, clean, and serve the rest of the crew, with the exception of passengers who have no particular job beyond getting lost in maintenance.
 
-  ## Command
-  Command consists of the captain, the head of security, the chief medical officer, and the pilot. The objective of command is simple, to lead and set an example for the ship and it's crew. The heads of each department manage their own crewmembers and must make rational decisions to escape tough or sticky situations. All command roles are expected to do their task of delegating tasks and ordering around their crew while setting a good example for their own and other departments (excluding the Pilot).
-  Chain of Command and Objective:
-  - Captain: Handle paychecks and order your subordinates.
-  - Pilot: Fly the ship and listen to the Captain.
-  - Head of Security: Handle your department.
-  - Chief Medical Officer: Handle your department.
+## Cargo
+Cargo consists of the cargo technicians, salvage technicians, and the quartermaster. As a department, it responsible resource distribution and trade, capable of buying and selling things on the galactic market.
 
-  ## Security
-  Security consists of the security officers, warden, and the head of security. Security's objective is to ensure the safety of the ship via attacking, detaining or obliterating anything that poses a threat to the ship. Directed by the Head of Security, security officers must fire upon enemy ships with naval weapons provided by ordnance technicians, and must protect the ship from boarders, locals on planets, or even the crew itself.
+For the most part, this means they scrounge around the station and assorted wrecks to find materials to sell and redistribute, and purchase materials other departments request.
 
-  As a result of this, and the need to walk a fine line, security sometimes is overwhelmed by angry crew (don't kill the clown), and it is important for it's members to try and stay on their best behavior.
+## Security
+Security consists of the security cadets, lawyers, detective, security officers, warden, and the head of security. As a department it is responsible for dealing with troublemakers and non-humanoid threats like giant rats and carp.
 
-  Chain of Command and Objective:
-  - Head of Security: Handle your department.
-  - Ship Mercenary: Shoot guns, arrest bad guys.
-  - Ordnance Technician: Load missiles, shoot guns.
+As a result of this, and the need to walk a fine line, security sometimes is overwhelmed by angry crew (don't kill the clown), and it is important for its members to try and stay on their best behavior.
 
-  ## Engineering
-  Engineering consists of technical assistants, station engineers, atmospheric technicians, and the chief engineer. As a department it is responsible for keeping the station powered, its structure intact and its air supply working. Engineering's objective is to ensure the safety of the ship via maintaining the core systems of the ship. Not directed by anyone mainly, it is a high maintenance job requiring ship engineers to enter hazardous areas to maintain it's hospitality for life, repair broken down consoles or such more, and salvaging what is now ours.
+## Medical
+Medical consists of the medical interns, chemists, medical doctors, and the chief medical officer. As a department it is responsible for taking care of the crew, treat and/or clone the wounded and dead, treat disease, and prevent everyone from dying a horrible, bloody death in a closet somewhere.
 
-  Engineering is readily equipped to go safely into space, and as such they should always attempt to repair uninhabitable parts of the station.
+Medical is one of the more well-equipped departments, with the ability to locate injured crew using the crew monitor, a nigh infinite supply of chems should chemistry be on-par, and the ability to rapidly diagnose and vaccinate contagious diseases.
 
-  Chain of Command and Objective:
-  - Engineers: Fix holes in the hull.
+## Science
+Science consists of research assistants, scientists, and the research director. As a department it is responsible for researching technologies and artifacts, upgrading machines, and printing new and useful devices.
 
-  ## Medical
-  Medical consists of the medical doctors, and the chief medical officer. As a department it is responsible for taking care of the crew, treat and/or clone the wounded and dead, treat disease, and prevent everyone from dying a horrible, bloody death in a closet somewhere. Medical's objective is to ensure the safety of the ship via treating injured crewmembers. Directed by the Chief Medical Officer, medical doctors must delegate tasks from creating useful chemicals from the raw chemicals they have, reviving dead crewmates, treating alive ones, or searching and rescuing lost dead or injured crewmates outside of the ship (known as "paramedic duty" or SR duty).
+Scientists should seek out new artifacts to study, as well as solicit departments to help upgrade their machines.
 
-  Medical is one of the more well-equipped departments, with the ability to locate injured crew using the crew monitor, a nigh infinite supply of chems should chemistry be on-par, and the ability to rapidly diagnose and vaccinate contagious diseases.
+## Engineering
+Engineering consists of technical assistants, station engineers, atmospheric technicians, and the chief engineer. As a department it is responsible for keeping the station powered, its structure intact and its air supply working.
 
-  Chain of Command and Objective:
-  - Chief Medical Officer: Handle your department.
-  - Medical Doctors: Treat and save as many as you can.
+Engineering is readily equipped to go safely into space, and as such they should always attempt to repair uninhabitable parts of the station.
 
-  ## Civilian
-  Civilian roles consist of jobs such as the deckhand, a multiuse job that essentially functions as an assistant. You may order them to perform engineering tasks or other such.
-  Chain of Command and Objective:
-  - Deckhand: Listen to everyone. Do cargo work.
+## Command
+Command consists of the captain, the head of personnel, the head of security, the chief engineer, the chief medical officer, the research director, and the quartermaster. As a department it is responsible for keeping the station and its departments running efficiently.
+
+Command members should always be relatively competent in their respective departments and attempt to delegate responsibility and direct work.
 
 </Document>

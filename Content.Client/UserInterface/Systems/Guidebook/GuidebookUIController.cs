@@ -140,12 +140,13 @@ public sealed class GuidebookUIController : UIController, IOnStateEntered<LobbyS
 
         if (_guideWindow.IsOpen && !forceOpen)
         {
+            UIManager.ClickSound();
             _guideWindow.Close();
             return;
         }
 
         if (GuidebookButton != null)
-            GuidebookButton.Pressed = !_guideWindow.IsOpen;
+            GuidebookButton.SetClickPressed(!_guideWindow.IsOpen);
 
         if (guides == null)
         {

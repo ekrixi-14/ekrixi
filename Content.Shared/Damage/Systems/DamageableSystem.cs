@@ -1,8 +1,10 @@
 using System.Linq;
 using Content.Shared._FTL.Wounds;
+using Content.Shared.Administration.Logs;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
 using Content.Shared.Inventory;
+using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Radiation.Events;
@@ -26,6 +28,7 @@ namespace Content.Shared.Damage
 
         private EntityQuery<AppearanceComponent> _appearanceQuery;
         private EntityQuery<DamageableComponent> _damageableQuery;
+        private EntityQuery<MindContainerComponent> _mindContainerQuery;
 
         public override void Initialize()
         {
@@ -37,6 +40,7 @@ namespace Content.Shared.Damage
 
             _appearanceQuery = GetEntityQuery<AppearanceComponent>();
             _damageableQuery = GetEntityQuery<DamageableComponent>();
+            _mindContainerQuery = GetEntityQuery<MindContainerComponent>();
         }
 
         /// <summary>
@@ -271,7 +275,7 @@ namespace Content.Shared.Damage
                 damage.DamageDict.Add(typeId, damageValue);
             }
 
-            TryChangeDamage(uid, damage);
+            TryChangeDamage(uid, damage, interruptsDoAfters: false);
         }
 
         private void OnRejuvenate(EntityUid uid, DamageableComponent component, RejuvenateEvent args)

@@ -234,7 +234,10 @@ public abstract partial class SharedGunSystem
                 {
                     foreach (var (ent, _) in relayedArgs.Ammo)
                     {
-                        Del(ent!.Value);
+                        if (!IsClientSide(ent!.Value))
+                            continue;
+
+                        Del(ent.Value);
                     }
                 }
             }
@@ -267,16 +270,20 @@ public abstract partial class SharedGunSystem
         var (count, _) = GetChamberMagazineCountCapacity(uid, component);
         string boltState;
 
-        if (component.BoltClosed != null)
+        using (args.PushGroup(nameof(ChamberMagazineAmmoProviderComponent)))
         {
-            if (component.BoltClosed == true)
-                boltState = Loc.GetString("gun-chamber-bolt-open-state");
-            else
-                boltState = Loc.GetString("gun-chamber-bolt-closed-state");
-            args.PushMarkup(Loc.GetString("gun-chamber-bolt", ("bolt", boltState), ("color", component.BoltClosed.Value ? Color.FromHex("#94e1f2") : Color.FromHex("#f29d94"))));
-        }
+            if (component.BoltClosed != null)
+            {
+                if (component.BoltClosed == true)
+                    boltState = Loc.GetString("gun-chamber-bolt-open-state");
+                else
+                    boltState = Loc.GetString("gun-chamber-bolt-closed-state");
+                args.PushMarkup(Loc.GetString("gun-chamber-bolt", ("bolt", boltState),
+                    ("color", component.BoltClosed.Value ? Color.FromHex("#94e1f2") : Color.FromHex("#f29d94"))));
+            }
 
-        args.PushMarkup(Loc.GetString("gun-magazine-examine", ("color", AmmoExamineColor), ("count", count)));
+            args.PushMarkup(Loc.GetString("gun-magazine-examine", ("color", AmmoExamineColor), ("count", count)));
+        }
     }
 
     private bool TryTakeChamberEntity(EntityUid uid, [NotNullWhen(true)] out EntityUid? entity)
@@ -292,7 +299,7 @@ public abstract partial class SharedGunSystem
         if (entity == null)
             return false;
 
-        container.Remove(entity.Value);
+        Containers.Remove(entity.Value, container);
         return true;
     }
 
@@ -318,7 +325,7 @@ public abstract partial class SharedGunSystem
     {
         return Containers.TryGetContainer(uid, ChamberSlot, out var container) &&
                container is ContainerSlot slot &&
-               slot.Insert(ammo);
+               Containers.Insert(ammo, slot);
     }
 
     private void OnChamberAmmoCount(EntityUid uid, ChamberMagazineAmmoProviderComponent component, ref GetAmmoCountEvent args)

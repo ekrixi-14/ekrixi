@@ -5,12 +5,17 @@
   description: You gotta have money.
   components:
   - type: Credit
+  - type: Cash
   - type: Currency
     price:
       Credits: 1
   - type: Tag
     tags:
       - Credit
+  - type: Item
+    shape:
+    - 0,0,1,0
+    storedOffset: 0,-2
   - type: Material
   - type: PhysicalComposition
     materialComposition:
@@ -137,6 +142,28 @@
     state: cash_1000
   - type: Stack
     count: 10000
+
+- type: entity
+  parent: SpaceCash
+  id: SpaceCash20000
+  suffix: 20000
+  components:
+  - type: Icon
+    sprite: Objects/Economy/cash.rsi
+    state: cash_1000
+  - type: Stack
+    count: 20000
+
+- type: entity
+  parent: SpaceCash
+  id: SpaceCash30000
+  suffix: 30000
+  components:
+  - type: Icon
+    sprite: Objects/Economy/cash.rsi
+    state: cash_1000
+  - type: Stack
+    count: 30000
 
 - type: entity
   parent: SpaceCash
