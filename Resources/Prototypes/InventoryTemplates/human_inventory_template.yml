@@ -12,16 +12,9 @@
       slotTexture: uniform
       slotFlags: INNERCLOTHING
       stripTime: 6
-      uiWindowPos: 0,1
+      uiWindowPos: 0,2
       strippingWindowPos: 0,2
       displayName: Shirt
-    - name: lowerClothing
-      slotTexture: uniform
-      slotFlags: LOWERCLOTHING
-      stripTime: 6
-      uiWindowPos: 0,3
-      strippingWindowPos: 0,3
-      displayName: Pants
     - name: outerClothing
       slotTexture: suit
       slotFlags: OUTERCLOTHING
@@ -38,7 +31,7 @@
     - name: neck
       slotTexture: neck
       slotFlags: NECK
-      uiWindowPos: 0,2
+      uiWindowPos: 2,0
       strippingWindowPos: 0,1
       displayName: Neck
     - name: mask
@@ -122,3 +115,10 @@
       uiWindowPos: 3,0
       strippingWindowPos: 0,5
       displayName: Back
+    - name: lowerClothing
+      slotTexture: uniform
+      slotFlags: LOWERCLOTHING
+      stripTime: 6
+      uiWindowPos: 0,1
+      strippingWindowPos: 0,3
+      displayName: Pants
