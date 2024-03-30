@@ -9157,7 +9157,7 @@ entities:
     - pos: -9.5,-1.5
       parent: 2
       type: Transform
-- proto: MachineSleeperCryopod
+- proto: CryogenicSleepUnitSpawner
   entities:
   - uid: 1210
     components:

@@ -17489,7 +17489,7 @@ entities:
     - pos: 17.5,41.5
       parent: 2
       type: Transform
-- proto: MachineSleeperCryopod
+- proto: CryogenicSleepUnitSpawner
   entities:
   - uid: 3096
     components:

@@ -258,3 +258,4 @@ RailgunWeaponSilo: null
 SwarmMarkTwoMissileSilo: null
 HoleMarkTwoMissileSilo: null
 PunchMarkTwoMissileSilo: null
+MachineSleeperCryopod: CryogenicSleepUnitSpawner

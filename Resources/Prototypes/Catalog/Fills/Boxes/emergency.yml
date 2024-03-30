@@ -5,9 +5,12 @@
   description: It's a box with basic internals inside.
   components:
   - type: Item
-    size: 40
+    shape:
+    - 0,0,2,2
   - type: Storage
-    capacity: 40
+    maxItemSize: Small
+    grid:
+    - 0,0,3,2
   - type: StorageFill
     contents:
       - id: ClothingMaskBreath
@@ -48,10 +51,6 @@
   description: It's a box with basic internals inside.
   suffix: Security
   components:
-  - type: Item
-    size: 40
-  - type: Storage
-    capacity: 40
   - type: StorageFill
     contents:
       - id: ClothingMaskGasSecurity
@@ -73,10 +72,6 @@
   description: It's a box with basic internals inside.
   suffix: MedSec
   components:
-  - type: Item
-    size: 40
-  - type: Storage
-    capacity: 40
   - type: StorageFill
     contents:
       - id: ClothingMaskBreathMedicalSecurity
@@ -98,10 +93,6 @@
   description: It's a box with basic internals inside.
   suffix: Medical
   components:
-  - type: Item
-    size: 40
-  - type: Storage
-    capacity: 40
   - type: StorageFill
     contents:
       - id: ClothingMaskBreathMedical
