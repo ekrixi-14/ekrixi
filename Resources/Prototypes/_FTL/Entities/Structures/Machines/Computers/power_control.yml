@@ -31,7 +31,7 @@
       soundGroups:
         Brute:
           path:
-            "/Audio/Effects/glass_hit.ogg"
+            "/Audio/Effects/glass_smack.ogg"
     - type: ApcPowerReceiver
       powerLoad: 200
     - type: ExtensionCableReceiver
