@@ -14543,7 +14543,6 @@ entities:
       type: Transform
     - state: True
       type: SignalSwitch
-    - type: ItemCooldown
   - uid: 2391
     components:
     - rot: -1.5707963267948966 rad
