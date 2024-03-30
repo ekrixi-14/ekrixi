@@ -275,7 +275,7 @@ namespace Content.Shared.Preferences
         }
         public HumanoidCharacterProfile WithSpawnPriorityPreference(SpawnPriorityPreference spawnPriority)
         {
-            return new(this) { SpawnPriority = spawnPriority };
+            return new(this) { SpawnPriority = SpawnPriorityPreference.Cryosleep };
         }
         public HumanoidCharacterProfile WithJobPriorities(IEnumerable<KeyValuePair<string, JobPriority>> jobPriorities)
         {
@@ -487,10 +487,10 @@ namespace Content.Shared.Preferences
 
             var spawnPriority = SpawnPriority switch
             {
-                SpawnPriorityPreference.None => SpawnPriorityPreference.None,
-                SpawnPriorityPreference.Arrivals => SpawnPriorityPreference.Arrivals,
+                SpawnPriorityPreference.None => SpawnPriorityPreference.Cryosleep,
+                SpawnPriorityPreference.Arrivals => SpawnPriorityPreference.Cryosleep,
                 SpawnPriorityPreference.Cryosleep => SpawnPriorityPreference.Cryosleep,
-                _ => SpawnPriorityPreference.None // Invalid enum values.
+                _ => SpawnPriorityPreference.Cryosleep // Invalid enum values.
             };
 
             var priorities = new Dictionary<string, JobPriority>(JobPriorities

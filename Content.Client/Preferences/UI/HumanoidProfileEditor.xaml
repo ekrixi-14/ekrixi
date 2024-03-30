@@ -97,11 +97,11 @@
                                     <OptionButton Name="CBackpackButton" HorizontalAlignment="Right" />
                                 </BoxContainer>
                                 <!-- Spawn Priority -->
-                                <BoxContainer HorizontalExpand="True">
-                                    <Label Text="{Loc 'humanoid-profile-editor-spawn-priority-label'}" />
-                                    <Control HorizontalExpand="True"/>
-                                    <OptionButton Name="CSpawnPriorityButton" HorizontalAlignment="Right" />
-                                </BoxContainer>
+                                <!-- <BoxContainer HorizontalExpand="True"> -->
+                                <!--     <Label Text="{Loc 'humanoid-profile-editor-spawn-priority-label'}" /> -->
+                                <!--     <Control HorizontalExpand="True"/> -->
+                                <!--     <OptionButton Name="CSpawnPriorityButton" HorizontalAlignment="Right" /> -->
+                                <!-- </BoxContainer> -->
                                 <!-- Height -->
                                 <!-- <BoxContainer HorizontalExpand="True"> -->
                                 <!--     <Label Text="{Loc 'humanoid-profile-editor-height-label'}" /> -->

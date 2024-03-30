@@ -73,7 +73,7 @@ namespace Content.Client.Preferences.UI
         private Slider _skinColor => CSkin;
         private OptionButton _clothingButton => CClothingButton;
         private OptionButton _backpackButton => CBackpackButton;
-        private OptionButton _spawnPriorityButton => CSpawnPriorityButton;
+        // private OptionButton _spawnPriorityButton => CSpawnPriorityButton;
         private SingleMarkingPicker _hairPicker => CHairStylePicker;
         private SingleMarkingPicker _facialHairPicker => CFacialHairPicker;
         private EyeColorPicker _eyesPicker => CEyeColorPicker;
@@ -364,16 +364,16 @@ namespace Content.Client.Preferences.UI
 
             #region SpawnPriority
 
-            foreach (var value in Enum.GetValues<SpawnPriorityPreference>())
-            {
-                _spawnPriorityButton.AddItem(Loc.GetString($"humanoid-profile-editor-preference-spawn-priority-{value.ToString().ToLower()}"), (int) value);
-            }
-
-            _spawnPriorityButton.OnItemSelected += args =>
-            {
-                _spawnPriorityButton.SelectId(args.Id);
-                SetSpawnPriority((SpawnPriorityPreference) args.Id);
-            };
+            // foreach (var value in Enum.GetValues<SpawnPriorityPreference>())
+            // {
+            //     _spawnPriorityButton.AddItem(Loc.GetString($"humanoid-profile-editor-preference-spawn-priority-{value.ToString().ToLower()}"), (int) value);
+            // }
+            //
+            // _spawnPriorityButton.OnItemSelected += args =>
+            // {
+            //     _spawnPriorityButton.SelectId(args.Id);
+            // SetSpawnPriority((SpawnPriorityPreference) args.Id);
+            // };
 
             #endregion SpawnPriority
 
@@ -1042,7 +1042,7 @@ namespace Content.Client.Preferences.UI
                 return;
             }
 
-            _spawnPriorityButton.SelectId((int) Profile.SpawnPriority);
+            // _spawnPriorityButton.SelectId((int) Profile.SpawnPriority);
         }
 
         private void UpdateHairPickers()
