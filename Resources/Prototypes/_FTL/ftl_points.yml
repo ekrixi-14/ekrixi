@@ -2,7 +2,6 @@
   id: StationPoint
   tag: ship-ftl-tag-base
   effects: []
-#    - !type:SpawnStationEffect
   components:
     - type: AvoidStar
 
@@ -13,11 +12,10 @@
   effects:
     - !type:SpawnMapEffect
       mapPaths:
-        - /Maps/_FTL/ancient/easy-drone.yml
-        - /Maps/_FTL/ancient/tough-drone.yml
-        #- /Maps/_FTL/independent/orb.yml # orb causes a crash???
-#        - /Maps/_FTL/independent/pod.yml
-#        - /Maps/_FTL/independent/hostile-escape-pod.yml
+      - /Maps/_FTL/ai/escape-pod-deserted.yml
+      - /Maps/_FTL/ai/escape-pod-explosive.yml
+      - /Maps/_FTL/ai/escape-pod-occupied.yml
+      - /Maps/_FTL/ai/rod-class.yml
 
 - type: ftlPoint
   id: HiDangerPoint
@@ -26,26 +24,10 @@
   effects:
     - !type:SpawnMapEffect
       mapPaths:
-        - /Maps/_FTL/ancient/easy-drone.yml
-        - /Maps/_FTL/ancient/tough-drone.yml
-        - /Maps/_FTL/incsek/bomber.yml
-        - /Maps/_FTL/independent/cargo-vessel.yml
-        - /Maps/_FTL/independent/rod.yml
-        - /Maps/_FTL/independent/hostile-escape-pod.yml
-
-- type: ftlPoint
-  id: ConfDangerPoint
-  tag: ship-ftl-tag-star
-  effects:
-    - !type:SpawnMapEffect
-      mapPaths:
-        - /Maps/_FTL/ancient/tough-drone.yml
-        - /Maps/_FTL/coregov/retribution.yml
-        - /Maps/_FTL/incsek/bomber.yml
-        - /Maps/_FTL/independent/cargo-vessel.yml
-        - /Maps/_FTL/independent/hostile-escape-pod.yml
-        - /Maps/_FTL/independent/rod.yml
-        - /Maps/_FTL/fsc/fighter.yml
+      - /Maps/_FTL/ai/escape-pod-trapped.yml
+      - /Maps/_FTL/ai/hijacked-cargo-vessel.yml
+      - /Maps/_FTL/ai/spark-class.yml
+      - /Maps/_FTL/ai/rod-class.yml
 
 - type: ftlPoint
   id: PlanetPoint
@@ -137,8 +119,6 @@
   id: FTLPoints
   weights:
     LoDangerPoint: 7
-    ConfDangerPoint: 5
     HiDangerPoint: 3
-    NoDangerPoint: 1
     StarPoint: 1
     RuinPoint: 0.15
