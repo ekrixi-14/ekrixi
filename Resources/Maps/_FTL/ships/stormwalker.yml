@@ -11124,7 +11124,7 @@ entities:
     - pos: 1.5,-3.5
       parent: 2
       type: Transform
-- proto: SpawnPointCargoTechnician
+- proto: SpawnPointPassenger
   entities:
   - uid: 1166
     components:

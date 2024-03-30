@@ -67,6 +67,6 @@
           mapNameTemplate: "TEG"
         - type: StationJobs
           overflowJobs:
-            - ChiefEngineer
+            - Captain
           availableJobs:
-            ChiefEngineer: [ -1, -1 ]
+            Captain: [ -1, -1 ]

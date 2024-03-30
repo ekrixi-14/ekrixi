@@ -45,7 +45,6 @@ namespace Content.IntegrationTests.Tests
             "Dev",
             "DevPlayable",
             "TestTeg",
-            "TradeStation",
             "Nesasio",
             "Stormwalker",
 			"THERODTWO",
