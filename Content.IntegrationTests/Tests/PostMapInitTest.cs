@@ -49,7 +49,8 @@ namespace Content.IntegrationTests.Tests
             "Stormwalker",
 			"THERODTWO",
 			"Cestoda",
-            "MeteorArena"
+            "MeteorArena",
+            "CentComm"
         };
 
         /// <summary>
