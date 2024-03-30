@@ -236,7 +236,7 @@ public sealed partial class DoorComponent : Component
     /// <summary>
     ///     Time until next state change. Because apparently <see cref="IGameTiming.CurTime"/> might not get saved/restored.
     /// </summary>
-    [DataField]
+    // [DataField]
     private float? SecondsUntilStateChange
     {
         [UsedImplicitly]
