@@ -46,7 +46,7 @@ public class MapLoadBenchmark
         PoolManager.Shutdown();
     }
 
-    public static readonly string[] MapsSource = { "Empty", "Box", "Bagel", "Dev", "CentComm" };
+    public static readonly string[] MapsSource = { "Empty", "Box", "Bagel", "Dev" };
 
     [ParamsSource(nameof(MapsSource))]
     public string Map;

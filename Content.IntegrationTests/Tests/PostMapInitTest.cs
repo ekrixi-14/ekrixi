@@ -29,7 +29,6 @@ namespace Content.IntegrationTests.Tests
 
         private static readonly string[] NoSpawnMaps =
         {
-            "CentComm",
             "Dart",
         };
 
@@ -46,8 +45,6 @@ namespace Content.IntegrationTests.Tests
             "Dev",
             "DevPlayable",
             "TestTeg",
-            "Kestrel",
-            "PaperPlane",
             "TradeStation",
             "Nesasio",
             "Stormwalker",
