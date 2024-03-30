@@ -1,8 +1,8 @@
 - type: ftlPoint
   id: StationPoint
   tag: ship-ftl-tag-base
-  effects:
-    - !type:SpawnStationEffect
+  effects: []
+#    - !type:SpawnStationEffect
   components:
     - type: AvoidStar
 
