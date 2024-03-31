@@ -6,8 +6,8 @@ using Content.Server._FTL.FTLPoints.Prototypes;
 using Content.Server.Popups;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
-using Content.Server.UserInterface;
 using Content.Shared._FTL.FtlPoints;
+using Content.Shared.CCVar;
 using Content.Shared.Dataset;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
@@ -17,6 +17,8 @@ using Content.Shared.Random.Helpers;
 using Content.Shared.Salvage;
 using Content.Shared.UserInterface;
 using Robust.Server.GameObjects;
+using Robust.Shared;
+using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -39,6 +41,7 @@ public sealed partial class FtlPointsSystem : SharedFtlPointsSystem
     [Dependency] private readonly ShuttleSystem _shuttleSystem = default!;
     [Dependency] private readonly ISerializationManager _serializationManager = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
+    [Dependency] private readonly IConfigurationManager _configurationManager = default!;
 
     public override void Initialize()
     {
@@ -108,7 +111,7 @@ public sealed partial class FtlPointsSystem : SharedFtlPointsSystem
 
                 for (var i = 0; i < branches; i++)
                 {
-                    var prototype = _prototypeManager.Index<FtlPointPrototype>(_prototypeManager.Index<WeightedRandomPrototype>("FTLPoints").Pick());
+                    var prototype = _prototypeManager.Index<FtlPointPrototype>(_prototypeManager.Index<WeightedRandomPrototype>(_configurationManager.GetCVar(CCVars.StarmapRandomPrototypeId)).Pick());
                     Log.Info($"Picked {prototype.ID} as point type.");
                     if (_random.Prob(prototype.Probability) || first) // if its the first star then just set it
                     {

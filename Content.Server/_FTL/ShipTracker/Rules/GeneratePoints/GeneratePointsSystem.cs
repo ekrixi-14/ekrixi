@@ -39,7 +39,7 @@ public sealed class GeneratePointsSystem : GameRuleSystem<GeneratePointsComponen
             if (component.Generated)
                 return;
 
-            if (!_configurationManager.GetCVar(CCVars.GenerateFTLPointsRoundstart))
+            if (!_configurationManager.GetCVar(CCVars.GenerateStarmapRoundstart))
                 return;
             var station = _pointsSystem.GenerateSector(25, null, false, false);
 

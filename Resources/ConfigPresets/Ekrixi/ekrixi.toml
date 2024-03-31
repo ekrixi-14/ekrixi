@@ -43,5 +43,5 @@ punctuation             = true
 restricted_names        = false
 name_case               = false
 
-[ftlpoints]
+[starmap]
 generate_roundstart     = true

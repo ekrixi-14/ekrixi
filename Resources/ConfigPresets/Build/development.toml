@@ -19,7 +19,7 @@ preload = false
 [salvage]
 expedition_cooldown = 30.0
 
-[ftlpoints]
+[starmap]
 generate_roundstart = true
 
 [shuttle]

@@ -1,0 +1,7 @@
+- type: weightedRandom
+  id: Default
+  weights:
+    LoDangerPoint: 3
+    HiDangerPoint: 5
+    StarPoint: 3
+    RuinPoint: 1
