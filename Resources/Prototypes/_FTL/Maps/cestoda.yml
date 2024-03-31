@@ -1,7 +1,7 @@
 - type: gameMap
   id: Cestoda
   mapName: 'Cestoda'
-  mapPath: /Maps/_FTL/acks/cestoda.yml
+  mapPath: /Maps/_FTL/ships/cestoda.yml
   minPlayers: 3
   maxPlayers: 12
   stations:

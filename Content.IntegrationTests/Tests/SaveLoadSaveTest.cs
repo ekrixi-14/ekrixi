@@ -89,7 +89,9 @@ namespace Content.IntegrationTests.Tests
             await pair.CleanReturnAsync();
         }
 
-        private const string TestMap = "Maps/bagel.yml";
+        // THIS IS ACTUALLY FUCKING BULLSHIT. WHY IS BAGEL HARDCODED TO BE THE TEST MAP. WHY. SOMEONE BETTER FUCKING TELL ME.
+        // private const string TestMap = "Maps/bagel.yml";
+        private const string TestMap = "Maps/_FTL/devship.yml";
 
         /// <summary>
         ///     Loads the default map, runs it for 5 ticks, then assert that it did not change.

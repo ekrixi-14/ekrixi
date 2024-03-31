@@ -1,9 +1,7 @@
 - type: gameMapPool
   id: FTLMapPool
   maps:
-    - Kestrel
-    - PaperPlane
-    - Nesasio
+#    - Nesasio # Temporarily taken out of rotation due to the lack of a warp drive
     - Stormwalker
     - THERODTWO
     - Cestoda

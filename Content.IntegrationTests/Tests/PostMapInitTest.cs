@@ -29,7 +29,6 @@ namespace Content.IntegrationTests.Tests
 
         private static readonly string[] NoSpawnMaps =
         {
-            "CentComm",
             "Dart",
         };
 
@@ -46,30 +45,12 @@ namespace Content.IntegrationTests.Tests
             "Dev",
             "DevPlayable",
             "TestTeg",
-            "Fland",
-            "Meta",
-            "Packed",
-            "Aspid",
-            "Cluster",
-            "Omega",
-            "Bagel",
-            "Origin",
-            "CentComm",
-            "Box",
-            "Europa",
-            "Barratry",
-            "Saltern",
-            "Core",
-            "Marathon",
-            "Kettle",
-            "MeteorArena",
-            "Kestrel",
-            "PaperPlane",
-            "TradeStation",
             "Nesasio",
             "Stormwalker",
 			"THERODTWO",
-			"Cestoda"
+			"Cestoda",
+            "MeteorArena",
+            "CentComm"
         };
 
         /// <summary>
@@ -282,7 +263,7 @@ namespace Content.IntegrationTests.Tests
 
             Assert.That(gameMaps.Remove(PoolManager.TestMap));
 
-            CollectionAssert.AreEquivalent(GameMaps.ToHashSet(), gameMaps, "Game map prototype missing from test cases.");
+            Assert.That(gameMaps, Is.EquivalentTo(GameMaps.ToHashSet()), "Game map prototype missing from test cases.");
 
             await pair.CleanReturnAsync();
         }

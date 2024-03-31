@@ -5,7 +5,7 @@
   variants: 4
   placementVariants: [0, 1, 2, 3]
   isSubfloor: true
-  canCrowbar: false
+  deconstructTools: []
   footstepSounds:
     collection: BarestepCarpet
   friction: 0.05 #slippy

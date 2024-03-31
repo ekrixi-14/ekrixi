@@ -6,6 +6,9 @@ map = "Dev"
 role_timers = false
 defaultpreset = "Exploration"
 
+[gateway]
+generator_enabled = false
+
 [physics]
 # Makes mapping annoying
 grid_splitting = false

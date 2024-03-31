@@ -6,54 +6,8 @@
   id: IndependentShip
   hostile:
     - HostileIndependentShip
-    - FSCShip
-    - IncSekShip
-    - ACKsShip
 
 - type: npcFaction
   id: HostileIndependentShip
   hostile:
     - IndependentShip
-    - CoreGovShip
-    - A2BShip
-    - IncSekShip
-    - FSCShip
-    - ACKsShip
-
-- type: npcFaction
-  id: CoreGovShip
-  hostile:
-    - HostileIndependentShip
-    - IncSekShip
-    - FSCShip
-    - ACKsShip
-
-- type: npcFaction
-  id: A2BShip
-  hostile:
-    - HostileIndependentShip
-    - FSCShip
-
-- type: npcFaction
-  id: IncSekShip
-  hostile:
-    - CoreGovShip
-    - IndependentShip
-    - FSCShip
-    - HostileIndependentShip
-
-- type: npcFaction
-  id: FSCShip
-  hostile:
-    - CoreGovShip
-    - IndependentShip
-    - A2BShip
-    - ACKsShip
-    - HostileIndependentShip
-
-- type: npcFaction
-  id: ACKsShip
-  hostile:
-    - CoreGovShip
-    - IndependentShip
-    - HostileIndependentShip

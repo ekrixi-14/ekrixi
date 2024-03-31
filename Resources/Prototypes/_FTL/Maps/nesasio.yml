@@ -1,7 +1,7 @@
 - type: gameMap
   id: Nesasio
   mapName: 'Nesasio'
-  mapPath: /Maps/_FTL/fsc/nesasio.yml
+  mapPath: /Maps/_FTL/ships/nesasio.yml
   minPlayers: 3
   maxPlayers: 11
   stations:

@@ -1681,7 +1681,7 @@ entities:
           occludes: True
           ent: null
       type: ContainerContainer
-- proto: MachineSleeperCryopod
+- proto: CryogenicSleepUnitSpawner
   entities:
   - uid: 317
     components:

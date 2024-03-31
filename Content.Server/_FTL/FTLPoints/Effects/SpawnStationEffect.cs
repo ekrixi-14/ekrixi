@@ -13,10 +13,7 @@ namespace Content.Server._FTL.FTLPoints.Effects;
 public sealed partial class SpawnStationEffect : FtlPointEffect
 {
     [DataField("stationIds", required: true)]
-    public List<string> StationIds { set; get; } = new List<string>()
-    {
-        "TradeStation"
-    };
+    public List<string> StationIds { set; get; } = new ();
 
     public override void Effect(FtlPointEffectArgs args)
     {
