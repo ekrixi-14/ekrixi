@@ -10,6 +10,26 @@ public sealed class PrinterPaperPrototype : IPrototype
     public string ID { get; } = default!;
 
     /// <summary>
+    /// How often will characters be replaced with a %?
+    /// </summary>
+    [DataField("corruptProb")]
+    public float CorruptionProbability { get; } = 0.1f;
+
+    [DataField("corruptChars")]
+    public List<string> CorruptionCharacters = new ()
+    {
+        "%",
+        "#",
+        ".",
+        ",",
+        "$",
+        "^",
+        "&",
+        "*",
+        "@",
+    };
+
+    /// <summary>
     /// The content of the paper
     /// </summary>
     [DataField("content")]
