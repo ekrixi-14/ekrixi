@@ -308,7 +308,8 @@ Resources/MapImages
 .direnv/
 
 # Moony taught me this :godo:
-Content.ServerSecret/Code
+Content.Server/_SecretCode
 Resources/Prototypes/SecretPrototypes
+Resources/IgnoredPrototypes/secret.yml
 Resources/Textures/SecretTextures
 Secrets
