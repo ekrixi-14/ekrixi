@@ -1,0 +1,11 @@
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesGlassesPilot
+  name: glasses
+  description: A visor featuring a blue light filter to let you stare at that piloting console even harder and with even more intent.
+  components:
+  - type: Sprite
+    sprite: _FTL/Clothing/Eyes/Glasses/pilotvisor.rsi
+  - type: Clothing
+    sprite: _FTL/Clothing/Eyes/Glasses/pilotvisor.rsi
+  - type: VisionCorrection
