@@ -6,5 +6,7 @@ namespace Content.Server._FTL.PrinterPaper;
 [RegisterComponent]
 public sealed partial class RandomPrinterPaperComponent : Component
 {
-    [ViewVariables(VVAccess.ReadOnly)] public string Content = "";
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public string Content = "";
+    [DataField] public string? Tag;
 }

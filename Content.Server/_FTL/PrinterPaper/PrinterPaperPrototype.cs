@@ -15,6 +15,9 @@ public sealed class PrinterPaperPrototype : IPrototype
     [DataField("corruptProb")]
     public float CorruptionProbability { get; } = 0.1f;
 
+    [DataField("tag")]
+    public string Tag = "Default";
+
     [DataField("corruptChars")]
     public List<string> CorruptionCharacters = new ()
     {
