@@ -1991,7 +1991,7 @@ namespace Content.Shared.CCVar
         ///     What weighted random prototype is being used?
         /// </summary>
         public static readonly CVarDef<string> StarmapRandomPrototypeId =
-            CVarDef.Create("starmap.weighted_random_id", "Default", CVar.ARCHIVE);
+            CVarDef.Create("starmap.weighted_random_id", "DefaultStarmap", CVar.ARCHIVE);
 
         /*
          * Min players

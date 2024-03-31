@@ -1,5 +1,5 @@
 - type: weightedRandom
-  id: Default
+  id: DefaultStarmap
   weights:
     LoDangerPoint: 3
     HiDangerPoint: 5
