@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Server._FTL.ShipTracker.Components;
+using Content.Server._FTL.ShipTracker.Events;
 using Content.Server.Chat.Systems;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
@@ -75,6 +76,10 @@ public sealed partial class ShipTrackerSystem : SharedShipTrackerSystem
             shipTrackerComponent.SecondsWithoutPiloting += frameTime;
             if (shipTrackerComponent.SecondsWithoutPiloting < shipTrackerComponent.CallDestroyedSeconds)
                 continue;
+
+            var ev = new ShipTrackerDestroyed(entity, shipTrackerComponent);
+            RaiseLocalEvent(ev);
+
             shipTrackerComponent.Destroyed = true;
 
             // BroadcastToStationsOnMap(xform.MapID, Loc.GetString("ship-destroyed-message",

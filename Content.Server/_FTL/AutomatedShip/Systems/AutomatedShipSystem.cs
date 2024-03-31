@@ -1,8 +1,7 @@
-using System.Linq;
 using Content.Server._FTL.AutomatedShip.Components;
 using Content.Server._FTL.ShipTracker.Components;
+using Content.Server._FTL.ShipTracker.Events;
 using Content.Server.NPC.Systems;
-using Content.Server.Shuttles.Components;
 using Content.Server.Weapons.Ranged.Systems;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
@@ -29,6 +28,14 @@ public sealed partial class AutomatedShipSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<AutomatedShipComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<AutomatedShipComponent, ShipTrackerDestroyed>(OnDestroyed);
+    }
+
+    private void OnDestroyed(EntityUid uid, AutomatedShipComponent component, ShipTrackerDestroyed args)
+    {
+        // Remove ASC, because we don't even have a shiptracker
+        RemComp<AutomatedShipComponent>(uid);
+        RemComp<ActiveAutomatedShipComponent>(uid);
     }
 
     private void OnStartup(EntityUid uid, AutomatedShipComponent component, ComponentStartup args)
