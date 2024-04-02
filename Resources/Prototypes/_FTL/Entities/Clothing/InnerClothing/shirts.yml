@@ -52,3 +52,14 @@
       sprite: _FTL/Clothing/InnerClothing/engineering_hazard.rsi
     - type: Clothing
       sprite: _FTL/Clothing/InnerClothing/engineering_hazard.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingShirtPilot
+  name: pilot's suit
+  description: A clean, nearly skintight top with bright colors and metallic highlights.
+  components:
+    - type: Sprite
+      sprite: _FTL/Clothing/InnerClothing/pilot.rsi
+    - type: Clothing
+      sprite: _FTL/Clothing/InnerClothing/pilot.rsi
