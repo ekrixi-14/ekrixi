@@ -20,6 +20,13 @@ public sealed class PrinterPaperSystem : EntitySystem
     private void OnComponentInit(EntityUid uid, RandomPrinterPaperComponent component, ComponentInit args)
     {
         var prototypes = _prototypeManager.EnumeratePrototypes<PrinterPaperPrototype>().ToList();
+
+        if (prototypes.Count <= 0)
+        {
+            component.Content = "";
+            return;
+        }
+
         PrinterPaperPrototype? prototype = null;
 
         while (prototype == null)
