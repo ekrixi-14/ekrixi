@@ -110,5 +110,12 @@ namespace Content.Server.StationEvents
 
             return weight / totalWeight;
         }
+
+        [CommandImplementation("forceRandom")]
+        public void ForceRandom()
+        {
+            _stationEvent ??= GetSys<EventManagerSystem>();
+            _stationEvent.RunRandomEvent();
+        }
     }
 }
