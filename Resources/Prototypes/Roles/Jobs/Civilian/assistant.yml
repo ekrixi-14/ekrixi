@@ -13,12 +13,14 @@
 - type: startingGear
   id: PassengerGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitColorGrey
-    lowerClothing: ClothingPantsCargo # This is temporary
+    jumpsuit: ClothingShirtTShirtRipped
+    lowerClothing: ClothingPantsRippedJeans
     back: ClothingBackpackFilled
-    shoes: ClothingShoesColorBlack
+#    shoes: ClothingShoesColorBlack # Deckhands don't deserve fucking clothes
     id: PassengerPDA
-    ears: ClothingHeadsetGrey
-  innerClothingSkirt: ClothingUniformJumpskirtColorGrey
+    ears: ClothingHeadsetGrey # Deckhands don't deserve fucking headsets either
+  inhand:
+  - PaperContract
+#  innerClothingSkirt: ClothingUniformJumpskirtColorGrey
   satchel: ClothingBackpackSatchelFilled
   duffelbag: ClothingBackpackDuffelFilled

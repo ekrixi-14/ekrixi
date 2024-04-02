@@ -38,17 +38,19 @@
 - type: startingGear
   id: CaptainGear
   equipment:
-    jumpsuit: ClothingShirtCaptain
-    lowerClothing: ClothingPantsCaptain
+    jumpsuit: ClothingShirtTShirtBlue
+    lowerClothing: ClothingPantsJeans
     back: ClothingBackpackCaptainFilled
-    shoes: ClothingShoesBootsLaceup
-    head: ClothingHeadHatCaptain
+    shoes: ClothingShoesBootsCombat
+    mask: ClothingMaskBandBlue
     eyes: ClothingEyesGlassesSunglasses
-    gloves: ClothingHandsGlovesCaptain
-    outerClothing: ClothingOuterArmorCaptainCarapace
+#    gloves: ClothingHandsGlovesCaptain
+    outerClothing: ClothingOuterCoatTrenchDark
+    belt: WeaponAntiqueLaser
     id: CaptainPDA
     ears: ClothingHeadsetAltCommand
     pocket1: WeaponRevolverDeckard
-  innerClothingSkirt: ClothingUniformJumpskirtCaptain
+    pocket2: Machete
+#  innerClothingSkirt: ClothingUniformJumpskirtCaptain
   satchel: ClothingBackpackSatchelCaptainFilled
   duffelbag: ClothingBackpackDuffelCaptainFilled
