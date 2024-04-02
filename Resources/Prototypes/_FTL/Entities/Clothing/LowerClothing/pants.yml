@@ -16,9 +16,9 @@
   description: A sturdy pair of shorts that oddly resonates well with cargonians.
   components:
     - type: Sprite
-      sprite: _FTL/Clothing/LowerClothing/cargotech.rsi
+      sprite: _FTL/Clothing/LowerClothing/cargo-pants.rsi
     - type: Clothing
-      sprite: _FTL/Clothing/LowerClothing/cargotech.rsi
+      sprite: _FTL/Clothing/LowerClothing/cargo-pants.rsi
 
 - type: entity
   parent: ClothingPantsBase
@@ -69,7 +69,29 @@
   name: pilot's leggings
   description: They're about as tight as the gap between starboard and the ship currently being scrapped by the engineering team.
   components:
-    - type: Sprite
-      sprite: _FTL/Clothing/LowerClothing/pilot.rsi
-    - type: Clothing
-      sprite: _FTL/Clothing/LowerClothing/pilot.rsi
+  - type: Sprite
+    sprite: _FTL/Clothing/LowerClothing/pilot.rsi
+  - type: Clothing
+    sprite: _FTL/Clothing/LowerClothing/pilot.rsi
+
+- type: entity
+  parent: ClothingPantsBase
+  id: ClothingPantsJeans
+  name: jeans
+  description: They're tight, yet fairly loose.
+  components:
+  - type: Sprite
+    sprite: _FTL/Clothing/LowerClothing/jeans.rsi
+  - type: Clothing
+    sprite: _FTL/Clothing/LowerClothing/jeans.rsi
+
+- type: entity
+  parent: ClothingPantsBase
+  id: ClothingPantsRippedJeans
+  name: ripped jeans
+  description: Who's the loser who thought that having ripped jeans was fashionable?
+  components:
+  - type: Sprite
+    sprite: _FTL/Clothing/LowerClothing/ripped-jeans.rsi
+  - type: Clothing
+    sprite: _FTL/Clothing/LowerClothing/ripped-jeans.rsi

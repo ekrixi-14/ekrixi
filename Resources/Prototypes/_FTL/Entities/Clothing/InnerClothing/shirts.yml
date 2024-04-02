@@ -59,7 +59,62 @@
   name: pilot's suit
   description: A clean, nearly skintight top with bright colors and metallic highlights.
   components:
-    - type: Sprite
-      sprite: _FTL/Clothing/InnerClothing/pilot.rsi
-    - type: Clothing
-      sprite: _FTL/Clothing/InnerClothing/pilot.rsi
+  - type: Sprite
+    sprite: _FTL/Clothing/InnerClothing/pilot.rsi
+  - type: Clothing
+    sprite: _FTL/Clothing/InnerClothing/pilot.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingShirtTShirtWhite
+  name: white t-shirt
+  description: A plain white t-shirt.
+  components:
+  - type: Sprite
+    sprite: _FTL/Clothing/InnerClothing/t-shirt.rsi
+  - type: Clothing
+    sprite: _FTL/Clothing/InnerClothing/t-shirt.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingShirtTShirtRed
+  name: red t-shirt
+  description: A plain red t-shirt.
+  components:
+  - type: Sprite
+    sprite: _FTL/Clothing/InnerClothing/red-tshirt.rsi
+  - type: Clothing
+    sprite: _FTL/Clothing/InnerClothing/red-tshirt.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingShirtTShirtBlue
+  name: blue t-shirt
+  description: A plain blue t-shirt.
+  components:
+  - type: Sprite
+    sprite: _FTL/Clothing/InnerClothing/blue-tshirt.rsi
+  - type: Clothing
+    sprite: _FTL/Clothing/InnerClothing/blue-tshirt.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingShirtTShirtGray
+  name: gray t-shirt
+  description: A plain gray t-shirt.
+  components:
+  - type: Sprite
+    sprite: _FTL/Clothing/InnerClothing/gray-tshirt.rsi
+  - type: Clothing
+    sprite: _FTL/Clothing/InnerClothing/gray-tshirt.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingShirtTShirtRipped
+  name: ripped t-shirt
+  description: A ripped white t-shirt. You should really replace this.
+  components:
+  - type: Sprite
+    sprite: _FTL/Clothing/InnerClothing/ripped-tshirt.rsi
+  - type: Clothing
+    sprite: _FTL/Clothing/InnerClothing/ripped-tshirt.rsi

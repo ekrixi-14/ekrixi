@@ -1,0 +1,35 @@
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatTrenchNormal
+  suffix: Veil
+  name: trench coat
+  description: A comfy trench coat.
+  components:
+  - type: Sprite
+    sprite: _FTL/Clothing/OuterClothing/Coats/TrenchCoats/trench.rsi
+  - type: Clothing
+    sprite: _FTL/Clothing/OuterClothing/Coats/TrenchCoats/trench.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatTrenchDark
+  suffix: Veil
+  name: dark trench coat
+  description: A comfy dark trench coat.
+  components:
+  - type: Sprite
+    sprite: _FTL/Clothing/OuterClothing/Coats/TrenchCoats/dark.rsi
+  - type: Clothing
+    sprite: _FTL/Clothing/OuterClothing/Coats/TrenchCoats/dark.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatTrenchLight
+  suffix: Veil
+  name: light trench coat
+  description: A comfy light trench coat.
+  components:
+  - type: Sprite
+    sprite: _FTL/Clothing/OuterClothing/Coats/TrenchCoats/light.rsi
+  - type: Clothing
+    sprite: _FTL/Clothing/OuterClothing/Coats/TrenchCoats/light.rsi
