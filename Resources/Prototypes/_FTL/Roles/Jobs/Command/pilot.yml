@@ -16,12 +16,14 @@
 - type: startingGear
   id: PilotGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitPilot
+    jumpsuit: ClothingShirtPilot
+    lowerClothing: ClothingPantsPilot
     back: ClothingBackpackFilled
     shoes: ClothingShoesColorWhite
+    eyes: ClothingEyesGlassesPilot
     id: PilotPDA
     ears: ClothingHeadsetAltCommand
     pocket1: WeaponRevolverDeckard
-  innerClothingSkirt: ClothingUniformJumpsuitPilot
+  innerClothingSkirt: ClothingPantsPilot
   satchel: ClothingBackpackSatchelFilled
   duffelbag: ClothingBackpackDuffelFilled

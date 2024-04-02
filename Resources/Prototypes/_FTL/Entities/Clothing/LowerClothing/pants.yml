@@ -62,3 +62,14 @@
       sprite: _FTL/Clothing/LowerClothing/Color/white.rsi
     - type: Clothing
       sprite: _FTL/Clothing/LowerClothing/Color/white.rsi
+
+- type: entity
+  parent: ClothingPantsBase
+  id: ClothingPantsPilot
+  name: pilot's leggings
+  description: They're about as tight as the gap between starboard and the ship currently being scrapped by the engineering team.
+  components:
+    - type: Sprite
+      sprite: _FTL/Clothing/LowerClothing/pilot.rsi
+    - type: Clothing
+      sprite: _FTL/Clothing/LowerClothing/pilot.rsi
