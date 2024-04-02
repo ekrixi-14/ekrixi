@@ -196,11 +196,15 @@ namespace Content.Server.GameTicking
 
             var readyCount = Readied();
             var needPlayers = minPlayers - readyCount;
+            var oldPaused = Paused;
             PauseStart(needPlayers > 0);
 
-            _chatManager.DispatchServerAnnouncement(Paused
-                ? Loc.GetString("game-insufficient-players-to-start")
-                : Loc.GetString("game-sufficient-players-to-start"));
+            if (oldPaused != Paused) // means something changed to inflict playercount
+            {
+                _chatManager.DispatchServerAnnouncement(Paused
+                    ? Loc.GetString("game-insufficient-players-to-start")
+                    : Loc.GetString("game-sufficient-players-to-start"));
+            }
         }
 
         private int Readied()
