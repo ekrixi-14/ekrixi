@@ -35,7 +35,7 @@
     outerClothing: ClothingOuterArmorBasic
     id: SecurityPDA
     ears: ClothingHeadsetSecurity
-    belt: ClothingBeltMilitaryWebbing
+    belt: ClothingBeltMercWebbing
     pocket1: Handcuffs
     suitstorage: WeaponShotgunDoubleBarreled
 #  innerClothingSkirt: ClothingUniformJumpskirtSec
