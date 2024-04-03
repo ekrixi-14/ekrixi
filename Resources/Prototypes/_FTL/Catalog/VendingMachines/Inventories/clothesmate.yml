@@ -1,0 +1,69 @@
+- type: vendingMachineInventory
+  id: ClothesMateInventoryVeil
+  startingInventory:
+    # bags
+    ClothingBackpack: 5
+    ClothingBackpackDuffel: 5
+    ClothingBackpackSatchel: 3
+    ClothingBackpackSatchelLeather: 2
+
+    # hats
+    ClothingHeadHatBeret: 4
+    ClothingHeadBandBlack: 2
+    ClothingHeadBandBlue: 2
+    ClothingHeadBandGreen: 2
+    ClothingHeadBandRed: 2
+    ClothingHeadBandSkull: 2
+    ClothingHeadHatGreyFlatcap: 3
+    ClothingHeadHatBrownFlatcap: 3
+    ClothingHeadHatGreysoft: 8
+    ClothingHeadHatMimesoft: 3
+    ClothingHeadHatBluesoft: 2
+    ClothingHeadHatYellowsoft: 2
+    ClothingHeadHatGreensoft: 2
+    ClothingHeadHatOrangesoft: 2
+    ClothingHeadHatRedsoft: 2
+    ClothingHeadHatBlacksoft: 2
+    ClothingHeadHatPurplesoft: 2
+    ClothingHeadHatCorpsoft: 2
+    ClothingHeadFishCap: 2
+    ClothingHeadRastaHat: 2
+
+    # skirts/pants
+    ClothingShirtTShirtWhite: 3
+    ClothingShirtTShirtRed: 3
+    ClothingShirtTShirtBlue: 3
+    ClothingShirtTShirtGray: 3
+    ClothingShirtTShirtBlack: 3
+    ClothingPantsPencilSkirt: 3
+    ClothingPantsPencilSkirtGray: 3
+    ClothingPantsPencilSkirtBlack: 3
+
+    # shoes
+    ClothingShoesColorBlack: 8
+    ClothingShoesColorBrown: 4
+    ClothingShoesColorWhite: 3
+    ClothingShoesColorBlue: 2
+    ClothingShoesColorYellow: 2
+    ClothingShoesColorGreen: 2
+    ClothingShoesColorOrange: 2
+    ClothingShoesColorRed: 2
+    ClothingShoesColorPurple: 2
+
+    ClothingBeltStorageWaistbag: 3
+    ClothingEyesGlasses: 6
+
+    # gloves
+    ClothingHandsGlovesColorBlack: 4
+    ClothingHandsGlovesColorGray: 4
+    ClothingHandsGlovesColorBrown: 2
+    ClothingHandsGlovesColorWhite: 2
+    ClothingHandsGlovesColorRed: 2
+    ClothingHandsGlovesColorBlue: 2
+    ClothingHandsGlovesColorGreen: 2
+    ClothingHandsGlovesColorOrange: 2
+    ClothingHandsGlovesColorPurple: 2
+  contrabandInventory:
+    ClothingMaskNeckGaiter: 2
+    ClothingUniformJumpsuitTacticool: 1
+    ClothingUniformJumpskirtTacticool: 1
