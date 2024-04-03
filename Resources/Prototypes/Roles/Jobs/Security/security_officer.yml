@@ -30,7 +30,8 @@
     back: ClothingBackpackSecurityFilled
     shoes: ClothingShoesBootsMercFilled
     eyes: ClothingEyesGlassesSunglasses
-    head: ClothingHeadHatBlacksoft
+#    head: ClothingHeadHatBlacksoft
+    mask: ClothingMaskBandMerc
     gloves: ClothingHandsMercGlovesCombat
     outerClothing: ClothingOuterArmorBasic
     id: SecurityPDA
