@@ -1,0 +1,7 @@
+- type: entity
+  id: PaperContract
+  parent: Paper
+  name: contract
+  components:
+  - type: Paper
+    content: The captain and crew are not liable for your death. You are expendable to the crew. You are a "fill-in" which means any individual that is not a deckhand and is aboard this crew may ask you to perform a department's duties. An example of this is when a mercenary requests you to man starboard guns, or when an engineer tells you to start the drive."

@@ -288,7 +288,7 @@
   description: A vending machine for clothing.
   components:
   - type: VendingMachine
-    pack: ClothesMateInventory
+    pack: ClothesMateInventoryVeil
     offState: off
     brokenState: broken
     normalState: normal-unshaded

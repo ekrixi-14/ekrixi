@@ -116,7 +116,7 @@
   components:
   - type: VendingMachineRestock
     canRestock:
-    - ClothesMateInventory
+    - ClothesMateInventoryVeil
     - AtmosDrobeInventory
     - BarDrobeInventory
     - CargoDrobeInventory
