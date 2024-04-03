@@ -38,7 +38,7 @@
 - type: startingGear
   id: CaptainGear
   equipment:
-    jumpsuit: ClothingShirtTShirtBlue
+    jumpsuit: ClothingShirtTShirtCommand
     lowerClothing: ClothingPantsJeans
     back: ClothingBackpackCaptainFilled
     shoes: ClothingShoesBootsCombat

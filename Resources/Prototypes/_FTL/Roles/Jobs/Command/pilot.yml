@@ -17,7 +17,7 @@
   id: PilotGear
   equipment:
     head: ClothingHeadHatAnimalHeadslime
-    jumpsuit: ClothingShirtTShirtRipped
+    jumpsuit: ClothingShirtTShirtCommand
     lowerClothing: ClothingPantsRippedJeans
     back: ClothingBackpackFilled
     shoes: ClothingShoesColorWhite

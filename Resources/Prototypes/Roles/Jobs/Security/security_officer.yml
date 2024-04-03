@@ -25,7 +25,7 @@
 - type: startingGear
   id: SecurityOfficerGear
   equipment:
-    jumpsuit: ClothingShirtTShirtRed
+    jumpsuit: ClothingShirtTShirtMerc
     lowerClothing: ClothingPantsRippedJeans
     back: ClothingBackpackSecurityFilled
     shoes: ClothingShoesBootsMercFilled

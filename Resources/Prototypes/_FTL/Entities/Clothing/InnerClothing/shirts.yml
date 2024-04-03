@@ -118,3 +118,25 @@
     sprite: _FTL/Clothing/InnerClothing/ripped-tshirt.rsi
   - type: Clothing
     sprite: _FTL/Clothing/InnerClothing/ripped-tshirt.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingShirtTShirtCommand
+  name: command t-shirt
+  description: A dark blue t-shirt.
+  components:
+  - type: Sprite
+    sprite: _FTL/Clothing/InnerClothing/Department/command.rsi
+  - type: Clothing
+    sprite: _FTL/Clothing/InnerClothing/Department/command.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingShirtTShirtMerc
+  name: mercenary t-shirt
+  description: A light red t-shirt.
+  components:
+  - type: Sprite
+    sprite: _FTL/Clothing/InnerClothing/Department/merc.rsi
+  - type: Clothing
+    sprite: _FTL/Clothing/InnerClothing/Department/merc.rsi
