@@ -1,0 +1,30 @@
+- type: entity
+  parent: ClothingPantsBase
+  id: ClothingPantsPencilSkirt
+  name: pencil skirt
+  description: A pencil skirt. Unfortunately, doesn't hold pencils.
+  components:
+  - type: Sprite
+    sprite: _FTL/Clothing/LowerClothing/Skirts/pencil-skirt.rsi
+  - type: Clothing
+    sprite: _FTL/Clothing/LowerClothing/Skirts/pencil-skirt.rsi
+
+- type: entity
+  parent: ClothingPantsPencilSkirt
+  id: ClothingPantsPencilSkirtGray
+  name: gray pencil skirt
+  components:
+  - type: Sprite
+    sprite: _FTL/Clothing/LowerClothing/Skirts/pencil-skirt-gray.rsi
+  - type: Clothing
+    sprite: _FTL/Clothing/LowerClothing/Skirts/pencil-skirt-gray.rsi
+
+- type: entity
+  parent: ClothingPantsPencilSkirt
+  id: ClothingPantsPencilSkirtGray
+  name: black pencil skirt
+  components:
+  - type: Sprite
+    sprite: _FTL/Clothing/LowerClothing/Skirts/pencil-skirt-black.rsi
+  - type: Clothing
+    sprite: _FTL/Clothing/LowerClothing/Skirts/pencil-skirt-black.rsi
