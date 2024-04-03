@@ -21,7 +21,7 @@
 
 - type: entity
   parent: ClothingPantsPencilSkirt
-  id: ClothingPantsPencilSkirtGray
+  id: ClothingPantsPencilSkirtBlack
   name: black pencil skirt
   components:
   - type: Sprite
