@@ -13,10 +13,8 @@
     - type: Sprite
       sprite: _FTL/Structures/Machines/warp-drive.rsi
       layers:
-        - state: base
-        - sprite: _FTL/Structures/Machines/warp-drive.rsi
-          state: on
-          # I don't understand how to switch to on and off states
+      - state: on
+      - state: base
     - type: Fixtures
       fixtures:
         fix1:
