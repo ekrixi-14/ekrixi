@@ -5,10 +5,13 @@
         "y":32
     },
     "license":"CC-BY-SA-3.0",
-    "copyright": "Drew by Just-a-Unity-Dev for Ekrixi",
+    "copyright": "Hyenh#6078 (313846233099927552)",
     "states":[
         {
-            "name": "warp-drive"
-        }
+            "name": "base"
+        },
+		{
+			"name": "on"
+		}
     ]
 }

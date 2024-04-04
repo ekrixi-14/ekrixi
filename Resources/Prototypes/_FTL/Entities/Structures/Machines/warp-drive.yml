@@ -13,7 +13,10 @@
     - type: Sprite
       sprite: _FTL/Structures/Machines/warp-drive.rsi
       layers:
-        - state: warp-drive
+        - state: base
+        - sprite: _FTL/Structures/Machines/warp-drive.rsi
+          state: on
+          # I don't understand how to switch to on and off states
     - type: Fixtures
       fixtures:
         fix1:
@@ -25,3 +28,6 @@
           layer:
             - WallLayer
           density: 100
+    - type: PointLight
+      radius: 2.5
+      energy: 0.5
