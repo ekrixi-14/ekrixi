@@ -108,6 +108,10 @@
     size: Normal
     sprite: Objects/Weapons/Melee/machete.rsi
   - type: DisarmMalus
+  - type: Clothing
+    sprite: Objects/Weapons/Melee/machete.rsi
+    slots:
+    - Belt
 
 - type: entity
   name: claymore
