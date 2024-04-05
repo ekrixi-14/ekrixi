@@ -9,7 +9,7 @@
       stationProto: StandardIndependentShip
       components:
         - type: StationNameSetup
-          mapNameTemplate: 'AS Cestoda-Class Budget Cruiser' # Left out in space... How did this get here?
+          mapNameTemplate: 'CS Cestoda-Class Budget Cruiser' # Left out in space... How did this get here?
         - type: StationJobs
           overflowJobs:
             - Passenger
