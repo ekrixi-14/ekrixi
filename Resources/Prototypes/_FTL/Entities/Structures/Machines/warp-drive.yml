@@ -13,7 +13,6 @@
     - type: Sprite
       sprite: _FTL/Structures/Machines/warp-drive.rsi
       layers:
-      - state: on
       - state: base
     - type: Fixtures
       fixtures:
