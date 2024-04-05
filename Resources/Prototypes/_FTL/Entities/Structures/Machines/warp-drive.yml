@@ -13,7 +13,7 @@
     - type: Sprite
       sprite: _FTL/Structures/Machines/warp-drive.rsi
       layers:
-        - state: warp-drive
+      - state: base
     - type: Fixtures
       fixtures:
         fix1:
@@ -25,3 +25,6 @@
           layer:
             - WallLayer
           density: 100
+    - type: PointLight
+      radius: 2.5
+      energy: 0.5
