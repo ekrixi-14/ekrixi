@@ -46,11 +46,11 @@
     eyes: ClothingEyesGlassesSunglasses
 #    gloves: ClothingHandsGlovesCaptain
     outerClothing: ClothingOuterCoatTrenchDark
-    belt: WeaponAntiqueLaser
+    belt: Machete
     id: CaptainPDA
     ears: ClothingHeadsetAltCommand
     pocket1: WeaponRevolverDeckard
-    pocket2: Machete
+    pocket2: WeaponAntiqueLaser
 #  innerClothingSkirt: ClothingUniformJumpskirtCaptain
   satchel: ClothingBackpackSatchelCaptainFilled
   duffelbag: ClothingBackpackDuffelCaptainFilled
