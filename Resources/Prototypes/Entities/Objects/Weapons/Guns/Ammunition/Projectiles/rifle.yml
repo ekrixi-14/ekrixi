@@ -8,8 +8,6 @@
     damage:
       types:
         Piercing: 17
-      wounds:
-        WoundGunshot: 1
 
 - type: entity
   id: BulletRiflePractice
