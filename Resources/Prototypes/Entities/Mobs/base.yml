@@ -52,8 +52,6 @@
   components:
   - type: Damageable
     damageContainer: Biological
-  - type: WoundsHolder
-  - type: WoundThreshold
     thresholds:
       - wound: WoundLaceration
         damageType: Slash
