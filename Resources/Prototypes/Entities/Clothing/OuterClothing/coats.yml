@@ -132,6 +132,7 @@
   parent: ClothingOuterStorageBase
   id: ClothingOuterCoatLabChem
   name: lab coat
+  suffix: Chemistry
   description: A suit that protects against minor chemical spills. Has an orange stripe on the shoulder.
   components:
   - type: Sprite
@@ -147,6 +148,7 @@
   parent: ClothingOuterStorageBase
   id: ClothingOuterCoatLabViro
   name: lab coat
+  suffix: Virology
   description: A suit that protects against bacteria and viruses. Has an green stripe on the shoulder.
   components:
   - type: Sprite
@@ -163,6 +165,7 @@
   parent: ClothingOuterStorageBase
   id: ClothingOuterCoatLabGene
   name: lab coat
+  suffix: Genetics
   description: A suit that protects against minor chemical spills. Has an blue stripe on the shoulder.
   components:
   - type: Sprite
@@ -179,6 +182,7 @@
   parent: ClothingOuterStorageBase
   id: ClothingOuterCoatLabCmo
   name: high-quality lab coat
+  suffix: CMO
   description: Bluer than the standard model.
   components:
   - type: Sprite
@@ -194,6 +198,7 @@
   parent: ClothingOuterStorageBase
   id: ClothingOuterCoatRnd
   name: lab coat
+  suffix: Science
   description: A suit that protects against minor chemical spills. Has a purple stripe on the shoulder.
   components:
   - type: Sprite
@@ -209,6 +214,7 @@
   parent: ClothingOuterStorageBase
   id: ClothingOuterCoatRobo
   name: lab coat
+  suffix: Robotics
   description: More like an eccentric coat than a labcoat. Helps pass off bloodstains as part of the aesthetic. Comes with red shoulder pads.
   components:
   - type: Sprite
@@ -224,6 +230,7 @@
   parent: ClothingOuterStorageBase
   id: ClothingOuterCoatRD
   name: lead-lined lab coat
+  suffix: RD
   description: Woven with top of the line technology, this labcoat has additional radiation shielding.
   components:
   - type: Sprite

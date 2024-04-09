@@ -414,7 +414,7 @@
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtColorOrange
   name: orange jumpskirt
-  description: "Don't wear this near paranoid peacekeepers."
+  description: "Don't wear this near paranoid police officers."
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/Color/orange.rsi

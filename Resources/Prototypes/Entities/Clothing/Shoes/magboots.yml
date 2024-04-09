@@ -84,7 +84,7 @@
   parent: ClothingShoesBase
   id: ClothingShoesBootsMagSyndie
   name: blood-red magboots
-  description: Sinister magnetic boots that have a heavy magnetic pull and integrated thrusters.
+  description: Magnetic combat boots that have a heavy magnetic pull and integrated thrusters.
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Boots/magboots-syndicate.rsi

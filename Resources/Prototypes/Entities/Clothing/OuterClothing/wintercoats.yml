@@ -53,6 +53,7 @@
   parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterAtmos
   name: winter coat
+  suffix: Atmos
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatatmos.rsi
@@ -76,7 +77,7 @@
 - type: entity
   parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterCap
-  name: gold-trimmed winter coat
+  name: blue gold-trimmed winter coat
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatcap.rsi
@@ -89,6 +90,7 @@
   parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterCargo
   name: winter coat
+  suffix: Cargo
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatcargo.rsi
@@ -101,6 +103,7 @@
   parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterCE
   name: winter coat
+  suffix: Chief Engineer
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatce.rsi
@@ -112,7 +115,7 @@
 - type: entity
   parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterCentcom
-  name: winter coat
+  name: green gold-trimmed winter coat
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatcentcom.rsi
@@ -136,6 +139,7 @@
   parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterChem
   name: winter coat
+  suffix: Chemistry
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatchem.rsi
@@ -155,6 +159,7 @@
   parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterCMO
   name: acid-proof winter coat
+  suffix: CMO
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatcmo.rsi
@@ -184,6 +189,7 @@
   parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterEngi
   name: engineering winter coat
+  suffix: Electrician
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatengi.rsi
@@ -196,6 +202,7 @@
   parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterGen
   name: acid-proof winter coat
+  suffix: Genetics
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatgen.rsi
@@ -215,6 +222,7 @@
   parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterHoP
   name: winter coat
+  suffix: HoP
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coathop.rsi
@@ -227,6 +235,7 @@
   parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterHoS
   name: winter coat
+  suffix: HoS
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coathos.rsi
@@ -239,6 +248,7 @@
   parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterHydro
   name: winter coat
+  suffix: Hydroponics
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coathydro.rsi
@@ -251,6 +261,7 @@
   parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterJani
   name: acid-proof winter coat
+  suffix: Janitor
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatjani.rsi
@@ -270,6 +281,7 @@
   parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterMed
   name: acid-proof winter coat
+  suffix: Medical
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatmed.rsi
@@ -289,6 +301,7 @@
   parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterMime
   name: winter coat
+  suffix: Mime
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatmime.rsi
@@ -301,6 +314,7 @@
   parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterMiner
   name: winter coat
+  suffix: Miner
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatminer.rsi
@@ -313,6 +327,7 @@
   parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterPara
   name: acid-proof winter coat
+  suffix: Paramedic
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatparamed.rsi
@@ -332,6 +347,7 @@
   parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterQM
   name: winter coat
+  suffix: QM
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatqm.rsi
@@ -345,6 +361,7 @@
   parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterRD
   name: acid-proof winter coat
+  suffix: RD
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatrd.rsi
@@ -364,6 +381,7 @@
   parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterRobo
   name: winter coat
+  suffix: robotics
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatrobo.rsi
@@ -377,6 +395,7 @@
   parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterSci
   name: acid-proof winter coat
+  suffix: science
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatsci.rsi
@@ -396,6 +415,7 @@
   parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterSec
   name: winter coat
+  suffix: security
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatsec.rsi
@@ -408,6 +428,7 @@
   parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterViro
   name: acid-proof winter coat
+  suffix: virology
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatviro.rsi
@@ -427,6 +448,7 @@
   parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterWarden
   name: armored winter coat
+  suffix: warden
   description: A sturdy, utilitarian winter coat designed to protect your body while remaining fashionable.
   components:
   - type: Sprite
@@ -447,6 +469,7 @@
   parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterSyndieCap
   name: sinister winter coat
+  suffix: cap
   description: "This winter coat is made of durable fabric, with gilded patterns, and coarse wool."
   components:
   - type: Sprite
@@ -486,6 +509,7 @@
   parent: ClothingOuterWinterCoat
   id: ClothingOuterWinterMusician
   name: fancy winter coat
+  suffix: musician
   description: An oversized, plasticine space tuxedo that'll have people asking "do you know me?"
   components:
   - type: Sprite
