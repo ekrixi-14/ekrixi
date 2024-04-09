@@ -1,5 +1,4 @@
 using System.Linq;
-using Content.Shared._FTL.Wounds;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
@@ -23,7 +22,6 @@ namespace Content.Shared.Damage
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
         [Dependency] private readonly INetManager _netMan = default!;
         [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
-        [Dependency] private readonly SharedWoundsSystem _sharedWoundsSystem = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
 
         private EntityQuery<AppearanceComponent> _appearanceQuery;
@@ -105,13 +103,6 @@ namespace Content.Shared.Damage
             bool interruptsDoAfters = true, EntityUid? origin = null)
         {
             DamageSpecifier dmg = new (component.Damage);
-            if (TryComp<WoundsHolderComponent>(uid, out var wounds))
-            {
-                if (_sharedWoundsSystem.TryGetDamageFromWounds(uid, wounds, out var spec))
-                {
-                    dmg = spec + dmg;
-                }
-            }
 
             dmg.GetDamagePerGroup(_prototypeManager, component.DamagePerGroup);
             component.TotalDamage = dmg.GetTotal();
@@ -201,19 +192,6 @@ namespace Content.Shared.Damage
 
             if (delta.DamageDict.Count > 0)
                 DamageChanged(uid.Value, damageable, delta, interruptsDoAfters, origin);
-
-            if (damage.Wounds == null || !TryComp<WoundsHolderComponent>(uid, out var woundsHolderComponent))
-                return delta;
-
-            // ...Maybe *don't* add wounds based on pure random chance?
-            foreach (var wound in damage.Wounds.Keys)
-            {
-                var prob = damage.Wounds[wound];
-                if (_random.Prob(prob))
-                {
-                    _sharedWoundsSystem.TryAddWound(wound, uid.Value);
-                }
-            }
 
             return delta;
         }

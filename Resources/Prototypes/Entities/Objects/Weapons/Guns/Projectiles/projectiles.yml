@@ -61,8 +61,6 @@
     damage:
       types:
         Piercing: 14
-      wounds:
-        WoundGunshot: 1
     soundHit:
       path: /Audio/Weapons/Guns/Hits/bullet_hit.ogg
   - type: TimedDespawn
@@ -740,7 +738,7 @@
   - type: PointLight
     radius: 3.5
     color: blue
-    energy: 0.5 
+    energy: 0.5
 
 - type: entity
   id: BulletCap

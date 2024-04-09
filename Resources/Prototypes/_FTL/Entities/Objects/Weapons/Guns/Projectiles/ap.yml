@@ -14,8 +14,6 @@
           Structural: 1000
         groups:
           Brute: 75
-        wounds:
-          WoundSevereGunshot: 1
 
 - type: entity
   id: Bullet53mmAP

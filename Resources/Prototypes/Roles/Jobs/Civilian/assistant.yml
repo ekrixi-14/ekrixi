@@ -19,8 +19,7 @@
 #    shoes: ClothingShoesColorBlack # Deckhands don't deserve fucking clothes
     id: PassengerPDA
     ears: ClothingHeadsetGrey # Deckhands don't deserve fucking headsets either
-  inhand:
-  - PaperContract
+    pocket1: PaperContract
 #  innerClothingSkirt: ClothingUniformJumpskirtColorGrey
   satchel: ClothingBackpackSatchelFilled
   duffelbag: ClothingBackpackDuffelFilled
