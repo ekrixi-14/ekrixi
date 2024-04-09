@@ -28,6 +28,7 @@
   parent: ClothingBackpackDuffel
   id: ClothingBackpackDuffelAtmospherics
   name: engineering duffel bag
+  suffix: Atmospherics
   description: A large duffel bag made of fire resistant fibers. Smells like plasma.
   components:
   - type: Sprite

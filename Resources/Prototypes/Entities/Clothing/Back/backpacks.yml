@@ -86,6 +86,7 @@
   parent: ClothingBackpack
   id: ClothingBackpackAtmospherics
   name: engineering backpack
+  suffix: Atmospherics
   description: It's a backpack made of fire resistant fibers. Smells like plasma.
   components:
   - type: Sprite

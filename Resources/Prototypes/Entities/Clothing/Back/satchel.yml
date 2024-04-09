@@ -34,6 +34,7 @@
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelAtmospherics
   name: engineering satchel
+  suffix: Atmospherics
   description: A tough satchel made of fire resistant fibers. Smells like plasma.
   components:
   - type: Sprite
