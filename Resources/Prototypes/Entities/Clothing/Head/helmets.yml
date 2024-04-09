@@ -253,8 +253,8 @@
 - type: entity
   parent: ClothingHeadLightBase
   id: ClothingHeadHelmetAtmosFire
-  name: atmos fire helmet
-  description: An atmos fire helmet, able to keep the user cool in any situation.
+  name: high-quality fire helmet
+  description: An expensive fire helmet, able to keep the user cool in any situation.
   components:
   - type: Sprite
     sprite: Clothing/Head/Helmets/atmos_firehelmet.rsi
@@ -297,8 +297,8 @@
 - type: entity
   parent: ClothingHeadHelmetBasic
   id: ClothingHeadHelmetERTLeader
-  name: ERT leader helmet
-  description: An in-atmosphere helmet worn by the leader of an Emergency Response Team. Has blue highlights.
+  name: squad leader helmet
+  description: An in-atmosphere helmet worn by the leader of a combat squad. Has blue highlights.
   components:
   - type: Sprite
     sprite: Clothing/Head/Helmets/ert_leader.rsi
@@ -309,8 +309,8 @@
 - type: entity
   parent: ClothingHeadHelmetBasic
   id: ClothingHeadHelmetERTSecurity
-  name: ERT security helmet
-  description: An in-atmosphere helmet worn by security members of the Emergency Response Team. Has red highlights.
+  name: squad combatant helmet
+  description: An in-atmosphere helmet worn by combatants of a combat squad. Has red highlights.
   components:
   - type: Sprite
     sprite: Clothing/Head/Helmets/ert_security.rsi
@@ -321,8 +321,8 @@
 - type: entity
   parent: ClothingHeadHelmetBasic
   id: ClothingHeadHelmetERTMedic
-  name: ERT medic helmet
-  description: An in-atmosphere helmet worn by medical members of the Emergency Response Team. Has white highlights.
+  name: squad medic helmet
+  description: An in-atmosphere helmet worn by medical members of a combat squad. Has white highlights.
   components:
   - type: Sprite
     sprite: Clothing/Head/Helmets/ert_medic.rsi
@@ -333,8 +333,8 @@
 - type: entity
   parent: ClothingHeadHelmetBasic
   id: ClothingHeadHelmetERTEngineer
-  name: ERT engineer helmet
-  description: An in-atmosphere helmet worn by engineering members of the Emergency Response Team. Has orange highlights.
+  name: squad engineer helmet
+  description: An in-atmosphere helmet worn by engineering members of a combat squad. Has orange highlights.
   components:
   - type: Sprite
     sprite: Clothing/Head/Helmets/ert_engineer.rsi
@@ -345,8 +345,8 @@
 - type: entity
   parent: ClothingHeadHelmetBasic
   id: ClothingHeadHelmetERTJanitor
-  name: ERT janitor helmet
-  description: An in-atmosphere helmet worn by janitorial members of the Emergency Response Team. Has dark purple highlights.
+  name: squad janitor helmet
+  description: An in-atmosphere helmet worn by janitorial members of a combat squad. Has dark purple highlights.
   components:
   - type: Sprite
     sprite: Clothing/Head/Helmets/ert_janitor.rsi

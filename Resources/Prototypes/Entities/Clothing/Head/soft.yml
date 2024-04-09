@@ -59,8 +59,8 @@
 - type: entity
   parent: ClothingHeadHeadHatBaseFlippable
   id: ClothingHeadHatCargosoft
-  name: cargo cap
-  description: "It's a baseball hat painted in Cargo colours."
+  name: trader cap
+  description: "It's a baseball hat painted in trader colours."
   components:
   - type: Sprite
     sprite: Clothing/Head/Soft/cargosoft.rsi
@@ -75,7 +75,7 @@
 - type: entity
   parent: [ClothingHeadHeadHatBaseFlipped, ClothingHeadHatCargosoft]
   id: ClothingHeadHatCargosoftFlipped
-  name: cargo cap
+  name: trader cap
   components:
   - type: Tag
     tags:
@@ -86,8 +86,8 @@
 - type: entity
   parent: ClothingHeadHeadHatBaseFlippable
   id: ClothingHeadHatQMsoft
-  name: quartermaster's cap
-  description: "It's a baseball hat painted in the Quartermaster's colors."
+  name: trader's cap
+  description: "It's a baseball hat for wealthy traders."
   components:
   - type: Sprite
     sprite: Clothing/Head/Soft/qmsoft.rsi
@@ -97,7 +97,7 @@
 - type: entity
   parent: [ClothingHeadHeadHatBaseFlipped, ClothingHeadHatQMsoft]
   id: ClothingHeadHatQMsoftFlipped
-  name: quartermaster's cap
+  name: trader's cap
     
 - type: entity
   parent: ClothingHeadHeadHatBaseFlippable
@@ -241,7 +241,7 @@
 - type: entity
   parent: ClothingHeadHeadHatBaseFlippable
   id: ClothingHeadHatSecsoft
-  name: security cap
+  name: combat cap
   description: It's a robust baseball hat in tasteful red colour.
   components:
   - type: Sprite
@@ -252,7 +252,7 @@
 - type: entity
   parent: [ClothingHeadHeadHatBaseFlipped, ClothingHeadHatSecsoft]
   id: ClothingHeadHatSecsoftFlipped
-  name: security cap
+  name: combat cap
 
 - type: entity
   parent: ClothingHeadHeadHatBaseFlippable

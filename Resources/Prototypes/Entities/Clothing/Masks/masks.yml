@@ -20,8 +20,8 @@
 - type: entity
   parent: ClothingMaskGas
   id: ClothingMaskGasSecurity
-  name: security gas mask
-  description: A standard issue Security gas mask.
+  name: combat gas mask
+  description: A mass-produced resilient gas mask.
   components:
   - type: Item
     size: Tiny
@@ -40,7 +40,7 @@
 - type: entity
   parent: ClothingMaskGas
   id: ClothingMaskGasSyndicate
-  name: syndicate gas mask
+  name: sinister gas mask
   description: A close-fitting tactical mask that can be connected to an air supply.
   components:
   - type: Sprite
@@ -60,8 +60,8 @@
 - type: entity
   parent: ClothingMaskGas
   id: ClothingMaskGasAtmos
-  name: atmospheric gas mask
-  description: Improved gas mask utilized by atmospheric technicians. It's flameproof!
+  name: fireproof gas mask
+  description: Improved gas mask utilized by firefighters. It's flameproof!
   components:
   - type: Sprite
     sprite: Clothing/Mask/gasatmos.rsi
@@ -75,8 +75,8 @@
 - type: entity
   parent: ClothingMaskGasAtmos
   id: ClothingMaskGasCaptain
-  name: captain's gas mask
-  description: The manufacturer cut corners and repainted a spare atmospheric gas mask, but don't tell anyone.
+  name: gold-trimmed's gas mask
+  description: A fancy gas mask favored by aristocrats.
   components:
   - type: Sprite
     sprite: Clothing/Mask/gascaptain.rsi
@@ -88,8 +88,8 @@
 - type: entity
   parent: ClothingMaskGasAtmos
   id: ClothingMaskGasCentcom
-  name: CentCom gas mask
-  description: Oooh, gold and green. Fancy! This should help as you sit in your office.
+  name: gold-trimmed gas mask
+  description: Oooh, gold and green. Fancy! This should help as you sit in your office counting money.
   components:
   - type: Sprite
     sprite: Clothing/Mask/gascentcom.rsi
@@ -139,7 +139,7 @@
   parent: ClothingMaskBreathMedical
   id: ClothingMaskBreathMedicalSecurity
   name: military-style medical mask
-  description: A medical mask with a small layer of protection against damage and viruses, similar to the one used in the medical units of the first corporate war.
+  description: A medical mask with a small layer of protection against damage and viruses.
   components:
   - type: Item
     size: Tiny
@@ -269,7 +269,7 @@
   parent: ClothingMaskBase
   id: ClothingMaskMuzzle
   name: muzzle
-  description: To stop that awful noise.
+  description: For your pet deckhand.
   components:
   - type: Item
     size: Tiny
@@ -318,7 +318,7 @@
   parent: ClothingMaskGasExplorer
   id: ClothingMaskGasSwat
   name: swat gas mask
-  description: A elite issue Security gas mask.
+  description: A high-quality gas mask for those who regularly see combat.
   components:
   - type: Sprite
     sprite: Clothing/Mask/swat.rsi
@@ -342,8 +342,8 @@
 - type: entity
   parent: ClothingMaskGasSyndicate
   id: ClothingMaskGasERT
-  name: ert gas mask
-  description: The gas mask of the elite squad of the ERT.
+  name: squad gas mask
+  description: The gas mask worn by combat squads.
   components:
   - type: Sprite
     sprite: Clothing/Mask/ert.rsi
@@ -356,8 +356,8 @@
 - type: entity
   parent: ClothingMaskGasERT
   id: ClothingMaskGasDeathSquad
-  name: death squad gas mask
-  description: A unique gas mask for the NT's most elite squad.
+  name: supreme combat gas mask
+  description: A unique gas mask used by commandos in elite operations.
   components:
   - type: Sprite
     sprite: Clothing/Mask/squadron.rsi

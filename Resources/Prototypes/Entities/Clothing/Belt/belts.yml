@@ -81,7 +81,7 @@
 - type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltChiefEngineer
-  name: chief engineer's toolbelt
+  name: fancy engineering toolbelt
   description: Holds tools, looks snazzy.
   components:
   - type: Sprite
@@ -450,8 +450,8 @@
 - type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltSecurity
-  name: security belt
-  description: Can hold security gear like handcuffs and flashes.
+  name: officer's belt
+  description: Typically used for peacekeeping gear like handcuffs and flashes.
   components:
   - type: Sprite
     sprite: Clothing/Belt/security.rsi
@@ -594,8 +594,8 @@
 - type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltSecurityWebbing
-  name: security webbing
-  description: Unique and versatile chest rig, can hold security gear.
+  name: combat webbing
+  description: Unique and versatile chest rig, can hold all kinds of lethal and non-lethal gear.
   components:
   - type: Sprite
     sprite: Clothing/Belt/securitywebbing.rsi
@@ -616,7 +616,7 @@
 - type: entity
   parent: ClothingBeltStorageBase
   id: ClothingBeltSalvageWebbing
-  name: salvage rig
+  name: mining rig
   description: Universal unloading system for work in space.
   components:
   - type: Sprite
@@ -641,7 +641,7 @@
   parent: ClothingBeltMilitaryWebbing
   id: ClothingBeltMilitaryWebbingMed
   name: medical chest rig
-  description: A set of tactical webbing worn by Gorlex Marauder medic operatives.
+  description: A set of tactical webbing worn by field medics.
   components:
   - type: Sprite
     sprite: Clothing/Belt/militarywebbingmed.rsi

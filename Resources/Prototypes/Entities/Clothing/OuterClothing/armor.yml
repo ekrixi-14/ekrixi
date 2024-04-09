@@ -212,8 +212,8 @@
 - type: entity
   parent: ClothingOuterBaseLarge
   id: ClothingOuterArmorCaptainCarapace
-  name: "captain's carapace"
-  description: "An armored chestpiece that provides protection whilst still offering maximum mobility and flexibility. Issued only to the station's finest."
+  name: gold-trimmed carapace
+  description: An armored chestpiece that provides protection whilst still offering maximum mobility and flexibility. Favored by aristocrats.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Armor/captain_carapace.rsi
@@ -239,7 +239,7 @@
   parent: ClothingOuterBaseLarge
   id: ClothingOuterArmorChangeling
   name: chitinous armor
-  description: Inflates the changeling's body into an all-consuming chitinous mass of armor.
+  description: An all-consuming chitinous mass of armor.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Armor/lingarmor.rsi

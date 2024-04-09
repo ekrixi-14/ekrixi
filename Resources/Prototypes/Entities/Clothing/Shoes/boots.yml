@@ -14,7 +14,7 @@
   parent: ClothingShoesMilitaryBase
   id: ClothingShoesBootsJack
   name: jackboots
-  description: Standard-issue Security combat boots for combat scenarios or combat situations. All combat, all the time.
+  description: Standard-issue combat boots for combat scenarios or combat situations. All combat, all the time.
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Boots/jackboots.rsi
@@ -24,8 +24,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesBootsSalvage
-  name: salvage boots
-  description: Steel-toed salvage boots for salvaging in hazardous environments.
+  name: mining boots
+  description: Steel-toed mining boots for mining in hazardous environments.
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Boots/explorer.rsi
@@ -105,7 +105,7 @@
 - type: entity
   parent: ClothingShoesBaseWinterBoots
   id: ClothingShoesBootsWinterCargo
-  name: cargo winter boots
+  name: trading winter boots
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Boots/winterbootscargo.rsi
@@ -135,7 +135,7 @@
 - type: entity
   parent: ClothingShoesBaseWinterBoots
   id: ClothingShoesBootsWinterSci
-  name: science winter boots
+  name: research winter boots
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Boots/winterbootssci.rsi
@@ -145,7 +145,7 @@
 - type: entity
   parent: ClothingShoesBaseWinterBoots
   id: ClothingShoesBootsWinterSec
-  name: security winter boots
+  name: combat winter boots
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Boots/winterbootssec.rsi
@@ -155,8 +155,8 @@
 - type: entity
   parent: ClothingShoesBaseWinterBoots
   id: ClothingShoesBootsWinterSyndicate
-  name: syndicate's winter boots
-  description: Durable heavy boots, looks like merch from "Syndieland"
+  name: sinister winter boots
+  description: Durable heavy boots, perfect if you're evil.
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Boots/winterbootssyndicate.rsi

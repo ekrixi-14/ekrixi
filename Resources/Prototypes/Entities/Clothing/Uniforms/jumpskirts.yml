@@ -12,8 +12,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtCaptain
-  name: captain's jumpskirt
-  description: It's a blue jumpskirt with some gold markings denoting the rank of "Captain".
+  name: gold-trimmed jumpskirt
+  description: It's a fancy blue jumpskirt favored by aristocrats.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/captain.rsi
@@ -23,8 +23,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtCargo
-  name: cargo tech jumpskirt
-  description: A sturdy jumpskirt, issued to members of the Cargo department.
+  name: trader jumpskirt
+  description: A sturdy jumpskirt, common among traders.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/cargotech.rsi
@@ -34,8 +34,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtChiefEngineer
-  name: chief engineer's jumpskirt
-  description: It's a high visibility jumpskirt given to those engineers insane enough to achieve the rank of Chief Engineer. It has minor radiation shielding.
+  name: fancy engineer's jumpskirt
+  description: It's a high visibility jumpskirt given to those engineers insane enough to step out into the veil.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/ce.rsi
@@ -45,8 +45,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtChiefEngineerTurtle
-  name: chief engineer's turtleneck
-  description: A yellow turtleneck designed specifically for work in conditions of the engineering department.
+  name: fancy engineer's turtleneck
+  description: A yellow turtleneck designed specifically for work in space.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/ce_turtle.rsi
@@ -78,7 +78,7 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtChemistry
-  name: chemistry jumpskirt
+  name: sterile jumpskirt
   description: There's some odd stains on this jumpskirt. Hm.
   components:
   - type: Sprite
@@ -89,8 +89,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtVirology
-  name: virology jumpskirt
-  description: It's made of a special fiber that gives special protection against biohazards. It has a virologist rank stripe on it.
+  name: sterile jumpskirt
+  description: It's made of a special fiber that gives special protection against biohazards.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/virology.rsi
@@ -100,8 +100,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtGenetics
-  name: genetics jumpskirt
-  description: It's made of a special fiber that gives special protection against biohazards. It has a geneticist rank stripe on it.
+  name: sterile jumpskirt
+  description: It's made of a special fiber that gives special protection against biohazards.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/genetics.rsi
@@ -111,8 +111,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtCMO
-  name: chief medical officer's jumpskirt
-  description: It's a jumpskirt worn by those with the experience to be Chief Medical Officer. It provides minor biological protection.
+  name: fancy sterile jumpskirt
+  description: It's a jumpskirt worn by those with plenty of experience with mass casualty incidents.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/cmo.rsi
@@ -155,7 +155,7 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtHoP
-  name: head of personnel's jumpskirt
+  name: manager's jumpskirt
   description: Rather bland and inoffensive. Perfect for vanishing off the face of the universe.
   components:
   - type: Sprite
@@ -166,8 +166,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtHoS
-  name: head of security's jumpskirt
-  description: It's bright red and rather crisp, much like security's victims tend to be. Its sturdy fabric provides minor protection from slash and pierce damage.
+  name: commander's jumpskirt
+  description: It's bright red and rather crisp, much like a mercenary's victims tend to be.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/hos.rsi
@@ -177,8 +177,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtHoSAlt
-  name: head of security's turtleneck
-  description: It's a turtleneck worn by those strong and disciplined enough to achieve the position of Head of Security. Its sturdy fabric provides minor protection from slash and pierce damage.
+  name: commander's turtleneck
+  description: It's a turtleneck worn by those strong and disciplined enough to rule over a band of mercenaries.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/hos_alt.rsi
@@ -188,8 +188,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtHoSParadeMale
-  name: head of security's parade uniform
-  description: A head of security's luxury-wear, for special occasions.
+  name: commander's parade uniform
+  description: A commander's luxury-wear, for special occasions.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/hos_parade.rsi
@@ -221,7 +221,7 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtMedicalDoctor
-  name: medical doctor jumpskirt
+  name: sterile jumpskirt
   description: It's made of a special fiber that provides minor protection against biohazards. It has a cross on the chest denoting that the wearer is trained medical personnel.
   components:
   - type: Sprite
@@ -285,8 +285,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtQM
-  name: quartermaster's jumpskirt
-  description: 'What can brown do for you?'
+  name: fancy trader's jumpskirt
+  description: A fancy jumpskirt worn by wealthy traders.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/qm.rsi
@@ -296,8 +296,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtQMTurtleneck
-  name: quartermasters's turtleneck
-  description: A sharp turtleneck made for the hardy work environment of supply.
+  name: fancy trader's turtleneck
+  description: A sharp turtleneck worn by wealthy traders.
   components:
     - type: Sprite
       sprite: Clothing/Uniforms/Jumpskirt/qmturtleskirt.rsi
@@ -307,8 +307,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtResearchDirector
-  name: research director's turtleneck
-  description: It's a turtleneck worn by those with the know-how to achieve the position of Research Director. Its fabric provides minor protection from biological contaminants.
+  name: fancy researcher's turtleneck
+  description: It's a turtleneck worn by those willing to trick people into giving their lives to the veil for minor technologiocal progress.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/rnd.rsi
@@ -318,7 +318,7 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtScientist
-  name: scientist jumpskirt
+  name: researcher's jumpskirt
   description: It's made of a special fiber that provides minor protection against explosives. It has markings that denote the wearer as a scientist.
   components:
   - type: Sprite
@@ -329,8 +329,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtRoboticist
-  name: roboticist jumpskirt
-  description: It's a slimming black with reinforced seams; great for industrial work.
+  name: void-skirt
+  description: It's a slimming black with reinforced seams; perfect for use within hardsuits.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/roboticist.rsi
@@ -340,7 +340,7 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtSec
-  name: security jumpskirt
+  name: combat jumpskirt
   description: A jumpskirt made of strong material, providing robust protection.
   components:
   - type: Sprite
@@ -351,7 +351,7 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtWarden
-  name: warden's uniform
+  name: riot control uniform
   description: A formal security suit for officers complete with a belt buckle.
   components:
   - type: Sprite
@@ -409,7 +409,7 @@
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtColorOrange
   name: orange jumpskirt
-  description: "Don't wear this near paranoid security officers."
+  description: "Don't wear this near paranoid peacekeepers."
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/Color/orange.rsi
@@ -573,7 +573,7 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtCapFormalDress
-  name: captain's formal dress
+  name: gold-trimmed formal dress
   description: A dress for special occasions.
   components:
   - type: Sprite
@@ -584,7 +584,7 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtCentcomFormalDress
-  name: central command formal dress
+  name: gold-trimmed formal dress
   description: A dress for special occasions
   components:
   - type: Sprite
@@ -595,7 +595,7 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtHosFormal
-  name: hos's formal dress
+  name: commander's formal dress
   description: A dress for special occasions.
   components:
   - type: Sprite
@@ -607,7 +607,7 @@
   parent: UnsensoredClothingUniformSkirtBase
   id: ClothingUniformJumpskirtOperative
   name: operative jumpskirt
-  description: Uniform for elite syndicate operatives performing tactical operations in deep space.
+  description: Uniform for elite operatives performing tactical operations in deep space.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/operative_s.rsi
@@ -632,7 +632,7 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtAtmos
-  name: atmospheric technician jumpskirt
+  name: engineering jumpskirt
   description: I am at work. I can't leave work. Work is breathing. I am testing air quality.
   components:
   - type: Sprite
@@ -720,8 +720,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtSyndieFormalDress
-  name: syndicate formal dress
-  description: "The syndicate's uniform is made in an elegant style, it's even a pity to do dirty tricks in this."
+  name: sinister formal dress
+  description: An evil looking dress for hostage negotiations.
   components:
     - type: Sprite
       sprite: Clothing/Uniforms/Jumpskirt/syndieformaldress.rsi
@@ -753,8 +753,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtSeniorEngineer
-  name: senior engineer jumpskirt
-  description: A sign of skill and prestige within the engineering department.
+  name: engineer's jumpskirt
+  description: A sign of skill and prestige in engineering.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/senior_engineer.rsi
@@ -764,8 +764,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtSeniorResearcher
-  name: senior researcher jumpskirt
-  description: A sign of skill and prestige within the science department.
+  name: researcher's jumpskirt
+  description: A sign of skill and prestige in researching.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/senior_researcher.rsi
@@ -775,8 +775,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtSeniorPhysician
-  name: senior physician jumpskirt
-  description: A sign of skill and prestige within the medical department.
+  name: physician's jumpskirt
+  description: A sign of skill and prestige in medicine.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/senior_physician.rsi
@@ -786,8 +786,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtSeniorOfficer
-  name: senior officer jumpskirt
-  description: A sign of skill and prestige within the security department.
+  name: combatant's jumpskirt
+  description: A sign of skill and prestige in combat.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/senior_officer.rsi
@@ -797,8 +797,8 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtSecGrey
-  name: grey security jumpskirt
-  description: A tactical relic of years past before Nanotrasen decided it was cheaper to dye the suits red instead of washing out the blood.
+  name: grey combat jumpskirt
+  description: Red jumpskirts are more efficient at hiding blood.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpskirt/security_grey.rsi

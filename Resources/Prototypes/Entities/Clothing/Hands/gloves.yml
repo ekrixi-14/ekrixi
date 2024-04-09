@@ -94,8 +94,8 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingHandsGlovesCaptain
-  name: captain gloves
-  description: Regal blue gloves, with a nice gold trim. Swanky.
+  name: gold-trimmed gloves
+  description: Regal blue gloves favored by aristocrats
   components:
   - type: Sprite
     sprite: Clothing/Hands/Gloves/captain.rsi
