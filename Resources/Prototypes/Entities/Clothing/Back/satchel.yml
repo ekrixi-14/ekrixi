@@ -64,6 +64,7 @@
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelMedical
   name: sterile satchel
+  suffix: Medical
   description: A sterile satchel used in medical departments.
   components:
   - type: Sprite
@@ -82,6 +83,7 @@
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelVirology
   name: sterile satchel
+  suffix: Virology
   description: A satchel made of hypo-allergenic fibers. It's designed to help prevent the spread of disease. Smells like monkey.
   components:
   - type: Sprite
@@ -91,6 +93,7 @@
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelGenetics
   name: sterile satchel
+  suffix: Genetics
   description: A sterile satchel with geneticist colours.
   components:
   - type: Sprite
@@ -100,6 +103,7 @@
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelScience
   name: sterile satchel
+  suffix: Science
   description: Useful for holding research materials.
   components:
   - type: Sprite

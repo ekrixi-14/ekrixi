@@ -95,6 +95,7 @@
   parent: ClothingBackpack
   id: ClothingBackpackMedical
   name: sterile backpack
+  suffix: Medical
   description: It's a backpack especially designed for use in a sterile environment.
   components:
   - type: Sprite
@@ -140,6 +141,7 @@
   parent: ClothingBackpack
   id: ClothingBackpackScience
   name: sterile backpack
+  suffix: Science
   description: A backpack specially designed to repel stains and hazardous liquids.
   components:
   - type: Sprite
@@ -149,6 +151,7 @@
   parent: ClothingBackpack
   id: ClothingBackpackVirology
   name: sterile backpack
+  suffix: Virology
   description: A backpack made of hypo-allergenic fibers. It's designed to help prevent the spread of disease. Smells like monkey.
   components:
   - type: Sprite
@@ -158,6 +161,7 @@
   parent: ClothingBackpack
   id: ClothingBackpackGenetics
   name: sterile backpack
+  suffix: Genetics
   description: A backpack designed to be super tough, just in case someone hulks out on you.
   components:
   - type: Sprite

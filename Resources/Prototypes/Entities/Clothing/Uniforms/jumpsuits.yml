@@ -173,6 +173,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitChemistry
   name: sterile jumpsuit
+  suffix: Chemistry
   description: There's some odd stains on this jumpsuit. Hm.
   components:
   - type: Sprite
@@ -184,6 +185,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitVirology
   name: sterile jumpsuit
+  suffix: Virology
   description: It's made of a special fiber that gives special protection against biohazards. It has a virologist rank stripe on it.
   components:
   - type: Sprite
@@ -195,6 +197,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitGenetics
   name: sterile jumpsuit
+  suffix: Genetics
   description: It's made of a special fiber that gives special protection against biohazards. It has a geneticist rank stripe on it.
   components:
   - type: Sprite
@@ -414,6 +417,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitMedicalDoctor
   name: sterile jumpsuit
+  suffix: Medical
   description: It's made of a special fiber that provides minor protection against biohazards. It has a cross on the chest denoting that the wearer is trained medical personnel.
   components:
   - type: Sprite

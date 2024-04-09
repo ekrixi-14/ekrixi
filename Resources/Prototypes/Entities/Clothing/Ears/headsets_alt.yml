@@ -135,7 +135,7 @@
   parent: ClothingHeadsetAlt
   id: ClothingHeadsetAltSyndicate
   name: sinister over-ear headset
-  description: An updated, modular IncSek intercom that fits over the head and takes encryption keys (there are 5 key slots.).
+  description: An updated, modular evil looking intercom that fits over the head and takes encryption keys (there are 5 key slots.).
   components:
   - type: Headset
   - type: EncryptionKeyHolder

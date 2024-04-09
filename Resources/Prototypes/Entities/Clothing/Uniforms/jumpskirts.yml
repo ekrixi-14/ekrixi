@@ -79,6 +79,7 @@
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtChemistry
   name: sterile jumpskirt
+  suffix: Chemistry
   description: There's some odd stains on this jumpskirt. Hm.
   components:
   - type: Sprite
@@ -90,6 +91,7 @@
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtVirology
   name: sterile jumpskirt
+  suffix: Virology
   description: It's made of a special fiber that gives special protection against biohazards.
   components:
   - type: Sprite
@@ -101,6 +103,7 @@
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtGenetics
   name: sterile jumpskirt
+  suffix: Genetics
   description: It's made of a special fiber that gives special protection against biohazards.
   components:
   - type: Sprite
@@ -222,6 +225,7 @@
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtMedicalDoctor
   name: sterile jumpskirt
+  suffix: Medical
   description: It's made of a special fiber that provides minor protection against biohazards. It has a cross on the chest denoting that the wearer is trained medical personnel.
   components:
   - type: Sprite
