@@ -2,7 +2,7 @@ name: Build & Test Debug
 
 on:
   push:
-    branches: [ master, staging, trying ]
+    branches: [ across-the-veil, master, staging, trying ]
   merge_group:
   workflow_dispatch:
   pull_request:
