@@ -1,0 +1,43 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from NSV-13 at https://github.com/BeeStation/NSV13/blob/974da7a15e607a30168385a7517e800f2abe3313/nsv13/icons/obj/squad.dmi and modified by Just-a-Unity-Dev",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "equipped-BELT",
+            "directions": 4
+        },
+        {
+            "name": "receiving_overlay",
+            "delays": [
+                [
+                    0.7,
+                    0.7
+                ]
+            ]
+        },
+        {
+            "name": "paging_overlay",
+            "delays": [
+                [
+                    0.3,
+                    0.3
+                ]
+            ]
+        },
+        {
+            "name": "icon",
+            "delays": [
+                [
+                    0.8,
+                    0.8,
+                    0.8
+                ]
+            ]
+        }
+    ]
+}
