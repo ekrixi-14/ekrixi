@@ -1,7 +1,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitDeathSquad
-  name: death squad uniform
+  name: supreme combat uniform
   description: Advanced armored jumpsuit used by special forces in special operations.
   components:
   - type: Sprite
@@ -60,9 +60,10 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitCaptain
-  name: captain's jumpsuit
+  name: gold-trimmed jumpsuit
+  suffix: Blue
   noSpawn: true
-  description: It's a blue jumpsuit with some gold markings denoting the rank of "Captain".
+  description: It's a fancy blue jumpsuit favored by aristocrats.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/captain.rsi
@@ -72,9 +73,9 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitCargo
-  name: cargo tech jumpsuit
+  name: trader jumpsuit
   noSpawn: true
-  description: A sturdy jumpsuit, issued to members of the Cargo department.
+  description: A sturdy jumpsuit, common among traders.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/cargotech.rsi
@@ -84,7 +85,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSalvageSpecialist
-  name: salvage specialist's jumpsuit
+  name: miner's jumpsuit
   description: It's a snappy jumpsuit with a sturdy set of overalls. It's very dirty.
   components:
   - type: Sprite
@@ -95,8 +96,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitChiefEngineer
-  name: chief engineer's jumpsuit
-  description: It's a high visibility jumpsuit given to those engineers insane enough to achieve the rank of Chief Engineer. It has minor radiation shielding.
+  name: fancy engineer's jumpsuit
+  description: It's a high visibility jumpsuit given to those engineers insane enough to step out into the veil.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/ce.rsi
@@ -106,8 +107,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitChiefEngineerTurtle
-  name: chief engineer's turtleneck
-  description: A yellow turtleneck designed specifically for work in conditions of the engineering department.
+  name: fancy engineer's turtleneck
+  description: A yellow turtleneck designed specifically for work in space.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/ce_turtle.rsi
@@ -128,8 +129,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitCentcomAgent
-  name: CentCom agent's jumpsuit
-  description: A suit worn by CentCom's legal team. Smells of burnt coffee.
+  name: legal agent's jumpsuit
+  description: A suit worn by legal teams. Smells of burnt coffee.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/centcom_agent.rsi
@@ -139,8 +140,9 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitCentcomOfficial
-  name: CentCom official's jumpsuit
-  description: It's a jumpsuit worn by CentCom's officials.
+  name: gold-trimmed jumpsuit
+  suffix: Green
+  description: It's a jumpsuit worn by the guys that own everything.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/centcom_official.rsi
@@ -150,8 +152,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitCentcomOfficer
-  name: CentCom officer's jumpsuit
-  description: It's a jumpsuit worn by CentCom Officers.
+  name: gold-trimmed jumpsuit
+  description: It's a jumpsuit worn by the guys that own everything.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/centcom_officer.rsi
@@ -172,7 +174,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitChemistry
-  name: chemistry jumpsuit
+  name: sterile jumpsuit
+  suffix: Chemistry
   description: There's some odd stains on this jumpsuit. Hm.
   components:
   - type: Sprite
@@ -183,7 +186,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitVirology
-  name: virology jumpsuit
+  name: sterile jumpsuit
+  suffix: Virology
   description: It's made of a special fiber that gives special protection against biohazards. It has a virologist rank stripe on it.
   components:
   - type: Sprite
@@ -194,7 +198,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitGenetics
-  name: genetics jumpsuit
+  name: sterile jumpsuit
+  suffix: Genetics
   description: It's made of a special fiber that gives special protection against biohazards. It has a geneticist rank stripe on it.
   components:
   - type: Sprite
@@ -258,8 +263,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitCMO
-  name: chief medical officer's jumpsuit
-  description: It's a jumpsuit worn by those with the experience to be Chief Medical Officer. It provides minor biological protection.
+  name: fancy sterile jumpsuit
+  description: It's a jumpsuit worn by those with plenty of experience with mass casualty incidents.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/cmo.rsi
@@ -292,6 +297,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitEngineering
   name: engineering jumpsuit
+  suffix: Electrician
   description: If this suit was non-conductive, maybe engineers would actually do their damn job.
   components:
   - type: Sprite
@@ -314,7 +320,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitHoP
-  name: head of personnel's jumpsuit
+  name: manager's jumpsuit
   description: Rather bland and inoffensive. Perfect for vanishing off the face of the universe.
   components:
   - type: Sprite
@@ -325,8 +331,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitHoS
-  name: head of security's jumpsuit
-  description: It's bright red and rather crisp, much like security's victims tend to be.
+  name: commander's jumpsuit
+  description: It's bright red and rather crisp, much like a mercenary's victims tend to be.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/hos.rsi
@@ -336,8 +342,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitHoSAlt
-  name: head of security's turtleneck
-  description: It's a turtleneck worn by those strong and disciplined enough to achieve the position of Head of Security.
+  name: commander's turtleneck
+  description: It's a turtleneck worn by those strong and disciplined enough to rule over a band of mercenaries.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/hos_alt.rsi
@@ -347,8 +353,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitHoSBlue
-  name: head of security's blue jumpsuit
-  description: A blue jumpsuit of Head of Security.
+  name: commander's blue jumpsuit
+  description: A commanding blue jumpsuit.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/hos_blue.rsi
@@ -358,8 +364,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitHoSGrey
-  name: head of security's grey jumpsuit
-  description: A grey jumpsuit of Head of Security, which make him look somewhat like a passenger.
+  name: commander's grey jumpsuit
+  description: A commanding grey jumpsuit.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/hos_grey.rsi
@@ -369,8 +375,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitHoSParadeMale
-  name: head of security's parade uniform
-  description: A male head of security's luxury-wear, for special occasions.
+  name: commander's parade uniform
+  description: A male commander's luxury-wear, for special occasions.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/hos_parade.rsi
@@ -413,7 +419,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitMedicalDoctor
-  name: medical doctor jumpsuit
+  name: sterile jumpsuit
+  suffix: Medical
   description: It's made of a special fiber that provides minor protection against biohazards. It has a cross on the chest denoting that the wearer is trained medical personnel.
   components:
   - type: Sprite
@@ -477,8 +484,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitQM
-  name: quartermaster's jumpsuit
-  description: 'What can brown do for you?'
+  name: fancy trader's jumpsuit
+  description: A fancy jumpsuit worn by wealthy traders.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/qm.rsi
@@ -488,8 +495,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitQMTurtleneck
-  name: quartermasters's turtleneck
-  description: A sharp turtleneck made for the hardy work environment of supply.
+  name: fancy trader's turtleneck
+  description: A sharp turtleneck worn by wealthy traders.
   components:
     - type: Sprite
       sprite: Clothing/Uniforms/Jumpsuit/qmturtle.rsi
@@ -499,8 +506,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitQMFormal
-  name: quartermasters's formal suit
-  description: Inspired by the quartermasters of military's past, the perfect outfit for supplying a formal occasion.
+  name: trader's formal suit
+  description: A fancy militaristic suit worn by wealthy traders.
   components:
     - type: Sprite
       sprite: Clothing/Uniforms/Jumpsuit/qmformal.rsi
@@ -510,8 +517,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitResearchDirector
-  name: research director's turtleneck
-  description: It's a turtleneck worn by those with the know-how to achieve the position of Research Director. Its fabric provides minor protection from biological contaminants.
+  name: fancy researcher's turtleneck
+  description: It's a turtleneck worn by those willing to trick people into giving their lives to the veil for minor technologiocal progress.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/rnd.rsi
@@ -521,7 +528,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitScientist
-  name: scientist jumpsuit
+  name: researcher's jumpsuit
   description: It's made of a special fiber that provides minor protection against explosives. It has markings that denote the wearer as a scientist.
   components:
   - type: Sprite
@@ -532,8 +539,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitScientistFormal
-  name: scientist's formal jumpsuit
-  description: A uniform for sophisticated scientists, best worn with its matching tie.
+  name: researcher's formal jumpsuit
+  description: A uniform for sophisticated researchers, best worn with its matching tie.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/scientist_formal.rsi
@@ -543,8 +550,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitRoboticist
-  name: roboticist jumpsuit
-  description: It's a slimming black with reinforced seams; great for industrial work.
+  name: void-suit
+  description: It's a slimming black with reinforced seams; perfect for use within hardsuits.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/roboticist.rsi
@@ -554,7 +561,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSec
-  name: security jumpsuit
+  name: combat jumpsuit
   noSpawn: true
   description: A jumpsuit made of strong material, providing robust protection.
   components:
@@ -577,8 +584,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSecGrey
-  name: grey security jumpsuit
-  description: A tactical relic of years past before someone decided it was cheaper to dye the suits red instead of washing out the blood.
+  name: grey combat jumpsuit
+  description: Red jumpsuits are more efficient at hiding blood.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/security_grey.rsi
@@ -588,7 +595,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitWarden
-  name: warden's uniform
+  name: riot uniform
   description: A formal security suit for officers complete with a belt buckle.
   components:
   - type: Sprite
@@ -646,7 +653,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitColorOrange
   name: orange jumpsuit
-  description: "Don't wear this near paranoid security officers."
+  description: "Don't wear this near paranoid police officers."
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/Color/orange.rsi
@@ -876,8 +883,8 @@
 - type: entity
   parent: UnsensoredClothingUniformBase
   id: ClothingUniformJumpsuitPyjamaSyndicateBlack
-  name: black syndicate pyjamas
-  description: For those long nights in perma.
+  name: black sinister pyjamas
+  description: For those long nights in the contract room.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/pyjamasyndicateblack.rsi
@@ -887,8 +894,8 @@
 - type: entity
   parent: UnsensoredClothingUniformBase
   id: ClothingUniformJumpsuitPyjamaSyndicatePink
-  name: pink syndicate pyjamas
-  description: For those long nights in perma.
+  name: pink sinister pyjamas
+  description: For those long nights in the contract room.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/pyjamasyndicatepink.rsi
@@ -898,8 +905,8 @@
 - type: entity
   parent: UnsensoredClothingUniformBase
   id: ClothingUniformJumpsuitPyjamaSyndicateRed
-  name: red syndicate pyjamas
-  description: For those long nights in perma.
+  name: red sinister pyjamas
+  description: For those long nights in the contract room.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/pyjamasyndicatered.rsi
@@ -910,7 +917,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitNanotrasen
   name: nanotrasen jumpsuit
-  description: A stately blue jumpsuit to represent the fictional corporation NanoTrasen.
+  description: A stately blue jumpsuit to represent the >>FICTIONAL<< corporation NanoTrasen.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/nanotrasen.rsi
@@ -920,7 +927,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitCapFormal
-  name: captain's formal suit
+  name: gold-trimmed's formal suit
   description: A suit for special occasions.
   components:
   - type: Sprite
@@ -931,7 +938,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitCentcomFormal
-  name: central command formal suit
+  name: gold-trimmed formal suit
   description: A suit for special occasions.
   components:
   - type: Sprite
@@ -942,7 +949,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitHosFormal
-  name: hos's formal suit
+  name: commander's formal suit
   description: A suit for special occasions.
   components:
   - type: Sprite
@@ -954,7 +961,7 @@
   parent: UnsensoredClothingUniformBase
   id: ClothingUniformJumpsuitOperative
   name: operative jumpsuit
-  description: Uniform for elite syndicate operatives performing tactical operations in deep space.
+  description: Uniform for elite operatives performing tactical operations in deep space.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/operative.rsi
@@ -1001,7 +1008,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitAtmos
-  name: atmospheric technician jumpsuit
+  name: engineering jumpsuit
+  suffix: Atmospherics
   description: I am at work. I can't leave work. Work is breathing. I am testing air quality.
   components:
   - type: Sprite
@@ -1012,7 +1020,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitAtmosCasual
-  name: atmospheric technician's casual jumpsuit
+  name: atmospheric tester's casual jumpsuit
   description: Might as well relax with a job as easy as yours.
   components:
   - type: Sprite
@@ -1100,8 +1108,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitERTEngineer
-  name: ERT engineering uniform
-  description: A special suit made for the elite engineers under CentCom.
+  name: squad engineering uniform
+  description: A special suit made for the elite engineers in a combat squad.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/ert_engineer.rsi
@@ -1111,8 +1119,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitERTJanitor
-  name: ERT janitorial uniform
-  description: A special suit made for the elite janitors under CentCom.
+  name: squad janitorial uniform
+  description: A special suit made for the elite janitors in a combat squad.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/ert_janitor.rsi
@@ -1122,8 +1130,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitERTLeader
-  name: ERT leader uniform
-  description: A special suit made for the best of the elites under CentCom.
+  name: squad leader uniform
+  description: A special suit made for the best of the elites in a combat squad.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/ert_leader.rsi
@@ -1133,8 +1141,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitERTMedic
-  name: ERT medical uniform
-  description: A special suit made for the elite medics under CentCom.
+  name: squad medical uniform
+  description: A special suit made for the elite medics in a combat squad.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/ert_medic.rsi
@@ -1144,8 +1152,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitERTSecurity
-  name: ERT security uniform
-  description: A special suit made for the elite security under CentCom.
+  name: squad combat uniform
+  description: A special suit made for the elite security in a combat squad.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/ert_security.rsi
@@ -1247,8 +1255,8 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSyndieFormal
-  name: syndicate formal suit
-  description: "The syndicate's uniform is made in an elegant style, it's even a pity to do dirty tricks in this."
+  name: sinister formal suit
+  description: An evil looking suit for hostage negotiations.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/syndieformal.rsi
@@ -1269,8 +1277,9 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSeniorEngineer
-  name: senior engineer jumpsuit
-  description: A sign of skill and prestige within the engineering department.
+  name: engineer's jumpsuit
+  suffix: Senior
+  description: A sign of skill and prestige in engineering.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/senior_engineer.rsi
@@ -1280,8 +1289,9 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSeniorResearcher
-  name: senior researcher jumpsuit
-  description: A sign of skill and prestige within the science department.
+  name: researcher's jumpsuit
+  suffix: Senior
+  description: A sign of skill and prestige in researching.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/senior_researcher.rsi
@@ -1291,8 +1301,9 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSeniorPhysician
-  name: senior physician jumpsuit
-  description: A sign of skill and prestige within the medical department.
+  name: physician's jumpsuit
+  suffix: Senior
+  description: A sign of skill and prestige in medicine.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/senior_physician.rsi
@@ -1302,8 +1313,9 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitSeniorOfficer
-  name: senior officer jumpsuit
-  description: A sign of skill and prestige within the security department.
+  name: combatant's jumpsuit
+  suffix: Senior
+  description: A sign of skill and prestige in combat.
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/senior_officer.rsi

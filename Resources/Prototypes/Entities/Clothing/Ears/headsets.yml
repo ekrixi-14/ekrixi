@@ -30,7 +30,7 @@
 - type: entity
   parent: ClothingHeadset
   id: ClothingHeadsetGrey
-  name: passenger headset
+  name: deckhand headset
   components:
   - type: Sprite
     sprite: Clothing/Ears/Headsets/base.rsi
@@ -38,7 +38,7 @@
 - type: entity
   parent: ClothingHeadset
   id: ClothingHeadsetCargo
-  name: cargo headset
+  name: trader's headset
   description: A headset used by supply employees.
   components:
   - type: ContainerFill
@@ -65,8 +65,8 @@
 - type: entity
   parent: ClothingHeadsetCargo
   id: ClothingHeadsetQM
-  name: qm headset
-  description: A headset used by the quartermaster.
+  name: fancy trader's headset
+  description: A headset used by the owner of a trade station.
   components:
   - type: ContainerFill
     containers:
@@ -78,8 +78,8 @@
 - type: entity
   parent: ClothingHeadset
   id: ClothingHeadsetCentCom
-  name: CentCom headset
-  description: A headset used by the upper echelons of CoreGov.
+  name: gold-trimmed headset
+  description: A headset used by the guys that used to tell you how bad you are at your job.
   components:
   - type: ContainerFill
     containers:
@@ -94,8 +94,8 @@
 - type: entity
   parent: ClothingHeadset
   id: ClothingHeadsetCommand
-  name: command headset
-  description: A headset with a commanding channel.
+  name: master headset
+  description: A headset with access to every communications frequency, helpful for coordinating the ship.
   components:
   - type: ContainerFill
     containers:
@@ -110,7 +110,7 @@
   parent: ClothingHeadset
   id: ClothingHeadsetEngineering
   name: engineering headset
-  description: A headset for engineers to chat while the station burns around them.
+  description: A headset for engineers to chat while the ship crumbles around them.
   components:
   - type: ContainerFill
     containers:
@@ -125,8 +125,8 @@
 - type: entity
   parent: ClothingHeadsetEngineering
   id: ClothingHeadsetCE
-  name: ce headset
-  description: A headset for the chief engineer to ignore all emergency calls on.
+  name: fancy engineering headset
+  description: A headset for engineers to ignore all emergency calls on.
   components:
   - type: ContainerFill
     containers:
@@ -154,8 +154,8 @@
 - type: entity
   parent: ClothingHeadsetMedical
   id: ClothingHeadsetCMO
-  name: cmo headset
-  description: A headset used by the CMO.
+  name: fancy medical headset
+  description: A headset used by the extra-trained staff of the medbay.
   components:
   - type: ContainerFill
     containers:
@@ -167,8 +167,8 @@
 - type: entity
   parent: ClothingHeadset
   id: ClothingHeadsetScience
-  name: science headset
-  description: A sciency headset. Like usual.
+  name: research headset
+  description: A sciency headset for people venturing into the veil for all the wrong reasons.
   components:
   - type: ContainerFill
     containers:
@@ -184,7 +184,7 @@
   parent: ClothingHeadsetScience
   id: ClothingHeadsetMedicalScience
   name: medical research headset
-  description: A headset that is a result of the mating between medical and science.
+  description: A headset for when your buddy inevitably spends one too many days trying to cure VIE.
   components:
   - type: ContainerFill
     containers:
@@ -200,7 +200,7 @@
   parent: ClothingHeadsetScience
   id: ClothingHeadsetRobotics
   name: robotics headset
-  description: Made specifically for the roboticists, who cannot decide between departments.
+  description: Made specifically for people constructing robot armies.
   components:
   - type: ContainerFill
     containers:
@@ -215,8 +215,8 @@
 - type: entity
   parent: ClothingHeadsetScience
   id: ClothingHeadsetRD
-  name: rd headset
-  description: Lamarr used to love chewing on this...
+  name: fancy research headset
+  description: For the guy sending people to their deaths researching the veil.
   components:
   - type: ContainerFill
     containers:
@@ -228,8 +228,8 @@
 - type: entity
   parent: ClothingHeadset
   id: ClothingHeadsetSecurity
-  name: security headset
-  description: This is used by your elite security force.
+  name: combat headset
+  description: This is used by your elite combat force.
   components:
   - type: ContainerFill
     containers:
@@ -262,7 +262,7 @@
   parent: ClothingHeadset
   id: ClothingHeadsetService
   name: service headset
-  description: Headset used by the service staff, tasked with keeping the station full, happy and clean.
+  description: Headset used by the service staff, tasked with keeping the crew full, happy and clean.
   components:
   - type: ContainerFill
     containers:

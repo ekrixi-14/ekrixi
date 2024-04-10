@@ -56,7 +56,7 @@
   parent: ClothingEyesBase
   id: ClothingEyesGlassesMeson
   name: engineering goggles #less confusion
-  description: Green-tinted goggles using a proprietary polymer that provides protection from eye damage of all types.
+  description: Green-tinted goggles using a proprietary polymer that provides protection from eye damage from welders.
   components:
   - type: Sprite
     sprite: Clothing/Eyes/Glasses/meson.rsi
@@ -146,8 +146,8 @@
 - type: entity
   parent: ClothingEyesBase
   id: ClothingEyesGlassesSecurity
-  name: security glasses
-  description: Upgraded sunglasses that provide flash immunity and a security HUD.
+  name: identifier hudglasses
+  description: Upgraded sunglasses that provide flash immunity and an identification HUD.
   components:
   - type: Sprite
     sprite: Clothing/Eyes/Glasses/secglasses.rsi

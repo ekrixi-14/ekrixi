@@ -36,8 +36,8 @@
 - type: entity
   parent: ClothingEyesBase
   id: ClothingEyesHudSecurity
-  name: security hud
-  description: A heads-up display that scans the humanoids in view and provides accurate data about their ID status and security records.
+  name: identifier hud
+  description: A heads-up display that scans the humanoids in view and provides accurate data about their ID status.
   components:
   - type: Sprite
     sprite: Clothing/Eyes/Hud/sec.rsi
@@ -140,8 +140,8 @@
 - type: entity
   parent: ClothingEyesBase
   id: ClothingEyesHudMedSec
-  name: medsec hud
-  description: An eye display that looks like a mixture of medical and security huds.
+  name: medID hud
+  description: An eye display that looks like a mixture of medical and identification huds.
   components:
   - type: Sprite
     sprite: Clothing/Eyes/Hud/medsec.rsi
@@ -200,8 +200,8 @@
 - type: entity
   parent: ClothingEyesBase
   id: ClothingEyesHudSyndicate
-  name: syndicate visor
-  description: The syndicate's professional head-up display, designed for better detection of humanoids and their subsequent elimination.
+  name: tactical visor
+  description: A professional heads-up display, designed for better detection of humanoids and their subsequent elimination.
   components:
   - type: Sprite
     sprite: Clothing/Eyes/Hud/synd.rsi
@@ -231,8 +231,8 @@
 - type: entity
   parent: ClothingEyesHudSecurity
   id: ClothingEyesEyepatchHudSecurity
-  name: security hud eyepatch
-  description: A heads-up display that scans the humanoids in view and provides accurate data about their ID status and security records. For true patriots.
+  name: identification hud eyepatch
+  description: A heads-up display that scans the humanoids in view and provides accurate data about their ID status. For true patriots.
   components:
   - type: Sprite
     sprite: Clothing/Eyes/Hud/secpatch.rsi

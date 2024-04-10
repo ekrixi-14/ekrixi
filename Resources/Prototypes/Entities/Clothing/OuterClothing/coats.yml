@@ -45,7 +45,7 @@
 - type: entity
   parent: ClothingOuterStorageBase
   id: ClothingOuterCoatHoSTrench
-  name: head of security's armored trenchcoat
+  name: armored trenchcoat
   description: A greatcoat enhanced with a special alloy for some extra protection and style for those with a commanding presence.
   components:
   - type: Sprite
@@ -131,7 +131,8 @@
 - type: entity
   parent: ClothingOuterStorageBase
   id: ClothingOuterCoatLabChem
-  name: chemist lab coat
+  name: lab coat
+  suffix: Chemistry
   description: A suit that protects against minor chemical spills. Has an orange stripe on the shoulder.
   components:
   - type: Sprite
@@ -146,7 +147,8 @@
 - type: entity
   parent: ClothingOuterStorageBase
   id: ClothingOuterCoatLabViro
-  name: virologist lab coat
+  name: lab coat
+  suffix: Virology
   description: A suit that protects against bacteria and viruses. Has an green stripe on the shoulder.
   components:
   - type: Sprite
@@ -162,7 +164,8 @@
 - type: entity
   parent: ClothingOuterStorageBase
   id: ClothingOuterCoatLabGene
-  name: geneticist lab coat
+  name: lab coat
+  suffix: Genetics
   description: A suit that protects against minor chemical spills. Has an blue stripe on the shoulder.
   components:
   - type: Sprite
@@ -178,7 +181,8 @@
 - type: entity
   parent: ClothingOuterStorageBase
   id: ClothingOuterCoatLabCmo
-  name: chief medical officer's lab coat
+  name: high-quality lab coat
+  suffix: CMO
   description: Bluer than the standard model.
   components:
   - type: Sprite
@@ -188,12 +192,13 @@
   - type: Armor
     modifiers:
       coefficients:
-        Caustic: 0.75
+        Caustic: 0.5
 
 - type: entity
   parent: ClothingOuterStorageBase
   id: ClothingOuterCoatRnd
-  name: scientist lab coat
+  name: lab coat
+  suffix: Science
   description: A suit that protects against minor chemical spills. Has a purple stripe on the shoulder.
   components:
   - type: Sprite
@@ -208,7 +213,8 @@
 - type: entity
   parent: ClothingOuterStorageBase
   id: ClothingOuterCoatRobo
-  name: roboticist lab coat
+  name: lab coat
+  suffix: Robotics
   description: More like an eccentric coat than a labcoat. Helps pass off bloodstains as part of the aesthetic. Comes with red shoulder pads.
   components:
   - type: Sprite
@@ -223,8 +229,9 @@
 - type: entity
   parent: ClothingOuterStorageBase
   id: ClothingOuterCoatRD
-  name: research director lab coat
-  description: Woven with top of the line technology, this labcoat helps protect against radiation in similar way to the experimental hardsuit.
+  name: lead-lined lab coat
+  suffix: RD
+  description: Woven with top of the line technology, this labcoat has additional radiation shielding.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Coats/rd_coat.rsi
@@ -234,7 +241,7 @@
     modifiers:
       coefficients:
         Caustic: 0.75
-        Radiation: 0.9
+        Radiation: 0.75
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -250,8 +257,8 @@
 - type: entity
   parent: ClothingOuterStorageBase
   id: ClothingOuterCoatWarden
-  name: warden's armored jacket
-  description: A sturdy, utilitarian jacket designed to protect a warden from any brig-bound threats.
+  name: armored combat jacket
+  description: A sturdy, utilitarian jacket designed to protect your body while remaining fashionable.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Coats/warden.rsi
@@ -320,8 +327,8 @@
 - type: entity
   parent: ClothingOuterStorageBase
   id: ClothingOuterCoatSyndieCap
-  name: syndicate's coat
-  description: The syndicate's coat is made of durable fabric, with gilded patterns.
+  name: sinister coat
+  description: This coat is made of durable fabric, with gilded patterns.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Coats/syndicate/coatsyndiecap.rsi
@@ -331,8 +338,8 @@
 - type: entity
   parent: ClothingOuterCoatHoSTrench
   id: ClothingOuterCoatSyndieCapArmored
-  name: syndicate's armored coat
-  description: The syndicate's armored coat is made of durable fabric, with gilded patterns.
+  name: sinister armored coat
+  description: This coat is made of durable fabric, with gilded patterns.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Coats/syndicate/coatsyndiecaparmored.rsi
@@ -343,7 +350,7 @@
   parent: ClothingOuterStorageBase
   id: ClothingOuterCoatAMG
   name: armored medical gown
-  description: The version of the medical gown, with elements of a bulletproof vest, looks strange, but your heart is protected.
+  description: The version of the medical gown, with elements of a bulletproof vest. It looks strange, but your heart is protected.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Coats/brigmedic.rsi
@@ -361,7 +368,7 @@
 - type: entity
   parent: ClothingOuterStorageBase
   id: ClothingOuterCoatLabSeniorResearcher
-  name: senior researcher lab coat
+  name: lab coat
   description: A suit that protects against minor chemical spills. Has a purple collar and wrist trims.
   components:
   - type: Sprite
@@ -376,7 +383,7 @@
 - type: entity
   parent: ClothingOuterStorageBase
   id: ClothingOuterCoatLabSeniorPhysician
-  name: senior physician lab coat
+  name: lab coat
   description: A suit that protects against minor chemical spills. Has light blue sleeves and an orange waist trim.
   components:
   - type: Sprite

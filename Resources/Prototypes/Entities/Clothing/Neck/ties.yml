@@ -28,8 +28,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckTieSci
-  name: scientist's tie
-  description: Why do we all have to wear these ridiculous ties?
+  name: researcher's tie
+  description: Staying professional is very important when your body is rotting away by the minute.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Ties/scitie.rsi

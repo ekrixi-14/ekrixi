@@ -45,8 +45,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretSecurity
-  name: security beret
-  description: A stylish clothing option for security officers.
+  name: combatant beret
+  description: A stylish clothing option for those who regularly see combat.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/beret_security.rsi
@@ -89,7 +89,7 @@
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretEngineering
   name: engineering beret
-  description: A beret with the engineering insignia emblazoned on it. For engineers that are more inclined towards style than safety.
+  description: A beret in the standard engineering colors. For engineers that are more inclined towards style than safety.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/beret_engineering.rsi
@@ -104,8 +104,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretQM
-  name: quartermaster's beret
-  description: A beret with the cargo's insignia emblazoned on it. For quartermasters that are more inclined towards style.
+  name: trader's beret
+  description: A beret favored by wealthy traders.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/beret_qm.rsi
@@ -120,7 +120,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretHoS
-  name: head of security's beret
+  name: commander's beret
   description: A black beret with a commander's rank emblem. For officers that are more inclined towards style than safety.
   components:
   - type: Sprite
@@ -136,8 +136,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretWarden
-  name: warden's beret
-  description: A corporate blue beret with a warden's rank emblem. For officers that are more inclined towards style than safety.
+  name: combatant's beret
+  description: A corporate blue beret with a military rank emblem. For officers that are more inclined towards style than safety.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/beret_warden.rsi
@@ -147,8 +147,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretSeniorPhysician
-  name: physician beret
-  description: Donning the colours of medical and chemistry, physicians are the pride of this department!
+  name: fancy medical beret
+  description: A beret in blue and orange for doctors who know their way around a scalpel.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/beret_physician.rsi
@@ -158,7 +158,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretBrigmedic
-  name: brigmedical beret
+  name: medical beret
   description: White beret, looks like a cream pie on the head.
   components:
   - type: Sprite
@@ -191,7 +191,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatCaptain
-  name: captain's hardhat
+  name: gold-trimmed hardhat
   description: It's good being the king.
   components:
   - type: Sprite
@@ -222,8 +222,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatCentcom
-  name: CentCom brand hat
-  description: "It's good to be the emperor."
+  name: gold-trimmed hardhat
+  description: It's good to be the emperor.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/centcom.rsi
@@ -297,8 +297,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatHopcap
-  name: head of personnel's cap
-  description: A grand, stylish head of personnel's cap.
+  name: manager cap
+  description: A grand, stylish cap.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/hopcap.rsi
@@ -313,8 +313,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatHoshat
-  name: head of security's hat
-  description: "There's a new sheriff in station."
+  name: sheriff's hat
+  description: "There's a new sheriff on ship."
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/hoshat.rsi
@@ -502,7 +502,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatWarden
-  name: warden's cap
+  name: police cap
   description: A police officer's Hat. This hat emphasizes that you are THE LAW
   components:
   - type: Sprite
@@ -580,8 +580,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadPyjamaSyndicateBlack
-  name: IncSek black pyjama hat
-  description: For keeping that traitor head of yours warm.
+  name: sinister black pyjama hat
+  description: For keeping that evil head of yours warm.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/pyjamasyndicateblack.rsi
@@ -591,8 +591,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadPyjamaSyndicatePink
-  name: syndicate pink pyjama hat
-  description: For keeping that traitor head of yours warm.
+  name: sinister pink pyjama hat
+  description: For keeping that evil head of yours warm.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/pyjamasyndicatepink.rsi
@@ -602,8 +602,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadPyjamaSyndicateRed
-  name: syndicate red pyjama hat
-  description: For keeping that traitor head of yours warm.
+  name: sinister red pyjama hat
+  description: For keeping that evil head of yours warm.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/pyjamasyndicatered.rsi
@@ -706,7 +706,7 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatBeretCmo
-  name: chief medical officer's beret
+  name: doctor's beret
   description: Turquoise beret with a cross on the front. The sight of it calms you down and makes it clear that you will be cured.
   components:
   - type: Sprite
@@ -748,8 +748,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatSyndie
-  name: syndicate hat
-  description: A souvenir hat from "Syndieland", their production has already been closed.
+  name: sinister hat
+  description: An evil looking hat.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/syndiecap.rsi
@@ -825,8 +825,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatCapcap
-  name: cap cap
-  description: A grand, stylish captain cap.
+  name: gold-trimmed cap
+  description: A grand, stylish cap favored by aristocrats in positions of power.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/capcap.rsi
@@ -841,8 +841,8 @@
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatCentcomcap
-  name: CentCom cap
-  description: An extravagant, fancy Central Commander cap.
+  name: gold-trimmed cap
+  description: An extravagant, fancy cap favored by aritocrats in positions of significant power.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hats/comcap.rsi

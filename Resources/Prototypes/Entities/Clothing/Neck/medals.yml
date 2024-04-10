@@ -26,8 +26,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckCargomedal
-  name: cargo medal
-  description: Given for the best work in the cargo department.
+  name: trade medal
+  description: Given for the best work in making money.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Medals/cargomedal.rsi
@@ -38,7 +38,7 @@
   parent: ClothingNeckBase
   id: ClothingNeckEngineermedal
   name: engineer medal
-  description: Given for the best work in the engineering department.
+  description: Given for the best work in engineering.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Medals/engineermedal.rsi
@@ -49,7 +49,7 @@
   parent: ClothingNeckBase
   id: ClothingNeckMedicalmedal
   name: medical medal
-  description: Given for the best work in the medical department.
+  description: Given for the best work in the medbay.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Medals/medicalmedal.rsi
@@ -59,8 +59,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckSciencemedal
-  name: science medal
-  description: Given for the best work in the science department.
+  name: research medal
+  description: Given for the best work in discovery.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Medals/sciencemedal.rsi
@@ -70,8 +70,8 @@
 - type: entity
   parent: ClothingNeckBase
   id: ClothingNeckSecuritymedal
-  name: security medal
-  description: Given for the best work in the security department.
+  name: combat medal
+  description: Given for the best work in combat.
   components:
   - type: Sprite
     sprite: Clothing/Neck/Medals/securitymedal.rsi

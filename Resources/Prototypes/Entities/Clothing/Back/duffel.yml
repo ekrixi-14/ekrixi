@@ -27,7 +27,8 @@
 - type: entity
   parent: ClothingBackpackDuffel
   id: ClothingBackpackDuffelAtmospherics
-  name: atmospherics duffel bag
+  name: engineering duffel bag
+  suffix: Atmospherics
   description: A large duffel bag made of fire resistant fibers. Smells like plasma.
   components:
   - type: Sprite
@@ -36,7 +37,8 @@
 - type: entity
   parent: ClothingBackpackDuffel
   id: ClothingBackpackDuffelMedical
-  name: medical duffel bag
+  name: sterile duffel bag
+  suffix: Medical
   description: A large duffel bag for holding extra medical supplies.
   components:
   - type: Sprite
@@ -45,8 +47,8 @@
 - type: entity
   parent: ClothingBackpackDuffel
   id: ClothingBackpackDuffelCaptain
-  name: captain's duffel bag
-  description: A large duffel bag for holding extra captainly goods.
+  name: gold-trimmed duffel bag
+  description: A large duffel bag for holding extra expensive goods.
   components:
   - type: Sprite
     sprite: Clothing/Back/Duffels/captain.rsi
@@ -66,8 +68,8 @@
 - type: entity
   parent: ClothingBackpackDuffel
   id: ClothingBackpackDuffelSecurity
-  name: security duffel bag
-  description: A large duffel bag for holding extra security related goods.
+  name: combat duffel bag
+  description: A large duffel bag for holding extra weapons.
   components:
   - type: Sprite
     sprite: Clothing/Back/Duffels/security.rsi
@@ -84,7 +86,7 @@
 - type: entity
   parent: ClothingBackpackDuffel
   id: ClothingBackpackDuffelChemistry
-  name: chemistry duffel bag
+  name: chemical duffel bag
   description: A large duffel bag for holding extra beakers and test tubes.
   components:
   - type: Sprite
@@ -93,7 +95,8 @@
 - type: entity
   parent: ClothingBackpackDuffel
   id: ClothingBackpackDuffelVirology
-  name: virology duffel bag
+  name: sterile duffel bag
+  suffix: Virology
   description: A large duffel bag made of hypo-allergenic fibers. It's designed to help prevent the spread of disease. Smells like monkey.
   components:
   - type: Sprite
@@ -102,7 +105,8 @@
 - type: entity
   parent: ClothingBackpackDuffel
   id: ClothingBackpackDuffelGenetics
-  name: genetics duffel bag
+  name: sterile duffel bag
+  suffix: Genetics
   description: A large duffel bag for holding extra genetic mutations.
   components:
   - type: Sprite
@@ -124,7 +128,8 @@
 - type: entity
   parent: ClothingBackpackDuffel
   id: ClothingBackpackDuffelScience
-  name: science duffel bag
+  name: sterile duffel bag
+  suffix: Science
   description: A large duffel bag for holding extra science related goods.
   components:
   - type: Sprite
@@ -142,8 +147,8 @@
 - type: entity
   parent: ClothingBackpackDuffel
   id: ClothingBackpackDuffelCargo
-  name: cargo duffel bag
-  description: A large duffel bag for stealing cargo's precious loot.
+  name: trader's duffel bag
+  description: A large duffel bag for stealing the free unattended crates...
   components:
     - type: Sprite
       sprite: Clothing/Back/Duffels/cargo.rsi
@@ -151,7 +156,7 @@
 - type: entity
   parent: ClothingBackpackDuffel
   id: ClothingBackpackDuffelSalvage
-  name: salvage duffel bag
+  name: mining duffel bag
   description: A large duffel bag for holding extra exotic treasures.
   components:
     - type: Sprite
@@ -160,8 +165,8 @@
 - type: entity
   parent: ClothingBackpackDuffel
   id: ClothingBackpackDuffelSyndicate
-  name: IncSek duffel bag
-  description: A large duffel bag for holding various traitor goods.
+  name: sinister duffel bag
+  description: A large duffel bag for holding various evil goods.
   components:
   - type: Sprite
     sprite: Clothing/Back/Duffels/syndicate.rsi
@@ -179,7 +184,7 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicate
   id: ClothingBackpackDuffelSyndicateAmmo
-  name: IncSek duffel bag
+  name: sinister duffel bag
   components:
   - type: Sprite
     sprite: Clothing/Back/Duffels/syndicate.rsi
@@ -200,7 +205,7 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicate
   id: ClothingBackpackDuffelSyndicateMedical
-  name: IncSek duffel bag
+  name: sinister duffel bag
   components:
   - type: Sprite
     sprite: Clothing/Back/Duffels/syndicate.rsi

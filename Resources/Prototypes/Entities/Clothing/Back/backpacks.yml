@@ -58,7 +58,7 @@
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackSecurity
-  name: security backpack
+  name: combat backpack
   description: It's a very robust backpack.
   components:
   - type: Sprite
@@ -85,7 +85,8 @@
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackAtmospherics
-  name: atmospherics backpack
+  name: engineering backpack
+  suffix: Atmospherics
   description: It's a backpack made of fire resistant fibers. Smells like plasma.
   components:
   - type: Sprite
@@ -94,7 +95,8 @@
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackMedical
-  name: medical backpack
+  name: sterile backpack
+  suffix: Medical
   description: It's a backpack especially designed for use in a sterile environment.
   components:
   - type: Sprite
@@ -103,8 +105,8 @@
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackCaptain
-  name: captain's backpack
-  description: It's a special backpack awarded to the person who bought the ship.
+  name: gold-trimmed backpack
+  description: It's a special backpack favored by aristocrats.
   components:
   - type: Sprite
     sprite: Clothing/Back/Backpacks/captain.rsi
@@ -121,7 +123,7 @@
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackChemistry
-  name: chemistry backpack
+  name: chemical backpack
   description: A backpack specially designed to repel stains and hazardous liquids.
   components:
   - type: Sprite
@@ -139,7 +141,8 @@
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackScience
-  name: science backpack
+  name: sterile backpack
+  suffix: Science
   description: A backpack specially designed to repel stains and hazardous liquids.
   components:
   - type: Sprite
@@ -148,7 +151,8 @@
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackVirology
-  name: virology backpack
+  name: sterile backpack
+  suffix: Virology
   description: A backpack made of hypo-allergenic fibers. It's designed to help prevent the spread of disease. Smells like monkey.
   components:
   - type: Sprite
@@ -157,7 +161,8 @@
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackGenetics
-  name: genetics backpack
+  name: sterile backpack
+  suffix: Genetics
   description: A backpack designed to be super tough, just in case someone hulks out on you.
   components:
   - type: Sprite
@@ -166,7 +171,7 @@
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackCargo
-  name: cargo backpack
+  name: trader's backpack
   description: A robust backpack for stealing cargo's loot.
   components:
     - type: Sprite
@@ -175,7 +180,7 @@
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackSalvage
-  name: salvage bag
+  name: mining bag
   description: A robust backpack for stashing your loot.
   components:
     - type: Sprite
@@ -194,8 +199,8 @@
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackERTLeader
-  name: ERT leader backpack
-  description: A spacious backpack with lots of pockets, worn by the Commander of an Emergency Response Team.
+  name: squad leader backpack
+  description: A spacious backpack with lots of pockets, worn by the Commander of a combat squad.
   components:
   - type: Sprite
     sprite: Clothing/Back/Backpacks/ertleader.rsi
@@ -206,8 +211,8 @@
 - type: entity
   parent: ClothingBackpackERTLeader
   id: ClothingBackpackERTSecurity
-  name: ERT security backpack
-  description: A spacious backpack with lots of pockets, worn by Security Officers of an Emergency Response Team.
+  name: squad combatant backpack
+  description: A spacious backpack with lots of pockets, worn by Security Officers of a combat squad.
   components:
   - type: Sprite
     sprite: Clothing/Back/Backpacks/ertsec.rsi
@@ -215,8 +220,8 @@
 - type: entity
   parent: ClothingBackpackERTLeader
   id: ClothingBackpackERTMedical
-  name: ERT medical backpack
-  description: A spacious backpack with lots of pockets, worn by Medical Officers of an Emergency Response Team.
+  name: squad medical backpack
+  description: A spacious backpack with lots of pockets, worn by Medical Officers of a combat squad.
   components:
   - type: Sprite
     sprite: Clothing/Back/Backpacks/ertmed.rsi
@@ -224,8 +229,8 @@
 - type: entity
   parent: ClothingBackpackERTLeader
   id: ClothingBackpackERTEngineer
-  name: ERT engineer backpack
-  description: A spacious backpack with lots of pockets, worn by Engineers of an Emergency Response Team.
+  name: squad engineer backpack
+  description: A spacious backpack with lots of pockets, worn by Engineers of a combat squad.
   components:
   - type: Sprite
     sprite: Clothing/Back/Backpacks/erteng.rsi
@@ -233,8 +238,8 @@
 - type: entity
   parent: ClothingBackpackERTLeader
   id: ClothingBackpackERTJanitor
-  name: ERT janitor backpack
-  description: A spacious backpack with lots of pockets, worn by Janitors of an Emergency Response Team.
+  name: squad janitor backpack
+  description: A spacious backpack with lots of pockets, worn by Janitors of a combat squad.
   components:
   - type: Sprite
     sprite: Clothing/Back/Backpacks/ertjanitor.rsi
@@ -242,8 +247,8 @@
 - type: entity
   parent: ClothingBackpackERTLeader
   id: ClothingBackpackERTClown
-  name: ERT clown backpack
-  description: A spacious backpack with lots of pockets, worn by Clowns of an Emergency Response Team.
+  name: squad clown backpack
+  description: A spacious backpack with lots of pockets, worn by Clowns of a combat squad.
   components:
   - type: Sprite
     sprite: Clothing/Back/Backpacks/ertclown.rsi

@@ -33,7 +33,8 @@
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelAtmospherics
-  name: atmospherics satchel
+  name: engineering satchel
+  suffix: Atmospherics
   description: A tough satchel made of fire resistant fibers. Smells like plasma.
   components:
   - type: Sprite
@@ -63,7 +64,8 @@
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelMedical
-  name: medical satchel
+  name: sterile satchel
+  suffix: Medical
   description: A sterile satchel used in medical departments.
   components:
   - type: Sprite
@@ -72,7 +74,7 @@
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelChemistry
-  name: chemistry satchel
+  name: chemical satchel
   description: A sterile satchel with chemist colours.
   components:
   - type: Sprite
@@ -81,7 +83,8 @@
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelVirology
-  name: virology satchel
+  name: sterile satchel
+  suffix: Virology
   description: A satchel made of hypo-allergenic fibers. It's designed to help prevent the spread of disease. Smells like monkey.
   components:
   - type: Sprite
@@ -90,7 +93,8 @@
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelGenetics
-  name: genetics satchel
+  name: sterile satchel
+  suffix: Genetics
   description: A sterile satchel with geneticist colours.
   components:
   - type: Sprite
@@ -99,7 +103,8 @@
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelScience
-  name: science satchel
+  name: sterile satchel
+  suffix: Science
   description: Useful for holding research materials.
   components:
   - type: Sprite
@@ -108,8 +113,8 @@
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelSecurity
-  name: security satchel
-  description: A robust satchel for security related needs.
+  name: combat satchel
+  description: A robust satchel for carrying guns on the go.
   components:
   - type: Sprite
     sprite: Clothing/Back/Satchels/security.rsi
@@ -126,8 +131,8 @@
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelCaptain
-  name: captain's satchel
-  description: An exclusive satchel awarded to the person who bought the ship.
+  name: gold-trimmed satchel
+  description: An exclusive satchel favored by aristocrats.
   components:
   - type: Sprite
     sprite: Clothing/Back/Satchels/captain.rsi
@@ -144,8 +149,8 @@
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelCargo
-  name: cargo satchel
-  description: A robust satchel for stealing cargo's loot.
+  name: trader's satchel
+  description: A robust satchel for running away with your totally not stolen plasma.
   components:
     - type: Sprite
       sprite: Clothing/Back/Satchels/cargo.rsi
@@ -153,7 +158,7 @@
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSatchelSalvage
-  name: salvage satchel
+  name: mining satchel
   description: A robust satchel for stashing your loot.
   components:
     - type: Sprite
