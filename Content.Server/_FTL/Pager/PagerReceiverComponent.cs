@@ -9,10 +9,13 @@ public sealed partial class PagerReceiverComponent : Component
     public bool Paged;
 
     [DataField]
+    public string PagerMessage = "";
+
+    [DataField]
     public SoundSpecifier PagingSound = new SoundPathSpecifier("/Audio/_FTL/Effects/Pagers/pager_beep.ogg");
 
     [DataField]
-    public SoundSpecifier BeepSound = new SoundPathSpecifier("/Audio/Effects/beep1.ogg");
+    public SoundSpecifier BeepSound = new SoundPathSpecifier("/Audio/_FTL/Machines/beep.ogg");
 
     public EntityUid? PlayingStream;
 }

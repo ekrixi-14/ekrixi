@@ -26,7 +26,8 @@ public sealed class PagerSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
 
-    public const string NetCmdPdaMail = "pda_mail";
+    public const string NetCmdSend = "pager_beep";
+    public const string NetMessage = "pager_message";
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -61,7 +62,9 @@ public sealed class PagerSystem : EntitySystem
     {
         if (!TryComp<DeviceNetworkComponent>(uid, out var networkComponent))
             return;
-        args.AddMarkup($"This has the unique address of [color=#fff]{networkComponent.Address}[/color].");
+        args.AddMarkup($"This has the unique address of [color=#fff]{networkComponent.Address}[/color].\n");
+        if (component.PagerMessage != "")
+            args.AddMarkup($"The pager reads: [color=#fff]{component.PagerMessage}[/color].\n");
     }
 
     private void OnGetVerbs(EntityUid uid, PagerActionsComponent component, GetVerbsEvent<AlternativeVerb> args)
@@ -73,7 +76,7 @@ public sealed class PagerSystem : EntitySystem
 
         args.Verbs.Add(new AlternativeVerb
         {
-            Message = "Page",
+            Text = "Page person",
             Act = () =>
             {
                 TryPage(uid, actor, component);
@@ -82,7 +85,7 @@ public sealed class PagerSystem : EntitySystem
 
         args.Verbs.Add(new AlternativeVerb
         {
-            Message = "Assign alias",
+            Text = "Assign alias",
             Priority = 5,
             Act = () =>
             {
@@ -100,11 +103,12 @@ public sealed class PagerSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return;
 
-        _quickDialogSystem.OpenDialog(actor.PlayerSession, "Page who?", "Address", (string toPage) =>
+        _quickDialogSystem.OpenDialog(actor.PlayerSession, "Page who?", "Address/Alias", "Message", (string toPage, string message) =>
         {
             var payload = new NetworkPayload
             {
-                [DeviceNetworkConstants.Command] = NetCmdPdaMail,
+                [DeviceNetworkConstants.Command] = NetCmdSend,
+                [NetMessage] = message
             };
 
             // component.Aliases.TryGetValue(toPage, out var addr);
@@ -123,11 +127,22 @@ public sealed class PagerSystem : EntitySystem
         if (component.Paged)
             return; // already being paged by someone
 
-        // if (!args.Data.TryGetValue(DeviceNetworkConstants.Command, out var command))
-        //     return;
-        //If that command is the PING command (you can check for your own command here)
-        // if (command != null && (string) command != NetCmdPdaMail)
-        //     return;
+        if (!args.Data.TryGetValue(DeviceNetworkConstants.Command, out var command))
+            return;
+        if (command != null && (string) command != NetCmdSend)
+            return;
+        if (args.Data.TryGetValue(NetMessage, out var message))
+        {
+            if (message != null)
+            {
+                var msg = (string) message;
+                component.PagerMessage = msg;
+                if (component.PagerMessage.Length > 14)
+                {
+                    component.PagerMessage = component.PagerMessage[..14];
+                }
+            }
+        }
 
         component.Paged = true;
         component.PlayingStream = _audioSystem.PlayPvs(component.PagingSound, uid, AudioParams.Default.WithLoop(true)).Value.Entity;
