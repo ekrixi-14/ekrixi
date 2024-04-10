@@ -251,6 +251,7 @@
     Bloodloss: 0.0 # no double dipping
     Cellular: 0.0
     Caustic: 0.0
+    VeilIndividualExposure: 0.0
 
 - type: damageModifierSet
   id: SlimePet # Very survivable slimes
