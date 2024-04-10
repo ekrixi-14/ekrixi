@@ -1,0 +1,8 @@
+- type: marking
+  id: IPCScreenSidelights
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [IPC]
+  sprites:
+    - sprite: _FTL/Mobs/Customization/ipc.rsi
+      state: sidelights
