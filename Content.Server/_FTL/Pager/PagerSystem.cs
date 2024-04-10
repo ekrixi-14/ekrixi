@@ -62,9 +62,9 @@ public sealed class PagerSystem : EntitySystem
     {
         if (!TryComp<DeviceNetworkComponent>(uid, out var networkComponent))
             return;
-        args.AddMarkup($"This has the unique address of [color=#fff]{networkComponent.Address}[/color].\n");
+        args.AddMarkup(Loc.GetString("examine-pager-device-id", ("addr", networkComponent.Address)));
         if (component.PagerMessage != "")
-            args.AddMarkup($"The pager reads: [color=#fff]{component.PagerMessage}[/color].\n");
+            args.AddMarkup(Loc.GetString("examine-pager-read-message", ("msg", component.PagerMessage)));
     }
 
     private void OnGetVerbs(EntityUid uid, PagerActionsComponent component, GetVerbsEvent<AlternativeVerb> args)
@@ -76,7 +76,7 @@ public sealed class PagerSystem : EntitySystem
 
         args.Verbs.Add(new AlternativeVerb
         {
-            Text = "Page person",
+            Text = Loc.GetString("verb-popup-page-person"),
             Act = () =>
             {
                 TryPage(uid, actor, component);
@@ -85,14 +85,14 @@ public sealed class PagerSystem : EntitySystem
 
         args.Verbs.Add(new AlternativeVerb
         {
-            Text = "Assign alias",
+            Text = Loc.GetString("verb-popup-set-alias"),
             Priority = 5,
             Act = () =>
             {
-                _quickDialogSystem.OpenDialog(actor.PlayerSession, "Set alias of address to?", "Address", "Alias", (string toPage, string alias) =>
+                _quickDialogSystem.OpenDialog(actor.PlayerSession, Loc.GetString("window-alias-menu-title"), Loc.GetString("window-alias-menu-address"), Loc.GetString("window-alias-menu-name"), (string toPage, string alias) =>
                 {
                     component.Aliases[alias] = toPage;
-                    _popupSystem.PopupEntity("Set alias.", uid);
+                    _popupSystem.PopupEntity(Loc.GetString("popup-pager-set-alias"), uid);
                 });
             }
         });
@@ -103,7 +103,7 @@ public sealed class PagerSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return;
 
-        _quickDialogSystem.OpenDialog(actor.PlayerSession, "Page who?", "Address/Alias", "Message", (string toPage, string message) =>
+        _quickDialogSystem.OpenDialog(actor.PlayerSession, Loc.GetString("window-page-menu-title"), Loc.GetString("window-page-menu-address"), Loc.GetString("window-page-menu-message"), (string toPage, string message) =>
         {
             var payload = new NetworkPayload
             {
@@ -118,8 +118,9 @@ public sealed class PagerSystem : EntitySystem
                 addr = alias;
 
             _deviceNetworkSystem.QueuePacket(uid, addr, payload, 2208);
+
+            _popupSystem.PopupEntity(Loc.GetString("popup-pager-open-paging"), uid);
         });
-        _popupSystem.PopupEntity("Paging!", uid);
     }
 
     private void OnPacketReceived(EntityUid uid, PagerReceiverComponent component, DeviceNetworkPacketEvent args)
@@ -146,6 +147,7 @@ public sealed class PagerSystem : EntitySystem
 
         component.Paged = true;
         component.PlayingStream = _audioSystem.PlayPvs(component.PagingSound, uid, AudioParams.Default.WithLoop(true)).Value.Entity;
+        _popupSystem.PopupEntity(Loc.GetString("popup-pager-being-paged"), uid);
         _appearanceSystem.SetData(uid, PagerVisualLayers.Receiving, true);
     }
 }
