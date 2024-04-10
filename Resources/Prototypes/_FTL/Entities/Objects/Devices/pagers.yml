@@ -1,0 +1,45 @@
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: BasePager
+  name: pager
+  description: It likes to go beebeebeebeebeebeebee!
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _FTL/Objects/Devices/pager.rsi
+    layers:
+    - state: icon
+    - state: "paging_overlay"
+      map: [ "receiving" ]
+      shader: "unshaded"
+      visible: false
+  - type: GenericVisualizer
+    visuals:
+      enum.PagerVisualLayers.Receiving:
+        receiving:
+          True: { visible: true, shader: unshaded }
+          False: { visible: false }
+  - type: Icon
+    sprite: _FTL/Objects/Devices/pager.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - Belt
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: Pager
+    prefix: device-address-prefix-console
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: PagerActions
+  - type: PagerReceiver
+
+- type: entity
+  parent: BasePager
+  id: BasicPager
+  name: pager
+  description: It likes to go beebeebeebeebeebeebee!

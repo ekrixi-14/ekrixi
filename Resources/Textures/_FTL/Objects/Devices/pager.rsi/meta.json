@@ -12,23 +12,28 @@
             "directions": 4
         },
         {
-            "name": "inhand-left",
-            "directions": 4
-        },
-        {
-            "name": "inhand-right",
-            "directions": 4
-        },
-        {
-            "name": "receiving_overlay"
-        },
-        {
-            "name": "paging_overlay"
-        },
-        {
-            "name": "pager",
+            "name": "receiving_overlay",
             "delays": [
                 [
+                    0.7,
+                    0.7
+                ]
+            ]
+        },
+        {
+            "name": "paging_overlay",
+            "delays": [
+                [
+                    0.3,
+                    0.3
+                ]
+            ]
+        },
+        {
+            "name": "icon",
+            "delays": [
+                [
+                    0.8,
                     0.8,
                     0.8
                 ]
