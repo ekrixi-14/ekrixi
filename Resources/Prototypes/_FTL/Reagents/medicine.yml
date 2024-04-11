@@ -1,0 +1,56 @@
+- type: reagent
+  id: VES
+  name: reagent-name-ves
+  group: Medicine
+  desc: reagent-desc-ves
+  physicalDesc: reagent-physical-desc-overpowering
+  flavor: horrible
+  color: "#BA275D"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            VeilIndividualExposure: -1
+          groups:
+            Brute: 6
+      - !type:Emote
+        emote: Scream
+        probability: 0.6
+
+- type: reagent
+  id: VEA
+  name: reagent-name-vea
+  group: Medicine
+  desc: reagent-desc-vea
+  physicalDesc: reagent-physical-desc-bubbling
+  flavor: acid
+  color: "#BC9207"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            VeilIndividualExposure: -1
+            Caustic: 1.75
+      - !type:Emote
+        emote: Scream
+        probability: 0.3
+
+- type: reagent
+  id: VeilNectar #admin only chemical don't put this anywhere
+  name: reagent-name-ven
+  group: Medicine
+  desc: reagent-desc-ven
+  physicalDesc: reagent-physical-desc-exotic-smelling
+  flavor: cold
+  color: "#DCA0FF"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            VeilIndividualExposure: -5
