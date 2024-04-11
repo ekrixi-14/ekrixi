@@ -1,0 +1,62 @@
+- type: marking
+  id: IPCScreenTvAntenna
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [IPC]
+  sprites:
+    - sprite: _FTL/Mobs/Customization/ipc.rsi
+      state: tvantenna
+
+- type: marking
+  id: IPCScreenTesla
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [IPC]
+  sprites:
+    - sprite: _FTL/Mobs/Customization/ipc.rsi
+      state: tesla
+
+- type: marking
+  id: IPCScreenCyberheadantenna
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [IPC]
+  sprites:
+    - sprite: _FTL/Mobs/Customization/ipc.rsi
+      state: cyberheadantenna
+
+- type: marking
+  id: IPCScreenAntlers
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [IPC]
+  sprites:
+    - sprite: _FTL/Mobs/Customization/ipc.rsi
+      state: antlers
+
+- type: marking
+  id: IPCScreenDrone
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [IPC]
+  sprites:
+    - sprite: _FTL/Mobs/Customization/ipc.rsi
+      state: drone
+
+- type: marking
+  id: IPCScreenCrowned
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [IPC]
+  sprites:
+    - sprite: _FTL/Mobs/Customization/ipc.rsi
+      state: crowned
+
+- type: marking
+  id: IPCScreenAntennae
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [IPC]
+  sprites:
+    - sprite: _FTL/Mobs/Customization/ipc.rsi
+      state: antennae

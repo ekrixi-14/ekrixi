@@ -1,18 +1,8 @@
-# template
-#- type: marking
-#  id: IPCScreen{}
-#  bodyPart: Head
-#  markingCategory: Head
-#  speciesRestriction: [IPC]
-#  sprites:
-#    - sprite: _FTL/Mobs/Customization/ipc.rsi
-#      state: {}
 
-#region auto generated
 - type: marking
   id: IPCScreenStatic
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: FacialHair
+  markingCategory: FacialHair
   speciesRestriction: [IPC]
   sprites:
     - sprite: _FTL/Mobs/Customization/ipc.rsi
@@ -20,8 +10,8 @@
 
 - type: marking
   id: IPCScreenBlue
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: FacialHair
+  markingCategory: FacialHair
   speciesRestriction: [IPC]
   sprites:
     - sprite: _FTL/Mobs/Customization/ipc.rsi
@@ -29,8 +19,8 @@
 
 - type: marking
   id: IPCScreenBreakout
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: FacialHair
+  markingCategory: FacialHair
   speciesRestriction: [IPC]
   sprites:
     - sprite: _FTL/Mobs/Customization/ipc.rsi
@@ -38,8 +28,8 @@
 
 - type: marking
   id: IPCScreenEight
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: FacialHair
+  markingCategory: FacialHair
   speciesRestriction: [IPC]
   sprites:
     - sprite: _FTL/Mobs/Customization/ipc.rsi
@@ -47,8 +37,8 @@
 
 - type: marking
   id: IPCScreenGoggles
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: FacialHair
+  markingCategory: FacialHair
   speciesRestriction: [IPC]
   sprites:
     - sprite: _FTL/Mobs/Customization/ipc.rsi
@@ -56,8 +46,8 @@
 
 - type: marking
   id: IPCScreenExcla
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: FacialHair
+  markingCategory: FacialHair
   speciesRestriction: [IPC]
   sprites:
     - sprite: _FTL/Mobs/Customization/ipc.rsi
@@ -65,8 +55,8 @@
 
 - type: marking
   id: IPCScreenHeart
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: FacialHair
+  markingCategory: FacialHair
   speciesRestriction: [IPC]
   sprites:
     - sprite: _FTL/Mobs/Customization/ipc.rsi
@@ -74,8 +64,8 @@
 
 - type: marking
   id: IPCScreenMonoeye
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: FacialHair
+  markingCategory: FacialHair
   speciesRestriction: [IPC]
   sprites:
     - sprite: _FTL/Mobs/Customization/ipc.rsi
@@ -83,8 +73,8 @@
 
 - type: marking
   id: IPCScreenNature
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: FacialHair
+  markingCategory: FacialHair
   speciesRestriction: [IPC]
   sprites:
     - sprite: _FTL/Mobs/Customization/ipc.rsi
@@ -92,8 +82,8 @@
 
 - type: marking
   id: IPCScreenOrange
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: FacialHair
+  markingCategory: FacialHair
   speciesRestriction: [IPC]
   sprites:
     - sprite: _FTL/Mobs/Customization/ipc.rsi
@@ -101,8 +91,8 @@
 
 - type: marking
   id: IPCScreenPink
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: FacialHair
+  markingCategory: FacialHair
   speciesRestriction: [IPC]
   sprites:
     - sprite: _FTL/Mobs/Customization/ipc.rsi
@@ -110,8 +100,8 @@
 
 - type: marking
   id: IPCScreenQuestion
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: FacialHair
+  markingCategory: FacialHair
   speciesRestriction: [IPC]
   sprites:
     - sprite: _FTL/Mobs/Customization/ipc.rsi
@@ -119,8 +109,8 @@
 
 - type: marking
   id: IPCScreenShower
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: FacialHair
+  markingCategory: FacialHair
   speciesRestriction: [IPC]
   sprites:
     - sprite: _FTL/Mobs/Customization/ipc.rsi
@@ -128,8 +118,8 @@
 
 - type: marking
   id: IPCScreenYellow
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: FacialHair
+  markingCategory: FacialHair
   speciesRestriction: [IPC]
   sprites:
     - sprite: _FTL/Mobs/Customization/ipc.rsi
@@ -137,8 +127,8 @@
 
 - type: marking
   id: IPCScreenScroll
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: FacialHair
+  markingCategory: FacialHair
   speciesRestriction: [IPC]
   sprites:
     - sprite: _FTL/Mobs/Customization/ipc.rsi
@@ -146,8 +136,8 @@
 
 - type: marking
   id: IPCScreenConsole
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: FacialHair
+  markingCategory: FacialHair
   speciesRestriction: [IPC]
   sprites:
     - sprite: _FTL/Mobs/Customization/ipc.rsi
@@ -155,8 +145,8 @@
 
 - type: marking
   id: IPCScreenRgb
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: FacialHair
+  markingCategory: FacialHair
   speciesRestriction: [IPC]
   sprites:
     - sprite: _FTL/Mobs/Customization/ipc.rsi
@@ -164,8 +154,8 @@
 
 - type: marking
   id: IPCScreenGlider
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: FacialHair
+  markingCategory: FacialHair
   speciesRestriction: [IPC]
   sprites:
     - sprite: _FTL/Mobs/Customization/ipc.rsi
@@ -173,8 +163,8 @@
 
 - type: marking
   id: IPCScreenRainbow
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: FacialHair
+  markingCategory: FacialHair
   speciesRestriction: [IPC]
   sprites:
     - sprite: _FTL/Mobs/Customization/ipc.rsi
@@ -182,8 +172,8 @@
 
 - type: marking
   id: IPCScreenBsod
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: FacialHair
+  markingCategory: FacialHair
   speciesRestriction: [IPC]
   sprites:
     - sprite: _FTL/Mobs/Customization/ipc.rsi
@@ -191,8 +181,8 @@
 
 - type: marking
   id: IPCScreenRedtext
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: FacialHair
+  markingCategory: FacialHair
   speciesRestriction: [IPC]
   sprites:
     - sprite: _FTL/Mobs/Customization/ipc.rsi
@@ -200,8 +190,8 @@
 
 - type: marking
   id: IPCScreenSinewave
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: FacialHair
+  markingCategory: FacialHair
   speciesRestriction: [IPC]
   sprites:
     - sprite: _FTL/Mobs/Customization/ipc.rsi
@@ -209,8 +199,8 @@
 
 - type: marking
   id: IPCScreenScreenwave
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: FacialHair
+  markingCategory: FacialHair
   speciesRestriction: [IPC]
   sprites:
     - sprite: _FTL/Mobs/Customization/ipc.rsi
@@ -218,8 +208,8 @@
 
 - type: marking
   id: IPCScreenEcgwave
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: FacialHair
+  markingCategory: FacialHair
   speciesRestriction: [IPC]
   sprites:
     - sprite: _FTL/Mobs/Customization/ipc.rsi
@@ -227,8 +217,8 @@
 
 - type: marking
   id: IPCScreenEyes
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: FacialHair
+  markingCategory: FacialHair
   speciesRestriction: [IPC]
   sprites:
     - sprite: _FTL/Mobs/Customization/ipc.rsi
@@ -236,8 +226,8 @@
 
 - type: marking
   id: IPCScreenEyesstall
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: FacialHair
+  markingCategory: FacialHair
   speciesRestriction: [IPC]
   sprites:
     - sprite: _FTL/Mobs/Customization/ipc.rsi
@@ -245,8 +235,8 @@
 
 - type: marking
   id: IPCScreenEyesangry
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: FacialHair
+  markingCategory: FacialHair
   speciesRestriction: [IPC]
   sprites:
     - sprite: _FTL/Mobs/Customization/ipc.rsi
@@ -254,8 +244,8 @@
 
 - type: marking
   id: IPCScreenLoading
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: FacialHair
+  markingCategory: FacialHair
   speciesRestriction: [IPC]
   sprites:
     - sprite: _FTL/Mobs/Customization/ipc.rsi
@@ -263,8 +253,8 @@
 
 - type: marking
   id: IPCScreenWindowsxp
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: FacialHair
+  markingCategory: FacialHair
   speciesRestriction: [IPC]
   sprites:
     - sprite: _FTL/Mobs/Customization/ipc.rsi
@@ -272,8 +262,8 @@
 
 - type: marking
   id: IPCScreenTetris
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: FacialHair
+  markingCategory: FacialHair
   speciesRestriction: [IPC]
   sprites:
     - sprite: _FTL/Mobs/Customization/ipc.rsi
@@ -281,8 +271,8 @@
 
 - type: marking
   id: IPCScreenTv
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: FacialHair
+  markingCategory: FacialHair
   speciesRestriction: [IPC]
   sprites:
     - sprite: _FTL/Mobs/Customization/ipc.rsi
@@ -290,8 +280,8 @@
 
 - type: marking
   id: IPCScreenTextdrop
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: FacialHair
+  markingCategory: FacialHair
   speciesRestriction: [IPC]
   sprites:
     - sprite: _FTL/Mobs/Customization/ipc.rsi
@@ -299,8 +289,8 @@
 
 - type: marking
   id: IPCScreenStars
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: FacialHair
+  markingCategory: FacialHair
   speciesRestriction: [IPC]
   sprites:
     - sprite: _FTL/Mobs/Customization/ipc.rsi
@@ -308,8 +298,8 @@
 
 - type: marking
   id: IPCScreenRainbowdiag
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: FacialHair
+  markingCategory: FacialHair
   speciesRestriction: [IPC]
   sprites:
     - sprite: _FTL/Mobs/Customization/ipc.rsi
@@ -317,8 +307,8 @@
 
 - type: marking
   id: IPCScreenBlank
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: FacialHair
+  markingCategory: FacialHair
   speciesRestriction: [IPC]
   sprites:
     - sprite: _FTL/Mobs/Customization/ipc.rsi
@@ -326,8 +316,8 @@
 
 - type: marking
   id: IPCScreenSmile
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: FacialHair
+  markingCategory: FacialHair
   speciesRestriction: [IPC]
   sprites:
     - sprite: _FTL/Mobs/Customization/ipc.rsi
@@ -335,8 +325,8 @@
 
 - type: marking
   id: IPCScreenSad
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: FacialHair
+  markingCategory: FacialHair
   speciesRestriction: [IPC]
   sprites:
     - sprite: _FTL/Mobs/Customization/ipc.rsi
@@ -344,8 +334,8 @@
 
 - type: marking
   id: IPCScreenRing
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: FacialHair
+  markingCategory: FacialHair
   speciesRestriction: [IPC]
   sprites:
     - sprite: _FTL/Mobs/Customization/ipc.rsi
@@ -353,83 +343,9 @@
 
 - type: marking
   id: IPCScreenL
-  bodyPart: Head
-  markingCategory: Head
+  bodyPart: FacialHair
+  markingCategory: FacialHair
   speciesRestriction: [IPC]
   sprites:
     - sprite: _FTL/Mobs/Customization/ipc.rsi
       state: l
-
-- type: marking
-  id: IPCScreenTvAntenna
-  bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [IPC]
-  sprites:
-    - sprite: _FTL/Mobs/Customization/ipc.rsi
-      state: tvantenna
-
-- type: marking
-  id: IPCScreenTesla
-  bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [IPC]
-  sprites:
-    - sprite: _FTL/Mobs/Customization/ipc.rsi
-      state: tesla
-
-- type: marking
-  id: IPCScreenCyberheadantenna
-  bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [IPC]
-  sprites:
-    - sprite: _FTL/Mobs/Customization/ipc.rsi
-      state: cyberheadantenna
-
-- type: marking
-  id: IPCScreenSidelights
-  bodyPart: HeadSide
-  markingCategory: HeadSide
-  speciesRestriction: [IPC]
-  sprites:
-    - sprite: _FTL/Mobs/Customization/ipc.rsi
-      state: sidelights
-
-- type: marking
-  id: IPCScreenAntlers
-  bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [IPC]
-  sprites:
-    - sprite: _FTL/Mobs/Customization/ipc.rsi
-      state: antlers
-
-- type: marking
-  id: IPCScreenDrone
-  bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [IPC]
-  sprites:
-    - sprite: _FTL/Mobs/Customization/ipc.rsi
-      state: drone
-
-- type: marking
-  id: IPCScreenCrowned
-  bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [IPC]
-  sprites:
-    - sprite: _FTL/Mobs/Customization/ipc.rsi
-      state: crowned
-
-- type: marking
-  id: IPCScreenAntennae
-  bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [IPC]
-  sprites:
-    - sprite: _FTL/Mobs/Customization/ipc.rsi
-      state: antennae
-
-#endregion
