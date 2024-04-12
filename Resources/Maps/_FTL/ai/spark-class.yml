@@ -464,6 +464,15 @@ entities:
     - type: DeviceLinkSink
       links:
       - 19
+- proto: WeaponRevolverMateba
+  entities:
+  - uid: 40
+    components:
+    - type: MetaData
+      desc: An exceptionally lethal revolver. Uses .45 magnum ammo.
+    - type: Transform
+      pos: -0.328125,1.447598
+      parent: 1
 - proto: WeaponTargetingPad
   entities:
   - uid: 19

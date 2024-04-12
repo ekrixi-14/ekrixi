@@ -58,7 +58,8 @@ entities:
       data:
         tiles:
           0,0:
-            0: 63487
+            0: 55295
+            1: 8192
           -1,0:
             0: 60654
           -1,1:
@@ -76,13 +77,29 @@ entities:
           0,-2:
             0: 32599
           0,-1:
-            0: 63479
+            1: 1
+            0: 63478
         uniqueMixes:
         - volume: 2500
           temperature: 293.15
           moles:
           - 21.824879
           - 82.10312
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.14975
+          moles:
+          - 20.078888
+          - 75.53487
           - 0
           - 0
           - 0
@@ -516,13 +533,69 @@ entities:
     - type: Transform
       pos: 0.5,4.5
       parent: 1
-- proto: CrateFilledSpawner
+- proto: CrateBaseSecure
   entities:
-  - uid: 156
+  - uid: 172
     components:
     - type: Transform
       pos: 1.5,3.5
       parent: 1
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 200
+          - 199
+          - 198
+          - 197
+          - 196
+          - 195
+          - 194
+          - 193
+          - 192
+          - 191
+          - 190
+          - 189
+          - 188
+          - 187
+          - 186
+          - 185
+          - 184
+          - 183
+          - 182
+          - 181
+          - 180
+          - 179
+          - 178
+          - 177
+          - 176
+          - 175
+          - 174
+          - 173
+        paper_label: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
 - proto: EkrixiBayAirlockExternal
   entities:
   - uid: 8
@@ -627,19 +700,242 @@ entities:
     - type: Transform
       pos: 0.5,-3.5
       parent: 1
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
           showEnts: False
           occludes: True
           ents:
-          - 13
-          - 14
           - 15
+          - 14
+          - 13
+          - 70
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
           ent: null
+- proto: MagazineBox20mm
+  entities:
+  - uid: 176
+    components:
+    - type: Transform
+      parent: 172
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 181
+    components:
+    - type: Transform
+      parent: 172
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 182
+    components:
+    - type: Transform
+      parent: 172
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 189
+    components:
+    - type: Transform
+      parent: 172
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 190
+    components:
+    - type: Transform
+      parent: 172
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 191
+    components:
+    - type: Transform
+      parent: 172
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 193
+    components:
+    - type: Transform
+      parent: 172
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 194
+    components:
+    - type: Transform
+      parent: 172
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 198
+    components:
+    - type: Transform
+      parent: 172
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 200
+    components:
+    - type: Transform
+      parent: 172
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+- proto: MagazineBox20mmAP
+  entities:
+  - uid: 184
+    components:
+    - type: Transform
+      parent: 172
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 185
+    components:
+    - type: Transform
+      parent: 172
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 186
+    components:
+    - type: Transform
+      parent: 172
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 187
+    components:
+    - type: Transform
+      parent: 172
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 188
+    components:
+    - type: Transform
+      parent: 172
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 192
+    components:
+    - type: Transform
+      parent: 172
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 195
+    components:
+    - type: Transform
+      parent: 172
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 196
+    components:
+    - type: Transform
+      parent: 172
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 197
+    components:
+    - type: Transform
+      parent: 172
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 199
+    components:
+    - type: Transform
+      parent: 172
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+- proto: MagazineBox53mm
+  entities:
+  - uid: 177
+    components:
+    - type: Transform
+      parent: 172
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 178
+    components:
+    - type: Transform
+      parent: 172
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 179
+    components:
+    - type: Transform
+      parent: 172
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 183
+    components:
+    - type: Transform
+      parent: 172
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+- proto: MagazineBox53mmAP
+  entities:
+  - uid: 173
+    components:
+    - type: Transform
+      parent: 172
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 174
+    components:
+    - type: Transform
+      parent: 172
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 175
+    components:
+    - type: Transform
+      parent: 172
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 180
+    components:
+    - type: Transform
+      parent: 172
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: MagazineLightRifle
   entities:
   - uid: 14
@@ -733,6 +1029,15 @@ entities:
     - type: Transform
       pos: -0.5,-2.5
       parent: 1
+- proto: SpeedLoaderMagnumAP
+  entities:
+  - uid: 70
+    components:
+    - type: Transform
+      parent: 12
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: SubstationBasic
   entities:
   - uid: 48
@@ -1038,7 +1343,7 @@ entities:
       parent: 1
     - type: DeviceLinkSink
       links:
-      - 70
+      - 71
   - uid: 57
     components:
     - type: Transform
@@ -1047,7 +1352,7 @@ entities:
       parent: 1
     - type: DeviceLinkSink
       links:
-      - 70
+      - 71
   - uid: 58
     components:
     - type: Transform
@@ -1056,7 +1361,7 @@ entities:
       parent: 1
     - type: DeviceLinkSink
       links:
-      - 71
+      - 156
   - uid: 65
     components:
     - type: Transform
@@ -1065,7 +1370,7 @@ entities:
       parent: 1
     - type: DeviceLinkSink
       links:
-      - 71
+      - 156
   - uid: 66
     components:
     - type: Transform
@@ -1074,7 +1379,7 @@ entities:
       parent: 1
     - type: DeviceLinkSink
       links:
-      - 71
+      - 156
   - uid: 67
     components:
     - type: Transform
@@ -1083,7 +1388,7 @@ entities:
       parent: 1
     - type: DeviceLinkSink
       links:
-      - 71
+      - 156
   - uid: 68
     components:
     - type: Transform
@@ -1092,7 +1397,7 @@ entities:
       parent: 1
     - type: DeviceLinkSink
       links:
-      - 70
+      - 71
   - uid: 69
     components:
     - type: Transform
@@ -1101,7 +1406,7 @@ entities:
       parent: 1
     - type: DeviceLinkSink
       links:
-      - 70
+      - 71
 - proto: WeaponRevolverDeckard
   entities:
   - uid: 148
@@ -1144,7 +1449,7 @@ entities:
       boltClosed: True
 - proto: WeaponTargetingPad
   entities:
-  - uid: 70
+  - uid: 71
     components:
     - type: Transform
       rot: 3.141592653589793 rad
@@ -1160,7 +1465,7 @@ entities:
         - WeaponOutputPort: WeaponInputPort
         57:
         - WeaponOutputPort: WeaponInputPort
-  - uid: 71
+  - uid: 156
     components:
     - type: Transform
       rot: 3.141592653589793 rad
