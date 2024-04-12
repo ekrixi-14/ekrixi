@@ -2,6 +2,7 @@ using Content.Shared.Actions;
 using Content.Shared.MouseRotator;
 using Content.Shared.Movement.Components;
 using Content.Shared.Popups;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
 
@@ -13,6 +14,7 @@ public abstract class SharedCombatModeSystem : EntitySystem
     [Dependency] private   readonly INetManager _netMan = default!;
     [Dependency] private   readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private   readonly SharedPopupSystem _popup = default!;
+    [Dependency] private   readonly SharedAudioSystem _audio = default!;
 
     public override void Initialize()
     {
@@ -51,6 +53,7 @@ public abstract class SharedCombatModeSystem : EntitySystem
             return;
 
         var msg = component.IsInCombatMode ? "action-popup-combat-enabled" : "action-popup-combat-disabled";
+        _audio.PlayGlobal(component.IsInCombatMode ? "/Audio/_FTL/Effects/CombatMode/on.ogg" : "/Audio/_FTL/Effects/CombatMode/off.ogg", uid);
         _popup.PopupEntity(Loc.GetString(msg), args.Performer, args.Performer);
     }
 
