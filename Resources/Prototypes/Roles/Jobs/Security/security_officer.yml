@@ -38,6 +38,7 @@
     ears: ClothingHeadsetSecurity
     belt: ClothingBeltMercWebbing
     pocket1: Handcuffs
+    pocket2: BasicPager
     suitstorage: WeaponShotgunDoubleBarreled
 #  innerClothingSkirt: ClothingUniformJumpskirtSec
   satchel: ClothingBackpackSatchelSecurityFilled
