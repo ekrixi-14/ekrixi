@@ -49,6 +49,7 @@ namespace Content.IntegrationTests.Tests
             "Stormwalker",
 			"THERODTWO",
 			"Cestoda",
+			"Myrmeleon",
             "MeteorArena",
             "CentComm"
         };
