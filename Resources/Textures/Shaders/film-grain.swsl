@@ -1,0 +1,13 @@
+uniform sampler2D SCREEN_TEXTURE;
+
+void fragment() {
+    // Normalized pixel coordinates (from 0 to 1)
+    highp vec2 uv = vec2(FRAGCOORD.x / SCREEN_PIXEL_SIZE.x, FRAGCOORD.y / SCREEN_PIXEL_SIZE.y);
+
+    // Calculate noise and sample texture
+    highp float mdf = 0.1; // increase for noise amount
+    highp float noise = (fract(sin(dot(uv, vec2(12.9898,78.233)*2.0)) * 43758.5453));
+    highp vec4 tex = texture(SCREEN_TEXTURE, uv);
+
+    COLOR = tex - noise * mdf;
+}
