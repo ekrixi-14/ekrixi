@@ -1,12 +1,14 @@
 - type: entity
-  parent: BaseElectronics
+  parent: BaseComputerCircuitboard
   id: WeaponPadCircuitboard
-  name: weapon pad electronics
-  description: An electronics board used in weapon pads.
+  name: weapon console computer board
+  description: An computer board used in weapon consoles.
   components:
     - type: Sprite
       sprite: Objects/Misc/module.rsi
-      state: airalarm_electronics
+      state: cpu_security
+    - type: ComputerBoard
+      prototype: WeaponTargetingPad
     - type: Tag
       tags:
         - WeaponPadElectronics

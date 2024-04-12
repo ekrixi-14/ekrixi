@@ -1,0 +1,44 @@
+- type: entity
+  parent: BaseComputer
+  id: WeaponTargetingPad
+  name: weapon targeting console
+  description: A targeting pad used for targeting and firing.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _FTL/Structures/Machines/computers.rsi
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: aiming_keyboard
+    - map: ["computerLayerScreen"]
+      state: gun_aiming
+    - map: ["computerLayerKeys"]
+      state: aiming_key
+  - type: ApcPowerReceiver
+    powerLoad: 200
+  - type: Computer
+    board: WeaponPadCircuitboard
+  - type: ActivatableUIRequiresPower
+  - type: ActivatableUI
+    key: enum.ShipWeaponTargetingUiKey.Key
+  - type: UserInterface
+    interfaces:
+      - key: enum.ShipWeaponTargetingUiKey.Key
+        type: GunnerConsoleBoundUserInterface
+  - type: RadarConsole
+  - type: GunnerConsole
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: DeviceLinkSource
+    ports:
+      - WeaponOutputPort
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#17e64b"
