@@ -27,7 +27,7 @@
     outerClothing: ClothingOuterCoatLab
     id: MedicalPDA
     ears: ClothingHeadsetMedical
-    belt: ClothingBeltMedicalFilled
+    belt: BasicPager
     pocket2: SurvivalKnife
   innerClothingSkirt: ClothingUniformJumpskirtMedicalDoctor
   satchel: ClothingBackpackSatchelMedicalFilled

@@ -26,8 +26,9 @@
     back: ClothingBackpackEngineeringFilled
     shoes: ClothingShoesBootsWork
     outerClothing: ClothingOuterVestHazard
+    eyes: ClothingEyesGlassesMeson
     id: EngineerPDA
-    pocket1: ClothingEyesGlassesMeson
+    pocket1: BasicPager
     pocket2: SurvivalKnife
     belt: ClothingBeltUtilityEngineering
     ears: ClothingHeadsetEngineering

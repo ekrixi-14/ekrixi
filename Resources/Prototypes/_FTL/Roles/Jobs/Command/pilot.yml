@@ -25,6 +25,7 @@
     eyes: ClothingEyesGlassesPilot
     id: PilotPDA
     ears: ClothingHeadsetAltCommand
+    belt: BasicPager
     pocket1: WeaponRevolverDeckard
     pocket2: ClothingEyesGlassesSunglasses
   innerClothingSkirt: ClothingPantsPilot
