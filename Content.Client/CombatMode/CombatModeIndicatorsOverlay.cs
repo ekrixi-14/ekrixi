@@ -7,9 +7,6 @@ using Robust.Client.Input;
 using Robust.Client.UserInterface;
 using Robust.Shared.Enums;
 using Robust.Shared.Utility;
-using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.PixelFormats;
-using Color = Robust.Shared.Maths.Color;
 
 namespace Content.Client.CombatMode;
 
