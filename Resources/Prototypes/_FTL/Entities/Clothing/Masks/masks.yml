@@ -1,0 +1,12 @@
+- type: entity
+  parent: ClothingMaskBase
+  id: ClothingMaskMercNeckGaiter
+  name: mercenary neck gaiter
+  description: An olive green neck gaiter.
+  components:
+  - type: Sprite
+    sprite: _FTL/Clothing/Mask/mercneckgaiter.rsi
+  - type: Clothing
+    sprite: _FTL/Clothing/Mask/mercneckgaiter.rsi
+  - type: IdentityBlocker
+    coverage: MOUTH

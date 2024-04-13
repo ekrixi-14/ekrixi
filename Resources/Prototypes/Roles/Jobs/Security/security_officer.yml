@@ -34,9 +34,9 @@
     mask: ClothingMaskBandMerc
     gloves: ClothingHandsMercGlovesCombat
     outerClothing: ClothingOuterArmorBasic
-    id: SecurityPDA
+    id: MercenaryPDA
     ears: ClothingHeadsetSecurity
-    belt: ClothingBeltMercWebbing
+    belt: ClothingBeltMercWebbingFilled
     pocket1: RadioHandheldIntercomSecurity
     pocket2: BasicPager
     suitstorage: WeaponShotgunDoubleBarreled
