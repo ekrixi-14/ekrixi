@@ -105,7 +105,8 @@ entities:
           0,0:
             0: 65535
           0,1:
-            0: 65535
+            0: 65471
+            1: 64
           0,2:
             0: 24575
           1,0:
@@ -120,6 +121,21 @@ entities:
           moles:
           - 21.824879
           - 82.10312
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.14975
+          moles:
+          - 20.078888
+          - 75.53487
           - 0
           - 0
           - 0
@@ -1914,7 +1930,8 @@ entities:
           -4,3:
             0: 65535
           -3,0:
-            0: 65535
+            0: 16383
+            2: 49152
           -3,1:
             0: 65535
           -3,2:
@@ -1924,7 +1941,8 @@ entities:
             0: 65519
             1: 16
           -2,0:
-            0: 65519
+            0: 61423
+            2: 4096
             1: 16
           -2,1:
             0: 65535
@@ -2034,7 +2052,8 @@ entities:
           -5,-2:
             0: 65535
           -5,-1:
-            0: 65535
+            0: 8191
+            4: 57344
           -5,-4:
             0: 52224
           -5,-3:
@@ -2082,7 +2101,7 @@ entities:
             0: 65535
           5,0:
             0: 819
-            4: 52224
+            5: 52224
           5,-3:
             0: 4096
           5,-2:
@@ -2112,11 +2131,11 @@ entities:
           -1,-5:
             0: 61440
           5,1:
-            4: 12
+            5: 12
           6,0:
-            4: 4352
+            5: 4352
           6,1:
-            4: 1
+            5: 1
         uniqueMixes:
         - volume: 2500
           temperature: 293.15
@@ -2165,6 +2184,21 @@ entities:
           - 0
         - volume: 2500
           temperature: 293.1495
+          moles:
+          - 20.078888
+          - 75.53487
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.1498
           moles:
           - 20.078888
           - 75.53487
@@ -2274,10 +2308,11 @@ entities:
           0,0:
             0: 65535
           0,1:
-            0: 65535
+            0: 65471
+            1: 64
           1,0:
             0: 4369
-            1: 512
+            2: 512
           0,2:
             0: 4095
           1,1:
@@ -2290,6 +2325,21 @@ entities:
           moles:
           - 21.824879
           - 82.10312
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.1498
+          moles:
+          - 20.078888
+          - 75.53487
           - 0
           - 0
           - 0
@@ -7801,10 +7851,10 @@ entities:
       air:
         volume: 200
         immutable: False
-        temperature: 93.465614
+        temperature: 293.1478
         moles:
-        - 0
-        - 0
+        - 1.7459903
+        - 6.568249
         - 0
         - 0
         - 0
@@ -7821,9 +7871,9 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 1973
           - 1972
           - 1971
+          - 1973
           - 1970
           - 1974
           - 1975
@@ -7846,10 +7896,10 @@ entities:
       air:
         volume: 200
         immutable: False
-        temperature: 93.465614
+        temperature: 293.1478
         moles:
-        - 0
-        - 0
+        - 1.7459903
+        - 6.568249
         - 0
         - 0
         - 0
@@ -7891,10 +7941,10 @@ entities:
       air:
         volume: 200
         immutable: False
-        temperature: 93.465614
+        temperature: 293.1478
         moles:
-        - 0
-        - 0
+        - 1.7459903
+        - 6.568249
         - 0
         - 0
         - 0
@@ -7948,6 +7998,24 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 3.5,5.5
       parent: 2
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+        - 1.7459903
+        - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -7955,13 +8023,13 @@ entities:
           occludes: True
           ents:
           - 107
-          - 100
-          - 106
-          - 105
-          - 104
-          - 103
-          - 102
           - 101
+          - 102
+          - 103
+          - 106
+          - 100
+          - 104
+          - 105
   - uid: 933
     components:
     - type: Transform
@@ -7972,10 +8040,10 @@ entities:
       air:
         volume: 200
         immutable: False
-        temperature: 75.31249
+        temperature: 293.14755
         moles:
-        - 0
-        - 0
+        - 1.7459903
+        - 6.568249
         - 0
         - 0
         - 0
@@ -7992,11 +8060,11 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 177
+          - 179
+          - 180
           - 181
           - 178
-          - 180
-          - 179
+          - 177
   - uid: 2060
     components:
     - type: Transform
@@ -8230,6 +8298,29 @@ entities:
     components:
     - type: Transform
       parent: 2346
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+- proto: ClothingMaskGasSecurity
+  entities:
+  - uid: 123
+    components:
+    - type: Transform
+      parent: 1930
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 2720
+    components:
+    - type: Transform
+      parent: 1934
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 2721
+    components:
+    - type: Transform
+      parent: 1938
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -12988,16 +13079,6 @@ entities:
       parent: 108
 - proto: GravityGeneratorMini
   entities:
-  - uid: 41
-    components:
-    - type: Transform
-      pos: 3.5,3.5
-      parent: 2
-  - uid: 123
-    components:
-    - type: Transform
-      pos: 3.5,5.5
-      parent: 109
   - uid: 1915
     components:
     - type: Transform
@@ -13724,10 +13805,10 @@ entities:
       air:
         volume: 200
         immutable: False
-        temperature: 75.31249
+        temperature: 293.14755
         moles:
-        - 0
-        - 0
+        - 1.7459903
+        - 6.568249
         - 0
         - 0
         - 0
@@ -13744,9 +13825,10 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 1931
-          - 1932
+          - 123
           - 1933
+          - 1932
+          - 1931
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -13766,10 +13848,10 @@ entities:
       air:
         volume: 200
         immutable: False
-        temperature: 75.31249
+        temperature: 293.14755
         moles:
-        - 0
-        - 0
+        - 1.7459903
+        - 6.568249
         - 0
         - 0
         - 0
@@ -13786,9 +13868,10 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 1935
-          - 1936
+          - 2720
           - 1937
+          - 1936
+          - 1935
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -13808,10 +13891,10 @@ entities:
       air:
         volume: 200
         immutable: False
-        temperature: 75.31249
+        temperature: 293.14755
         moles:
-        - 0
-        - 0
+        - 1.7459903
+        - 6.568249
         - 0
         - 0
         - 0
@@ -13831,6 +13914,7 @@ entities:
           - 1939
           - 1940
           - 1941
+          - 2721
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -19923,11 +20007,21 @@ entities:
       parent: 108
 - proto: WarpDrive
   entities:
+  - uid: 41
+    components:
+    - type: Transform
+      pos: 3.5,3.5
+      parent: 2
   - uid: 1916
     components:
     - type: Transform
       pos: 1.5,-5.5
       parent: 108
+  - uid: 2722
+    components:
+    - type: Transform
+      pos: 3.5,5.5
+      parent: 109
 - proto: WaterTankFull
   entities:
   - uid: 2050
