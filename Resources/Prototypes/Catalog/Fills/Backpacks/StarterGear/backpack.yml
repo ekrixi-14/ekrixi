@@ -145,6 +145,7 @@
   - type: StorageFill
     contents:
       - id: BoxSurvivalEngineering
+      - id: ClothingHeadHatWelding
       - id: RadioHandheldIntercomEngineering
 
 - type: entity
