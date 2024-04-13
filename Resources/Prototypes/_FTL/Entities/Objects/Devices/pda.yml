@@ -16,7 +16,7 @@
   name: mercenary PDA
   description: Rugged and robust.
   components:
-    - type: Pda
+  - type: Pda
     id: SecurityIDCard
     state: pda-bartender
   - type: PdaBorderColor

@@ -535,6 +535,15 @@
     {
       "name": "clown_open"
     },
+	{
+      "name": "merc"
+    },
+    {
+      "name": "merc_door"
+    },
+    {
+      "name": "merc_open"
+    },
     {
       "name": "mime"
     },

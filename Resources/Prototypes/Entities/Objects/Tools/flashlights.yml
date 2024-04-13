@@ -75,10 +75,10 @@
       - Belt
 
 - type: entity
-  name: seclite
+  name: taclite
   parent: FlashlightLantern
   id: FlashlightSeclite
-  description: A robust flashlight used by security.
+  description: A robust tactical flashlight.
   components:
   - type: Tag
     tags:

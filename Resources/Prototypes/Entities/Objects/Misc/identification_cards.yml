@@ -125,7 +125,7 @@
 - type: entity
   parent: IDCardStandard
   id: SecurityIDCard
-  name: security ID card
+  name: mercenary ID card
   components:
   - type: Sprite
     layers:
