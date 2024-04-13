@@ -22,3 +22,6 @@
   - type: Clothing
     sprite: _FTL/Clothing/Mask/balaclava.rsi
   - type: IdentityBlocker
+  - type: Tag
+    tags:
+    - HidesHair
