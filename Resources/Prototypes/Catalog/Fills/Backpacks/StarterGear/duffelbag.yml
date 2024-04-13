@@ -76,6 +76,7 @@
     contents:
       - id: BoxSurvival
       - id: Flash
+      - id: RadioHandheldIntercomCommand
       #- name: StationCharter
       #- name: TelescopicBaton
 - type: entity
@@ -153,6 +154,7 @@
     contents:
       - id: BoxSurvivalEngineering
       - id: ClothingHeadHatWelding
+      - id: RadioHandheldIntercomEngineering
 
 - type: entity
   noSpawn: true

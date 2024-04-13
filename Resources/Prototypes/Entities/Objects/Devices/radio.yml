@@ -2,6 +2,7 @@
   name: handheld radio
   description: A handy handheld radio.
   parent: BaseItem
+  suffix: DO NOT USE
   id: RadioHandheld
   components:
   - type: RadioMicrophone
