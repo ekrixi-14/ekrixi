@@ -1,0 +1,28 @@
+- type: reagent
+  id: Saphaphrem
+  name: reagent-name-rv8
+  group: Narcotics
+  desc: reagent-desc-rv8
+  physicalDesc: reagent-physical-desc-rocky
+  flavor: magical
+  color: "#412E54"
+  metabolisms:
+    Narcotic:
+      metabolismRate: 0.25
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            VeilIndividualExposure: -1
+            Pierce: 0.35
+            Slash: 0.35
+      - !type:GenericStatusEffect
+        key: SaphaphremTrip
+        component: SaphaphremOverlay
+        type: Add
+        time: 1
+        refresh: false
+      - !type:GenericStatusEffect
+        key: Stutter
+        component: StutteringAccent
+      - !type:Jitter

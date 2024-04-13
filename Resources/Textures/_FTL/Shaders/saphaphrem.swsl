@@ -1,0 +1,19 @@
+uniform sampler2D SCREEN_TEXTURE;
+const highp float PI = 3.14159265;
+const highp float factor = 10.75;
+
+highp float saw_wave(highp float x) {
+    return (1/2) - atan(cos((PI*x)/2)/sin((PI*x)/2));
+}
+highp float tri_wave(highp float x) {
+    return asin(sin(x));
+}
+
+void fragment() {
+    highp vec2 pixelSize = vec2(1.0/SCREEN_PIXEL_SIZE.x, 1.0/SCREEN_PIXEL_SIZE.y);
+    highp float aspectratio = pixelSize.x / pixelSize.y;
+    highp vec4 color = zTextureSpec(SCREEN_TEXTURE, Pos);
+
+    highp float grayscale = zGrayscale(color.rgb) * (saw_wave(-TIME));
+    COLOR = vec4(mix(color.rgb, vec3(grayscale), (tri_wave(TIME) * 2) * factor), color.a);
+}
