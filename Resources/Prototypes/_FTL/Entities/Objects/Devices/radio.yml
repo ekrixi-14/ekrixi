@@ -68,3 +68,15 @@
     supportedChannels:
     - Engineering
     - Common
+
+- type: entity
+  name: handheld radio
+  suffix: Medical
+  description: A handy handheld radio.
+  parent: BaseRadioHandheldIntercom
+  id: RadioHandheldIntercomMedical
+  components:
+  - type: Intercom
+    supportedChannels:
+    - Medical
+    - Common
