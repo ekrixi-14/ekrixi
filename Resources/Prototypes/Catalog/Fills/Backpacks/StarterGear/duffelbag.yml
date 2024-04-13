@@ -152,6 +152,7 @@
   - type: StorageFill
     contents:
       - id: BoxSurvivalEngineering
+      - id: ClothingHeadHatWelding
 
 - type: entity
   noSpawn: true
