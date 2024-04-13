@@ -5,6 +5,6 @@
   description: Tactically keeps your head warm.
   components:
   - type: Sprite
-    sprite: _FTl/Clothing/Head/Hats/beanie.rsi
+    sprite: _FTL/Clothing/Head/Hats/beanie.rsi
   - type: Clothing
-    sprite: _FTl/Clothing/Head/Hats/beanie.rsi
+    sprite: _FTL/Clothing/Head/Hats/beanie.rsi
