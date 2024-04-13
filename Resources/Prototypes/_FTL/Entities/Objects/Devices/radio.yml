@@ -1,0 +1,70 @@
+- type: entity
+  name: handheld radio
+  description: A handy handheld radio.
+  parent: RadioHandheld
+  abstract: true
+  id: BaseRadioHandheldIntercom
+  components:
+  - type: Intercom
+    requiresPower: false
+    supportedChannels:
+    - Common
+  - type: RadioMicrophone
+    toggleOnInteract: false
+  - type: RadioSpeaker
+    toggleOnInteract: false
+  - type: ActivatableUI
+    key: enum.IntercomUiKey.Key
+  - type: UserInterface
+    interfaces:
+    - key: enum.IntercomUiKey.Key
+      type: IntercomBoundUserInterface
+
+- type: entity
+  name: handheld radio
+  description: A handy handheld radio.
+  parent: BaseRadioHandheldIntercom
+  id: RadioHandheldIntercomCommon
+  suffix: Common
+  components:
+  - type: Intercom
+    supportedChannels:
+    - Common
+
+- type: entity
+  name: handheld radio
+  suffix: Command
+  description: A handy handheld radio.
+  parent: BaseRadioHandheldIntercom
+  id: RadioHandheldIntercomCommand
+  components:
+  - type: Intercom
+    supportedChannels:
+    - Command
+    - Security
+    - Engineering
+    - Common
+
+- type: entity
+  name: handheld radio
+  suffix: Security
+  description: A handy handheld radio.
+  parent: BaseRadioHandheldIntercom
+  id: RadioHandheldIntercomSecurity
+  components:
+  - type: Intercom
+    supportedChannels:
+    - Security
+    - Common
+
+- type: entity
+  name: handheld radio
+  suffix: Engineering
+  description: A handy handheld radio.
+  parent: BaseRadioHandheldIntercom
+  id: RadioHandheldIntercomEngineering
+  components:
+  - type: Intercom
+    supportedChannels:
+    - Engineering
+    - Common

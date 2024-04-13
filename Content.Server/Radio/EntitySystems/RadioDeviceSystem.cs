@@ -13,6 +13,8 @@ using Content.Shared.Interaction;
 using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
 using Robust.Server.GameObjects;
+using Robust.Shared.Network;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Radio.EntitySystems;
@@ -29,6 +31,7 @@ public sealed class RadioDeviceSystem : EntitySystem
     [Dependency] private readonly InteractionSystem _interaction = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private readonly INetManager _netMan = default!;
 
     // Used to prevent a shitter from using a bunch of radios to spam chat.
     private HashSet<(string, EntityUid)> _recentlySent = new();
@@ -204,11 +207,14 @@ public sealed class RadioDeviceSystem : EntitySystem
         var nameEv = new TransformSpeakerNameEvent(args.MessageSource, Name(args.MessageSource));
         RaiseLocalEvent(args.MessageSource, nameEv);
 
-        var name = Loc.GetString("speech-name-relay", ("speaker", Name(uid)),
-            ("originalName", nameEv.Name));
+        // var name = Loc.GetString("speech-name-relay", ("speaker", Name(uid)),
+        //     ("originalName", nameEv.Name));
+
+        if (TryComp(Transform(uid).ParentUid, out ActorComponent? actor))
+            _netMan.ServerSendMessage(args.ChatMsg, actor.PlayerSession.Channel);
 
         // log to chat so people can identity the speaker/source, but avoid clogging ghost chat if there are many radios
-        _chat.TrySendInGameICMessage(uid, args.Message, InGameICChatType.Whisper, ChatTransmitRange.GhostRangeLimit, nameOverride: name, checkRadioPrefix: false);
+        // _chat.TrySendInGameICMessage(uid, args.Message, InGameICChatType.Whisper, ChatTransmitRange.GhostRangeLimit, nameOverride: name, checkRadioPrefix: false);
     }
 
     private void OnBeforeIntercomUiOpen(EntityUid uid, IntercomComponent component, BeforeActivatableUIOpenEvent args)
