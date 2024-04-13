@@ -1,0 +1,27 @@
+- type: entity
+  name: rv-8 auto-injector
+  parent: ChemicalMedipen
+  id: RV8AutoInjector
+  description: A rapid dose of RV-8, full name being Timorethane Saphathrem Ben-9K x Perc-3k TB RV-8.
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: bicpen
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: bicpen_empty
+  - type: Hypospray
+    solutionName: pen
+    transferAmount: 30
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 30
+        reagents:
+        - ReagentId: Saphaphrem
+          Quantity: 30
+  - type: Tag
+    tags: []

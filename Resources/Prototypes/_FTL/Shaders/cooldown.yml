@@ -1,7 +1,0 @@
-- type: shader
-  id: FilmGrain
-  kind: source
-  path: "/Textures/Shaders/film-grain.swsl"
-  params:
-    grain_amount: 0.05
-    grain_size: 1.0

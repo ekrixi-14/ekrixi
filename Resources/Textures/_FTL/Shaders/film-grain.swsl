@@ -18,7 +18,6 @@ void fragment() {
     highp float filmgrain = zNoise(vec2(Pos.x, Pos.y / aspectratio) * (grainScale * Zoom) + theframe);
 
     // Lil bit of grayscale for good measure, too
-    highp float grayscale = zGrayscale(color.rgb) * (filmgrain * grainMult + grainAdd);
-
+    highp float grayscale = zGrayscale(color.rgb);
     COLOR = vec4(mix(color.rgb, vec3(grayscale), grayscaleFactor), color.a);
 }

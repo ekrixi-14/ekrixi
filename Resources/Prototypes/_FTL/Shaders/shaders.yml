@@ -1,0 +1,9 @@
+- type: shader
+  id: FilmGrain
+  kind: source
+  path: "/Textures/_FTL/Shaders/film-grain.swsl"
+
+- type: shader
+  id: Saphaphrem
+  kind: source
+  path: "/Textures/_FTL/Shaders/saphaphrem.swsl"
