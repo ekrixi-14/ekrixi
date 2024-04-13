@@ -9,3 +9,17 @@
       state: pda
     - type: PdaBorderColor
       borderColor: "#717059"
+
+- type: entity
+  parent: BasePDA
+  id: MercenaryPDA
+  name: mercenary PDA
+  description: Rugged and robust.
+  components:
+  - type: Pda
+    id: SecurityIDCard
+    state: pda-bartender
+  - type: PdaBorderColor
+    borderColor: "#141111"
+  - type: Icon
+    state: pda-bartender
