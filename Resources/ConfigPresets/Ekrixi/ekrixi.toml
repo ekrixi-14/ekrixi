@@ -6,7 +6,7 @@ max_connections         = 1024
 desc                    = "Ekrixi is a PvE fork of SS14 revolving around PvE gameplay, ship travel, and roleplay."
 lobbyenabled            = true
 soft_max_players        = 50
-map                     = "Nesasio"
+map                     = "Cestoda"
 map_pool                = "FTLMapPool"
 
 [minplayers]
