@@ -1,0 +1,22 @@
+- type: gameMap
+  id: Myrmeleon
+  mapName: 'Myrmeleon'
+  mapPath: /Maps/_FTL/ships/myrmeleon.yml
+  minPlayers: 6
+  maxPlayers: 16
+  stations:
+    Myrmeleon:
+      stationProto: StandardIndependentShip
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'ML Myrmeleon-Class Salvage Carrier' #Despite that black box transcript, the captain's decision stood stalwart.
+        - type: StationJobs
+          overflowJobs:
+            - Passenger
+          availableJobs:
+            Captain: [ 1, 1 ] # Command
+            Pilot: [ 1, 1 ]
+            SecurityOfficer: [ 4, 4 ] # Security
+            StationEngineer: [ 4, 4 ] # Engi
+            MedicalDoctor: [ 3, 3 ] # Medical
+            Passenger: [ -1, -1 ] # Everyone else
