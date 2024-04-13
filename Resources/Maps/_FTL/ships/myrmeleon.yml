@@ -32,7 +32,7 @@ entities:
   - uid: 2
     components:
     - type: MetaData
-      name: grid
+      name: VS Dolicho-Class Personal Fighter
     - type: Transform
       pos: -2.4687653,2.7378056
       parent: 1
@@ -137,7 +137,7 @@ entities:
   - uid: 108
     components:
     - type: MetaData
-      name: VS Dolicho-Class Personal Fighter
+      name: ML Myrmeleon-Class Salvage Carrier
     - type: Transform
       pos: -0.42709857,-1.2870052
       parent: 1
@@ -1818,10 +1818,61 @@ entities:
             1288: -11,4
         - node:
             cleanable: True
+            color: '#FFFFFF05'
+            id: Tunnel
+          decals:
+            1321: 4,-14
+        - node:
+            cleanable: True
+            color: '#FFFFFF28'
+            id: guy
+          decals:
+            1319: -14,4
+        - node:
+            cleanable: True
+            color: '#FFFFFF0A'
+            id: safe
+          decals:
+            1322: 15,-15
+        - node:
+            cleanable: True
+            color: '#5A00004D'
+            id: splatter
+          decals:
+            1323: 1.5780656,-9.85892
+            1324: 1.7551491,-10.077822
+            1325: 1.8801491,-10.369691
+            1326: 2.0676491,-10.244604
+            1327: 2.2863991,-10.004854
+            1328: 2.3176491,-10.255029
+            1329: 2.1405659,-9.827648
+            1330: 1.8593159,-9.629594
+            1331: 1.5363991,-9.577475
+            1332: 1.920006,-9.556626
+            1333: 1.2845893,-9.900616
+            1334: 1.170006,-9.556626
+            1335: 2.482506,-9.598322
+            1336: 2.498378,-9.963159
+            1337: 1.967128,-9.8068
+        - node:
+            cleanable: True
             color: '#EBFF0002'
             id: splatter
           decals:
             96: -10,13
+        - node:
+            cleanable: True
+            angle: 3.141592653589793 rad
+            color: '#FFFF0002'
+            id: splatter
+          decals:
+            1318: -10,13
+        - node:
+            cleanable: True
+            color: '#FFFFFF05'
+            id: uboa
+          decals:
+            1320: -9,-13
     - type: GridAtmosphere
       version: 2
       data:
@@ -2031,6 +2082,7 @@ entities:
             0: 65535
           5,0:
             0: 819
+            4: 52224
           5,-3:
             0: 4096
           5,-2:
@@ -2059,6 +2111,12 @@ entities:
             0: 30580
           -1,-5:
             0: 61440
+          5,1:
+            4: 12
+          6,0:
+            4: 4352
+          6,1:
+            4: 1
         uniqueMixes:
         - volume: 2500
           temperature: 293.15
@@ -2110,6 +2168,21 @@ entities:
           moles:
           - 20.078888
           - 75.53487
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+        - volume: 2500
+          temperature: 293.15
+          moles:
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -8416,11 +8489,6 @@ entities:
     - type: Transform
       pos: -17.5,5.5
       parent: 108
-  - uid: 2021
-    components:
-    - type: Transform
-      pos: -8.5,4.5
-      parent: 108
   - uid: 2026
     components:
     - type: Transform
@@ -8440,6 +8508,11 @@ entities:
     components:
     - type: Transform
       pos: -7.5,-8.5
+      parent: 108
+  - uid: 2719
+    components:
+    - type: Transform
+      pos: -7.5,7.5
       parent: 108
 - proto: CrateFreezer
   entities:
@@ -8682,95 +8755,103 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: CryogenicSleepUnit
+- proto: CryogenicSleepUnitSpawner
   entities:
-  - uid: 327
-    components:
-    - type: Transform
-      pos: -8.5,-6.5
-      parent: 108
   - uid: 328
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -11.5,-8.5
+      rot: -1.5707963267948966 rad
+      pos: -9.5,-1.5
       parent: 108
   - uid: 329
     components:
     - type: Transform
-      pos: -9.5,-7.5
+      rot: -1.5707963267948966 rad
+      pos: -9.5,-9.5
       parent: 108
   - uid: 330
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -11.5,-2.5
+      rot: 1.5707963267948966 rad
+      pos: -11.5,-1.5
       parent: 108
   - uid: 338
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -12.5,-4.5
+      rot: 1.5707963267948966 rad
+      pos: -12.5,-6.5
       parent: 108
   - uid: 340
     components:
     - type: Transform
-      pos: -8.5,-4.5
+      rot: -1.5707963267948966 rad
+      pos: -9.5,-3.5
       parent: 108
   - uid: 341
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -11.5,-7.5
+      rot: -1.5707963267948966 rad
+      pos: -9.5,-2.5
       parent: 108
   - uid: 342
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -12.5,-6.5
+      rot: -1.5707963267948966 rad
+      pos: -9.5,-8.5
       parent: 108
   - uid: 388
     components:
     - type: Transform
-      pos: -9.5,-8.5
+      rot: -1.5707963267948966 rad
+      pos: -9.5,-7.5
       parent: 108
   - uid: 389
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -11.5,-1.5
+      rot: 1.5707963267948966 rad
+      pos: -11.5,-9.5
       parent: 108
   - uid: 390
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -11.5,-3.5
+      rot: -1.5707963267948966 rad
+      pos: -8.5,-4.5
       parent: 108
   - uid: 392
     components:
     - type: Transform
-      pos: -9.5,-3.5
+      rot: 1.5707963267948966 rad
+      pos: -12.5,-4.5
       parent: 108
   - uid: 395
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -11.5,-9.5
+      rot: 1.5707963267948966 rad
+      pos: -11.5,-2.5
       parent: 108
   - uid: 398
     components:
     - type: Transform
-      pos: -9.5,-9.5
+      rot: 1.5707963267948966 rad
+      pos: -11.5,-7.5
       parent: 108
   - uid: 463
     components:
     - type: Transform
-      pos: -9.5,-1.5
+      rot: 1.5707963267948966 rad
+      pos: -11.5,-8.5
       parent: 108
   - uid: 464
     components:
     - type: Transform
-      pos: -9.5,-2.5
+      rot: -1.5707963267948966 rad
+      pos: -8.5,-6.5
+      parent: 108
+  - uid: 2021
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -11.5,-3.5
       parent: 108
 - proto: DefibrillatorCabinetFilled
   entities:
@@ -14139,6 +14220,8 @@ entities:
   entities:
   - uid: 2056
     components:
+    - type: MetaData
+      name: salvage assessment
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -8.5,8.5
@@ -14256,6 +14339,8 @@ entities:
     - type: InsideEntityStorage
   - uid: 2702
     components:
+    - type: MetaData
+      name: transcription
     - type: Transform
       pos: 4.8867283,-19.56737
       parent: 108
@@ -15694,6 +15779,13 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+- proto: SalvageHumanCorpseSpawner
+  entities:
+  - uid: 327
+    components:
+    - type: Transform
+      pos: 2.5,-9.5
+      parent: 108
 - proto: SheetPlasma
   entities:
   - uid: 104
