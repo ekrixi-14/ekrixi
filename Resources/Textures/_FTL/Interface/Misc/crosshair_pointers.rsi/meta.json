@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Assets made by Alzore_ (Discord)/Blackern5000 (Github)",
+  "size": {
+    "x": 64,
+    "y": 64
+  },
+  "states": [
+    {
+      "name": "gun_sight"
+    },
+    {
+      "name": "gun_bolt_sight"
+    },
+    {
+        "name": "melee_sight"
+    },
+    {
+        "name": "pointer"
+    }
+  ]
+}

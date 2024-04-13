@@ -11405,21 +11405,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 11.5,-4.5
       parent: 2
-  - uid: 1009
-    components:
-    - type: Transform
-      pos: -2.5,5.5
-      parent: 2
-  - uid: 1010
-    components:
-    - type: Transform
-      pos: -6.5,0.5
-      parent: 2
-  - uid: 1011
-    components:
-    - type: Transform
-      pos: 8.5,-0.5
-      parent: 2
   - uid: 1069
     components:
     - type: Transform
@@ -13392,8 +13377,6 @@ entities:
   entities:
   - uid: 1006
     components:
-    - type: MetaData
-      name: artemis targeting pad
     - type: Transform
       pos: -2.5,5.5
       parent: 2
@@ -13403,33 +13386,31 @@ entities:
         - WeaponOutputPort: WeaponInputPort
   - uid: 1007
     components:
-    - type: MetaData
-      name: starboard targeting pad
     - type: Transform
+      rot: -1.5707963267948966 rad
       pos: 8.5,-0.5
       parent: 2
     - type: DeviceLinkSource
       linkedPorts:
-        1047:
-        - WeaponOutputPort: WeaponInputPort
         1046:
         - WeaponOutputPort: WeaponInputPort
         909:
         - WeaponOutputPort: WeaponInputPort
+        1047:
+        - WeaponOutputPort: WeaponInputPort
   - uid: 1008
     components:
-    - type: MetaData
-      name: port targeting pad
     - type: Transform
+      rot: 1.5707963267948966 rad
       pos: -6.5,0.5
       parent: 2
     - type: DeviceLinkSource
       linkedPorts:
-        1014:
+        1048:
         - WeaponOutputPort: WeaponInputPort
         1013:
         - WeaponOutputPort: WeaponInputPort
-        1048:
+        1014:
         - WeaponOutputPort: WeaponInputPort
 - proto: Welder
   entities:

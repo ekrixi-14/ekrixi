@@ -4,10 +4,8 @@ using Content.Shared.Weapons.Ranged.Components;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
-using Robust.Client.Serialization;
 using Robust.Client.UserInterface;
 using Robust.Shared.Enums;
-using Robust.Shared.Graphics;
 using Robust.Shared.Utility;
 
 namespace Content.Client.CombatMode;
@@ -32,9 +30,9 @@ public sealed class CombatModeIndicatorsOverlay : Overlay
 
     public override OverlaySpace Space => OverlaySpace.ScreenSpace;
 
-    public Color MainColor = Color.White.WithAlpha(0.3f);
+    public Color MainColor = Color.White.WithAlpha(0.75f);
     public Color StrokeColor = Color.Black.WithAlpha(0.5f);
-    public float Scale = 0.6f;  // 1 is a little big
+    public float Scale = 1f;  // 1 is a little big       NUH UH
 
     public CombatModeIndicatorsOverlay(IInputManager input, IEntityManager entMan,
             IEyeManager eye, CombatModeSystem combatSys, HandsSystem hands)
@@ -46,12 +44,12 @@ public sealed class CombatModeIndicatorsOverlay : Overlay
         _hands = hands;
 
         var spriteSys = _entMan.EntitySysManager.GetEntitySystem<SpriteSystem>();
-        _gunSight = spriteSys.Frame0(new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Misc/crosshair_pointers.rsi"),
+        _gunSight = spriteSys.Frame0(new SpriteSpecifier.Rsi(new ResPath("/Textures/_FTL/Interface/Misc/crosshair_pointers.rsi"),
             "gun_sight"));
-        _gunBoltSight = spriteSys.Frame0(new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Misc/crosshair_pointers.rsi"),
+        _gunBoltSight = spriteSys.Frame0(new SpriteSpecifier.Rsi(new ResPath("/Textures/_FTL/Interface/Misc/crosshair_pointers.rsi"),
             "gun_bolt_sight"));
-        _meleeSight = spriteSys.Frame0(new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Misc/crosshair_pointers.rsi"),
-             "melee_sight"));
+        _meleeSight = spriteSys.Frame0(new SpriteSpecifier.Rsi(new ResPath("/Textures/_FTL/Interface/Misc/crosshair_pointers.rsi"),
+            "melee_sight"));
     }
 
     protected override bool BeforeDraw(in OverlayDrawArgs args)
@@ -87,11 +85,11 @@ public sealed class CombatModeIndicatorsOverlay : Overlay
     private void DrawSight(Texture sight, DrawingHandleScreen screen, Vector2 centerPos, float scale)
     {
         var sightSize = sight.Size * scale;
-        var expandedSize = sightSize + new Vector2(7f, 7f);
+        // var expandedSize = sightSize + new Vector2(7f, 7f);
 
+        // screen.DrawTextureRect(sight,
+        //     UIBox2.FromDimensions(centerPos - sightSize * 0.5f, sightSize), StrokeColor);
         screen.DrawTextureRect(sight,
-            UIBox2.FromDimensions(centerPos - sightSize * 0.5f, sightSize), StrokeColor);
-        screen.DrawTextureRect(sight,
-            UIBox2.FromDimensions(centerPos - expandedSize * 0.5f, expandedSize), MainColor);
+            UIBox2.FromDimensions(centerPos - sightSize * 0.5f, sightSize), MainColor);
     }
 }
