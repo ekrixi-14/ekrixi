@@ -28,6 +28,7 @@
     id: MedicalPDA
     ears: ClothingHeadsetMedical
     belt: BasicPager
+    pocket1: RadioHandheldIntercomMedical
     pocket2: SurvivalKnife
   innerClothingSkirt: ClothingUniformJumpskirtMedicalDoctor
   satchel: ClothingBackpackSatchelMedicalFilled

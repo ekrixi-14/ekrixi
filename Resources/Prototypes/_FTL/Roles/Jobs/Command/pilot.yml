@@ -24,10 +24,9 @@
     outerClothing: ClothingOuterCoatTrenchLight
     eyes: ClothingEyesGlassesPilot
     id: PilotPDA
-    ears: ClothingHeadsetAltCommand
     belt: BasicPager
     pocket1: WeaponRevolverDeckard
-    pocket2: ClothingEyesGlassesSunglasses
+    pocket2: RadioHandheldIntercomCommand
   innerClothingSkirt: ClothingPantsPilot
   satchel: ClothingBackpackSatchelFilled
   duffelbag: ClothingBackpackDuffelFilled
