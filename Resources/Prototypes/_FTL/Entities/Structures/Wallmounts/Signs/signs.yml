@@ -1,0 +1,10 @@
+
+- type: entity
+  parent: BaseSignDirectional
+  id: SignDirectionalGunner
+  name: gunner sign
+  description: A direction sign, pointing out which way the gunner room is.
+  components:
+  - type: Sprite
+    sprite: _FTL/Structures/Wallmounts/signs.rsi
+    state: direction_gun
