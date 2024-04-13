@@ -37,7 +37,7 @@
     id: SecurityPDA
     ears: ClothingHeadsetSecurity
     belt: ClothingBeltMercWebbing
-    pocket1: Handcuffs
+    pocket1: RadioHandheldIntercomSecurity
     pocket2: BasicPager
     suitstorage: WeaponShotgunDoubleBarreled
 #  innerClothingSkirt: ClothingUniformJumpskirtSec
