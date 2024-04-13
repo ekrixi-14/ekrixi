@@ -55,6 +55,7 @@
       - id: FlashlightSeclite
         prob: 0.8
       - id: ClothingHeadHelmetBasic
+      - id: ClothingMaskBalaclava
       - id: ClothingOuterArmorBasic
       - id: ClothingBeltMercWebbingFilled
       - id: Flash
