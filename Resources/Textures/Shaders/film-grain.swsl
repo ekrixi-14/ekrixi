@@ -1,13 +1,24 @@
 uniform sampler2D SCREEN_TEXTURE;
+uniform highp float Zoom;
+
+const highp float grainFramerate = 30.0;
+const highp float grainTimeAffect = 1000.0;
+const highp float grainScale = 400.0;
+const highp float grainMult = 0.25;
+const highp float grainAdd = 0.8;
+
+const highp float grayscaleFactor = 0.15;
 
 void fragment() {
-    // Normalized pixel coordinates (from 0 to 1)
-    highp vec2 uv = vec2(FRAGCOORD.x / SCREEN_PIXEL_SIZE.x, FRAGCOORD.y / SCREEN_PIXEL_SIZE.y);
+    highp vec2 pixelSize = vec2(1.0/SCREEN_PIXEL_SIZE.x, 1.0/SCREEN_PIXEL_SIZE.y);
+    highp float aspectratio = pixelSize.x / pixelSize.y;
+    highp vec4 color = zTextureSpec(SCREEN_TEXTURE, Pos);
 
-    // Calculate noise and sample texture
-    highp float mdf = 0.1; // increase for noise amount
-    highp float noise = (fract(sin(dot(uv, vec2(12.9898,78.233)*2.0)) * 43758.5453));
-    highp vec4 tex = texture(SCREEN_TEXTURE, uv);
+    highp float theframe = (floor(fract(TIME) * grainFramerate) * grainTimeAffect);
+    highp float filmgrain = zNoise(vec2(Pos.x, Pos.y / aspectratio) * (grainScale * Zoom) + theframe);
 
-    COLOR = tex - noise * mdf;
+    // Lil bit of grayscale for good measure, too
+    highp float grayscale = zGrayscale(color.rgb) * (filmgrain * grainMult + grainAdd);
+
+    COLOR = vec4(mix(color.rgb, vec3(grayscale), grayscaleFactor), color.a);
 }
