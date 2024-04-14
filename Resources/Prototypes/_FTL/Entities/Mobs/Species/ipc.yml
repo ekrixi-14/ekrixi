@@ -14,7 +14,7 @@
       species: IPC
     - type: Damageable
       damageContainer: Biological
-      damageModifierSet: Metallic
+      damageModifierSet: Robotic
     - type: Icon
       sprite: Mobs/Species/Arachnid/parts.rsi
       state: full
