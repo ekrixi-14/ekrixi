@@ -1,88 +1,92 @@
 # missiles
 - type: entity
-  id: BulletSDM
-  name: sdm
+  id: BaseBulletMissile
+  abstract: true
   parent: BaseBulletTrigger
   noSpawn: true
   components:
-    - type: Sprite
-      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
-      layers:
-        - state: sdm
-    - type: ExplodeOnTrigger
-    - type: Explosive
-      explosionType: Default
-      totalIntensity: 1000.0
-      intensitySlope: 20 # around 50 tiles
-      maxIntensity: 400
-      maxTileBreak: 1
-    - type: PointLight
-      radius: 3.5
-      color: orange
-      energy: 0.5
+  - type: Sprite
+    sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+  - type: PointLight
+    radius: 3.5
+    color: orange
+    energy: 0.5
+  - type: HeatSeeking
 
 - type: entity
-  id: BulletSAM
-  name: sam
-  parent: BaseBulletTrigger
+  id: BulletTomahawk
+  name: tomahawk
+  parent: BaseBulletMissile
   noSpawn: true
   components:
-    - type: Sprite
-      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
-      layers:
-        - state: sam
-    - type: ExplodeOnTrigger
-    - type: Explosive
-      explosionType: Default
-      totalIntensity: 3000.0 # large
-      intensitySlope: 1
-      maxIntensity: 500
-      maxTileBreak: 1
-    - type: PointLight
-      radius: 3.5
-      color: orange
-      energy: 0.5
+  - type: Sprite
+    layers:
+    - state: sdm
+  - type: Explosive
+    explosionType: DemolitionCharge
+    totalIntensity: 500.0
+    intensitySlope: 50 # around 50 tiles
+    maxIntensity: 100
+    maxTileBreak: 1
+  - type: HeatSeeking
+    speed: 50
 
 - type: entity
-  id: BulletTAD
-  name: tad
-  parent: BaseBulletTrigger
+  id: BulletWolf
+  name: wolf
+  parent: BaseBulletMissile
   noSpawn: true
   components:
     - type: Sprite
-      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
       layers:
         - state: sam
-    - type: ExplodeOnTrigger
     - type: Explosive
       explosionType: Default
+      totalIntensity: 25000.0 # large
+      intensitySlope: 500
+      maxIntensity: 100
+      maxTileBreak: 1
+    - type: HeatSeeking
+      speed: 75
+      seekRange: 150
+
+- type: entity
+  id: BulletGR
+  name: golden-rod
+  parent: BaseBulletMissile
+  noSpawn: true
+  components:
+    - type: Sprite
+      layers:
+        - state: sam
+    - type: Explosive
+      explosionType: DemolitionCharge
       totalIntensity: 300000.0 # large
-      intensitySlope: 5
+      intensitySlope: 500
       maxIntensity: 500
       maxTileBreak: 1
-    - type: PointLight
-      radius: 3.5
-      color: orange
-      energy: 0.5
+    - type: HeatSeeking
+      speed: 175
+      seekRange: 1500
 
 - type: entity
   id: BulletTND
   name: tnd
-  parent: BaseBulletTrigger
+  parent: BaseBulletMissile
   noSpawn: true
   components:
     - type: Sprite
-      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
       layers:
         - state: sam
-    - type: ExplodeOnTrigger
     - type: Explosive
       explosionType: Default
       totalIntensity: 500000.0 # large
       intensitySlope: 1
       maxIntensity: 500
       maxTileBreak: 1
-    - type: PointLight
-      radius: 3.5
-      color: orange
-      energy: 0.5
+    - type: HeatSeeking
+      speed: 155
+      seekRange: 5000

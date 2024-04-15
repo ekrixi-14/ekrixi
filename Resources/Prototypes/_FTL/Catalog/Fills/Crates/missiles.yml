@@ -4,7 +4,7 @@
   components:
     - type: StorageFill
       contents:
-        - id: MissileSDM
+        - id: MissileTomahawk
           amount: 10
 
 - type: entity
@@ -13,7 +13,7 @@
   components:
     - type: StorageFill
       contents:
-        - id: MissileSAM
+        - id: MissileTomahawk
           amount: 10
 
 - type: entity
@@ -22,5 +22,5 @@
   components:
     - type: StorageFill
       contents:
-        - id: MissileTAD
+        - id: MissileGR
           amount: 10

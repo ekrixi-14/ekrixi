@@ -1,18 +1,20 @@
 - type: entity
-  id: MissileSDM
-  name: SDM-VC-SR40
+  id: MissileTomahawk
+  name: tomahawk-class assault missile
+  suffix: Missile
   parent: BaseMissile
-  description: A structural damage missile that requires visual contact and has a short range of 40 kilometers.
+  description: A basic ship assault missile. Cheap, abundant, quantity over quality - contains basic heatseeking.
   components:
     - type: Sprite
       sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
       state: sdm
 
 - type: entity
-  id: MissileSAM
-  name: SAM-RC-LR40
+  id: MissileWolf
+  name: wolf-class attack missile
+  suffix: Missile
   parent: BaseMissile
-  description: A ship attack missile that requires radar contact and has a long range of 4000 kilometers.
+  description: A standard attack missile with basic heat-seeking capabilities.
   components:
     - type: Sprite
       sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
@@ -21,14 +23,15 @@
       tags:
         - Missile
     - type: CartridgeAmmo
-      proto: BulletSAM
+      proto: BulletWolf
       deleteOnSpawn: true
 
 - type: entity
-  id: MissileTAD
-  name: TAD-FB-IR-R50
+  id: MissileGR
+  name: goldenrod-class enhanced attack missile
+  suffix: Missile
   parent: BaseMissile
-  description: A total area destruction device that you should fire blindly with infinite range and has an expected blast radius of 50 meters.
+  description: An attack missile with enhanced payload and heat-seeking capabilities.
   components:
     - type: Sprite
       sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
@@ -37,14 +40,15 @@
       tags:
         - Missile
     - type: CartridgeAmmo
-      proto: BulletTAD
+      proto: BulletGR
       deleteOnSpawn: true
 
 - type: entity
   id: MissileTND
-  name: TND-FB-IR-R150
+  name: trinity-class nuclear missile
+  suffix: Missile
+  description: A rudimentary nuclear missile. Use with caution.
   parent: BaseMissile
-  description: A total nuclear destruction device that you should fire blindly with infinite range and has an expected blast radius of 150 meters.
   components:
     - type: Sprite
       sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi

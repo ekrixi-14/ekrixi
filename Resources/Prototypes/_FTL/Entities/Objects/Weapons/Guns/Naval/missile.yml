@@ -13,7 +13,7 @@
           whitelist:
             tags: []
         gun_chamber:
-          startingItem: MissileSDM
+          startingItem: MissileTomahawk
           whitelist:
             tags:
               - Missile

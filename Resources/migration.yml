@@ -227,7 +227,6 @@ Observationskit: null
 # ekrixi
 ChemMasterMachineCircuitboard: null
 chem_master: null
-GenericMissile: MissileSDM
 ShieldGenerator: null
 
 WeaponSiloFedSpawner: null
@@ -259,3 +258,7 @@ SwarmMarkTwoMissileSilo: null
 HoleMarkTwoMissileSilo: null
 PunchMarkTwoMissileSilo: null
 MachineSleeperCryopod: CryogenicSleepUnitSpawner
+
+MissileSDM: MissileTomahawk
+MissileSAM: MissileWolf
+MissileTAD: MissileGR
