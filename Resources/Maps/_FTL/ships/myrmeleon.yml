@@ -150,6 +150,8 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: ShipTracker
+    - type: BecomesStation
+      id: Myrmeleon
   - uid: 108
     components:
     - type: MetaData
@@ -2082,7 +2084,8 @@ entities:
           2,-6:
             0: 65535
           2,-5:
-            0: 65535
+            4: 1
+            0: 65534
           3,-8:
             0: 4368
           3,-7:
@@ -2369,6 +2372,8 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: ShipTracker
+    - type: BecomesStation
+      id: Myrmeleon
   - uid: 2352
     components:
     - type: MetaData
@@ -7733,17 +7738,17 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 2472
-          - 2473
-          - 2474
-          - 2475
-          - 2476
-          - 2477
-          - 2478
-          - 2479
-          - 2480
-          - 2481
           - 2482
+          - 2481
+          - 2480
+          - 2479
+          - 2478
+          - 2477
+          - 2476
+          - 2475
+          - 2474
+          - 2473
+          - 2472
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -8618,10 +8623,10 @@ entities:
       air:
         volume: 200
         immutable: False
-        temperature: 75.31249
+        temperature: 293.14755
         moles:
-        - 0
-        - 0
+        - 1.7459903
+        - 6.568249
         - 0
         - 0
         - 0
@@ -8638,13 +8643,16 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 2217
+          - 2724
+          - 2723
           - 2220
-          - 2221
-          - 2222
-          - 2223
-          - 2224
+          - 2217
+          - 2083
           - 2225
+          - 2224
+          - 2223
+          - 2222
+          - 2221
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -14631,28 +14639,43 @@ entities:
   - uid: 42
     components:
     - type: Transform
+      anchored: True
       pos: 1.5,3.5
       parent: 2
+    - type: Physics
+      bodyType: Static
   - uid: 141
     components:
     - type: Transform
+      anchored: True
       pos: 3.5,4.5
       parent: 109
+    - type: Physics
+      bodyType: Static
   - uid: 1332
     components:
     - type: Transform
+      anchored: True
       pos: -4.5,-2.5
       parent: 108
+    - type: Physics
+      bodyType: Static
   - uid: 1333
     components:
     - type: Transform
+      anchored: True
       pos: -3.5,-2.5
       parent: 108
+    - type: Physics
+      bodyType: Static
   - uid: 1334
     components:
     - type: Transform
+      anchored: True
       pos: -2.5,-2.5
       parent: 108
+    - type: Physics
+      bodyType: Static
 - proto: PosterContrabandBorgFancy
   entities:
   - uid: 2688
@@ -15860,6 +15883,29 @@ entities:
     components:
     - type: Transform
       parent: 2060
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+- proto: RV8AutoInjector
+  entities:
+  - uid: 2083
+    components:
+    - type: Transform
+      parent: 2216
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 2723
+    components:
+    - type: Transform
+      parent: 2216
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 2724
+    components:
+    - type: Transform
+      parent: 2216
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -20029,7 +20075,9 @@ entities:
     - type: Transform
       pos: -13.5,10.5
       parent: 108
-  - uid: 2083
+- proto: WaterTankHighCapacity
+  entities:
+  - uid: 2725
     components:
     - type: Transform
       pos: 8.5,-15.5
