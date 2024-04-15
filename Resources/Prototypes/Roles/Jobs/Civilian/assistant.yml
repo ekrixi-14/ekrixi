@@ -18,7 +18,7 @@
     back: ClothingBackpackFilled
 #    shoes: ClothingShoesColorBlack # Deckhands don't deserve fucking clothes
     id: PassengerPDA
-    ears: ClothingHeadsetGrey # Deckhands don't deserve fucking headsets either
+#    ears: ClothingHeadsetGrey # Deckhands don't deserve fucking headsets either # Then why didn't you remove them
     pocket1: PaperContract
 #  innerClothingSkirt: ClothingUniformJumpskirtColorGrey
   satchel: ClothingBackpackSatchelFilled
