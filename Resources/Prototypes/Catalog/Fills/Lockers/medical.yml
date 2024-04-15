@@ -44,7 +44,7 @@
   - type: StorageFill
     contents:
       - id: ClothingHandsGlovesLatex
-      - id: ClothingHeadsetMedical
+ #     - id: ClothingHeadsetMedical
       - id: ClothingEyesHudMedical
       - id: ClothingBeltMedical
       - id: ClothingHeadHatSurgcapGreen
@@ -76,7 +76,7 @@
   - type: StorageFill
     contents:
       - id: ClothingHandsGlovesLatex
-      - id: ClothingHeadsetMedical
+#      - id: ClothingHeadsetMedical
       - id: ClothingEyesHudMedical
       - id: ClothingBeltMedical
       - id: ClothingHeadHatSurgcapGreen
