@@ -278,8 +278,8 @@
 - type: entity
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitCap
-  name: gold-trimmed spacesuit
-  description: A formal and lightly armored spacesuit, favored by aristocrats.
+  name: light combat performance suit 
+  description: A mobile lightly armored spacesuit. Modified for limited combat use.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Hardsuits/capspace.rsi
