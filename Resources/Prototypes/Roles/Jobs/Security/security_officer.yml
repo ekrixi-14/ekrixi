@@ -35,7 +35,7 @@
     gloves: ClothingHandsMercGlovesCombat
     outerClothing: ClothingOuterArmorBasic
     id: MercenaryPDA
-    ears: ClothingHeadsetSecurity
+#    ears: ClothingHeadsetSecurity
     belt: ClothingBeltMercWebbingFilled
     pocket1: RadioHandheldIntercomSecurity
     pocket2: BasicPager

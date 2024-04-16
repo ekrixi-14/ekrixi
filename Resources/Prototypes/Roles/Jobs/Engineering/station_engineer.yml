@@ -30,7 +30,7 @@
     pocket1: BasicPager
     pocket2: SurvivalKnife
     belt: ClothingBeltUtilityEngineering
-    ears: ClothingHeadsetEngineering
+#    ears: ClothingHeadsetEngineering
   innerClothingSkirt: ClothingShirtEngineeringHazard # ClothingUniformJumpskirtEngineering
   satchel: ClothingBackpackSatchelEngineeringFilled
   duffelbag: ClothingBackpackDuffelEngineeringFilled

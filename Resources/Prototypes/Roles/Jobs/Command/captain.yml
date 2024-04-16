@@ -48,7 +48,7 @@
     outerClothing: ClothingOuterCoatTrenchDark
     belt: Machete
     id: CaptainPDA
-    ears: ClothingHeadsetAltCommand
+#    ears: ClothingHeadsetAltCommand
     pocket1: WeaponRevolverDeckard
     pocket2: BasicPager
 #  innerClothingSkirt: ClothingUniformJumpskirtCaptain
