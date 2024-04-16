@@ -5387,12 +5387,15 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 1568
-          - 1569
-          - 1571
-          - 1712
-          - 1716
           - 1717
+          - 1716
+          - 1712
+          - 1571
+          - 1569
+          - 1568
+          - 1009
+          - 1010
+          - 1011
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -10757,6 +10760,29 @@ entities:
     - type: Transform
       pos: 6.5,-12.5
       parent: 2
+- proto: RV8AutoInjector
+  entities:
+  - uid: 1009
+    components:
+    - type: Transform
+      parent: 1547
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 1010
+    components:
+    - type: Transform
+      parent: 1547
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 1011
+    components:
+    - type: Transform
+      parent: 1547
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: SalvageHumanCorpseSpawner
   entities:
   - uid: 1549
@@ -11170,6 +11196,20 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -0.5,-10.5
       parent: 2
+- proto: SignDirectionalGunner
+  entities:
+  - uid: 1442
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -4.5,-1.5
+      parent: 2
+  - uid: 1445
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 4.5,1.5
+      parent: 2
 - proto: SignDirectionalMed
   entities:
   - uid: 1444
@@ -11177,20 +11217,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 6.5,-6.5
-      parent: 2
-- proto: SignDirectionalSec
-  entities:
-  - uid: 1442
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 4.5,1.5
-      parent: 2
-  - uid: 1445
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -4.5,-1.5
       parent: 2
 - proto: SignEngineering
   entities:
