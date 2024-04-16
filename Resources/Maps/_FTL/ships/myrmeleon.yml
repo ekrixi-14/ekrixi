@@ -150,6 +150,8 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: ShipTracker
+    - type: BecomesStation
+      id: Myrmeleon
   - uid: 108
     components:
     - type: MetaData
@@ -2082,7 +2084,8 @@ entities:
           2,-6:
             0: 65535
           2,-5:
-            0: 65535
+            4: 1
+            0: 65534
           3,-8:
             0: 4368
           3,-7:
@@ -2369,6 +2372,8 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: ShipTracker
+    - type: BecomesStation
+      id: Myrmeleon
   - uid: 2352
     components:
     - type: MetaData
@@ -8618,10 +8623,10 @@ entities:
       air:
         volume: 200
         immutable: False
-        temperature: 75.31249
+        temperature: 293.14755
         moles:
-        - 0
-        - 0
+        - 1.7459903
+        - 6.568249
         - 0
         - 0
         - 0
@@ -8638,13 +8643,16 @@ entities:
           showEnts: False
           occludes: True
           ents:
+          - 2725
           - 2217
-          - 2220
           - 2221
-          - 2222
-          - 2223
-          - 2224
+          - 2220
+          - 2724
+          - 2723
           - 2225
+          - 2224
+          - 2223
+          - 2222
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -10398,6 +10406,15 @@ entities:
     - type: Transform
       pos: -17.5,10.5
       parent: 108
+- proto: FoodCondimentBottleEnzyme
+  entities:
+  - uid: 2726
+    components:
+    - type: Transform
+      parent: 1899
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: FoodCondimentBottleKetchup
   entities:
   - uid: 673
@@ -13726,28 +13743,29 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 2059
-          - 2058
-          - 2055
-          - 2054
-          - 2053
-          - 2052
-          - 2049
-          - 2012
-          - 673
-          - 2119
-          - 2087
-          - 2086
-          - 2081
-          - 2079
-          - 2078
-          - 2077
-          - 2076
-          - 2075
-          - 2074
-          - 2073
-          - 2072
           - 2070
+          - 2072
+          - 2073
+          - 2074
+          - 2075
+          - 2076
+          - 2077
+          - 2078
+          - 2079
+          - 2081
+          - 2086
+          - 2087
+          - 2119
+          - 673
+          - 2012
+          - 2049
+          - 2052
+          - 2053
+          - 2054
+          - 2055
+          - 2058
+          - 2726
+          - 2059
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -15863,6 +15881,29 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+- proto: RV8AutoInjector
+  entities:
+  - uid: 2723
+    components:
+    - type: Transform
+      parent: 2216
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 2724
+    components:
+    - type: Transform
+      parent: 2216
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 2725
+    components:
+    - type: Transform
+      parent: 2216
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: SalvageHumanCorpseSpawner
   entities:
   - uid: 327
@@ -16577,6 +16618,13 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 8.5,-5.5
+      parent: 108
+- proto: SignShield
+  entities:
+  - uid: 2727
+    components:
+    - type: Transform
+      pos: -14.5,10.5
       parent: 108
 - proto: SignShipDock
   entities:
