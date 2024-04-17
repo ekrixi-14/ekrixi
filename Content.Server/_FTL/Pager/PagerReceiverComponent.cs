@@ -17,6 +17,6 @@ public sealed partial class PagerReceiverComponent : Component
     [DataField, ViewVariables]
     public SoundSpecifier BeepSound = new SoundPathSpecifier("/Audio/_FTL/Machines/beep.ogg");
 
-    [DataField,
+    [DataField]
     public EntityUid? PlayingStream;
 }
