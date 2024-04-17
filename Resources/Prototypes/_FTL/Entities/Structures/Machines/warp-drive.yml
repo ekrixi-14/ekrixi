@@ -30,7 +30,7 @@
       energy: 0.5
 
 - type: entity
-  id: WarpDrive
+  id: WarpDriveDebug
   name: super warp drive
   description: It go fast!!
   suffix: DEBUG
