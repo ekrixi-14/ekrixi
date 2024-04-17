@@ -19,10 +19,13 @@ public sealed partial class WarpDriveComponent : Component
     public int FuelPerJump = 30;
 
     /// <summary>
-    /// Ships at max charge (1f) will instantly begin jumping
+    /// Ships will begin warping when Charge reaches ChargeNeeded
     /// </summary>
-    [DataField, ViewVariables]
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float Charge;
+
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public int ChargeNeeded = 30;
 
     /// <summary>
     /// Is this drive charging?

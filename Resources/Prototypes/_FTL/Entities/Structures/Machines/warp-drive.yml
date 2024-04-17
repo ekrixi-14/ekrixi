@@ -28,3 +28,12 @@
     - type: PointLight
       radius: 2.5
       energy: 0.5
+
+- type: entity
+  id: WarpDrive
+  name: super warp drive
+  description: It go fast!!
+  suffix: DEBUG
+  components:
+    - type: WarpDrive
+      ChargeNeeded: 0.1
