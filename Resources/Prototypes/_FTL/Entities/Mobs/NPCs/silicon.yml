@@ -21,13 +21,18 @@
   - type: HTN
     rootTask:
       task: IdleCompound
-  - type: GhostRole
-    makeSentient: true
-    name: ghost-role-information-vendbot-name
-    description: ghost-role-information-vendbot-description
-  - type: GhostTakeoverAvailable
   - type: InteractionPopup
     interactSuccessString: petting-success-vendbot
     interactFailureString: petting-failure-vendbot
     interactSuccessSound:
       path: /Audio/Animals/cat_meow.ogg
+  - type: ActivatableUI
+    key: enum.VendingMachineUiKey.Key
+  - type: UserInterface
+    interfaces:
+    - key: enum.VendingMachineUiKey.Key
+      type: VendingMachineBoundUserInterface
+  - type: Advertise
+    pack: VendBotAds
+  - type: VendingMachine
+    pack: VendBotInventory
