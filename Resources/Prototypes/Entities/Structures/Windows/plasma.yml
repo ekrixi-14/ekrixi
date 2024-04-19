@@ -5,9 +5,12 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Windows/plasma_window.rsi
+    sprite: _FTL/Structures/Windows/plasma_window.rsi
+    color: "#C531C9"
   - type: Icon
-    sprite: Structures/Windows/plasma_window.rsi
+    sprite: _FTL/Structures/Windows/plasma_window.rsi
+    state: full
+    color: "#C531C9"
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: RGlass
