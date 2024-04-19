@@ -1,0 +1,33 @@
+- type: entity
+  parent: MobSiliconBase
+  id: MobVendBot
+  name: kerfus
+  description: No rules, no boundaries, it doesn't flinch at torture, human trafficking, or genocide. Carries treats.
+  components:
+  - type: Sprite
+    sprite: _FTL/Mobs/Silicon/Bots/vendbot.rsi
+    layers:
+    - state: vendbot
+    - state: fill
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 20
+        mask:
+        - MobMask
+  - type: HTN
+    rootTask:
+      task: IdleCompound
+  - type: GhostRole
+    makeSentient: true
+    name: ghost-role-information-vendbot-name
+    description: ghost-role-information-vendbot-description
+  - type: GhostTakeoverAvailable
+  - type: InteractionPopup
+    interactSuccessString: petting-success-vendbot
+    interactFailureString: petting-failure-vendbot
+    interactSuccessSound:
+      path: /Audio/Animals/cat_meow.ogg
