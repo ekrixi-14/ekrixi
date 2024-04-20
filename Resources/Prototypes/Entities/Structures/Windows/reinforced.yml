@@ -5,9 +5,11 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Windows/reinforced_window.rsi
+    sprite: _FTL/Structures/Windows/reinforced_window.rsi
+    color: "#71abcc"
   - type: Icon
-    sprite: Structures/Windows/reinforced_window.rsi
+    sprite: _FTL/Structures/Windows/reinforced_window.rsi
+    color: "#71abcc"
   - type: Repairable
     fuelCost: 10
     doAfterDelay: 2

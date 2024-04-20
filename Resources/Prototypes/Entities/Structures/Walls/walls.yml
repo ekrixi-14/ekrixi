@@ -504,9 +504,11 @@
   name: armor plating
   components:
   - type: Sprite
-    sprite: Structures/Walls/solid.rsi
+    sprite: _FTL/Structures/Walls/solid.rsi
+    color: "#4A4A4A"
   - type: Icon
-    sprite: Structures/Walls/solid.rsi
+    sprite: _FTL/Structures/Walls/solid.rsi
+    color: "#4A4A4A"
     state: rgeneric
   - type: Construction
     graph: Girder
@@ -846,13 +848,15 @@
       - Wall
       - RCDDeconstructWhitelist
   - type: Sprite
-    sprite: Structures/Walls/solid.rsi
+    sprite: _FTL/Structures/Walls/solid.rsi
+    color: "#4A4A4A"
   - type: WallReplacementMarker
   - type: Construction
     graph: Girder
     node: wall
   - type: Icon
-    sprite: Structures/Walls/solid.rsi
+    sprite: _FTL/Structures/Walls/solid.rsi
+    color: "#4A4A4A"
   - type: Destructible
     thresholds:
     - trigger:
