@@ -1,0 +1,6 @@
+- type: vendingMachineInventory
+  id: VendBotInventory
+  startingInventory:
+    FoodSnackCnDs: 10
+    FoodSnackBoritos: 10
+    FoodSnackChips: 10

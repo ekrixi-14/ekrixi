@@ -1,0 +1,5 @@
+- type: advertisementsPack
+  id: VendBotAds
+  advertisements:
+  - advertisement-vendbot-1
+  - advertisement-vendbot-2
