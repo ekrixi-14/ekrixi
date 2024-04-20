@@ -124,8 +124,8 @@ public sealed partial class FtlPointsSystem : SharedFtlPointsSystem
                         if (first)
                         {
                             position = new Vector2(
-                                origin.X + GenerateVectorWithRandomRadius(3, 4.5),
-                                origin.Y + GenerateVectorWithRandomRadius(3, 4.5)
+                                origin.X + GenerateVectorWithRandomRadius(3, 4),
+                                origin.Y + GenerateVectorWithRandomRadius(3, 4)
                             );
                         }
                         TryAddPoint(mapId, position, MetaData(mapUid).EntityName);
