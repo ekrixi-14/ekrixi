@@ -162,9 +162,9 @@
   components:
   - type: BreathMask
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/security.rsi
+    sprite: _FTL/Clothing/Head/Hardsuits/mercsuit.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/security.rsi
+    sprite: _FTL/Clothing/Head/Hardsuits/mercsuit.rsi
   - type: PointLight
     color: "#ffeead"
   - type: PressureProtection
@@ -234,14 +234,14 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitCap
-  name: gold-trimmed spacesuit helmet
-  description: A fancy spacesuit helmet, favored by aristocrats.
+  name: light combat performance suit helmet
+  description: A durable spacesuit helmet, modified for light combat use.
   components:
   - type: BreathMask
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/capspace.rsi
+    sprite: _FTL/Clothing/Head/Hardsuits/capsuit.rsi
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/capspace.rsi
+    sprite: _FTL/Clothing/Head/Hardsuits/capsuit.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000

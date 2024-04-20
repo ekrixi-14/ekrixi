@@ -195,9 +195,9 @@
   description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/security.rsi
+    sprite: _FTL/Clothing/OuterClothing/Hardsuits/mercsuit.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/security.rsi
+    sprite: _FTL/Clothing/OuterClothing/Hardsuits/mercsuit.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.5
     lowPressureMultiplier: 1000
@@ -278,13 +278,13 @@
 - type: entity
   parent: ClothingOuterHardsuitBase
   id: ClothingOuterHardsuitCap
-  name: gold-trimmed spacesuit
-  description: A formal and lightly armored spacesuit, favored by aristocrats.
+  name: light combat performance suit 
+  description: A mobile lightly armored spacesuit. Modified for limited combat use.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/capspace.rsi
+    sprite: _FTL/Clothing/OuterClothing/Hardsuits/capsuit.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/capspace.rsi
+    sprite: _FTL/Clothing/OuterClothing/Hardsuits/capsuit.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
