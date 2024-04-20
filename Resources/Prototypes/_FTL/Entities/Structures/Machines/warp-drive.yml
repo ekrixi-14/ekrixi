@@ -1,7 +1,7 @@
 - type: entity
   id: WarpDrive
-  name: warp drive aio port
-  description: An AIO port for fuel insertion and warp control.
+  name: spin drive aio port
+  description: An AIO port for fuel insertion and spin jump control.
   placement:
     mode: SnapgridCenter
   components:
@@ -31,7 +31,7 @@
 
 - type: entity
   id: WarpDriveDebug
-  name: super warp drive
+  name: super spin drive
   description: It go fast!!
   suffix: DEBUG
   components:
