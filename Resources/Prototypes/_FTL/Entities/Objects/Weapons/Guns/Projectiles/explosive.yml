@@ -15,6 +15,35 @@
     color: orange
     energy: 0.5
   - type: HeatSeeking
+  - type: NpcFactionMember
+    factions:
+    - Missile
+  - type: Fixtures
+    fixtures:
+      fly-by:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.15,-0.45,0.15,0.15"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+      projectile:
+        shape: !type:PhysShapeCircle
+          radius: .5
+        layer:
+        - WallLayer
+        hard: true
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 - type: entity
   id: BulletTomahawk
@@ -33,6 +62,16 @@
     maxTileBreak: 1
   - type: HeatSeeking
     speed: 50
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 - type: entity
   id: BulletWolf

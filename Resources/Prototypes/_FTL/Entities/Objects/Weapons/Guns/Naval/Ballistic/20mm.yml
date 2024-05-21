@@ -20,3 +20,21 @@
               - Cartridge20mm
     - type: Gun
       fireRate: 16
+
+- type: entity
+  parent: BaseWeaponTurret
+  id: Weapon20mmPD
+  name: 20mm point defense gun
+  description: This PD gun is completely independent of any ammo systems and of any control. Make sure vicinity is clear of missiles before crossing.
+  components:
+  - type: NpcFactionMember
+    factions:
+    - PointDefenseGun
+  - type: HTN
+    rootTask:
+      task: PointDefenseCompound
+    blackboard:
+      RotateSpeed: !type:Single
+        3.141
+      SoundTargetInLOS: !type:SoundPathSpecifier
+        path: /Audio/Effects/double_beep.ogg

@@ -1,5 +1,16 @@
+- type: npcFaction
+  id: Missile
+  hostile:
+  - PointDefenseGun # this will never be used but why not ykwim
+
+- type: npcFaction
+  id: PointDefenseGun
+  hostile:
+  - Missile
+  - NanoTrasen
+
 # !!!!!!HEY HEY READ THIS HEY HEY!!!!!!
-# USE THESE FOR SHIPS ONLY I BEG
+# USE THE FOLLOWING FOR SHIPS ONLY I BEG
 # THANK YOU!!!!!!!!!!
 
 - type: npcFaction
