@@ -1,3 +1,6 @@
+# ⚠️ This is the legacy code repository for Ekrixi
+It has been abandoned due to heavy technical debt and due to it's dated-ness. It is planned to be rewritten soon.
+
 <p align="center"> <img alt="Space Station 14" width="880" height="300" src="Resources/Textures/Logo/logo.svg" /></p>
 
 
