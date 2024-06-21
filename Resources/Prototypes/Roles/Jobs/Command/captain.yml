@@ -4,26 +4,23 @@
   description: job-description-captain
   playTimeTracker: JobCaptain
   requirements:
-    - !type:RoleTimeRequirement
-      role: JobEkrixiCommandWhitelist
-      time: 1
-#    - !type:DepartmentTimeRequirement
-#      department: Engineering
-#      time: 18000
-#    - !type:DepartmentTimeRequirement
-#      department: Medical
-#      time: 18000
-#    - !type:DepartmentTimeRequirement
-#      department: Security
-#      time: 18000
-#    - !type:OverallPlaytimeRequirement
-#      time: 108000
+    - !type:DepartmentTimeRequirement
+      department: Engineering
+      time: 54000 # 15 hours
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 54000 # 15 hours
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 54000 # 15 hours
+    - !type:DepartmentTimeRequirement
+      department: Command
+      time: 54000 # 15 hours
   weight: 20
   startingGear: CaptainGear
   icon: "JobIconCaptain"
   requireAdminNotify: true
   joinNotifyCrew: true
-  setPreference: true
   supervisors: job-supervisors-centcom
   canBeAntag: false
   accessGroups:
@@ -38,19 +35,13 @@
 - type: startingGear
   id: CaptainGear
   equipment:
-    jumpsuit: ClothingShirtTShirtCommand
-    lowerClothing: ClothingPantsJeans
-    back: ClothingBackpackCaptainFilled
-    shoes: ClothingShoesBootsCombat
-    mask: ClothingMaskBandBlue
+    shoes: ClothingShoesBootsLaceup
     eyes: ClothingEyesGlassesSunglasses
-#    gloves: ClothingHandsGlovesCaptain
-    outerClothing: ClothingOuterCoatTrenchDark
-    belt: Machete
+    gloves: ClothingHandsGlovesCaptain
     id: CaptainPDA
-#    ears: ClothingHeadsetAltCommand
-    pocket1: WeaponRevolverDeckard
-    pocket2: BasicPager
-#  innerClothingSkirt: ClothingUniformJumpskirtCaptain
-  satchel: ClothingBackpackSatchelCaptainFilled
-  duffelbag: ClothingBackpackDuffelCaptainFilled
+    ears: ClothingHeadsetAltCommand
+  storage:
+    back:
+    - BoxSurvival
+    - Flash
+    # - StationCharter

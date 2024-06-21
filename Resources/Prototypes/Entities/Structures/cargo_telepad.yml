@@ -48,3 +48,5 @@
     board: CargoTelepadMachineCircuitboard
   - type: Appearance
   - type: CollideOnAnchor
+  - type: NameIdentifier
+    group: CargoTelepads

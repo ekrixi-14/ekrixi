@@ -20,16 +20,8 @@
 - type: startingGear
   id: DoctorGear
   equipment:
-    jumpsuit: ClothingShirtScrubsBlue
-    lowerClothing: ClothingPantsScrubsBlue
-    back: ClothingBackpackMedicalFilled
-    shoes: ClothingShoesColorWhite
-    outerClothing: ClothingOuterCoatLab
-    id: MedicalPDA
-#    ears: ClothingHeadsetMedical
-    belt: BasicPager
-    pocket1: RadioHandheldIntercomMedical
-    pocket2: SurvivalKnife
-  innerClothingSkirt: ClothingUniformJumpskirtMedicalDoctor
-  satchel: ClothingBackpackSatchelMedicalFilled
-  duffelbag: ClothingBackpackDuffelMedicalFilled
+    ears: ClothingHeadsetMedical
+    belt: ClothingBeltMedicalFilled
+  storage:
+    back:
+    - BoxSurvivalMedical

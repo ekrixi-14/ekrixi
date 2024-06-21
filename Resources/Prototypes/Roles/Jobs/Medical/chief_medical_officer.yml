@@ -7,17 +7,19 @@
   playTimeTracker: JobChiefMedicalOfficer
   requirements:
     - !type:RoleTimeRequirement
-      role: JobEkrixiCommandWhitelist
-      time: 1
-#    - !type:DepartmentTimeRequirement
-#      department: Medical
-#      time: 18000
-#    - !type:OverallPlaytimeRequirement
-#      time: 108000
+      role: JobChemist
+      time: 10800 #3 hrs
+    - !type:RoleTimeRequirement
+      role: JobMedicalDoctor
+      time: 21600 #6 hrs
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 36000 #10 hrs
+    - !type:OverallPlaytimeRequirement
+      time: 144000 #40 hrs
   weight: 10
   startingGear: CMOGear
   icon: "JobIconChiefMedicalOfficer"
-#  setPreference: true
   requireAdminNotify: true
   supervisors: job-supervisors-captain
   canBeAntag: false
@@ -28,6 +30,7 @@
   - Chemistry
   - ChiefMedicalOfficer
   - Brig
+  - Cryogenics
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -38,14 +41,10 @@
 - type: startingGear
   id: CMOGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitCMO
-    back: ClothingBackpackCMOFilled
-    shoes: ClothingShoesColorBrown
-    outerClothing: ClothingOuterCoatLabCmo
     id: CMOPDA
     ears: ClothingHeadsetCMO
     belt: ClothingBeltMedicalFilled
-    pocket1: WeaponRevolverDeckard
-  innerClothingSkirt: ClothingUniformJumpskirtCMO
-  satchel: ClothingBackpackSatchelCMOFilled
-  duffelbag: ClothingBackpackDuffelCMOFilled
+  storage:
+    back:
+    - BoxSurvivalMedical
+    - Flash

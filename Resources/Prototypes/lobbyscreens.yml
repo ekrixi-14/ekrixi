@@ -18,9 +18,9 @@
 #  id: SSXIV
 #  background: /Textures/LobbyScreens/ssxiv.webp
 #
-#- type: lobbyBackground
-#  id: Susstation
-#  background: /Textures/LobbyScreens/susstation.webp
+##- type: lobbyBackground
+##  id: Susstation # This fucking sucks.
+##  background: /Textures/LobbyScreens/susstation.webp
 #
 #- type: lobbyBackground
 #  id: SkellyVsTheRev
@@ -33,4 +33,20 @@
 #- type: lobbyBackground
 #  id: Blueprint
 #  background: /Textures/LobbyScreens/blueprint.webp
-# See the _FTL/ variant
+#
+#- type: lobbyBackground
+#  id: Behonker
+#  background: /Textures/LobbyScreens/behonker.webp
+#
+#- type: lobbyBackground
+#  id: TerminalStation
+#  background: /Textures/LobbyScreens/terminalstation.webp
+#
+#- type: lobbyBackground
+#  id: JustAWeekAway
+#  background: /Textures/LobbyScreens/justaweekaway.webp
+#
+#- type: lobbyBackground
+#  id: JaniShootout
+#  background: /Textures/LobbyScreens/janishootout.webp
+ See the _FTL/ variant

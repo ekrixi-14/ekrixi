@@ -1,15 +1,18 @@
-﻿"sprites":
-- '**/*.rsi/*.png'
+"sprites":
+- changed-files:
+  - any-glob-to-any-file: '**/*.rsi/*.png'
 
 "map":
-- 'Resources/Maps/*.yml'
-- 'Resources/Prototypes/Maps/*.yml'
+- changed-files:
+  - any-glob-to-any-file:
+    - 'Resources/Maps/*.yml'
+    - 'Resources/Prototypes/Maps/*.yml'
 
 "ui":
-- '**/*.xaml*'
+- changed-files:
+  - any-glob-to-any-file: '**/*.xaml*'
 
 "no C#":
-- all: ["!**/*.cs"]
-
-"ctv pr":
-- base-branch: ["cross-the-veil"]
+- changed-files:
+  # Equiv to any-glob-to-all as long as this has one matcher. If ALL changed files are not C# files, then apply label.
+  - all-globs-to-all-files: "!**/*.cs"

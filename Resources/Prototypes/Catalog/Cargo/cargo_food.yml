@@ -4,8 +4,8 @@
     sprite: Objects/Consumable/Food/Baked/pizza.rsi
     state: margherita-slice
   product: CrateFoodPizza
-  cost: 1150
-  category: Food
+  cost: 450
+  category: cargoproduct-category-name-food
   group: market
 
 - type: cargoProduct
@@ -14,8 +14,8 @@
     sprite: Objects/Consumable/Food/Baked/pizza.rsi
     state: margherita
   product: CrateFoodPizzaLarge
-  cost: 3800
-  category: Food
+  cost: 1800
+  category: cargoproduct-category-name-food
   group: market
 
 - type: cargoProduct
@@ -25,7 +25,7 @@
     state: nutribrick
   product: CrateFoodMRE
   cost: 1000
-  category: Food
+  category: cargoproduct-category-name-food
   group: market
 
 - type: cargoProduct
@@ -34,8 +34,8 @@
     sprite: Objects/Consumable/Food/ingredients.rsi
     state: flour-big
   product: CrateFoodCooking
-  cost: 1500
-  category: Food
+  cost: 750
+  category: cargoproduct-category-name-food
   group: market
 
 - type: cargoProduct
@@ -44,8 +44,8 @@
     sprite: Objects/Consumable/Food/plates.rsi
     state: tin
   product: CrateFoodDinnerware
-  cost: 1750
-  category: Food
+  cost: 750
+  category: cargoproduct-category-name-food
   group: market
 
 - type: cargoProduct
@@ -54,8 +54,8 @@
     sprite: Objects/Consumable/Drinks/beerglass.rsi
     state: icon
   product: CrateFoodBarSupply
-  cost: 1750
-  category: Food
+  cost: 750
+  category: cargoproduct-category-name-food
   group: market
 
 - type: cargoProduct
@@ -64,8 +64,8 @@
     sprite: Objects/Consumable/Drinks/cola.rsi
     state: icon
   product: CrateFoodSoftdrinks
-  cost: 3200
-  category: Food
+  cost: 1200
+  category: cargoproduct-category-name-food
   group: market
 
 - type: cargoProduct
@@ -74,6 +74,6 @@
     sprite: Objects/Consumable/Drinks/colabottle.rsi
     state: icon
   product: CrateFoodSoftdrinksLarge
-  cost: 4400
-  category: Food
+  cost: 2400
+  category: cargoproduct-category-name-food
   group: market
