@@ -93,9 +93,6 @@
   name: law
   description: This is a hyperlink to the law guide!
   components:
-    - type: GuideHelp
-      guides:
-        - Law
     - type: Sprite
       sprite: Clothing/Neck/Misc/lawyerbadge.rsi
       state: icon
