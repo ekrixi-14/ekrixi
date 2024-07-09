@@ -138,27 +138,3 @@ marking-IPCScreenCrowned-crowned = Screen
 
 marking-IPCScreenAntennae = Antennae
 marking-IPCScreenAntennae-antennae = Screen
-
-marking-IPCScreenTvAntenna = TV Antenna
-marking-IPCScreenTvAntenna-tvantenna = Screen
-
-marking-IPCScreenTesla = Tesla
-marking-IPCScreenTesla-tesla = Screen
-
-marking-IPCScreenCyberheadantenna = Cyberhead Antenna
-marking-IPCScreenCyberheadantenna-cyberheadantenna = Screen
-
-marking-IPCScreenSidelights = Sidelights
-marking-IPCScreenSidelights-sidelights = Screen
-
-marking-IPCScreenAntlers = Antlers
-marking-IPCScreenAntlers-antlers = Screen
-
-marking-IPCScreenDrone = Drone
-marking-IPCScreenDrone-drone = Screen
-
-marking-IPCScreenCrowned = Crowned
-marking-IPCScreenCrowned-crowned = Screen
-
-marking-IPCScreenAntennae = Antennae
-marking-IPCScreenAntennae-antennae = Screen
