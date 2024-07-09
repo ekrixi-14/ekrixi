@@ -178,44 +178,44 @@
   components:
   - type: Sprite
     layers:
-    - sprite: _FTL/Structures/Doors/Airlocks/Basic/door.rsi
-      state: closed
-    - sprite: _FTL/Structures/Doors/Airlocks/Basic/color.rsi
+    - state: closed
+      sprite: _FTL/Structures/Doors/Airlocks/Basic/door.rsi
       map: ["enum.BayDoorAnimatedLayers.Base"]
     - state: closed
+      sprite: _FTL/Structures/Doors/Airlocks/Basic/color.rsi
       map: ["enum.BayDoorAnimatedLayers.Color"]
-    - sprite: _FTL/Structures/Doors/Airlocks/Basic/fill_glass.rsi
-      state: closed
+    - state: closed
+      sprite: _FTL/Structures/Doors/Airlocks/Basic/fill_glass.rsi
       map: ["enum.BayDoorAnimatedLayers.ColorFill"]
-    - sprite: _FTL/Structures/Doors/Airlocks/Basic/stripe.rsi
-      state: closed
+    - state: closed
       map: ["enum.BayDoorAnimatedLayers.Stripe"]
-    - sprite: _FTL/Structures/Doors/Airlocks/Basic/fill_stripe.rsi
-      state: closed
+      sprite: _FTL/Structures/Doors/Airlocks/Basic/stripe.rsi
+    - state: closed
       map: [ "enum.BayDoorAnimatedLayers.StripeFill" ]
-    - sprite: _FTL/Structures/Doors/Airlocks/Basic/lights_bolts.rsi
-      state: closed
+      sprite: _FTL/Structures/Doors/Airlocks/Basic/fill_stripe.rsi
+    - state: closed
       visible: false
       shader: unshaded
       map: [ "enum.BayDoorAncillaryLayers.BoltLights" ]
-    - sprite: _FTL/Structures/Doors/Airlocks/Basic/lights_green.rsi
-      state: opening
+      sprite: _FTL/Structures/Doors/Airlocks/Basic/lights_bolts.rsi
+    - state: opening
       visible: false
       shader: unshaded
       map: [ "enum.BayDoorAncillaryLayers.GreenLights" ]
-    - sprite: _FTL/Structures/Doors/Airlocks/Basic/lights_deny.rsi
-      state: deny
+      sprite: _FTL/Structures/Doors/Airlocks/Basic/lights_green.rsi
+    - state: deny
       visible: false
       shader: unshaded
       map: [ "enum.BayDoorAncillaryLayers.DenyLights" ]
-    - sprite: _FTL/Structures/Doors/Airlocks/Basic/sparks_broken.rsi
-      state: closed
+      sprite: _FTL/Structures/Doors/Airlocks/Basic/lights_deny.rsi
+    - state: closed
       visible: false
       shader: unshaded
       map: [ "enum.BayDoorAncillaryLayers.Emag" ]
-    - sprite: _FTL/Structures/Doors/Airlocks/Basic/welded.rsi
+      sprite: _FTL/Structures/Doors/Airlocks/Basic/sparks_broken.rsi
+    - state: closed
       map: [ "enum.BayDoorAncillaryLayers.Welded" ]
-      state: closed
+      sprite: _FTL/Structures/Doors/Airlocks/Basic/welded.rsi
       visible: false
 
 - type: entity
