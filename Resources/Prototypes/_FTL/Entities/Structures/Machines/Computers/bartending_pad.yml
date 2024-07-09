@@ -34,9 +34,13 @@
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
     - type: Store
-      preset: StorePresetBartender
-      balance:
-        Credits: 0
+      name: store-preset-name-bartender
+      categories:
+      - BartenderDrinks
+      - BartenderNonAlcoholic
+      - BartenderUtility
+      currencyWhitelist:
+      - Credits
     - type: UserInterface
       interfaces:
         enum.StoreUiKey.Key:
