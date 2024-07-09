@@ -1,13 +1,14 @@
 # IPC emotes
-#- type: emote
-#  id: Whirr
-#  category: Vocal
-#  chatMessages: [whirrs]
-#  chatTriggers:
-#    - whirr
-#    - whirrs
-#    - whirrs.
-#    - whirrs!
+- type: emote
+  id: Whirr
+  name: chat-emote-name-whirr
+  category: Vocal
+  chatMessages: ["chat-emote-msg-whirr"]
+  chatTriggers:
+    - whirr
+    - whirrs
+    - whirrs.
+    - whirrs!
 
 #- type: emote
 #  id: Beep
