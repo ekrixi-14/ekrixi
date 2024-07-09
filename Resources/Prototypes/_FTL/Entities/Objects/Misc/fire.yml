@@ -53,7 +53,6 @@
           methods: [Touch]
           effects:
             - !type:HealthChange
-              scaled: true
               damage:
                 types:
                   Heat: 10
