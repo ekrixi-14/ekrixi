@@ -177,6 +177,94 @@
   equipment:
     outerClothing: ClothingOuterWinterSec
 
+# Belt
+- type: loadout
+  id: MercenaryWebbing
+  equipment: MercenaryWebbing
+
+- type: startingGear
+  id: MercenaryWebbing
+  equipment:
+    belt: ClothingBeltMercWebbing
+
+- type: loadout
+  id: Bandolier
+  equipment: Bandolier
+
+- type: startingGear
+  id: Bandolier
+  equipment:
+    belt: ClothingBeltBandolier
+
+- type: loadout
+  id: RegularWebbing
+  equipment: RegularWebbing
+
+- type: startingGear
+  id: RegularWebbing
+  equipment:
+    belt: ClothingBeltMilitaryWebbing
+
+# Gun
+- type: loadout
+  id: Kammerer
+  equipment: Kammerer
+
+- type: startingGear
+  id: Kammerer
+  inhand:
+  - WeaponShotgunKammerer
+  - MagazineShotgun
+
+- type: loadout
+  id: Mosin
+  equipment: Mosin
+
+- type: startingGear
+  id: Mosin
+  inhand:
+  - WeaponSniperMosin
+  - MagazineBoxLightRifle
+
+# Gloves
+- type: loadout
+  id: MercenaryGloves
+  equipment: MercenaryGloves
+
+- type: startingGear
+  id: MercenaryGloves
+  equipment:
+    gloves: ClothingHandsMercGlovesCombat
+
+- type: loadout
+  id: BlackGloves
+  equipment: BlackGloves
+
+- type: startingGear
+  id: BlackGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorBlack
+
+# Gloves
+- type: loadout
+  id: BlackCap
+  equipment: BlackCap
+
+- type: startingGear
+  id: BlackCap
+  equipment:
+    head: ClothingHeadHatBlacksoft
+
+# Mask
+- type: loadout
+  id: MercBandana
+  equipment: MercBandana
+
+- type: startingGear
+  id: MercBandana
+  equipment:
+    mask: ClothingMaskBandMerc
+
 # Shoes
 - type: loadout
   id: CombatBoots
@@ -188,15 +276,6 @@
     shoes: ClothingShoesBootsCombatFilled
 
 - type: loadout
-  id: JackBoots
-  equipment: JackBoots
-
-- type: startingGear
-  id: JackBoots
-  equipment:
-    shoes: ClothingShoesBootsJackFilled
-
-- type: loadout
   id: SecurityWinterBoots
   equipment: SecurityWinterBoots
 
@@ -204,25 +283,3 @@
   id: SecurityWinterBoots
   equipment:
     shoes: ClothingShoesBootsWinterSecFilled
-
-# PDA
-- type: loadout
-  id: SecurityPDA
-  equipment: SecurityPDA
-
-- type: startingGear
-  id: SecurityPDA
-  equipment:
-    id: SecurityPDA
-
-- type: loadout
-  id: SeniorOfficerPDA
-  equipment: SeniorOfficerPDA
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorOfficer
-
-- type: startingGear
-  id: SeniorOfficerPDA
-  equipment:
-    id: SeniorOfficerPDA
