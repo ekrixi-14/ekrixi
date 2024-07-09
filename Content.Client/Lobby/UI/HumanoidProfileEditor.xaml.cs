@@ -327,16 +327,16 @@ namespace Content.Client.Lobby.UI
 
             #region SpawnPriority
 
-            foreach (var value in Enum.GetValues<SpawnPriorityPreference>())
-            {
-                SpawnPriorityButton.AddItem(Loc.GetString($"humanoid-profile-editor-preference-spawn-priority-{value.ToString().ToLower()}"), (int) value);
-            }
-
-            SpawnPriorityButton.OnItemSelected += args =>
-            {
-                SpawnPriorityButton.SelectId(args.Id);
-                SetSpawnPriority((SpawnPriorityPreference) args.Id);
-            };
+            // foreach (var value in Enum.GetValues<SpawnPriorityPreference>())
+            // {
+            //     SpawnPriorityButton.AddItem(Loc.GetString($"humanoid-profile-editor-preference-spawn-priority-{value.ToString().ToLower()}"), (int) value);
+            // }
+            //
+            // SpawnPriorityButton.OnItemSelected += args =>
+            // {
+            //     SpawnPriorityButton.SelectId(args.Id);
+            //     SetSpawnPriority((SpawnPriorityPreference) args.Id);
+            // };
 
             #endregion SpawnPriority
 
@@ -1367,7 +1367,7 @@ namespace Content.Client.Lobby.UI
                 return;
             }
 
-            SpawnPriorityButton.SelectId((int) Profile.SpawnPriority);
+            // SpawnPriorityButton.SelectId((int) Profile.SpawnPriority);
         }
 
         private void UpdateHairPickers()

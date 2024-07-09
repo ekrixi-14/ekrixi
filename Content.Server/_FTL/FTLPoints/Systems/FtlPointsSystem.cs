@@ -15,6 +15,7 @@ using Content.Shared.Parallax;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Salvage;
+using Content.Shared.Shuttles.Components;
 using Content.Shared.UserInterface;
 using Robust.Server.GameObjects;
 using Robust.Shared;

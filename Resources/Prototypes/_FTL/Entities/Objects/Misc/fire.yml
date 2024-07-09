@@ -70,7 +70,7 @@
       heatPerSecond: 10.0
       requiresPower: false
     - type: GrowingKudzu
-    - type: SlowContacts
+    - type: SpeedModifierContacts
       walkSpeedModifier: 0.75
       sprintSpeedModifier: 0.5
     - type: EdgeSpreader

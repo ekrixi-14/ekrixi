@@ -1,13 +1,10 @@
-using System.Linq;
-using Content.Server._FTL.FTLPoints;
-using Content.Server._FTL.FTLPoints.Systems;
 using Content.Server._FTL.ShipTracker.Components;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
-using Content.Server.GameTicking.Rules.Components;
 using Content.Server.RoundEnd;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
+using Content.Shared.GameTicking.Components;
 
 namespace Content.Server._FTL.ShipTracker.Rules.EndOnShipDestruction;
 
@@ -22,7 +19,6 @@ public sealed class EndOnShipDestructionSystem : GameRuleSystem<EndOnShipDestruc
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEndText);
         SubscribeLocalEvent<PlayerSpawningEvent>(OnPlayerSpawningEvent);
     }
 
@@ -58,9 +54,9 @@ public sealed class EndOnShipDestructionSystem : GameRuleSystem<EndOnShipDestruc
         }
     }
 
-    private void OnRoundEndText(RoundEndTextAppendEvent ev)
+    protected override void AppendRoundEndText(EntityUid uid, EndOnShipDestructionComponent component, GameRuleComponent gameRule, ref RoundEndTextAppendEvent args)
     {
-        ev.AddLine(Loc.GetString("ftl-gamerule-end-text"));
+        args.AddLine(Loc.GetString("ftl-gamerule-end-text"));
     }
 
     protected override void ActiveTick(EntityUid uid, EndOnShipDestructionComponent component, GameRuleComponent gameRule, float frameTime)

@@ -68,7 +68,7 @@ public sealed partial class FtlPointsSystem
             if (!warpingShipComponent.TargetMap.HasValue)
                 continue;
 
-            _shuttleSystem.FTLTravel(grid, shuttleComponent, _mapManager.GetMapEntityId(warpingShipComponent.TargetMap.Value));
+            // _shuttleSystem.FTLTravel(grid, shuttleComponent, _mapManager.GetMapEntityId(warpingShipComponent.TargetMap.Value));
             warpingShipComponent.TargetMap = null;
             component.Charge = 0;
             component.Charging = false;

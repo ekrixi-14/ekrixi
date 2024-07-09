@@ -3,6 +3,7 @@ using Content.Server._FTL.ShipTracker.Components;
 using Content.Server._FTL.ShipTracker.Events;
 using Content.Server.NPC.Systems;
 using Content.Server.Weapons.Ranged.Systems;
+using Content.Shared.NPC.Systems;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Random;

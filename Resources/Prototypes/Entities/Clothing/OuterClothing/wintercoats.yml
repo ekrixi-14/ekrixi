@@ -246,19 +246,6 @@
 
 - type: entity
   parent: ClothingOuterWinterCoatToggleable
-  id: ClothingOuterWinterHoS
-  name: winter coat
-  suffix: HoS
-  components:
-  - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coathos.rsi
-  - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coathos.rsi
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHatHoodWinterHOS
-
-- type: entity
-  parent: ClothingOuterWinterCoatToggleable
   id: ClothingOuterWinterHydro
   name: winter coat
   suffix: Hydroponics

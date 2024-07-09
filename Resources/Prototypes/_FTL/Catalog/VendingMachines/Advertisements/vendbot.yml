@@ -1,5 +1,5 @@
-- type: advertisementsPack
+- type: localizedDataset
   id: VendBotAds
-  advertisements:
-  - advertisement-vendbot-1
-  - advertisement-vendbot-2
+  values:
+    prefix: advertisement-vendbot-
+    count: 2
