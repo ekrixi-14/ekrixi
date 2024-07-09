@@ -11,8 +11,6 @@
         - type: StationNameSetup
           mapNameTemplate: 'ML Myrmeleon-Class Salvage Carrier' #Despite that black box transcript, the captain's decision stood stalwart.
         - type: StationJobs
-          overflowJobs:
-            - Passenger
           availableJobs:
             Captain: [ 1, 1 ] # Command
             Pilot: [ 1, 1 ]
