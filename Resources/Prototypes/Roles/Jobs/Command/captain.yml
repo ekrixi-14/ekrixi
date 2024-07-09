@@ -23,6 +23,7 @@
   joinNotifyCrew: true
   supervisors: job-supervisors-centcom
   canBeAntag: false
+  setPreference: true
   accessGroups:
   - AllAccess
   special:
