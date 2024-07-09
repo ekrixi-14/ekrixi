@@ -36,4 +36,4 @@
   suffix: DEBUG
   components:
     - type: WarpDrive
-      chargeNeeded: 0.1
+      chargeNeeded: 0
