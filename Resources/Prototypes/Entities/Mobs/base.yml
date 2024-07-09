@@ -54,23 +54,6 @@
   components:
   - type: Damageable
     damageContainer: Biological
-    thresholds:
-      - wound: WoundLaceration
-        damageType: Slash
-        probability: 1
-        threshold: 35
-      - wound: WoundAbrasion
-        damageType: Blunt
-        probability: 1
-        threshold: 25
-      - wound: WoundFracture
-        damageType: Blunt
-        probability: 1
-        threshold: 45
-      - wound: WoundPuncture
-        damageType: Piercing
-        probability: 1
-        threshold: 35
   - type: ConstantDamage
     probability: .5
     checkFrequency: 60
