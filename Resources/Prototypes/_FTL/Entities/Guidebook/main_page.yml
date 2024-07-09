@@ -137,5 +137,13 @@
     - type: Sprite
       sprite: Objects/Misc/books.rsi
       layers:
-        - state: book0
-          map: [ "enum.DamageStateVisualLayers.Base" ]
+        - state: paper
+        - state: cover_base
+          color: "#611e10"
+        - state: overlay_dirt
+          color: "#4f1206"
+        - state: decor_wingette_circle
+          color: "#241e1d"
+        - state: icon_eye
+        - state: detail_bookmark
+          color: "#bfbfbf"
