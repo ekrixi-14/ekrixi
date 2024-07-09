@@ -45,11 +45,11 @@
         types:
           Heat: -0.25
     - type: Repairable
-      fuelcost: 5 # cause most of the fuel is used how long its turned on for
-      doAfterDelay: 7
+      doAfterDelay: 5
       damage:
+        groups:
+          Brute: -75
         types:
-          Blunt: -75
           Cold: -15 # you're warming them up...
           Heat: 30 # another 2 minutes of downtime due to slight overheating
     - type: Barotrauma
