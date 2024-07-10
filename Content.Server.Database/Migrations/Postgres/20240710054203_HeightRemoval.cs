@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace Content.Server.Database.Migrations.Sqlite
+namespace Content.Server.Database.Migrations.Postgres
 {
     /// <inheritdoc />
     public partial class HeightRemoval : Migration
@@ -21,9 +21,9 @@ namespace Content.Server.Database.Migrations.Sqlite
             migrationBuilder.AddColumn<float>(
                 name: "height",
                 table: "profile",
-                type: "REAL",
+                type: "real",
                 nullable: false,
-                defaultValue: 1f);
+                defaultValue: 0f);
         }
     }
 }
