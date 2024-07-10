@@ -23,15 +23,17 @@
   - type: Fixtures
     fixtures:
       projectile:
-        shape: !type:PhysShapeCircle
-        radius: .5
+        shape:
+          !type:PhysShapeCircle
+          radius: .5
         mask:
         - MobMask
         layer:
         - MobLayer
       fly-by:
-        shape: !type:PhysShapeCircle
-        radius: 10 # TODO: missile flyby sound
+        shape:
+          !type:PhysShapeCircle
+          radius: 10 # TODO: missile flyby sound
         layer:
         - Impassable
         - MidImpassable
