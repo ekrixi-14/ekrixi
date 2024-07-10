@@ -1,0 +1,75 @@
+# Command
+- type: roleLoadout
+  id: JobCaptain
+  groups:
+  - CaptainShirt
+  - CaptainOuterClothing
+  - CommonPants
+  - CommonBackpack
+  - GenericShoes
+  - Trinkets
+
+- type: roleLoadout
+  id: JobPilot
+  groups:
+  - PilotShirt
+  - PilotPants
+  - CommandOuterClothing
+  - CommonBackpack
+  - GenericShoes
+  - Trinkets
+
+- type: roleLoadout
+  id: JobSecurityOfficer
+  groups:
+  - SecurityHead
+  - SecurityOuterClothing
+  - MercBelt
+  - MercGloves
+  - MercMask
+  - MercGun
+  - MercShoes
+  - CommonBackpack
+  - CommonPants
+  - CommonShirt
+  - Trinkets
+
+# Civilian
+- type: roleLoadout
+  id: JobPassenger
+  groups:
+  - CommonPants
+  - CommonShirt
+  - PassengerFace
+  - PassengerGloves
+  - PassengerOuterClothing
+  - CommonBackpack
+  - GenericShoes
+  - Trinkets
+
+# Engineering
+- type: roleLoadout
+  id: JobStationEngineer
+  groups:
+  - StationEngineerHead
+  - StationEngineerJumpsuit
+  - StationEngineerPants
+  - StationEngineerBackpack
+  - StationEngineerOuterClothing
+  - StationEngineerShoes
+  - StationEngineerID
+  - Trinkets
+
+- type: roleLoadout
+  id: JobMedicalDoctor
+  groups:
+  - MedicalDoctorHead
+  - MedicalMask
+  - MedicalDoctorShirt
+  - MedicalDoctorPants
+  - MedicalGloves
+  - MedicalDoctorOuterClothing
+  - MedicalDoctorPDA
+  - CommonBackpack
+  - GenericShoes
+  - Trinkets

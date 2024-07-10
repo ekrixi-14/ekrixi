@@ -1,0 +1,5 @@
+- type: localizedDataset
+  id: VendBotAds
+  values:
+    prefix: advertisement-vendbot-
+    count: 2

@@ -64,7 +64,7 @@
       key: enum.IdAtmUiKey.Key
     - type: UserInterface
       interfaces:
-        - key: enum.IdAtmUiKey.Key
+        enum.IdAtmUiKey.Key:
           type: IdAtmBoundUserInterface
     - type: PointLight
       radius: 0.8

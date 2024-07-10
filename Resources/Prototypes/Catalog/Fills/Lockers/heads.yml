@@ -7,6 +7,7 @@
     contents:
       - id: BoxFolderQmClipboard
       - id: CargoRequestComputerCircuitboard
+      - id: CargoSaleComputerCircuitboard
       - id: CargoShuttleComputerCircuitboard
       - id: CargoShuttleConsoleCircuitboard
       - id: SalvageShuttleConsoleCircuitboard
@@ -15,6 +16,8 @@
         prob: 0.50
       - id: DoorRemoteCargo
       - id: RubberStampQm
+      - id: RubberStampDenied
+      - id: RubberStampApproved
       - id: ClothingHeadsetAltCargo
       - id: BoxEncryptionKeyCargo
 
@@ -35,7 +38,7 @@
       - id: CommsComputerCircuitboard
       - id: ShuttleConsoleCircuitboard
         amount: 3 # more than enough?
-      - id: ClothingHeadsetAltCommand
+#      - id: ClothingHeadsetAltCommand
       - id: SpaceCash1000
 #      - id: PlushieNuke
 #        prob: 0.1
@@ -61,7 +64,7 @@
       - id: CaptainIDCard
       - id: WeaponDisabler
       - id: CommsComputerCircuitboard
-      - id: ClothingHeadsetAltCommand
+#      - id: ClothingHeadsetAltCommand
       - id: SpaceCash1000
       - id: PlushieNuke
         prob: 0.1
@@ -87,7 +90,7 @@
     - id: CaptainIDCard
     - id: WeaponDisabler
     - id: CommsComputerCircuitboard
-    - id: ClothingHeadsetAltCommand
+#    - id: ClothingHeadsetAltCommand
     - id: SpaceCash1000
     - id: PlushieNuke
       prob: 0.1
@@ -121,6 +124,8 @@
       - id: DoorRemoteService
       - id: ClothingNeckGoldmedal
       - id: RubberStampHop
+      - id: RubberStampDenied
+      - id: RubberStampApproved
       - id: BoxEncryptionKeyPassenger
       - id: BoxEncryptionKeyService
       - id: ClothingBackpackIan
@@ -136,8 +141,6 @@
     contents:
       - id: ClothingOuterHardsuitEngineeringWhite
       - id: ClothingMaskBreath
-      - id: OxygenTankFilled
-      - id: NitrogenTankFilled
       - id: ClothingEyesGlassesMeson
       - id: ClothingBeltChiefEngineerFilled
       - id: ClothingShoesBootsMagAdv
@@ -260,7 +263,6 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingEyesHudSecurity
       - id: WeaponDisabler
       - id: ClothingOuterCoatHoSTrench
       - id: ClothingMaskNeckGaiter
@@ -268,7 +270,7 @@
       - id: ClothingMaskGasSwat
       - id: ClothingBeltSecurityFilled
       - id: ClothingHeadsetAltSecurity
-      - id: ClothingEyesGlassesSunglasses
+      - id: ClothingEyesGlassesSecurity
       - id: ClothingShoesBootsJack
       - id: CigarGoldCase
         prob: 0.50
@@ -287,13 +289,12 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingEyesHudSecurity
       - id: WeaponDisabler
       - id: ClothingOuterCoatHoSTrench
       - id: ClothingMaskNeckGaiter
       - id: ClothingBeltSecurityFilled
       - id: ClothingHeadsetAltSecurity
-      - id: ClothingEyesGlassesSunglasses
+      - id: ClothingEyesGlassesSecurity
       - id: ClothingShoesBootsJack
       - id: CigarGoldCase
         prob: 0.50

@@ -1,0 +1,331 @@
+# Miscellaneous
+- type: loadoutGroup
+  id: Trinkets
+  name: loadout-group-trinkets
+  minLimit: 0
+  maxLimit: 6
+  loadouts:
+  - PlushieLizard
+  - PlushieSpaceLizard
+  - PlushieSlime
+  - Lighter
+  - Mug
+  - FlippoLighter
+  - CrowbarRed
+  - CigPackGreen
+  - CigPackRed
+  - CigPackBlue
+  - CigPackBlack
+  - CigarCase
+  - CigarGold
+  - ClothingNeckLGBTPin
+  - ClothingNeckAromanticPin
+  - ClothingNeckAsexualPin
+  - ClothingNeckBisexualPin
+  - ClothingNeckIntersexPin
+  - ClothingNeckLesbianPin
+  - ClothingNeckNonBinaryPin
+  - ClothingNeckPansexualPin
+  - ClothingNeckTransPin
+  - ClothingNeckAutismPin
+  - ClothingNeckGoldAutismPin
+  - ScarfStripedRed
+  - ScarfStripedBlue
+  - ScarfStripedGreen
+  - ScarfStripedBlack
+  - ScarfStripedBrown
+  - ScarfStripedLightBlue
+  - ScarfStripedOrange
+  - ScarfStripedPurple
+
+- type: loadoutGroup
+  id: CommonPants
+  name: loadout-group-pants
+  loadouts:
+  - JeansRipped
+  - JeansNormal
+
+- type: loadoutGroup
+  id: CommonFace
+  name: loadout-group-captain-head
+  minLimit: 0
+  loadouts: []
+
+# Command
+- type: loadoutGroup
+  id: CaptainShirt
+  name: loadout-group-captain-shirt
+  loadouts:
+  - ShirtCommand
+  - ShirtWhite
+
+- type: loadoutGroup
+  id: PilotShirt
+  name: loadout-group-pilot-shirt
+  loadouts:
+  - ShirtPilot
+  - ShirtCommand
+  - ShirtWhite
+
+- type: loadoutGroup
+  id: PilotPants
+  name: loadout-group-captain-pants
+  loadouts:
+  - PantsPilot
+  - JeansNormal
+  - JeansRipped
+
+- type: loadoutGroup
+  id: CaptainOuterClothing
+  name: loadout-group-captain-outerclothing
+  loadouts:
+  - TrenchDark
+  - TrenchNormal
+  - TrenchLight
+  - CaptainWintercoat
+
+- type: loadoutGroup
+  id: CommandOuterClothing
+  name: loadout-group-command-outerclothing
+  loadouts:
+  - TrenchDark
+  - TrenchNormal
+  - TrenchLight
+
+- type: loadoutGroup
+  id: CommonShirt
+  name: loadout-group-passenger-jumpsuit
+  loadouts:
+  - ShirtRipped
+  - ShirtWhite
+  - ShirtBlack
+
+# Civilian
+- type: loadoutGroup
+  id: PassengerFace
+  name: loadout-group-passenger-mask
+  minLimit: 0
+  loadouts:
+  - PassengerFace
+
+- type: loadoutGroup
+  id: PassengerGloves
+  name: loadout-group-passenger-gloves
+  minLimit: 0
+  loadouts:
+  - PassengerGloves
+
+- type: loadoutGroup
+  id: CommonBackpack
+  name: loadout-group-backpack
+  loadouts:
+  - CommonBackpack
+  - CommonSatchel
+  - CommonDuffel
+
+- type: loadoutGroup
+  id: PassengerOuterClothing
+  name: loadout-group-passenger-outerclothing
+  minLimit: 0
+  loadouts:
+  - PassengerWintercoat
+  - StationEngineerOuterVest
+
+- type: loadoutGroup
+  id: GenericShoes
+  name: loadout-group-shoes
+  loadouts:
+  - BlackShoes
+  - WinterBoots
+  - SalvageBoots
+  - JackBoots
+
+# Engineering
+- type: loadoutGroup
+  id: StationEngineerHead
+  name: loadout-group-station-engineer-head
+  loadouts:
+  - StationEngineerHardhatYellow
+  - StationEngineerHardhatOrange
+  - StationEngineerHardhatRed
+  - SeniorEngineerBeret
+
+- type: loadoutGroup
+  id: StationEngineerJumpsuit
+  name: loadout-group-station-engineer-jumpsuit
+  loadouts:
+  - HazardShirt
+
+- type: loadoutGroup
+  id: StationEngineerPants
+  name: loadout-group-station-engineer-pants
+  loadouts:
+  - HazardPants
+
+- type: loadoutGroup
+  id: StationEngineerBackpack
+  name: loadout-group-station-engineer-backpack
+  loadouts:
+  - StationEngineerBackpack
+  - StationEngineerSatchel
+  - StationEngineerDuffel
+
+- type: loadoutGroup
+  id: StationEngineerOuterClothing
+  name: loadout-group-station-engineer-outerclothing
+  minLimit: 0
+  loadouts:
+  - StationEngineerOuterVest
+  - StationEngineerWintercoat
+
+- type: loadoutGroup
+  id: StationEngineerShoes
+  name: loadout-group-station-engineer-shoes
+  loadouts:
+  - WorkBoots
+  - EngineeringWinterBoots
+
+- type: loadoutGroup
+  id: StationEngineerID
+  name: loadout-group-station-engineer-id
+  loadouts:
+  - StationEngineerPDA
+  - SeniorEngineerPDA
+
+# Security
+- type: loadoutGroup
+  id: SecurityHead
+  name: loadout-group-security-head
+  minLimit: 0
+  loadouts:
+  - BlackCap
+  - SecurityHelmet
+  - SecurityBeret
+  - SecurityHat
+
+- type: loadoutGroup
+  id: MercBelt
+  minLimit: 0
+  name: loadout-group-merc-belt
+  loadouts:
+  - MercenaryWebbing
+  - RegularWebbing
+  - Bandolier
+
+- type: loadoutGroup
+  id: MercGloves
+  minLimit: 0
+  name: loadout-group-merc-gloves
+  loadouts:
+  - MercenaryGloves
+  - BlackGloves
+
+- type: loadoutGroup
+  id: MercMask
+  minLimit: 0
+  name: loadout-group-merc-mask
+  loadouts:
+  - MercBandana
+
+- type: loadoutGroup
+  id: MercGun
+  name: loadout-group-merc-weapon
+  loadouts:
+  - Kammerer
+  - Mosin
+
+- type: loadoutGroup
+  id: SecurityOuterClothing
+  name: loadout-group-security-outerclothing
+  loadouts:
+  - ArmorVest
+  - ArmorVestSlim
+  - SecurityOfficerWintercoat
+
+- type: loadoutGroup
+  id: MercShoes
+  name: loadout-group-merc-shoes
+  loadouts:
+  - CombatBoots
+  - BlackShoes
+  - WinterBoots
+  - SalvageBoots
+  - JackBoots
+  - SecurityWinterBoots
+
+# Medical
+- type: loadoutGroup
+  id: MedicalDoctorHead
+  name: loadout-group-medical-doctor-head
+  minLimit: 0
+  loadouts:
+  - MedicalBeret
+  - SeniorPhysicianBeret
+  - MedicalHeadMirror
+  - BlueSurgeryCap
+  - GreenSurgeryCap
+  - PurpleSurgeryCap
+  - NurseHat
+
+- type: loadoutGroup
+  id: MedicalDoctorShirt
+  name: loadout-group-medical-doctor-shirt
+  loadouts:
+  - MedicalBlueScrubs
+  - ShirtWhite
+
+- type: loadoutGroup
+  id: MedicalDoctorPants
+  name: loadout-group-medical-doctor-pants
+  loadouts:
+  - MedicalBlueScrubsPants
+  - PantsWhite
+  - JeansRipped
+  - JeansNormal
+
+- type: loadoutGroup
+  id: MedicalDoctorOuterClothing
+  name: loadout-group-medical-doctor-outerclothing
+  minLimit: 0
+  loadouts:
+  - MedicalDoctorWintercoat
+  - RegularLabCoat
+  - GeneLabCoat
+  - RoboLabCoat
+  - SeniorPhysicianLabCoat
+
+- type: loadoutGroup
+  id: MedicalBackpack
+  name: loadout-group-medical-doctor-backpack
+  loadouts:
+  - MedicalDoctorBackpack
+  - MedicalDoctorSatchel
+  - MedicalDoctorDuffel
+
+- type: loadoutGroup
+  id: MedicalShoes
+  name: loadout-group-medical-doctor-shoes
+  loadouts:
+  - MedicalWinterBoots
+
+- type: loadoutGroup
+  id: MedicalDoctorPDA
+  name: loadout-group-medical-doctor-id
+  loadouts:
+  - MedicalDoctorPDA
+  - SeniorPhysicianPDA
+
+- type: loadoutGroup
+  id: MedicalGloves
+  name: loadout-group-medical-gloves
+  minLimit: 0
+  loadouts:
+  - NitrileGloves
+
+- type: loadoutGroup
+  id: MedicalMask
+  name: loadout-group-medical-mask
+  minLimit: 0
+  loadouts:
+  - SterileMask
+

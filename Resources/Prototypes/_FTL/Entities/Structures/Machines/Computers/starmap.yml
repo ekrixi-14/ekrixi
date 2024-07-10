@@ -19,7 +19,7 @@
       key: enum.StarmapConsoleUiKey.Key
     - type: UserInterface
       interfaces:
-        - key: enum.StarmapConsoleUiKey.Key
+        enum.StarmapConsoleUiKey.Key:
           type: StarmapConsoleBoundUserInterface
 #    - type: Computer
 #      board: SolarControlComputerCircuitboard

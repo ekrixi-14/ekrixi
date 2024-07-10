@@ -16,17 +16,10 @@
 - type: startingGear
   id: PilotGear
   equipment:
-    head: ClothingHeadHatAnimalHeadslime
-    jumpsuit: ClothingShirtTShirtCommand
-    lowerClothing: ClothingPantsRippedJeans
-    back: ClothingBackpackFilled
-    shoes: ClothingShoesColorWhite
-    outerClothing: ClothingOuterCoatTrenchLight
-    eyes: ClothingEyesGlassesPilot
-    id: PilotPDA
-    belt: BasicPager
-    pocket1: WeaponRevolverDeckard
-    pocket2: RadioHandheldIntercomCommand
-  innerClothingSkirt: ClothingPantsPilot
-  satchel: ClothingBackpackSatchelFilled
-  duffelbag: ClothingBackpackDuffelFilled
+    eyes: ClothingEyesGlassesSunglasses
+    id: CaptainPDA
+    ears: ClothingHeadsetAltCommand
+  storage:
+    back:
+    - BoxSurvival
+    - Flash

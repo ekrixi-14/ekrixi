@@ -18,22 +18,26 @@
   - type: NpcFactionMember
     factions:
     - Missile
+    - Nanotrasen
+  - type: MobState
   - type: Fixtures
     fixtures:
-      fly-by:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.15,-0.45,0.15,0.15"
-        hard: false
-        mask:
-        - Impassable
-        - BulletImpassable
+#      fly-by:
+#        shape: !type:PhysShapeCircle
+#        radius: 10 # TODO: missile flyby sound
+#        layer:
+#        - Impassable
+#        - MidImpassable
+#        - HighImpassable
+#        - LowImpassable
+#        hard: false
       projectile:
         shape: !type:PhysShapeCircle
           radius: .5
+        mask:
+        - MobMask
         layer:
-        - WallLayer
-        hard: true
+        - MobLayer
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible

@@ -11,8 +11,6 @@
         - type: StationNameSetup
           mapNameTemplate: 'CS Cestoda-Class Budget Cruiser' # Left out in space... How did this get here?
         - type: StationJobs
-          overflowJobs:
-            - Passenger
           availableJobs:
             Captain: [ 1, 1 ] # Command
             Pilot: [ 1, 1 ]

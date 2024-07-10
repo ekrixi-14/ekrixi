@@ -62,10 +62,11 @@
                             <!-- Game Title -->
                             <PanelContainer Margin="12 12 12 12">
                                 <PanelContainer.PanelOverride>
-                                    <graphics:StyleBoxFlat BackgroundColor="#76428AFF" />
+                                    <graphics:StyleBoxFlat BackgroundColor="#76428ADD" />
                                 </PanelContainer.PanelOverride>
-                                <Label Name="GameName" Margin="4 4 4 4" StyleClasses="LabelHeadingXL" VAlign="Center"
-                                       Text="ACROSS THE VEIL" FontColorOverride="{x:Static maths:Color.White}">
+                                <Label Name="GameName" Margin="4 4 4 4" StyleClasses="LabelHeadingXL" VAlign="Center" Align="Center"
+                                       Text="EKRIXI" FontColorOverride="{x:Static maths:Color.White}" MinWidth="400">
+                                    <!-- sorry not localized -->
                                 </Label>
                             </PanelContainer>
 
@@ -73,7 +74,7 @@
                             <GridContainer Columns="1">
                                 <Label Name="StartTime"
                                        Access="Public"
-                                       Align="Left"
+                                       Align="Center"
                                        FontColorOverride="{x:Static maths:Color.DarkGray}"
                                        StyleClasses="LabelKeyText" HorizontalExpand="True"
                                        Margin="8 0 0 0"/>
@@ -86,13 +87,14 @@
                                         StyleClasses="ButtonBig"
                                         WindowType="{x:Type lobbyUi:ObserveWarningWindow}"
                                         Margin="8 0 8 0"/>
-                                <!-- <Button Name="AHelpButton" Access="Public" Text="{Loc 'ui-lobby-ahelp-button'}" -->
-                                <!--         StyleClasses="ButtonBig" /> -->
                                 <Button Name="SetupCharacterButton" Access="Public" StyleClasses="ButtonBig"
                                         Text="{Loc 'ui-lobby-character-button'}"
                                         Margin="8 0 8 0"/>
                                 <Button Name="OptionsButton" Access="Public" StyleClasses="ButtonBig"
                                         Text="{Loc 'ui-lobby-options-button'}"
+                                        Margin="8 0 8 0"/>
+                                <Button Name="AHelpButton" Access="Public" StyleClasses="ButtonBig"
+                                        Text="{Loc 'ui-lobby-ahelp-button'}"
                                         Margin="8 0 8 0"/>
                                 <!-- <vote:VoteCallMenuButton Name="CallVoteButton" StyleClasses="ButtonBig" /> -->
                                 <Button Name="LeaveButton" Access="Public" StyleClasses="ButtonBig"
@@ -145,6 +147,8 @@
                                      Margin="3 3 3 3" MaxWidth="400" HorizontalAlignment="Left" />
                     <Label Name="StationTime" Access="Public" FontColorOverride="{x:Static maths:Color.LightGray}"
                            Margin="3 3 3 3" HorizontalAlignment="Left" />
+                    <controls:HSpacer Spacing="5" />
+                    <lobbyUi:LobbyCharacterPreviewPanel Name="CharacterPreview" Access="Public" />
                     <controls:HSpacer Spacing="5" />
                     <BoxContainer MinHeight="10" />
                     <!-- Gold line -->

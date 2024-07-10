@@ -59,16 +59,16 @@ public sealed partial class FtlPointsSystem
             if (!TryComp<ShuttleComponent>(grid, out var shuttleComponent))
                 return;
 
-            if (component is { Charging: true, Charge: < 1 })
-                component.Charge += frameTime / 30;
+            if (component.Charging && component.Charge < component.ChargeNeeded)
+                component.Charge += frameTime;
 
-            if (!(component.Charge >= 1))
+            if (component.Charge < component.ChargeNeeded)
                 continue;
 
             if (!warpingShipComponent.TargetMap.HasValue)
                 continue;
 
-            _shuttleSystem.FTLTravel(grid, shuttleComponent, _mapManager.GetMapEntityId(warpingShipComponent.TargetMap.Value));
+            // _shuttleSystem.FTLTravel(grid, shuttleComponent, _mapManager.GetMapEntityId(warpingShipComponent.TargetMap.Value));
             warpingShipComponent.TargetMap = null;
             component.Charge = 0;
             component.Charging = false;
@@ -90,13 +90,13 @@ public sealed partial class FtlPointsSystem
             return;
         }
 
-        if (component.Charge >= 1)
+        if (component.Charge >= component.ChargeNeeded)
         {
             args.PushMarkup(Loc.GetString("drive-examined-ready"));
             return;
         }
 
         args.PushMarkup(Loc.GetString("drive-examined", ("charging", component.Charging), ("charge",
-            $"{(component.Charge * 100):F}"), ("destination", warpingShipComponent.TargetMap != null)));
+            $"{(component.Charge / component.ChargeNeeded * 100):F}"), ("destination", warpingShipComponent.TargetMap != null)));
     }
 }

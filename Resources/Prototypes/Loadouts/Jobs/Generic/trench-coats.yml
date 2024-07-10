@@ -1,0 +1,26 @@
+- type: loadout
+  id: TrenchLight
+  equipment: TrenchLight
+
+- type: startingGear
+  id: TrenchLight
+  equipment:
+    outerClothing: ClothingOuterCoatTrenchLight
+
+- type: loadout
+  id: TrenchNormal
+  equipment: TrenchNormal
+
+- type: startingGear
+  id: TrenchNormal
+  equipment:
+    outerClothing: ClothingOuterCoatTrenchNormal
+
+- type: loadout
+  id: TrenchDark
+  equipment: TrenchDark
+
+- type: startingGear
+  id: TrenchDark
+  equipment:
+    outerClothing: ClothingOuterCoatTrenchDark # Objectively the best.

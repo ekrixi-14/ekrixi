@@ -21,6 +21,7 @@
     Hair: MobHumanoidAnyMarking
     HeadTop: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
+    Snout: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
     Chest: MobHumanTorso
     Eyes: MobHumanoidEyes
@@ -40,6 +41,9 @@
       points: 1
       required: false
     FacialHair:
+      points: 1
+      required: false
+    Snout:
       points: 1
       required: false
     Tail: # the cat tail joke

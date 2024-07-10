@@ -1,10 +1,20 @@
-<p align="center"> <img alt="Space Station 14" width="880" height="300" src="Resources/Textures/Logo/logo.svg" /></p>
+# Ekrixi codebase
 
+![Build & Test Debug](https://github.com/ekrixi-14/ekrixi/actions/workflows/build-test-debug.yml/badge.svg)
+[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/ekrixi-14/ekrixi.svg)](http://isitmaintained.com/project/ekrixi-14/ekrixi "Average time to resolve an issue")
+[![Percentage of issues still open](http://isitmaintained.com/badge/open/ekrixi-14/ekrixi.svg)](http://isitmaintained.com/project/ekrixi-14/ekrixi "Percentage of issues still open")
 
-we went interstellar, the empire of humanity spanned 250 stars, before the gods punished us by splitting us from the rest of the Core - humanity's abode, full of technological wonders. until a hundred-star long void full of nothing appeared. that's what our radars, sensors, and our eyes told us - until a spinavi-drive beyond safe-power broke it, and we entered **the Veil**.
+![sucks -yea](https://github.com/ekrixi-14/2g2c2/assets/67359748/878eb1cd-3683-410c-a94a-e2c17471d27e)
+![master-branch -unprotected](https://github.com/ekrixi-14/2g2c2/assets/67359748/5e9d309d-954b-4a5c-9087-b448347882a2)
+![unfunny -yes](https://github.com/ekrixi-14/2g2c2/assets/67359748/12efbd91-39d5-4488-b1d3-87312d527fc8)
 
-A fork of Space Station 14 that runs on [Robust Toolbox](https://github.com/space-wizards/RobustToolbox), our homegrown engine written in C#.
+- [Discord](https://discord.gg/vbst9JyqY3)
+- [Patreon](https://patreon.com/raincaldwell)
+- [Website](https://ekrixi.is-going-to.cyou/)
+- [Wiki](https://ekrixi.is-going-to.cyou/wiki/Main_Page)
 
-## Links
+**Ekrixi** is an oriented ship combat fork of Space Station 14, featuring ship combat with AI. Licensed under **MIT**.
 
-[Discord](https://discord.gg/vbst9JyqY3) / [Website](https://is-going-to.cyou)
+## Secrets
+
+All secret code are strictly limited to lore related entities/YML definitions.

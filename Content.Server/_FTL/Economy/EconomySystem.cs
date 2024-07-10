@@ -158,7 +158,7 @@ public sealed class EconomySystem : SharedEconomySystem
         Log.Debug("id in:" + component.IdSlot.HasItem);
 
         var state = new IdAtmUiState(name ?? "John Doe", bank, cash, component.IdSlot.HasItem, cardComponent?.Locked ?? false);
-        _userInterfaceSystem.TrySetUiState(uid, IdAtmUiKey.Key, state);
+        _userInterfaceSystem.SetUiState(uid, IdAtmUiKey.Key, state);
     }
 
     private void OnMoneyHolderComponentRemove(EntityUid uid, IdAtmComponent component, ComponentRemove args)

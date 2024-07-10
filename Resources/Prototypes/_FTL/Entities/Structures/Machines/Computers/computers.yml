@@ -26,7 +26,7 @@
     key: enum.ShipWeaponTargetingUiKey.Key
   - type: UserInterface
     interfaces:
-      - key: enum.ShipWeaponTargetingUiKey.Key
+      enum.ShipWeaponTargetingUiKey.Key:
         type: GunnerConsoleBoundUserInterface
   - type: RadarConsole
   - type: GunnerConsole

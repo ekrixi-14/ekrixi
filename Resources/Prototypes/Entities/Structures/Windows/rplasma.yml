@@ -1,13 +1,16 @@
 - type: entity
   id: ReinforcedPlasmaWindow
   name: reinforced plasma window
-  parent: Window
+  parent: WindowRCDResistant
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Windows/reinforced_plasma_window.rsi
+    sprite: _FTL/Structures/Windows/reinforced_plasma_window.rsi
+    color: "#C531C9"
   - type: Icon
-    sprite: Structures/Windows/reinforced_plasma_window.rsi
+    sprite: _FTL/Structures/Windows/reinforced_plasma_window.rsi
+    state: full
+    color: "#C531C9"
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: RGlass
@@ -17,16 +20,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 200
-      behaviors: #excess damage, don't spawn entities.
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: WindowShatter
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
+        damage: 10000
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -58,7 +52,7 @@
 
 - type: entity
   id: PlasmaReinforcedWindowDirectional
-  parent: WindowDirectional
+  parent: WindowDirectionalRCDResistant
   name: directional reinforced plasma window
   description: Don't smudge up the glass down there.
   placement:
@@ -143,6 +137,11 @@
         - FullTileMask
         layer:
         - GlassLayer
+  - type: Airtight
+    noAirWhenFullyAirBlocked: false
+    airBlockedDirection:
+    - South
+    - East
   - type: DamageVisuals
     damageOverlay:
       sprite: Structures/Windows/cracks_diagonal.rsi

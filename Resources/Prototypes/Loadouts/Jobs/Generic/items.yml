@@ -1,0 +1,29 @@
+- type: loadout
+  id: PlushieSlime
+  equipment: PlushieSlime
+
+- type: startingGear
+  id: PlushieSlime
+  storage:
+    back:
+      - PlushieSlime
+
+- type: loadout
+  id: FlippoLighter
+  equipment: FlippoLighter
+
+- type: startingGear
+  id: FlippoLighter
+  storage:
+    back:
+      - FlippoLighter
+
+- type: loadout
+  id: CrowbarRed
+  equipment: CrowbarRed
+
+- type: startingGear
+  id: CrowbarRed
+  storage:
+    back:
+      - CrowbarRed

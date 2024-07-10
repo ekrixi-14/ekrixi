@@ -159,14 +159,13 @@ public sealed class ShipWeaponsSystem : SharedShipWeaponsSystem
     {
         if (!Resolve(uid, ref component))
             return;
-
-        var consoleTransform = Transform(uid);
-        TryComp<RadarConsoleComponent>(uid, out var radar);
-
         var totalAmmo = 0;
         var remainingAmmo = 0;
 
-        var weapons = new List<DockingInterfaceState>();
+        var consoleTransform = Transform(uid);
+        if (!TryComp<RadarConsoleComponent>(uid, out var radar))
+            return;
+
         // Render every gun as a DockingInterfaceState
         if (TryComp<DeviceLinkSourceComponent>(uid, out var sourceComponent))
         {
@@ -175,9 +174,6 @@ public sealed class ShipWeaponsSystem : SharedShipWeaponsSystem
             {
                 foreach (var entity in outputs)
                 {
-                    var gunTransform = Transform(entity);
-                    weapons.Add(new DockingInterfaceState { Angle = gunTransform.LocalRotation, Coordinates = _entityManager.GetNetCoordinates(gunTransform.Coordinates), Entity = _entityManager.GetNetEntity(entity), Color = Color.Red });
-
                     // we cant really do ammo count if it has no guns, so...
                     if (!TryComp<GunComponent>(entity, out _))
                         continue;
@@ -195,16 +191,16 @@ public sealed class ShipWeaponsSystem : SharedShipWeaponsSystem
         var state = new GunnerConsoleBoundInterfaceState(
             remainingAmmo,
             totalAmmo,
-            range,
-            weapons,
-            _entityManager.GetNetCoordinates(consoleTransform.Coordinates),
-            consoleTransform.LocalRotation
+            new NavInterfaceState(range, _entityManager.GetNetCoordinates(consoleTransform.Coordinates), consoleTransform.LocalRotation, new Dictionary<NetEntity, List<DockingPortState>>())
         );
-        _userInterface.TrySetUiState(uid, ShipWeaponTargetingUiKey.Key, state);
+
+        _userInterface.SetUiState(uid, ShipWeaponTargetingUiKey.Key, state);
+
     }
 
     private void OnToggleInterface(EntityUid uid, GunnerConsoleComponent component, AfterActivatableUIOpenEvent args)
     {
+        _userInterface.TryOpenUi(uid, ShipWeaponTargetingUiKey.Key, args.Actor);
         UpdateUserInterface(uid, component);
     }
 }

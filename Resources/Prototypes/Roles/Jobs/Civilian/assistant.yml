@@ -13,13 +13,8 @@
 - type: startingGear
   id: PassengerGear
   equipment:
-    jumpsuit: ClothingShirtTShirtRipped
-    lowerClothing: ClothingPantsRippedJeans
-    back: ClothingBackpackFilled
-#    shoes: ClothingShoesColorBlack # Deckhands don't deserve fucking clothes
     id: PassengerPDA
-    ears: ClothingHeadsetGrey # Deckhands don't deserve fucking headsets either
-    pocket1: PaperContract
-#  innerClothingSkirt: ClothingUniformJumpskirtColorGrey
-  satchel: ClothingBackpackSatchelFilled
-  duffelbag: ClothingBackpackDuffelFilled
+    ears: ClothingHeadsetGrey
+  storage:
+    back:
+    - BoxSurvival

@@ -5,29 +5,26 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Windows/reinforced_window.rsi
+    sprite: _FTL/Structures/Windows/reinforced_window.rsi
+    color: "#71abcc"
   - type: Icon
-    sprite: Structures/Windows/reinforced_window.rsi
+    sprite: _FTL/Structures/Windows/reinforced_window.rsi
+    color: "#71abcc"
   - type: Repairable
     fuelCost: 10
     doAfterDelay: 2
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: RGlass
+  - type: RCDDeconstructable
+    cost: 6
+    delay: 6
+    fx: EffectRCDDeconstruct6
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 150 #excess damage (nuke?). avoid computational cost of spawning entities.
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-      - !type:PlaySoundBehavior
-        sound:
-          collection: WindowShatter
-    - trigger:
-        !type:DamageTrigger
-        damage: 75
+        damage: 4000
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -99,6 +96,10 @@
       sprite: Structures/Windows/cracks_directional.rsi
   - type: Damageable
     damageModifierSet: RGlass
+  - type: RCDDeconstructable
+    cost: 4
+    delay: 4
+    fx: EffectRCDDeconstruct4  
   - type: Destructible
     thresholds:
     - trigger:
@@ -160,6 +161,11 @@
         - FullTileMask
         layer:
         - GlassLayer
+  - type: Airtight
+    noAirWhenFullyAirBlocked: false
+    airBlockedDirection:
+    - South
+    - East
   - type: DamageVisuals
     damageOverlay:
       sprite: Structures/Windows/cracks_diagonal.rsi

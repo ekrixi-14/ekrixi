@@ -4,8 +4,8 @@
                       Title="{Loc 'radar-console-window-title'}"
                       SetSize="648 648"
                       MinSize="256 256">
-    <ui:RadarControl Name="RadarScreen"
-                                                                   Margin="4"
-                                                                   HorizontalExpand = "True"
-                                                                   VerticalExpand = "True"/>
+    <ui:ShuttleNavControl Name="RadarScreen"
+        Margin="4"
+        HorizontalExpand = "True"
+        VerticalExpand = "True"/>
 </controls:FancyWindow>
