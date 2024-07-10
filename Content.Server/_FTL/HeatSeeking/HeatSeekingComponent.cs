@@ -24,7 +24,7 @@ public sealed partial class HeatSeekingComponent : Component
     /// <summary>
     /// If null it will instantly turn.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
     public Angle? RotationSpeed;
 
     /// <summary>
