@@ -1,88 +1,142 @@
 # missiles
 - type: entity
-  id: BulletSDM
-  name: sdm
+  id: BaseBulletMissile
+  abstract: true
   parent: BaseBulletTrigger
   noSpawn: true
   components:
-    - type: Sprite
-      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
-      layers:
-        - state: sdm
-    - type: ExplodeOnTrigger
-    - type: Explosive
-      explosionType: Default
-      totalIntensity: 1000.0
-      intensitySlope: 20 # around 50 tiles
-      maxIntensity: 400
-      maxTileBreak: 1
-    - type: PointLight
-      radius: 3.5
-      color: orange
-      energy: 0.5
+  - type: Sprite
+    sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+  - type: PointLight
+    radius: 3.5
+    color: orange
+    energy: 0.5
+  - type: HeatSeeking
+    rotationSpeed: 5
+  - type: NpcFactionMember
+    factions:
+    - Missile
+  - type: MobState
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeCircle
+          radius: .5
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+      fly-by:
+        shape:
+          !type:PhysShapeCircle
+          radius: 10 # TODO: missile flyby sound
+        layer:
+        - Impassable
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        hard: false
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 - type: entity
-  id: BulletSAM
-  name: sam
-  parent: BaseBulletTrigger
+  id: BulletTomahawk
+  name: tomahawk
+  parent: BaseBulletMissile
   noSpawn: true
   components:
-    - type: Sprite
-      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
-      layers:
-        - state: sam
-    - type: ExplodeOnTrigger
-    - type: Explosive
-      explosionType: Default
-      totalIntensity: 3000.0 # large
-      intensitySlope: 1
-      maxIntensity: 500
-      maxTileBreak: 1
-    - type: PointLight
-      radius: 3.5
-      color: orange
-      energy: 0.5
+  - type: Sprite
+    layers:
+    - state: sdm
+  - type: Explosive
+    explosionType: DemolitionCharge
+    totalIntensity: 500.0
+    intensitySlope: 50 # around 50 tiles
+    maxIntensity: 100
+    maxTileBreak: 1
+  - type: HeatSeeking
+    rotationSpeed: 10
+    acceleration: 50
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 - type: entity
-  id: BulletTAD
-  name: tad
-  parent: BaseBulletTrigger
+  id: BulletWolf
+  name: wolf
+  parent: BaseBulletMissile
   noSpawn: true
   components:
     - type: Sprite
-      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
       layers:
         - state: sam
-    - type: ExplodeOnTrigger
     - type: Explosive
       explosionType: Default
+      totalIntensity: 25000.0 # large
+      intensitySlope: 500
+      maxIntensity: 100
+      maxTileBreak: 1
+    - type: HeatSeeking
+      acceleration: 75
+      rotationSpeed: 15
+      seekRange: 150
+
+- type: entity
+  id: BulletGR
+  name: golden-rod
+  parent: BaseBulletMissile
+  noSpawn: true
+  components:
+    - type: Sprite
+      layers:
+        - state: sam
+    - type: Explosive
+      explosionType: DemolitionCharge
       totalIntensity: 300000.0 # large
-      intensitySlope: 5
+      intensitySlope: 500
       maxIntensity: 500
       maxTileBreak: 1
-    - type: PointLight
-      radius: 3.5
-      color: orange
-      energy: 0.5
+    - type: HeatSeeking
+      acceleration: 175
+      seekRange: 1500
+      rotationSpeed: 25
 
 - type: entity
   id: BulletTND
   name: tnd
-  parent: BaseBulletTrigger
+  parent: BaseBulletMissile
   noSpawn: true
   components:
     - type: Sprite
-      sprite: _FTL/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
       layers:
         - state: sam
-    - type: ExplodeOnTrigger
     - type: Explosive
       explosionType: Default
       totalIntensity: 500000.0 # large
       intensitySlope: 1
       maxIntensity: 500
       maxTileBreak: 1
-    - type: PointLight
-      radius: 3.5
-      color: orange
-      energy: 0.5
+    - type: HeatSeeking
+      acceleration: 155
+      seekRange: 5000
+      lockedIn: true
+      rotationSpeed: 40

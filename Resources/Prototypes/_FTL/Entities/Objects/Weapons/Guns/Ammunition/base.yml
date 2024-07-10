@@ -42,7 +42,7 @@
       tags:
         - Missile
     - type: CartridgeAmmo
-      proto: BulletSDM
+      proto: BulletTomahawk
       deleteOnSpawn: true
     - type: StaticPrice
       price: 150

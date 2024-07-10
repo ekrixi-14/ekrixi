@@ -5,3 +5,31 @@
     - tasks:
         - !type:HTNCompoundTask
           task: IdleCompound
+
+- type: htnCompound
+  id: PointDefenseCompound
+  branches:
+  - tasks:
+    - !type:HTNPrimitiveTask
+      operator: !type:UtilityOperator
+        proto: NearbyGunTargetsInorganic
+
+    - !type:HTNPrimitiveTask
+      preconditions:
+      - !type:KeyExistsPrecondition
+        key: Target
+#      - !type:TargetInRangePrecondition
+#        targetKey: Target
+#        # TODO: Non-scuffed
+#        rangeKey: RangedRange
+      - !type:TargetInLOSPrecondition
+        targetKey: Target
+        rangeKey: RangedRange
+      operator: !type:GunOperator
+        targetKey: Target
+        requireLOS: true
+      services:
+      - !type:UtilityService
+        id: RangedService
+        proto: NearbyGunTargetsInorganic
+        key: Target
