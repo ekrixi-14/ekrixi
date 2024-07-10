@@ -51,7 +51,7 @@ namespace Content.Shared.Roles
         public bool RequireAdminNotify { get; private set; } = false;
 
         [DataField("setPreference")]
-        public bool SetPreference { get; private set; } = false;
+        public bool SetPreference { get; private set; } = true;
 
         /// <summary>
         ///     Whether this job should show in the ID Card Console.

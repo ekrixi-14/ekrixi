@@ -1,0 +1,39 @@
+- type: department
+  id: Civilian
+  description: department-Civilian-description
+  color: "#9FED58"
+  weight: -10
+  roles:
+  - Passenger
+
+- type: department
+  id: Command
+  description: department-Command-description
+  color: "#334E6D"
+  roles:
+  - Captain
+  - Pilot
+  primary: false
+  weight: 100
+
+- type: department
+  id: Engineering
+  description: department-Engineering-description
+  color: "#EFB341"
+  roles:
+  - StationEngineer
+
+- type: department
+  id: Medical
+  description: department-Medical-description
+  color: "#52B4E9"
+  roles:
+  - MedicalDoctor
+
+- type: department
+  id: Security
+  description: department-Security-description
+  color: "#DE3A3A"
+  weight: 20
+  roles:
+  - SecurityOfficer
