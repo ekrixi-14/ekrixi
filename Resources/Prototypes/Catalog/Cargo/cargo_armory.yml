@@ -4,8 +4,8 @@
     sprite: Objects/Weapons/Guns/SMGs/wt550.rsi
     state: icon
   product: CrateArmorySMG
-  cost: 5000
-  category: Armory
+  cost: 9000
+  category: cargoproduct-category-name-armory
   group: market
 
 - type: cargoProduct
@@ -14,8 +14,8 @@
     sprite: Objects/Weapons/Guns/Shotguns/enforcer.rsi
     state: icon
   product: CrateArmoryShotgun
-  cost: 4500
-  category: Armory
+  cost: 7000
+  category: cargoproduct-category-name-armory
   group: market
 
 - type: cargoProduct
@@ -24,8 +24,8 @@
     sprite: Objects/Specific/Medical/implanter.rsi
     state: implanter0
   product: CrateTrackingImplants
-  cost: 3000
-  category: Armory
+  cost: 1000
+  category: cargoproduct-category-name-armory
   group: market
 
 - type: cargoProduct
@@ -35,7 +35,7 @@
     state: training-bomb
   product: CrateTrainingBombs
   cost: 3000
-  category: Armory
+  category: cargoproduct-category-name-armory
   group: market
 
 - type: cargoProduct
@@ -44,8 +44,8 @@
     sprite: Objects/Weapons/Guns/Battery/laser_gun.rsi
     state: icon
   product: CrateArmoryLaser
-  cost: 3600
-  category: Armory
+  cost: 4800
+  category: cargoproduct-category-name-armory
   group: market
 
 - type: cargoProduct
@@ -54,6 +54,6 @@
     sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
     state: icon
   product: CrateArmoryPistols
-  cost: 3700
-  category: Armory
+  cost: 5200
+  category: cargoproduct-category-name-armory
   group: market

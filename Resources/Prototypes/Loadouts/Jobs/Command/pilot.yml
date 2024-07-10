@@ -1,0 +1,17 @@
+- type: loadout
+  id: ShirtPilot
+  equipment: ShirtPilot
+
+- type: startingGear
+  id: ShirtPilot
+  equipment:
+    jumpsuit: ClothingShirtPilot
+
+- type: loadout
+  id: PantsPilot
+  equipment: PantsPilot
+
+- type: startingGear
+  id: PantsPilot
+  equipment:
+    lowerClothing: ClothingPantsPilot

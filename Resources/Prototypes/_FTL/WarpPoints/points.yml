@@ -14,7 +14,7 @@
       mapPaths:
       - /Maps/_FTL/ai/escape-pod-deserted.yml
       - /Maps/_FTL/ai/escape-pod-explosive.yml
-      - /Maps/_FTL/ai/escape-pod-occupied.yml
+#      - /Maps/_FTL/ai/escape-pod-occupied.yml
       - /Maps/_FTL/ai/rod-class.yml
 
 - type: ftlPoint

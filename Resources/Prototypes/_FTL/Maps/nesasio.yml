@@ -11,8 +11,6 @@
         - type: StationNameSetup
           mapNameTemplate: 'FSC Nesasio-Class Stealth Bomber' # Let's drop nukes on warzones from space it's totally not a war crime!!!
         - type: StationJobs
-          overflowJobs:
-            - Passenger
           availableJobs:
             Captain: [ 1, 1 ] # Command
             Pilot: [ 1, 1 ]

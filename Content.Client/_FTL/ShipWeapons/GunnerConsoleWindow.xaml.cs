@@ -47,16 +47,10 @@ public sealed partial class GunnerConsoleWindow : FancyWindow,
     public void UpdateState(GunnerConsoleBoundInterfaceState scc)
     {
         // update the radar
-        var radarState = new RadarConsoleBoundInterfaceState(
-            scc.MaxRange,
-            scc.Coordinates,
-            scc.Angle,
-            scc.Weapons
-        );
-        RadarScreen.UpdateState(radarState);
+        RadarScreen.UpdateState(scc.State);
 
         // update ammo text
         AmmoCounter.Text = scc.CurrentAmmo <= 0 ? Loc.GetString("gunner-console-no-ammo") : $"{scc.CurrentAmmo}/{scc.MaxAmmo}";
-        MaxRadarRange.Text = $"{scc.MaxRange:0}";
+        // MaxRadarRange.Text = $"{scc.MaxRange:0}";
     }
 }

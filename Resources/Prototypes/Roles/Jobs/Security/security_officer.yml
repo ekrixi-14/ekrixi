@@ -18,6 +18,7 @@
   - Maintenance
   - Service
   - External
+  - Cryogenics
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -25,21 +26,11 @@
 - type: startingGear
   id: SecurityOfficerGear
   equipment:
-    jumpsuit: ClothingShirtTShirtBlack
-    lowerClothing: ClothingPantsRippedJeans
-    back: ClothingBackpackSecurityFilled
-    shoes: ClothingShoesBootsMercFilled
     eyes: ClothingEyesGlassesSunglasses
-#    head: ClothingHeadHatBlacksoft
-    mask: ClothingMaskBandMerc
-    gloves: ClothingHandsMercGlovesCombat
-    outerClothing: ClothingOuterArmorBasic
-    id: MercenaryPDA
-#    ears: ClothingHeadsetSecurity
-    belt: ClothingBeltMercWebbingFilled
-    pocket1: RadioHandheldIntercomSecurity
-    pocket2: BasicPager
-    suitstorage: WeaponShotgunDoubleBarreled
-#  innerClothingSkirt: ClothingUniformJumpskirtSec
-  satchel: ClothingBackpackSatchelSecurityFilled
-  duffelbag: ClothingBackpackDuffelSecurityFilled
+    ears: ClothingHeadsetSecurity
+    pocket1: WeaponPistolMk58
+  storage:
+    back:
+    - BoxSurvivalSecurity
+    - Flash
+    - MagazinePistol

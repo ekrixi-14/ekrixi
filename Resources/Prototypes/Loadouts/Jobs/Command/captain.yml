@@ -1,0 +1,9 @@
+# Outer clothing
+- type: loadout
+  id: CaptainWintercoat
+  equipment: CaptainWintercoat
+
+- type: startingGear
+  id: CaptainWintercoat
+  equipment:
+    outerClothing: ClothingOuterWinterCap

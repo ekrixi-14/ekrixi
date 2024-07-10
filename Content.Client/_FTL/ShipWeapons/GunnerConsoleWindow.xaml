@@ -11,7 +11,7 @@
                         HorizontalAlignment = "Stretch"
                         HorizontalExpand = "True"
                         VerticalExpand = "True">
-            <ui:RadarControl Name="RadarScreen"
+            <ui:ShuttleNavControl Name="RadarScreen"
                              MouseFilter="Stop"
                              Margin="4"
                              HorizontalExpand = "True"

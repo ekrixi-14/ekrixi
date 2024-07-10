@@ -63,10 +63,10 @@ public sealed partial class ToPlanetEffect : FtlPointEffect
         var mixture = new GasMixture(2500)
         {
             Temperature = 293.15f,
-            Moles = moles,
+            // Moles = moles,
         };
 
-        args.EntityManager.System<AtmosphereSystem>().SetMapAtmosphere(args.MapUid, false, mixture, atmos);
+        // args.EntityManager.System<AtmosphereSystem>().SetMapAtmosphere(args.MapUid, false, mixture, atmos);
 
         args.EntityManager.EnsureComponent<MapGridComponent>(args.MapUid);
     }

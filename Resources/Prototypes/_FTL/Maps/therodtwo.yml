@@ -11,8 +11,6 @@
         - type: StationNameSetup
           mapNameTemplate: 'CG THERODTWO-Class Prisoner Transport' # An old and deprecated CoreGov ship, bought second hand from a shipyard. CoreGov has since ceased to use such accomodating ways of dealing with prisoners, especially the ones from the Ooblosphere.
         - type: StationJobs
-          overflowJobs:
-            - Passenger
           availableJobs:
             Captain: [ 1, 1 ] # Command
             Pilot: [ 1, 1 ]

@@ -14,7 +14,7 @@
         damage:
           types:
             VeilIndividualExposure: -1
-            Pierce: 0.35
+            Piercing: 0.35
             Slash: 0.35
       - !type:GenericStatusEffect
         key: SaphaphremTrip

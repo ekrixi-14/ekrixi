@@ -1,0 +1,79 @@
+- type: loadout
+  id: ScarfStripedRed
+  equipment: ScarfStripedRed
+
+- type: startingGear
+  id: ScarfStripedRed
+  storage:
+    back:
+      - ClothingNeckScarfStripedRed
+
+- type: loadout
+  id: ScarfStripedBlue
+  equipment: ScarfStripedBlue
+
+- type: startingGear
+  id: ScarfStripedBlue
+  storage:
+    back:
+      - ClothingNeckScarfStripedBlue
+
+- type: loadout
+  id: ScarfStripedGreen
+  equipment: ScarfStripedGreen
+
+- type: startingGear
+  id: ScarfStripedGreen
+  storage:
+    back:
+      - ClothingNeckScarfStripedGreen
+
+- type: loadout
+  id: ScarfStripedBlack
+  equipment: ScarfStripedBlack
+
+- type: startingGear
+  id: ScarfStripedBlack
+  storage:
+    back:
+      - ClothingNeckScarfStripedBlack
+
+- type: loadout
+  id: ScarfStripedBrown
+  equipment: ScarfStripedBrown
+
+- type: startingGear
+  id: ScarfStripedBrown
+  storage:
+    back:
+      - ClothingNeckScarfStripedBrown
+
+- type: loadout
+  id: ScarfStripedLightBlue
+  equipment: ScarfStripedLightBlue
+
+- type: startingGear
+  id: ScarfStripedLightBlue
+  storage:
+    back:
+      - ClothingNeckScarfStripedLightBlue
+
+- type: loadout
+  id: ScarfStripedOrange
+  equipment: ScarfStripedOrange
+
+- type: startingGear
+  id: ScarfStripedOrange
+  storage:
+    back:
+      - ClothingNeckScarfStripedOrange
+
+- type: loadout
+  id: ScarfStripedPurple
+  equipment: ScarfStripedPurple
+
+- type: startingGear
+  id: ScarfStripedPurple
+  storage:
+    back:
+      - ClothingNeckScarfStripedPurple

@@ -6,7 +6,6 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
-using JetBrains.Annotations;
 using Robust.Shared.Containers;
 
 namespace Content.Shared.Weapons.Ranged.Systems;
@@ -52,7 +51,7 @@ public abstract partial class SharedGunSystem
     /// </summary>
     private void OnChamberActivate(EntityUid uid, ChamberMagazineAmmoProviderComponent component, ActivateInWorldEvent args)
     {
-        if (args.Handled)
+        if (args.Handled || !args.Complex)
             return;
 
         args.Handled = true;
@@ -113,7 +112,10 @@ public abstract partial class SharedGunSystem
             }
         }
 
-        CycleCartridge(uid, component, user);
+        if (!CycleCartridge(uid, component, user))
+        {
+            UpdateAmmoCount(uid);
+        }
 
         if (component.BoltClosed != false)
         {
@@ -203,12 +205,12 @@ public abstract partial class SharedGunSystem
     /// <summary>
     /// Tries to take ammo from the magazine and insert into the chamber.
     /// </summary>
-    [PublicAPI]
-    public void CycleCartridge(EntityUid uid, ChamberMagazineAmmoProviderComponent component, EntityUid? user = null, AppearanceComponent? appearance = null)
+    public bool CycleCartridge(EntityUid uid, ChamberMagazineAmmoProviderComponent component, EntityUid? user = null, AppearanceComponent? appearance = null)
     {
         // Try to put a new round in if possible.
         var magEnt = GetMagazineEntity(uid);
         var chambered = GetChamberEntity(uid);
+        var result = false;
 
         // Similar to what takeammo does though that uses an optimised version where
         // multiple bullets may be fired in a single tick.
@@ -245,7 +247,11 @@ public abstract partial class SharedGunSystem
             {
                 UpdateAmmoCount(uid);
             }
+
+            result = true;
         }
+
+        return result;
     }
 
     /// <summary>

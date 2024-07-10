@@ -5,24 +5,20 @@
   playTimeTracker: JobChiefEngineer
   requirements:
     - !type:RoleTimeRequirement
-      role: JobEkrixiCommandWhitelist
-      time: 1
-#    - !type:RoleTimeRequirement
-#      role: JobAtmosphericTechnician
-#      time: 21600 #6 hrs
-#    - !type:RoleTimeRequirement
-#      role: JobStationEngineer
-#      time: 21600 #6 hrs
-#    - !type:DepartmentTimeRequirement
-#      department: Engineering
-#      time: 36000 #10 hrs
-#    - !type:OverallPlaytimeRequirement
-#      time: 144000 #40 hrs
+      role: JobAtmosphericTechnician
+      time: 21600 #6 hrs
+    - !type:RoleTimeRequirement
+      role: JobStationEngineer
+      time: 21600 #6 hrs
+    - !type:DepartmentTimeRequirement
+      department: Engineering
+      time: 36000 #10 hrs
+    - !type:OverallPlaytimeRequirement
+      time: 144000 #40 hrs
   weight: 10
   startingGear: ChiefEngineerGear
   icon: "JobIconChiefEngineer"
   requireAdminNotify: true
-#  setPreference: true
   supervisors: job-supervisors-captain
   canBeAntag: false
   access:
@@ -33,6 +29,7 @@
   - ChiefEngineer
   - Atmospherics
   - Brig
+  - Cryogenics
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -43,15 +40,11 @@
 - type: startingGear
   id: ChiefEngineerGear
   equipment:
-    head: ClothingHeadHatHardhatWhite
-    jumpsuit: ClothingUniformJumpsuitChiefEngineer
-    back: ClothingBackpackChiefEngineerFilled
-    shoes: ClothingShoesColorBrown
     id: CEPDA
     eyes: ClothingEyesGlassesMeson
     ears: ClothingHeadsetCE
     belt: ClothingBeltUtilityEngineering
-    pocket1: WeaponRevolverDeckard
-  innerClothingSkirt: ClothingUniformJumpskirtChiefEngineer
-  satchel: ClothingBackpackSatchelChiefEngineerFilled
-  duffelbag: ClothingBackpackDuffelChiefEngineerFilled
+  storage:
+    back:
+    - BoxSurvivalEngineering
+    - Flash

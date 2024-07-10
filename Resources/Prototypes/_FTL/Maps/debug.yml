@@ -1,0 +1,14 @@
+- type: gameMap
+  id: DevPlayable
+  mapName: Dev
+  mapPath: /Maps/_FTL/devship.yml
+  minPlayers: 0
+  stations:
+    Dev:
+      stationProto: StandardIndependentShip
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: "DevShip"
+        - type: StationJobs
+          availableJobs:
+            Captain: [ -1, -1 ]

@@ -32,7 +32,7 @@
   id: TraderRecruit
   components:
     - type: Loadout
-      prototypes: [ RecruitNTGear ]
+      prototypes: [ PassengerGear ]
     - type: GhostRole
       name: ghost-role-information-recruit-name
       description: ghost-role-information-recruit-description

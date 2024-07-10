@@ -1,0 +1,26 @@
+- type: loadout
+  id: JeansNormal
+  equipment: JeansNormal
+
+- type: startingGear
+  id: JeansNormal
+  equipment:
+    lowerClothing: ClothingPantsJeans
+
+- type: loadout
+  id: JeansRipped
+  equipment: JeansRipped
+
+- type: startingGear
+  id: JeansRipped
+  equipment:
+    lowerClothing: ClothingPantsRippedJeans
+
+- type: loadout
+  id: PantsWhite
+  equipment: PantsWhite
+
+- type: startingGear
+  id: PantsWhite
+  equipment:
+    lowerClothing: ClothingPantsWhite

@@ -3,7 +3,6 @@ using System.Linq;
 using System.Numerics;
 using Content.Server._FTL.FTLPoints.Components;
 using Content.Server.Shuttles.Components;
-using Content.Server.UserInterface;
 using Content.Shared._FTL.FtlPoints;
 using Content.Shared.UserInterface;
 using JetBrains.Annotations;
@@ -25,6 +24,7 @@ public sealed partial class FtlPointsSystem
     }
 
     // ew i know singletons suck but this is the only thing that makes sense
+    // TODO: just do an entityquery for maps and then store the position in the star component
     public bool TryGetStarMap([NotNullWhen(true)] ref StarMapComponent? component)
     {
         if (component != null)
@@ -61,7 +61,7 @@ public sealed partial class FtlPointsSystem
         stars.Insert(0, star.Value with {Position = Vector2.Zero});
         var state = new StarmapConsoleBoundUserInterfaceState(stars, range);
 
-        _userInterface.TrySetUiState(uid, StarmapConsoleUiKey.Key, state);
+        _userInterface.SetUiState(uid, StarmapConsoleUiKey.Key, state);
     }
 
     #region Public API

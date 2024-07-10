@@ -10,49 +10,23 @@
         - type: StationNameSetup
           mapNameTemplate: "Empty"
         - type: StationJobs
-          overflowJobs:
-            - Passenger
           availableJobs:
             Passenger: [ -1, -1 ]
 
 - type: gameMap
   id: Dev
   mapName: Dev
-  mapPath: /Maps/_FTL/devship.yml
+  mapPath: /Maps/Test/dev_map.yml
   minPlayers: 0
   stations:
     Dev:
-      stationProto: StandardIndependentShip
+      stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: "DevShip"
+          mapNameTemplate: "Dev"
         - type: StationJobs
-          overflowJobs:
-          - Captain
           availableJobs:
             Captain: [ -1, -1 ]
-
-- type: gameMap
-  id: DevPlayable
-  mapName: Dev
-  mapPath: /Maps/_FTL/devship.yml
-  minPlayers: 0
-  stations:
-    Dev:
-      stationProto: StandardIndependentShip
-      components:
-      - type: StationNameSetup
-        mapNameTemplate: "DevShip"
-      - type: StationJobs
-        overflowJobs:
-        - Passenger
-        availableJobs:
-          Captain: [ 1, 1 ] # Command
-          Pilot: [ 1, 1 ]
-          SecurityOfficer: [ 3, 3 ] # Security
-          StationEngineer: [ 3, 3 ] # Engi
-          MedicalDoctor: [ 3, 3 ] # Medical
-          Passenger: [ -1, -1 ] # Everyone else
 
 - type: gameMap
   id: TestTeg
@@ -66,7 +40,5 @@
         - type: StationNameSetup
           mapNameTemplate: "TEG"
         - type: StationJobs
-          overflowJobs:
-            - Captain
           availableJobs:
             Captain: [ -1, -1 ]

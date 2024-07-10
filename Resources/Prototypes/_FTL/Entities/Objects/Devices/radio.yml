@@ -17,8 +17,8 @@
     key: enum.IntercomUiKey.Key
   - type: UserInterface
     interfaces:
-    - key: enum.IntercomUiKey.Key
-      type: IntercomBoundUserInterface
+      enum.IntercomUiKey.Key:
+        type: IntercomBoundUserInterface
 
 - type: entity
   name: handheld radio

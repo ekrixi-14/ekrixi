@@ -30,8 +30,8 @@
     key: enum.VendingMachineUiKey.Key
   - type: UserInterface
     interfaces:
-    - key: enum.VendingMachineUiKey.Key
-      type: VendingMachineBoundUserInterface
+      enum.VendingMachineUiKey.Key:
+        type: VendingMachineBoundUserInterface
   - type: Advertise
     pack: VendBotAds
   - type: VendingMachine

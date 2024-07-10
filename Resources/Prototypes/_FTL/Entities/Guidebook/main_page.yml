@@ -93,9 +93,6 @@
   name: law
   description: This is a hyperlink to the law guide!
   components:
-    - type: GuideHelp
-      guides:
-        - Law
     - type: Sprite
       sprite: Clothing/Neck/Misc/lawyerbadge.rsi
       state: icon
@@ -111,9 +108,18 @@
       guides:
         - Lore
     - type: Sprite
-      sprite: Objects/Misc/authorbooks.rsi
+      sprite: Objects/Misc/books.rsi
       layers:
-        - state: book_watched
+      - state: paper
+      - state: cover_base
+        color: "#611e10"
+      - state: overlay_dirt
+        color: "#4f1206"
+      - state: decor_wingette_circle
+        color: "#241e1d"
+      - state: icon_eye
+      - state: detail_bookmark
+        color: "#bfbfbf"
 
 - type: entity
   parent: BaseGuidebookHyperlink
@@ -128,5 +134,13 @@
     - type: Sprite
       sprite: Objects/Misc/books.rsi
       layers:
-        - state: book0
-          map: [ "enum.DamageStateVisualLayers.Base" ]
+        - state: paper
+        - state: cover_base
+          color: "#611e10"
+        - state: overlay_dirt
+          color: "#4f1206"
+        - state: decor_wingette_circle
+          color: "#241e1d"
+        - state: icon_eye
+        - state: detail_bookmark
+          color: "#bfbfbf"

@@ -6,11 +6,12 @@ on:
 jobs:
   labeler:
     if: github.actor != 'PJBot'
+    permissions:
+      contents: read
+      pull-requests: write
     runs-on: ubuntu-latest
     permissions:
       contents: read
       pull-requests: write
     steps:
-    - uses: actions/labeler@v3
-      with:
-        repo-token: "${{ secrets.GITHUB_TOKEN }}"
+    - uses: actions/labeler@v5

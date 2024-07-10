@@ -84,6 +84,6 @@ namespace Content.Shared.Verbs
 
         public static readonly VerbCategory SelectType = new("verb-categories-select-type", null);
 
-        public static readonly VerbCategory SelectWound = new("verb-categories-select-wound", null);
+        public static readonly VerbCategory PowerLevel = new("verb-categories-power-level", null);
     }
 }

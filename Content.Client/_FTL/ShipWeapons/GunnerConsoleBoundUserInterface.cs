@@ -70,7 +70,7 @@ public sealed class GunnerConsoleBoundUserInterface : BoundUserInterface
         if (state is not GunnerConsoleBoundInterfaceState cState)
             return;
 
-        _window?.SetMatrix(_entityManager.GetCoordinates(cState.Coordinates), cState.Angle);
+        _window?.SetMatrix(_entityManager.GetCoordinates(cState.State.Coordinates), cState.State.Angle);
         _window?.UpdateState(cState);
     }
 }
