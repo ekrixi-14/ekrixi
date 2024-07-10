@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Numerics;
+using Content.Shared.Interaction;
 using Content.Shared.Physics;
 using Robust.Server.GameObjects;
 using Robust.Shared.Physics;
@@ -12,10 +13,9 @@ namespace Content.Server._FTL.HeatSeeking;
 /// </summary>
 public sealed class HeatSeekingSystem : EntitySystem
 {
-    [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly RotateToFaceSystem _rotate = default!;
     [Dependency] private readonly PhysicsSystem _physics = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
 
     public override void Update(float frameTime)
     {
@@ -28,19 +28,30 @@ public sealed class HeatSeekingSystem : EntitySystem
             {
                 var entXform = Transform(comp.TargetEntity.Value);
                 var angle = (
-                    xform.Coordinates.ToMapPos(_entityManager, _transform) -
-                    entXform.Coordinates.ToMapPos(_entityManager, _transform)
+                    _transform.ToMapCoordinates(xform.Coordinates).Position -
+                    _transform.ToMapCoordinates(entXform.Coordinates).Position
                 ).ToWorldAngle();
 
                 _transform.SetLocalRotationNoLerp(uid, angle, xform);
-                _physics.ApplyForce(uid, xform.LocalRotation.RotateVec(new Vector2(0, 1)) * comp.Speed);
+
+                if (!_rotate.TryRotateTo(uid, angle, frameTime, comp.WeaponArc, comp.RotationSpeed?.Theta ?? double.MaxValue, xform))
+                {
+                    continue;
+                }
+
+                _physics.ApplyForce(uid, xform.LocalRotation.RotateVec(new Vector2(0, 1)) * comp.Acceleration);
                 return;
             }
-            var ray = new CollisionRay(_transform.GetMapCoordinates(uid, xform).Position, xform.LocalRotation.ToWorldVec(),
+
+            var ray = new CollisionRay(_transform.GetMapCoordinates(uid, xform).Position,
+                xform.LocalRotation.ToWorldVec(),
                 (int) (CollisionGroup.Impassable | CollisionGroup.BulletImpassable));
             var results = _physics.IntersectRay(xform.MapID, ray, comp.DefaultSeekingRange, uid).ToList();
             if (results.Count <= 0)
                 return; // nothing to heatseek ykwim
+
+            if (comp is { LockedIn: true, TargetEntity: not null })
+                return; // Don't reassign target entity if we have one AND we have the LockedIn property
 
             comp.TargetEntity = results[0].HitEntity;
         }
