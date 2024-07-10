@@ -56,6 +56,7 @@ namespace Content.Client.Lobby
             Lobby.SetupCharacterButton.OnPressed += OnSetupPressed;
             Lobby.ReadyButton.OnPressed += OnReadyPressed;
             Lobby.ReadyButton.OnToggled += OnReadyToggled;
+            Lobby!.AHelpButton.OnPressed += OnAhelpPressed;
 
             _gameTicker.InfoBlobUpdated += UpdateLobbyUi;
             _gameTicker.LobbyStatusUpdated += LobbyStatusUpdated;
@@ -76,6 +77,7 @@ namespace Content.Client.Lobby
             Lobby!.CharacterPreview.CharacterSetupButton.OnPressed -= OnSetupPressed;
             Lobby!.ReadyButton.OnPressed -= OnReadyPressed;
             Lobby!.ReadyButton.OnToggled -= OnReadyToggled;
+            Lobby!.AHelpButton.OnPressed -= OnAhelpPressed;
 
             Lobby = null;
         }
@@ -90,6 +92,12 @@ namespace Content.Client.Lobby
         {
             SetReady(false);
             Lobby?.SwitchState(LobbyGui.LobbyGuiState.CharacterSetup);
+        }
+
+        private void OnAhelpPressed(BaseButton.ButtonEventArgs obj)
+        {
+            IoCManager.Resolve<IClientConsoleHost>().ExecuteCommand(
+                $"openahelp");
         }
 
         private void OnReadyPressed(BaseButton.ButtonEventArgs args)
