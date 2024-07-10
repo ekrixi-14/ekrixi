@@ -64,8 +64,8 @@
                                 <PanelContainer.PanelOverride>
                                     <graphics:StyleBoxFlat BackgroundColor="#76428ADD" />
                                 </PanelContainer.PanelOverride>
-                                <Label Name="GameName" Margin="4 4 4 4" StyleClasses="LabelHeadingXL" VAlign="Center"
-                                       Text="EKRIXI" FontColorOverride="{x:Static maths:Color.White}">
+                                <Label Name="GameName" Margin="4 4 4 4" StyleClasses="LabelHeadingXL" VAlign="Center" Align="Center"
+                                       Text="EKRIXI" FontColorOverride="{x:Static maths:Color.White}" MinWidth="400">
                                     <!-- sorry not localized -->
                                 </Label>
                             </PanelContainer>
