@@ -4,7 +4,7 @@
     <PanelContainer StyleClasses="BackgroundOpenLeft"/>
     <PanelContainer>
         <PanelContainer.PanelOverride>
-            <graphics:StyleBoxFlat BorderColor="#25252A" BorderThickness="0 0 0 3"/>
+            <graphics:StyleBoxFlat BorderColor="#141414" BorderThickness="0 0 0 3"/>
         </PanelContainer.PanelOverride>
     </PanelContainer>
     <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
