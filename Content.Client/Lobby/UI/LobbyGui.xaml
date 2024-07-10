@@ -74,7 +74,7 @@
                             <GridContainer Columns="1">
                                 <Label Name="StartTime"
                                        Access="Public"
-                                       Align="Left"
+                                       Align="Center"
                                        FontColorOverride="{x:Static maths:Color.DarkGray}"
                                        StyleClasses="LabelKeyText" HorizontalExpand="True"
                                        Margin="8 0 0 0"/>
