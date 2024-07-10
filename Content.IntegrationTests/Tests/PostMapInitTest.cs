@@ -48,7 +48,7 @@ namespace Content.IntegrationTests.Tests
 			"Cestoda",
 			"Myrmeleon",
             "MeteorArena",
-            "CentComm", "Nesasio", "NukieOutpost", "Oasis", "Stormwalker", "THERODTWO" // todo get rid of these
+            "CentComm", "Nesasio", "NukieOutpost", "Stormwalker", "THERODTWO" // todo get rid of these
         };
 
         /// <summary>
