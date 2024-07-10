@@ -304,8 +304,6 @@ public sealed partial class GunSystem : SharedGunSystem
         if (!HasComp<ProjectileComponent>(uid))
         {
             RemoveShootable(uid);
-            // TODO: Someone can probably yeet this a billion miles so need to pre-validate input somewhere up the call stack.
-            ThrowingSystem.TryThrow(uid, mapDirection, gun.ProjectileSpeedModified, user);
             return;
         }
 
