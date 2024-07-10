@@ -154,11 +154,13 @@
   id: StationEngineerJumpsuit
   name: loadout-group-station-engineer-jumpsuit
   loadouts:
-  - StationEngineerJumpsuit
-  - StationEngineerJumpskirt
-  - StationEngineerHazardsuit
-  - SeniorEngineerJumpsuit
-  - SeniorEngineerJumpskirt
+  - HazardShirt
+
+- type: loadoutGroup
+  id: StationEngineerPants
+  name: loadout-group-station-engineer-pants
+  loadouts:
+  - HazardPants
 
 - type: loadoutGroup
   id: StationEngineerBackpack

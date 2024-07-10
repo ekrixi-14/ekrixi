@@ -53,6 +53,7 @@
   groups:
   - StationEngineerHead
   - StationEngineerJumpsuit
+  - StationEngineerPants
   - StationEngineerBackpack
   - StationEngineerOuterClothing
   - StationEngineerShoes
