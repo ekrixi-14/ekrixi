@@ -15,6 +15,7 @@
     color: orange
     energy: 0.5
   - type: HeatSeeking
+    rotationSpeed: 5
   - type: NpcFactionMember
     factions:
     - Missile
@@ -64,6 +65,7 @@
     maxIntensity: 100
     maxTileBreak: 1
   - type: HeatSeeking
+    rotationSpeed: 10
     acceleration: 50
   - type: Damageable
     damageContainer: Inorganic
@@ -93,6 +95,7 @@
       maxTileBreak: 1
     - type: HeatSeeking
       acceleration: 75
+      rotationSpeed: 15
       seekRange: 150
 
 - type: entity
@@ -113,6 +116,7 @@
     - type: HeatSeeking
       acceleration: 175
       seekRange: 1500
+      rotationSpeed: 25
 
 - type: entity
   id: BulletTND
@@ -132,3 +136,5 @@
     - type: HeatSeeking
       acceleration: 155
       seekRange: 5000
+      lockedIn: true
+      rotationSpeed: 40
