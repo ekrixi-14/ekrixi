@@ -53,7 +53,7 @@
 
                     <!-- Center Panel -->
                     <PanelContainer Name="CenterPanel" HorizontalAlignment="Center" VerticalExpand="True"
-                                    VerticalAlignment="Center" Access="Public">
+                                    VerticalAlignment="Center" Access="Public" MinWidth="400">
                         <PanelContainer.PanelOverride>
                             <graphics:StyleBoxFlat BackgroundColor="#151515" />
                         </PanelContainer.PanelOverride>
@@ -65,7 +65,7 @@
                                     <graphics:StyleBoxFlat BackgroundColor="#76428ADD" />
                                 </PanelContainer.PanelOverride>
                                 <Label Name="GameName" Margin="4 4 4 4" StyleClasses="LabelHeadingXL" VAlign="Center"
-                                       Text="EKRIXI" FontColorOverride="{x:Static maths:Color.White}" MaxWidth="400">
+                                       Text="EKRIXI" FontColorOverride="{x:Static maths:Color.White}">
                                     <!-- sorry not localized -->
                                 </Label>
                             </PanelContainer>
