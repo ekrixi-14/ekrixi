@@ -53,7 +53,7 @@
 
                     <!-- Center Panel -->
                     <PanelContainer Name="CenterPanel" HorizontalAlignment="Center" VerticalExpand="True"
-                                    VerticalAlignment="Center" Access="Public" MinWidth="400">
+                                    VerticalAlignment="Center" Access="Public">
                         <PanelContainer.PanelOverride>
                             <graphics:StyleBoxFlat BackgroundColor="#151515" />
                         </PanelContainer.PanelOverride>
@@ -93,8 +93,9 @@
                                 <Button Name="OptionsButton" Access="Public" StyleClasses="ButtonBig"
                                         Text="{Loc 'ui-lobby-options-button'}"
                                         Margin="8 0 8 0"/>
-                                <Button Name="AHelpButton" Access="Public" Text="{Loc 'ui-lobby-ahelp-button'}"
-                                        StyleClasses="ButtonBig" />
+                                <Button Name="AHelpButton" Access="Public" StyleClasses="ButtonBig"
+                                        Text="{Loc 'ui-lobby-ahelp-button'}"
+                                        Margin="8 0 8 0"/>
                                 <!-- <vote:VoteCallMenuButton Name="CallVoteButton" StyleClasses="ButtonBig" /> -->
                                 <Button Name="LeaveButton" Access="Public" StyleClasses="ButtonBig"
                                         Text="{Loc 'ui-lobby-leave-button'}"
