@@ -18,13 +18,12 @@
   - type: NpcFactionMember
     factions:
     - Missile
-    - Nanotrasen
   - type: MobState
   - type: Fixtures
     fixtures:
       projectile:
         shape: !type:PhysShapeCircle
-          radius: .5
+        radius: .5
         mask:
         - MobMask
         layer:
@@ -65,7 +64,7 @@
     maxIntensity: 100
     maxTileBreak: 1
   - type: HeatSeeking
-    speed: 50
+    acceleration: 50
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -93,7 +92,7 @@
       maxIntensity: 100
       maxTileBreak: 1
     - type: HeatSeeking
-      speed: 75
+      acceleration: 75
       seekRange: 150
 
 - type: entity
@@ -112,7 +111,7 @@
       maxIntensity: 500
       maxTileBreak: 1
     - type: HeatSeeking
-      speed: 175
+      acceleration: 175
       seekRange: 1500
 
 - type: entity
@@ -131,5 +130,5 @@
       maxIntensity: 500
       maxTileBreak: 1
     - type: HeatSeeking
-      speed: 155
+      acceleration: 155
       seekRange: 5000
