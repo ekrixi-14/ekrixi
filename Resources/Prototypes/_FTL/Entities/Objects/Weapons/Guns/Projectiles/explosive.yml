@@ -22,15 +22,6 @@
   - type: MobState
   - type: Fixtures
     fixtures:
-#      fly-by:
-#        shape: !type:PhysShapeCircle
-#        radius: 10 # TODO: missile flyby sound
-#        layer:
-#        - Impassable
-#        - MidImpassable
-#        - HighImpassable
-#        - LowImpassable
-#        hard: false
       projectile:
         shape: !type:PhysShapeCircle
           radius: .5
@@ -38,6 +29,15 @@
         - MobMask
         layer:
         - MobLayer
+      fly-by:
+        shape: !type:PhysShapeCircle
+        radius: 10 # TODO: missile flyby sound
+        layer:
+        - Impassable
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        hard: false
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
