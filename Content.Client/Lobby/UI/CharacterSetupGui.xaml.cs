@@ -47,7 +47,7 @@ namespace Content.Client.Lobby.UI
             };
             back.SetPatchMargin(StyleBox.Margin.All, 10);
 
-            BackgroundPanel.PanelOverride = back;
+            // BackgroundPanel.PanelOverride = back;
 
             _createNewCharacterButton = new Button
             {
