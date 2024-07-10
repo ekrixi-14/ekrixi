@@ -350,7 +350,7 @@ DoorRemoteFirefight: null
 AirlockServiceCaptainLocked: AirlockCaptainLocked
 
 # ekrixi
-ChemMasterMachineCircuitboard: null=
+ChemMasterMachineCircuitboard: null
 GenericMissile: MissileSDM
 ShieldGenerator: null
 
