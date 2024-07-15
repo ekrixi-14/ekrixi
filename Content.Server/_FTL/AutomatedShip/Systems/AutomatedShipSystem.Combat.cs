@@ -1,4 +1,3 @@
-using Content.Server._FTL.AutomatedShip.Components;
 using Content.Server._FTL.ShipTracker.Components;
 using Content.Server._FTL.ShipWeapons;
 using Content.Shared.DeviceLinking;
@@ -59,6 +58,7 @@ public sealed partial class AutomatedShipSystem
         EntityUid targetShip
         )
     {
+
         // realistically this should factor in distance but ¯\_(ツ)_/¯
         var weaponGroup = _random.Pick(GetWeaponGroupsOnGrid(entity));
         // get gun, aim, and shoot at place
@@ -68,12 +68,17 @@ public sealed partial class AutomatedShipSystem
         // get a list of prio entities and select one
         var prioEnts = GetPriorityEntities(targetShip);
         if (prioEnts.Count <= 0)
+        {
             return CombatResult.NoPriorityEntity;
-        var prioEnt = _random.Pick(prioEnts);
-        var prioTransform = Transform(prioEnt);
+        }
 
         if (sourceComponent.Outputs.Count <= 0)
+        {
             return CombatResult.NoGuns;
+        }
+
+        var prioEnt = prioEnts[0];
+        var prioTransform = Transform(prioEnt);
 
         // yeah we loop through everything
         foreach (var (_, outputs) in sourceComponent.Outputs)
@@ -92,14 +97,15 @@ public sealed partial class AutomatedShipSystem
                 shipWeaponComponent.Target = prioTransform.Coordinates;
 
                 // don't shoot if it will hit ourselves
-                var ray = new CollisionRay(gunTransform.MapPosition.Position, gunTransform.LocalRotation.ToWorldVec(), (int) (CollisionGroup.Impassable | CollisionGroup.BulletImpassable));
-                var results = _physics.IntersectRay(gunTransform.MapID, ray, 1000f, weaponEntity);
+                var ray = new CollisionRay(gunTransform.MapPosition.Position, angle.ToWorldVec(), (int) (CollisionGroup.Impassable | CollisionGroup.BulletImpassable));
+                var results = _physics.IntersectRay(gunTransform.MapID, ray, 250f, weaponEntity);
                 var aimHitFriendly = false;
 
                 foreach (var result in results)
                 {
                     if (!result.HitEntity.IsValid())
                         continue;
+                    Logger.Info(result.HitEntity.ToString());
                     var hitEntityXform = Transform(result.HitEntity);
                     if (hitEntityXform.GridUid != gunTransform.GridUid)
                         continue;

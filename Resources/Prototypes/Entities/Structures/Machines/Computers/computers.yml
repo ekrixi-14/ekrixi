@@ -47,6 +47,7 @@
   description: Used to pilot a shuttle.
   abstract: true
   components:
+  - type: PriorityEntity
   - type: ShuttleConsole
   - type: ActivatableUI
     key: enum.ShuttleConsoleUiKey.Key

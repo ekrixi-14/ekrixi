@@ -82,31 +82,40 @@ public sealed partial class AutomatedShipSystem : EntitySystem
 
                 var sameMap = otherTransform.MapID == xform.MapID;
                 if (!sameMap)
+                {
                     continue;
+                }
 
-                var differentGrid = otherTransform.GridUid != xform.GridUid;
-                if (!differentGrid)
+                var sameGrid = shipEntity == entity; // otherTransform.GridUid == xform.GridUid;
+                if (sameGrid)
+                {
                     continue;
+                }
 
                 var hostile = _npcFactionSystem.IsFactionHostile(aiTrackerComponent.Faction,
                                   shipTrackerComponent.Faction) ||
                               aiComponent.HostileShips.Contains(shipEntity);
                 if (!hostile)
+                {
                     continue;
+                }
 
-                hostileShips.Add(entity);
+                hostileShips.Add(shipEntity);
             }
 
             if (hostileShips.Count <= 0)
+            {
                 continue;
+            }
 
-            Log.Debug("Reset retarget");
-
-            var mainShip = _random.Pick(hostileShips);
+            foreach (var a in hostileShips)
+            {
+                Logger.Info(a.ToString());
+            }
+            var targetShip = _random.Pick(hostileShips);
             UpdateName(entity, aiComponent);
 
             // I seperated these into partial systems because I hate large line counts!!!
-            Log.Debug("Determining best course");
             switch (aiComponent.AiState)
             {
                 case AutomatedShipComponent.AiStates.Cruising:
@@ -114,7 +123,7 @@ public sealed partial class AutomatedShipSystem : EntitySystem
                     if (hostileShips.Count > 0)
                     {
                         aiComponent.AiState = AutomatedShipComponent.AiStates.Fighting;
-                        Log.Debug("Hostile ship inbound!");
+                        Log.Info("Hostile ship inbound!");
                     }
                     break;
                 }
@@ -123,7 +132,7 @@ public sealed partial class AutomatedShipSystem : EntitySystem
                     if (hostileShips.Count <= 0)
                     {
                         aiComponent.AiState = AutomatedShipComponent.AiStates.Cruising;
-                        Log.Debug("Lack of a hostile ship.");
+                        Log.Info("Lack of a hostile ship.");
                         break;
                     }
 
@@ -135,7 +144,7 @@ public sealed partial class AutomatedShipSystem : EntitySystem
                     //     _transformSystem.SetWorldRotation(entity, angle);
                     // }
 
-                    PerformCombat(entity, mainShip);
+                    PerformCombat(entity, targetShip);
                     break;
                 }
                 default:

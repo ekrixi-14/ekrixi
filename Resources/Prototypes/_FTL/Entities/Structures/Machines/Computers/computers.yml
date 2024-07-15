@@ -6,6 +6,7 @@
   placement:
     mode: SnapgridCenter
   components:
+  - type: PriorityEntity
   - type: Sprite
     sprite: _FTL/Structures/Machines/computers.rsi
     layers:
