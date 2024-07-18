@@ -24,7 +24,7 @@
   suffix: secoff, hostile
   components:
     - type: Loadout
-      prototypes: [SecurityOfficerGear]
+      prototypes: [NPCMercenary]
 
 - type: entity
   name: hostile defender
@@ -33,7 +33,7 @@
   suffix: deckhand, hostile
   components:
     - type: Loadout
-      prototypes: [PassengerGear]
+      prototypes: [NPCDeckhand]
 
 - type: entity
   name: hostile defender
@@ -51,4 +51,4 @@
   suffix: captain, hostile
   components:
     - type: Loadout
-      prototypes: [CaptainGear]
+      prototypes: [NPCCaptain]
