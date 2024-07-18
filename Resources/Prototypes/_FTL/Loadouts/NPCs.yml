@@ -1,0 +1,65 @@
+- type: loadout
+  id: NPCCaptain
+  equipment: NPCCaptain
+
+- type: startingGear
+  id: NPCCaptain
+  equipment:
+    jumpsuit: ClothingShirtTShirtCommand
+    lowerClothing: ClothingPantsRippedJeans
+    shoes: ClothingShoesBootsJack
+    back: ClothingBackpackSatchel
+    outerClothing: ClothingOuterCoatTrenchDark 
+    eyes: ClothingEyesGlassesSunglasses
+
+- type: loadout
+  id: NPCMercenary
+  equipment: NPCMercenary
+
+- type: startingGear
+  id: NPCMercenary
+  equipment:
+    jumpsuit: ClothingShirtTShirtBlack
+    lowerClothing: ClothingPantsRippedJeans
+    shoes: ClothingShoesBootsJack
+    back: ClothingBackpackSatchelSecurity
+    outerClothing: ClothingOuterArmorBasic
+    eyes: ClothingEyesGlassesSunglasses
+    belt: ClothingBeltMercWebbing
+
+- type: loadout
+  id: NPCEngineer
+  equipment: NPCEngineer
+
+- type: startingGear
+  id: NPCEngineer
+  equipment:
+    jumpsuit: ClothingShirtEngineeringHazard
+    lowerClothing: ClothingPantsEngineeringHazard
+    shoes: ClothingShoesBootsWork
+    back: ClothingBackpackDuffelEngineering
+    outerClothing: ClothingOuterVestHazard
+    head: ClothingHeadHatHardhatYellow
+    eyes: ClothingEyesGlassesMeson
+    belt: ClothingBeltUtilityEngineering
+
+- type: loadout
+  id: NPCDoctor
+  equipment: NPCDoctor
+- type: startingGear
+  id: NPCDoctor
+  equipment:
+    jumpsuit: ClothingShirtScrubsBlue
+    lowerClothing: ClothingPantsScrubsBlue
+    shoes: ClothingShoesColorBlack
+    head: ClothingHeadHatSurgcapBlue
+
+- type: loadout
+  id: NPCDeckhand
+  equipment: NPCDeckhand
+
+- type: startingGear
+  id: NPCDeckhand
+  equipment:
+    jumpsuit: ClothingShirtTShirtRipped
+    lowerClothing: ClothingPantsRippedJeans
