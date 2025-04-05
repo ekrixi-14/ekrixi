@@ -39,6 +39,8 @@ entities:
     - gravityShakeSound: !type:SoundPathSpecifier
         path: /Audio/Effects/alert.ogg
       type: Gravity
+    - type: BecomesStation
+      id: HostileShip
     - chunkCollection:
         version: 2
         nodes: []
