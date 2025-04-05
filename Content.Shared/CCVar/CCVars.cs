@@ -2095,13 +2095,13 @@ namespace Content.Shared.CCVar
         ///     Whether or not to generate FTL points roundstart.
         /// </summary>
         public static readonly CVarDef<bool> GenerateStarmapRoundstart =
-            CVarDef.Create("starmap.generate_roundstart", false, CVar.ARCHIVE);
+            CVarDef.Create("starmap.generate_roundstart", false, CVar.SERVERONLY);
 
         /// <summary>
         ///     What weighted random prototype is being used?
         /// </summary>
         public static readonly CVarDef<string> StarmapRandomPrototypeId =
-            CVarDef.Create("starmap.weighted_random_id", "DefaultStarmap", CVar.ARCHIVE);
+            CVarDef.Create("starmap.weighted_random_id", "DefaultStarmap", CVar.SERVERONLY);
 
         /*
          * Min players

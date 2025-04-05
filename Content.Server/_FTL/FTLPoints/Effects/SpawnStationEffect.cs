@@ -20,7 +20,15 @@ public sealed partial class SpawnStationEffect : FtlPointEffect
         var protoManager = IoCManager.Resolve<IPrototypeManager>();
         var random = IoCManager.Resolve<IRobustRandom>();
         var gameTicker = args.EntityManager.System<GameTicker>();
+        var metaData = args.EntityManager.System<MetaDataSystem>();
         var gameMap = protoManager.Index<GameMapPrototype>(random.Pick(StationIds));
-        gameTicker.LoadGameMap(gameMap, args.MapId, null);
+        var options = new MapLoadOptions
+        {
+            LoadMap = false,
+            DoMapInit = false,
+        };
+
+        gameTicker.LoadGameMap(gameMap, args.MapId, options, "EnemyShip");
+        metaData.SetEntityName(args.MapUid, args.StationName);
     }
 }

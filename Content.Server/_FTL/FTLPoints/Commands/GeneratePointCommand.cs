@@ -24,7 +24,7 @@ public sealed class GeneratePointCommand : ToolshedCommand
             ctx.WriteLine("Invalid ID.");
             return;
         }
-        _entityManager.System<FtlPointsSystem>().GeneratePoint(prototype);
+        _entityManager.System<FtlPointsSystem>().GeneratePoint(prototype, out _);
         ctx.WriteLine("Generated FTL point.");
     }
 }

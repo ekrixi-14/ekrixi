@@ -91,6 +91,10 @@ public sealed partial class AutomatedShipSystem : EntitySystem
                 var hostile = _npcFactionSystem.IsFactionHostile(aiTrackerComponent.Faction,
                                   shipTrackerComponent.Faction) ||
                               aiComponent.HostileShips.Contains(shipEntity);
+                Log.Info(_npcFactionSystem.IsFactionHostile(aiTrackerComponent.Faction,
+                    shipTrackerComponent.Faction)
+                    .ToString());
+                Log.Info(aiComponent.HostileShips.Contains(shipEntity).ToString());
                 if (!hostile)
                     continue;
 

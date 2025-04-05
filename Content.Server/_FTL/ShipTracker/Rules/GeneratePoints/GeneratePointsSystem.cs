@@ -33,14 +33,20 @@ public sealed class GeneratePointsSystem : GameRuleSystem<GeneratePointsComponen
 
     private void OnPlayerSpawnEvent(PlayerSpawningEvent ev)
     {
+        Log.Info("Firing. Readying points.");
+
         var activeRules = QueryActiveRules();
         while (activeRules.MoveNext(out _, out var component, out _))
         {
             if (component.Generated)
                 return;
 
+            Log.Info(_configurationManager.GetCVar(CCVars.GenerateStarmapRoundstart).ToString());
             if (!_configurationManager.GetCVar(CCVars.GenerateStarmapRoundstart))
+            {
+                Log.Warning("Quitting early due to starmap disabled.");
                 return;
+            }
             var station = _pointsSystem.GenerateSector(25, null, false, false);
 
             if (ev.Station.HasValue)
@@ -50,7 +56,7 @@ public sealed class GeneratePointsSystem : GameRuleSystem<GeneratePointsComponen
                     var grid = _stationSystem.GetLargestGrid(stationDataComponent);
                     if (grid.HasValue)
                     {
-                        var shuttle = EnsureComp<ShuttleComponent>(grid.Value);
+                        // var shuttle = EnsureComp<ShuttleComponent>(grid.Value);
                         // _shuttleSystem.FTLTravel(grid.Value, shuttle, _mapManager.GetMapEntityId(station));
                         _mapManager.SetMapPaused(station, false);
                         _transformSystem.SetCoordinates(grid.Value,

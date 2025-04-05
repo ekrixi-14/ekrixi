@@ -22,6 +22,7 @@
                     HorizontalExpand="True"
                     VerticalExpand="True"
                     Text="MAP"
+                    Disabled="True"
                     Margin="5"/>
             <Button Name="DockModeButton"
                     ToggleMode="True"

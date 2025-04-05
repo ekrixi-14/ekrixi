@@ -34,6 +34,7 @@ public sealed partial class FtlPointsSystem : SharedFtlPointsSystem
 {
     [Dependency] private readonly EntityManager _entManager = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly MetaDataSystem _metaDataSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -62,7 +63,7 @@ public sealed partial class FtlPointsSystem : SharedFtlPointsSystem
     /// <returns></returns>
     public float GenerateVectorWithRandomRadius(float minRadius, float maxRadius)
     {
-        return _random.NextFloat(minRadius, maxRadius) * (_random.Prob(0.5f) ? -1 : 1);
+        return _random.NextFloat(minRadius, maxRadius) * (_random.Prob(0.5f) ? -1f : 1f);
     }
 
     /// <summary>
@@ -75,7 +76,7 @@ public sealed partial class FtlPointsSystem : SharedFtlPointsSystem
     /// <returns>The MapId of the central trade station.</returns>
     public MapId GenerateSector(int maxStars, MapId? startingPoint, bool clear = false, bool deleteStars = false)
     {
-        var centerStation = startingPoint ?? GeneratePoint(_prototypeManager.Index<FtlPointPrototype>("StationPoint"));
+        var centerStation = startingPoint ?? GeneratePoint(_prototypeManager.Index<FtlPointPrototype>("StationPoint"), out _);
 
         StarMapComponent? component = null;
         if (!TryGetStarMap(ref component))
@@ -108,16 +109,24 @@ public sealed partial class FtlPointsSystem : SharedFtlPointsSystem
             var first = true;
             foreach (var origin in toIter)
             {
+                // TODO: GenerateSector should have parameters for this. Like a biome setting. I dunno.
                 var branches = _random.Next(1, 3);
 
                 for (var i = 0; i < branches; i++)
                 {
-                    var prototype = _prototypeManager.Index<FtlPointPrototype>(_prototypeManager.Index<WeightedRandomPrototype>(_configurationManager.GetCVar(CCVars.StarmapRandomPrototypeId)).Pick());
+                    // FUCK me this is a lot
+                    var prototype =
+                        _prototypeManager.Index<FtlPointPrototype>(
+                            _prototypeManager.Index<WeightedRandomPrototype>(
+                                _configurationManager.GetCVar(
+                                    CCVars.StarmapRandomPrototypeId
+                                    )
+                                )
+                                .Pick());
                     Log.Info($"Picked {prototype.ID} as point type.");
                     if (_random.Prob(prototype.Probability) || first) // if its the first star then just set it
                     {
-                        var mapId = GeneratePoint(prototype);
-                        var mapUid = _mapManager.GetMapEntityId(mapId);
+                        var mapId = GeneratePoint(prototype, out var mapUid);
                         var position = new Vector2(
                                 origin.X + _random.NextFloat(6, 6.5f),
                                 origin.Y + _random.NextFloat(6, 6.5f)
@@ -149,8 +158,7 @@ public sealed partial class FtlPointsSystem : SharedFtlPointsSystem
         {
             var origin = _random.Pick(latestGeneration);
             var prototype = _prototypeManager.Index<FtlPointPrototype>("WarpPoint");
-            var mapId = GeneratePoint(prototype);
-            var mapUid = _mapManager.GetMapEntityId(mapId);
+            var mapId = GeneratePoint(prototype, out var mapUid);
             var position = new Vector2(
                 origin.X + GenerateVectorWithRandomRadius(5, 6),
                 origin.Y + GenerateVectorWithRandomRadius(5, 6)
@@ -168,19 +176,20 @@ public sealed partial class FtlPointsSystem : SharedFtlPointsSystem
     /// <summary>
     /// Generates a temporary disposable FTL point.
     /// </summary>
-    public MapId GeneratePoint(FtlPointPrototype prototype)
+    public MapId GeneratePoint(FtlPointPrototype prototype, out EntityUid pointMapUid)
     {
         // create map
 
-        var mapId = _mapManager.CreateMap();
+        var mapUid = _mapSystem.CreateMap(out var mapId);
+        pointMapUid = mapUid;
         _mapManager.SetMapPaused(mapId, true);
-        var mapUid = _mapManager.GetMapEntityId(mapId);
 
         // make it ftlable
         EnsureComp<FTLDestinationComponent>(mapUid);
-        _metaDataSystem.SetEntityName(mapUid, $"[{Loc.GetString(prototype.Tag)}] {
-            SharedSalvageSystem.GetFTLName(_prototypeManager.Index<DatasetPrototype>("names_borer"), _random.Next())}");
-        _consoleSystem.RefreshShuttleConsoles();
+
+        var stationName = $"[{Loc.GetString(prototype.Tag)}] {
+            SharedSalvageSystem.GetFTLName(_prototypeManager.Index<DatasetPrototype>("names_borer"), _random.Next())}";
+        _metaDataSystem.SetEntityName(mapUid, stationName);
 
         // add parallax
         var parallaxes = new[]
@@ -216,7 +225,7 @@ public sealed partial class FtlPointsSystem : SharedFtlPointsSystem
         {
             if (_random.Prob(effect.Probability))
             {
-                effect.Effect(new FtlPointEffect.FtlPointEffectArgs(mapUid, mapId, _entManager, _mapManager));
+                effect.Effect(new FtlPointEffect.FtlPointEffectArgs(mapUid, mapId, _entManager, _mapManager, stationName));
             }
         }
 
@@ -233,6 +242,9 @@ public sealed partial class FtlPointsSystem : SharedFtlPointsSystem
             comp.Owner = mapUid;
             EntityManager.AddComponent(mapUid, comp);
         }
+
+        // set the starname yaayyyy
+        _metaDataSystem.SetEntityName(mapUid, stationName);
 
         return mapId;
     }

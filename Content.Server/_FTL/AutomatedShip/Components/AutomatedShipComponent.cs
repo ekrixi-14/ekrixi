@@ -11,8 +11,8 @@ public sealed partial class AutomatedShipComponent : Component
     /// </summary>
     public enum AiStates
     {
-        Cruising,
-        Fighting
+        Cruising = 0,
+        Fighting = 1
     }
 
     /// <summary>

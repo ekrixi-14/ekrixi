@@ -17,6 +17,7 @@ public abstract partial class FtlPointEffect
         EntityUid MapUid,
         MapId MapId,
         IEntityManager EntityManager,
-        IMapManager MapManager
+        IMapManager MapManager,
+        string StationName
     );
 }
