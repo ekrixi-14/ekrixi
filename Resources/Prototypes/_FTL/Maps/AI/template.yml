@@ -1,0 +1,11 @@
+- type: gameMap
+  id: Template
+  mapName: Template
+  mapPath: /Maps/_FTL/special/template.yml
+  minPlayers: 0
+  stations:
+    HostileShip:
+      stationProto: StandardEnemyShip
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: "EnemyShip"

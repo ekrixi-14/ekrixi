@@ -1,0 +1,59 @@
+- type: gameMap
+  id: EscapePodDeserted
+  mapName: Template
+  mapPath: /Maps/_FTL/ai/escape-pod-deserted.yml
+  minPlayers: 0
+  stations:
+    HostileShip:
+      stationProto: StandardEnemyShip
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: "EnemyShip"
+
+- type: gameMap
+  id: EscapePodExplosive
+  mapName: Template
+  mapPath: /Maps/_FTL/ai/escape-pod-explosive.yml
+  minPlayers: 0
+  stations:
+    HostileShip:
+      stationProto: StandardEnemyShip
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: "EnemyShip"
+
+- type: gameMap
+  id: EscapePodHostile
+  mapName: Template
+  mapPath: /Maps/_FTL/ai/escape-pod-hostile.yml
+  minPlayers: 0
+  stations:
+    HostileShip:
+      stationProto: StandardEnemyShip
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: "EnemyShip"
+
+- type: gameMap
+  id: EscapePodOccupied
+  mapName: Template
+  mapPath: /Maps/_FTL/ai/escape-pod-occupied.yml
+  minPlayers: 0
+  stations:
+    HostileShip:
+      stationProto: StandardEnemyShip
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: "EnemyShip"
+
+- type: gameMap
+  id: EscapePodTrapped
+  mapName: Template
+  mapPath: /Maps/_FTL/ai/escape-pod-trapped.yml
+  minPlayers: 0
+  stations:
+    HostileShip:
+      stationProto: StandardEnemyShip
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: "EnemyShip"

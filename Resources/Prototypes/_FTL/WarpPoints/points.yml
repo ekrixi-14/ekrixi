@@ -10,24 +10,24 @@
   tag: ship-ftl-tag-star
   probability: 0.6
   effects:
-    - !type:SpawnMapEffect
-      mapPaths:
-      - /Maps/_FTL/ai/escape-pod-deserted.yml
-      - /Maps/_FTL/ai/escape-pod-explosive.yml
-#      - /Maps/_FTL/ai/escape-pod-occupied.yml
-      - /Maps/_FTL/ai/rod-class.yml
+    - !type:SpawnStationEffect
+      stationIds:
+      - EscapePodDeserted
+      - EscapePodExplosive
+      - EscapePodOccupied
+      - VesselRodClass
 
 - type: ftlPoint
   id: HiDangerPoint
   tag: ship-ftl-tag-star
   probability: 0.9
   effects:
-    - !type:SpawnMapEffect
-      mapPaths:
-      - /Maps/_FTL/ai/escape-pod-trapped.yml
-      - /Maps/_FTL/ai/hijacked-cargo-vessel.yml
-      - /Maps/_FTL/ai/spark-class.yml
-      - /Maps/_FTL/ai/rod-class.yml
+    - !type:SpawnStationEffect
+      stationIds:
+#      - EscapePodTrapped
+      - CargoVesselHijacked
+      - FighterSparkClass
+      - VesselRodClass
 
 - type: ftlPoint
   id: PlanetPoint

@@ -1,0 +1,35 @@
+- type: gameMap
+  id: CargoVesselHijacked
+  mapName: Template
+  mapPath: /Maps/_FTL/ai/hijacked-cargo-vessel.yml
+  minPlayers: 0
+  stations:
+    HostileShip:
+      stationProto: StandardEnemyShip
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: "EnemyShip"
+
+- type: gameMap
+  id: FighterSparkClass
+  mapName: Template
+  mapPath: /Maps/_FTL/ai/spark-class.yml
+  minPlayers: 0
+  stations:
+    HostileShip:
+      stationProto: StandardEnemyShip
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: "EnemyShip"
+
+- type: gameMap
+  id: VesselRodClass
+  mapName: Template
+  mapPath: /Maps/_FTL/ai/rod-class.yml
+  minPlayers: 0
+  stations:
+    HostileShip:
+      stationProto: StandardEnemyShip
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: "EnemyShip"

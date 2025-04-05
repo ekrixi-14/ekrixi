@@ -1,4 +1,12 @@
 - type: entity
+  id: StandardEnemyShip
+  parent:
+  - BaseStation
+  noSpawn: true
+  components:
+  - type: Transform
+
+- type: entity
   id: StandardIndependentShip
   parent:
     - StandardIndependentStation
